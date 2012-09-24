@@ -1,7 +1,7 @@
 package spotlight.grails
 
 class SiteAdmin {
-		
+	static belongsTo = [sitedetail: SiteDetail]
 	
 	String sitehtml
 	String siteemail
@@ -10,8 +10,10 @@ class SiteAdmin {
 	String sitefilestore
 	String sitecolor
 	Integer siteupload
+	Date dateCreated
+	Date lastUpdated
 	
-	static belongsTo = SiteDetail
+	
 	
 
     static constraints = {
@@ -19,7 +21,7 @@ class SiteAdmin {
 		siteemail (blank: false, email: true)
 		sitecc (blank: true, email: true)
 		sitefilestore (blank: true)
-		siteupload (blank: false)
+		siteupload (blank: false, inList:[1,0])
 		sitecolor (blank: true)
 		sitehtml (blank: true, inlist: ["yes","no"])
     }
