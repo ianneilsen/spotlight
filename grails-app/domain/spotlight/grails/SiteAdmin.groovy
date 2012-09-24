@@ -1,7 +1,8 @@
 package spotlight.grails
 
-class SiteAdmin extends SiteDetail {
-	
+
+class SiteAdmin {
+		
 	String sitehtml
 	String siteemail
 	String sitecc
@@ -12,8 +13,6 @@ class SiteAdmin extends SiteDetail {
 	Date dateCreated
 	Date lastUpdated
 	
-	
-	
 
     static constraints = {
 		siteadmin (blank: false, size: 4..80)
@@ -23,5 +22,6 @@ class SiteAdmin extends SiteDetail {
 		siteupload (blank: false, inList:[1,0])
 		sitecolor (blank: true)
 		sitehtml (blank: true, inlist: ["yes","no"])
+		
     }
 }
