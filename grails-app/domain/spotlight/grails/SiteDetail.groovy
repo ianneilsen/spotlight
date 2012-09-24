@@ -1,8 +1,7 @@
 package spotlight.grails
 
 class SiteDetail {
-	static hasOne = [siteadmin: SiteAdmin]
-	static hasMany = [sitereports: SiteReport]
+	static hasMany = [sitereport: SiteReport]
 	
 	String sitename
 	String sdescription

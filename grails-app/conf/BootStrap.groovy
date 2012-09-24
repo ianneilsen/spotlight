@@ -1,5 +1,8 @@
+import java.util.Date;
+
 import spotlight.grails.SiteDetail
 import spotlight.grails.SiteAdmin
+import spotlight.grails.SiteReport
 
 
 class BootStrap {
@@ -17,6 +20,8 @@ class BootStrap {
 			sitefilestore:"",
 			sitecolor:"aaoo6",
 			siteupload:1).save()
+			
+		def reportcontent = new SiteReport(reportname:"Site1- report1",reportcontent:"this is the text of the report").save()
     }
     
 	def destroy = {

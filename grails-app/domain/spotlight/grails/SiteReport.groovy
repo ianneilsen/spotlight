@@ -1,7 +1,7 @@
 package spotlight.grails
 
 class SiteReport {
-	static belongsTo = [sitedetails: SiteDetail]
+	static belongsTo = [sitedetail: SiteDetail]
 	
 	String reportname
 	String reportcontent

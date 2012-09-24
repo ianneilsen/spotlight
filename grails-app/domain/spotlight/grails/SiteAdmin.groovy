@@ -1,7 +1,6 @@
 package spotlight.grails
 
-class SiteAdmin {
-	static belongsTo = [sitedetail: SiteDetail]
+class SiteAdmin extends SiteDetail {
 	
 	String sitehtml
 	String siteemail
