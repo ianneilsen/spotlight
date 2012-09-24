@@ -1,4 +1,4 @@
-<%@ page import="spotlight.SiteDetail" %>
+<%@ page import="spotlight.grails.SiteDetail" %>
 <!doctype html>
 <html>
 	<head>

@@ -1,5 +1,5 @@
 
-<%@ page import="spotlight.SiteDetail" %>
+<%@ page import="spotlight.grails.SiteDetail" %>
 <!doctype html>
 <html>
 	<head>
@@ -26,12 +26,12 @@
 					
 						<g:sortableColumn property="sitename" title="${message(code: 'siteDetail.sitename.label', default: 'Sitename')}" />
 					
-						<g:sortableColumn property="sitedescrip" title="${message(code: 'siteDetail.sitedescrip.label', default: 'Sitedescrip')}" />
+						<g:sortableColumn property="sdescription" title="${message(code: 'siteDetail.sdescription.label', default: 'Sdescription')}" />
 					
-						<g:sortableColumn property="sitepublished" title="${message(code: 'siteDetail.sitepublished.label', default: 'Sitepublished')}" />
-					
-						<th><g:message code="siteDetail.sitesummary.label" default="Sitesummary" /></th>
-					
+						<g:sortableColumn property="spublished" title="${message(code: 'siteDetail.spublished.label', default: 'Spublished')}" />
+						<g:sortableColumn property="sitehtml" title="${message(code: 'siteAdmin.sitehtml.label', default: 'sitehtml')}" />
+						<g:sortableColumn property="siteemail" title="${message(code: 'siteAdmin.siteemail.lable', default: 'siteemail')}"/>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -40,11 +40,13 @@
 					
 						<td><g:link action="show" id="${siteDetailInstance.id}">${fieldValue(bean: siteDetailInstance, field: "sitename")}</g:link></td>
 					
-						<td>${fieldValue(bean: siteDetailInstance, field: "sitedescrip")}</td>
+						<td>${fieldValue(bean: siteDetailInstance, field: "sdescription")}</td>
 					
-						<td>${fieldValue(bean: siteDetailInstance, field: "sitepublished")}</td>
-					
-						<td>${fieldValue(bean: siteDetailInstance, field: "sitesummary")}</td>
+						<td>${fieldValue(bean: siteDetailInstance, field: "spublished")}</td>
+						
+						<td>${fieldValue(bean: siteAdminInstance, field: "sitehtml")}</tr>
+						
+						<td>${fieldValue(bean: siteAdminInstance, field: "siteemail")}</tr>
 					
 					</tr>
 				</g:each>

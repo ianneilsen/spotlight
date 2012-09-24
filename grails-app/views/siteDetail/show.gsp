@@ -1,5 +1,5 @@
 
-<%@ page import="spotlight.SiteDetail" %>
+<%@ page import="spotlight.grails.SiteDetail" %>
 <!doctype html>
 <html>
 	<head>
@@ -32,29 +32,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${siteDetailInstance?.sitedescrip}">
+				<g:if test="${siteDetailInstance?.sdescription}">
 				<li class="fieldcontain">
-					<span id="sitedescrip-label" class="property-label"><g:message code="siteDetail.sitedescrip.label" default="Sitedescrip" /></span>
+					<span id="sdescription-label" class="property-label"><g:message code="siteDetail.sdescription.label" default="Sdescription" /></span>
 					
-						<span class="property-value" aria-labelledby="sitedescrip-label"><g:fieldValue bean="${siteDetailInstance}" field="sitedescrip"/></span>
+						<span class="property-value" aria-labelledby="sdescription-label"><g:fieldValue bean="${siteDetailInstance}" field="sdescription"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${siteDetailInstance?.sitepublished}">
+				<g:if test="${siteDetailInstance?.spublished}">
 				<li class="fieldcontain">
-					<span id="sitepublished-label" class="property-label"><g:message code="siteDetail.sitepublished.label" default="Sitepublished" /></span>
+					<span id="spublished-label" class="property-label"><g:message code="siteDetail.spublished.label" default="Spublished" /></span>
 					
-						<span class="property-value" aria-labelledby="sitepublished-label"><g:fieldValue bean="${siteDetailInstance}" field="sitepublished"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${siteDetailInstance?.sitesummary}">
-				<li class="fieldcontain">
-					<span id="sitesummary-label" class="property-label"><g:message code="siteDetail.sitesummary.label" default="Sitesummary" /></span>
-					
-						<span class="property-value" aria-labelledby="sitesummary-label"><g:link controller="siteSummary" action="show" id="${siteDetailInstance?.sitesummary?.id}">${siteDetailInstance?.sitesummary?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="spublished-label"><g:fieldValue bean="${siteDetailInstance}" field="spublished"/></span>
 					
 				</li>
 				</g:if>

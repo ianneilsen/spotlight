@@ -1,4 +1,4 @@
-<%@ page import="spotlight.SiteDetail" %>
+<%@ page import="spotlight.grails.SiteDetail" %>
 
 
 
@@ -7,30 +7,22 @@
 		<g:message code="siteDetail.sitename.label" default="Sitename" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sitename" maxlength="170" required="" value="${siteDetailInstance?.sitename}"/>
+	<g:textField name="sitename" maxlength="150" required="" value="${siteDetailInstance?.sitename}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sitedescrip', 'error')} required">
-	<label for="sitedescrip">
-		<g:message code="siteDetail.sitedescrip.label" default="Sitedescrip" />
+<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sdescription', 'error')} required">
+	<label for="sdescription">
+		<g:message code="siteDetail.sdescription.label" default="Sdescription" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sitedescrip" maxlength="200" required="" value="${siteDetailInstance?.sitedescrip}"/>
+	<g:textField name="sdescription" maxlength="200" required="" value="${siteDetailInstance?.sdescription}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sitepublished', 'error')} required">
-	<label for="sitepublished">
-		<g:message code="siteDetail.sitepublished.label" default="Sitepublished" />
+<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'spublished', 'error')} required">
+	<label for="spublished">
+		<g:message code="siteDetail.spublished.label" default="Spublished" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="sitepublished" type="number" value="${siteDetailInstance.sitepublished}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sitesummary', 'error')} required">
-	<label for="sitesummary">
-		<g:message code="siteDetail.sitesummary.label" default="Sitesummary" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="sitesummary" name="sitesummary.id" from="${spotlight.SiteSummary.list()}" optionKey="id" required="" value="${siteDetailInstance?.sitesummary?.id}" class="many-to-one"/>
+	<g:field name="spublished" type="number" value="${siteDetailInstance.spublished}" required=""/>
 </div>
 
