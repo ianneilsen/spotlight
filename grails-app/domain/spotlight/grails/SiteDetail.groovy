@@ -19,4 +19,9 @@ class SiteDetail {
 	String toString() {
 		sitename;
 	}
+	
+	static mapping = {
+		siteadmin lazy:false
+		sitereports sort:'dateCreated'
+	}
 }

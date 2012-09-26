@@ -2,6 +2,7 @@ package spotlight.grails
 
 
 class SiteAdmin {
+	static belongsTo = SiteDetail
 		
 	String sitehtml
 	String siteemail
@@ -24,4 +25,8 @@ class SiteAdmin {
 		sitehtml (blank: true, inlist: ["yes","no"])
 		
     }
+	
+	String toString() {
+		siteadmin;
+	}
 }

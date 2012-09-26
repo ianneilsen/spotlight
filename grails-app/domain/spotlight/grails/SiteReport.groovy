@@ -14,6 +14,7 @@ class SiteReport {
     }
 	
 	static mappings ={
-		reportcontent (type: "text")
+		reportcontent type: "text"
+		sort lastCreated:"desc"
 	}
 }
