@@ -10,6 +10,10 @@ class SiteProfile {
 	String siteadmin
 	String sitefilestore
 	String sitecolor
+	String bugzillaproduct
+	String bugzillacomponent
+	String rtqueue
+	String teamqueueemail
 	Integer siteupload
 	Date dateCreated
 	Date lastUpdated
@@ -24,6 +28,10 @@ class SiteProfile {
 		siteupload (blank: false, inList:[1,0])
 		sitecolor (blank: true)
 		sitehtml (blank: true, inlist: ["yes","no"])
+		bugzillaproduct(blank: true)
+		bugzillacomponent(blank: true)
+		rtqueue (blank: true)
+		teamqueueemail(blank: true)
 		
     }
 	

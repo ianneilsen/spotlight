@@ -19,4 +19,8 @@ class SiteReport {
 		reportcontent type: "text"
 		sort lastUpdated:"desc"
 	}
+	
+	String toString() {
+		reportname;
+	}
 }
