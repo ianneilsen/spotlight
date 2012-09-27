@@ -22,6 +22,6 @@ class SiteDetail {
 	
 	static mapping = {
 		siteadmin lazy:false
-		sitereports sort:'dateCreated'
+		sitereport sort:"publisheddate"
 	}
 }

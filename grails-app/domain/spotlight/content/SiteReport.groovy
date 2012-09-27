@@ -7,14 +7,16 @@ class SiteReport {
 	String reportcontent
 	Date dateCreated
 	Date lastUpdated
+	Date publisheddate = new Date()
 
     static constraints = {
 		reportname (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
+		publisheddate (blank: false)
     }
 	
-	static mappings ={
+	static mapping ={
 		reportcontent type: "text"
-		sort lastCreated:"desc"
+		sort lastUpdated:"desc"
 	}
 }
