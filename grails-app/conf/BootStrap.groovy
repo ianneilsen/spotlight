@@ -1,7 +1,7 @@
 import java.util.Date;
 
 import spotlight.grails.SiteDetail
-import spotlight.grails.SiteAdmin
+import spotlight.grails.SiteProfile
 import spotlight.grails.SiteReport
 
 
@@ -13,7 +13,7 @@ class BootStrap {
 										spublished:1,
 										dateCreated:new Date()).save()
 										
-		def firstsiteadmin= new SiteAdmin(sitehtml:"yes",
+		def firstsiteadmin= new SiteProfile(sitehtml:"yes",
 			siteemail:"ian.neilsen@gmail.com",
 			sitecc:"ian.neilsen@gmail.com",
 			siteadmin:"ianneilsen",
