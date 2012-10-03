@@ -16,12 +16,12 @@ class SiteDetail {
 		spublished (blank: false, inList:[1,0])
     }
 	
-	String toString() {
-		sitename;
-	}
-	
 	static mapping = {
 		siteadmin lazy:false
 		sitereport sort:"publisheddate"
+	}
+	
+	String toString() {
+		return sitename
 	}
 }

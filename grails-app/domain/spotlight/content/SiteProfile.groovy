@@ -14,6 +14,7 @@ class SiteProfile {
 	String bugzillacomponent
 	String rtqueue
 	String teamqueueemail
+	String etherpadurl
 	Integer siteupload
 	Date dateCreated
 	Date lastUpdated
@@ -28,14 +29,15 @@ class SiteProfile {
 		siteupload (blank: false, inList:[1,0])
 		sitecolor (blank: true)
 		sitehtml (blank: true, inlist: ["yes","no"])
-		bugzillaproduct(blank: true)
-		bugzillacomponent(blank: true)
+		bugzillaproduct(blank: true, unique: true)
+		bugzillacomponent(blank: true, unique: true)
 		rtqueue (blank: true)
 		teamqueueemail(blank: true)
+		etherpadurl (nullable: true, url: true)
 		
     }
 	
 	String toString() {
-		siteadmin;
+		"Profile for ${siteadmin}"
 	}
 }
