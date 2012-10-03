@@ -33,18 +33,77 @@ html.no-cssgradients {
 }
 
 html * {
-	margin: 0;
+	margin: 0.2em;
+}
+header-wrapper{
+	position: relative;
+	z-index: 999;
+	background-color: rgb(68,68,68);
+	width: 100%;
+	box-shadow: 0px 1px 0px rgb(221, 221, 221), 0px 0px 5px rgb(136, 136, 136), 0px 50px 50px -50px rgb(17, 17, 17) inset;
+}
+#header-wrapper .inner .left {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    height: 75px;
+    background-image: url("images/shadowman30.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 75px;
+    text-indent: 40px;
+    text-transform: uppercase;
+    font-family: OverpassBold;
+    font-size: 22px;
+    color: rgb(238, 238, 238);
+}
+#header-wrapper .inner .right {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 24px;
+    font-size: 14px;
+    height: 30px;
+    line-height: 28px;
+    box-shadow: 0px 0px 0px 1px rgb(119, 119, 119), 0px 0px 5px 0px rgb(17, 17, 17), 0px -5px 10px rgba(0, 0, 0, 0.3) inset;
+    margin-left: 4px;
+    border-radius: 3px 3px 3px 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+#header-wrapper .button {
+    height: 100%;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    box-shadow: 1px 0px 0px rgba(255, 255, 255, 0.3);
+    float: left;
+    -moz-transition: all 0.1s ease-in 0s;
 }
 
 body {
 	background: #ffffff;
 	color: #333333;
 	margin: 0 auto;
-	max-width: 960px;
+	/*max-width: 960px;*/
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
 	   -moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
 	        box-shadow: 0 0 0.3em #255b17;
+}
+#maincontent-wrapper {
+    width: 100%;
+    background-color: white;
+}
+.maincontent .inner {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    min-height: 800px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    color: rgb(238, 238, 238);
 }
 
 #grailsLogo {
@@ -114,7 +173,7 @@ img {
 	border: none;
 }
 
-.footer {
+footer {
 	/*background: #abbf78;*/
 	color: rgba(0, 0, 0, 0.4);
 	/*color: #000;*/
@@ -127,11 +186,27 @@ img {
     box-shadow: 0px 1px 0px rgb(221, 221, 221) inset;
     line-height: 17px;
     position: relative;
-}
+    vertical-align: baseline;
+
 }
 
 .footer a {
 	color: #255b17;
+}
+.footer-inner {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    margin: auto;
+    max-width: 950px;
+    min-width: 750px;
+    padding: 20px 0px;
+    position: relative;
+}
+.footer-left {
+    display: inline-block;
+    left: 0px;
+    position: relative;
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .spinner {
@@ -255,14 +330,15 @@ fieldset,
 label {
 	cursor: pointer;
 	display: inline-block;
-	margin: 0 0.25em 0 0;
+	margin: 0 1.25em 0 0;
 }
 
 input, select, textarea {
 	background-color: #fcfcfc;
-	border: 1px solid #cccccc;
+	border: 5px solid #cccccc;
 	font-size: 1em;
 	padding: 0.2em 0.4em;
+	margin: 0 0.25em 0 0;
 }
 
 select {
@@ -274,8 +350,8 @@ select[multiple] {
 }
 
 textarea {
-	width: 250px;
-	height: 150px;
+	width: 400px;
+	height: 400px;
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;
 }

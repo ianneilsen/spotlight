@@ -20,10 +20,22 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+	  <div id="header-wrapper"></div>
+	    <div id="inner"></div>
+	            <div id="left"></div>
+	    	    <div id="right"></div>
+		<div id="grailsLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'redhatlogo.png')}" alt="Red Hat"/></a></div>
+		<div id="maincontent-wrapper">
+		<div id="inner-maincontent">
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+		</div>
+		</div>
+		<div class="footer" role="contentinfo">
+		<div class="footer-inner">
+		<div class="footer-left">RAP Reporting Tool 1.0<br>Copyright 2012 Red Hat, Inc. All rights reserved.<br>INTERNAL USE ONLY</div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		</div>
+		</div>
 		<g:javascript library="application"/>
 		<r:layoutResources />
 	</body>
