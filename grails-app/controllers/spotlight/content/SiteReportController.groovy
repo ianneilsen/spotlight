@@ -3,8 +3,18 @@ package spotlight.content
 import org.springframework.dao.DataIntegrityViolationException
 
 class SiteReportController {
+	
+	def scaffold = true
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    def searchreports = {
+    }
+	
+	def reportresults = {
+		def reports = SiteReport.findAllByReportNameLike("%${params.reportname}%")
+		return [reports: reports, term: params.reportname]
+	}
+	
+	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
