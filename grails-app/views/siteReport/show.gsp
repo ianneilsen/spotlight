@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list siteReport">
 			
-				<g:if test="${siteReportInstance?.reportname}">
+				<g:if test="${siteReportInstance?.reportName}">
 				<li class="fieldcontain">
-					<span id="reportname-label" class="property-label"><g:message code="siteReport.reportname.label" default="Reportname" /></span>
+					<span id="reportName-label" class="property-label"><g:message code="siteReport.reportName.label" default="reportName" /></span>
 					
-						<span class="property-value" aria-labelledby="reportname-label"><g:fieldValue bean="${siteReportInstance}" field="reportname"/></span>
+						<span class="property-value" aria-labelledby="reportName-label"><g:fieldValue bean="${siteReportInstance}" field="reportName"/></span>
 					
 				</li>
 				</g:if>

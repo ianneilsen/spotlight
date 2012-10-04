@@ -4,7 +4,7 @@ class SiteReport {
 	static belongsTo = [sitedetail: SiteDetail]
 	static hasMany = [tags: Tag]
 	
-	String reportname
+	String reportName
 	String reportcontent
 	Date dateCreated
 	Date lastUpdated
@@ -17,12 +17,16 @@ class SiteReport {
 	}
 	
 	static constraints = {
-		reportname (blank: false, unique: true, size: 8..100)
+		reportName (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
 		publisheddate (blank: false)
     }
 	
+/*	String toString() {
+		return ReportName
+	}*/
+	
 	String toString() {
-		return reportname
+		"Profile for ${reportName}"
 	}
 }

@@ -24,7 +24,7 @@
 	    <div id="inner"></div>
 	            <div id="left"></div>
 	    	    <div id="right"></div>
-		<div id="grailsLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'redhatlogo.png')}" alt="Red Hat"/></a></div>
+		<div id="spotlightLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'Rap_logo2.png')}" alt="Red Hat"/></a></div>
 		<div id="maincontent-wrapper">
 		<div id="inner-maincontent">
 		<g:layoutBody/>
@@ -32,8 +32,14 @@
 		</div>
 		<div class="footer" role="contentinfo">
 		<div class="footer-inner">
-		<div class="footer-left">RAP Reporting Tool 1.0<br>Copyright 2012 Red Hat, Inc. All rights reserved.<br>INTERNAL USE ONLY</div>
+		<div class="footer-left">
+		RAP Reporting Tool -Spotlight 2.0
+		<br>
+		Copyright 2012 Red Hat, Inc. All rights reserved.
+		<br>INTERNAL USE ONLY</div>
+		<div class="footer-right"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat"/></a>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		</div>
 		</div>
 		</div>
 		<g:javascript library="application"/>

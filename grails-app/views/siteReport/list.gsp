@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="reportname" title="${message(code: 'siteReport.reportname.label', default: 'Reportname')}" />
+						<g:sortableColumn property="reportName" title="${message(code: 'siteReport.reportName.label', default: 'reportName')}" />
 					
 						<g:sortableColumn property="reportcontent" title="${message(code: 'siteReport.reportcontent.label', default: 'Reportcontent')}" />
 					
@@ -42,7 +42,7 @@
 				<g:each in="${siteReportInstanceList}" status="i" var="siteReportInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${siteReportInstance.id}">${fieldValue(bean: siteReportInstance, field: "reportname")}</g:link></td>
+						<td><g:link action="show" id="${siteReportInstance.id}">${fieldValue(bean: siteReportInstance, field: "reportName")}</g:link></td>
 					
 						<td>${fieldValue(bean: siteReportInstance, field: "reportcontent")}</td>
 					

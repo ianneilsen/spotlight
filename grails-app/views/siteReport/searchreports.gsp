@@ -8,13 +8,13 @@
 <body>
   <div class="body">
   <formset>
-  <legend>Search Reports within</legend>
+  <legend>Search Reports</legend>
   
-  <g:form action="searchreports">
-  		<label for="reportname">Report Name</label>
-  		<g:textField name="reportname"/>
+  <g:form action="reportresults">
+  		<label for="reportName">Report Name</label>
+  		<g:textField name="reportName"/>
   		
-  	<g:submitButton name="reportresults" value="reportresults"/>
+  	<g:submitButton name="searchreports" value="searchreports"/>
   	</g:form>
   	
   <formset>

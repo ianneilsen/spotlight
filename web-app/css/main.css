@@ -41,13 +41,14 @@ header-wrapper{
 	background-color: rgb(68,68,68);
 	width: 100%;
 	box-shadow: 0px 1px 0px rgb(221, 221, 221), 0px 0px 5px rgb(136, 136, 136), 0px 50px 50px -50px rgb(17, 17, 17) inset;
+	background: url(../images/Rap_logo.png) 50% 50% no-repeat transparent;
 }
 #header-wrapper .inner .left {
     display: inline-block;
     position: absolute;
     left: 0px;
     height: 75px;
-    background-image: url("images/shadowman30.png");
+    background-image: url("images/Rap_logo2.png");
     width: 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -106,13 +107,13 @@ body {
     color: rgb(238, 238, 238);
 }
 
-#grailsLogo {
+#spotlightLogo {
 	/*background-color: #abbf78;*/
 	position: relative;
     z-index: 999;
     background-color: rgb(68, 68, 68);
     width: 100%;
-    height: 75px;
+    height: 80px;
     box-shadow: 0px 1px 0px rgb(221, 221, 221), 0px 0px 5px rgb(136, 136, 136), 0px 50px 50px -50px rgb(17, 17, 17) inset;
 }
 }
@@ -155,7 +156,7 @@ img {
 
 /* GENERAL */
 
-#grailsLogo a {
+#spotlightLogo a {
 	display: inline-block;
 	margin: 1em;
 }
@@ -207,6 +208,12 @@ footer {
     left: 0px;
     position: relative;
     color: rgba(0, 0, 0, 0.4);
+}
+.footer-right {
+	display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 30px;
 }
 
 .spinner {
@@ -339,6 +346,7 @@ input, select, textarea {
 	font-size: 1em;
 	padding: 0.2em 0.4em;
 	margin: 0 0.25em 0 0;
+	align: right;
 }
 
 select {

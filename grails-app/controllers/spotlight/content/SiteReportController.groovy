@@ -10,8 +10,8 @@ class SiteReportController {
     }
 	
 	def reportresults = {
-		def reports = SiteReport.findAllByReportNameLike("%${params.reportname}%")
-		return [reports: reports, term: params.reportname]
+		def reports = SiteReport.findAllByReportName ("%${params.reportName}%")
+		return [reports: reports, term: params.reportName]
 	}
 	
 	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

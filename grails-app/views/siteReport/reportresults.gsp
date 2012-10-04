@@ -8,17 +8,18 @@
 <body>
   <div class="body">
   <h1>Results</h1>
-  <p>Searched ${spotlight.content.SiteReport.reportname.count() } records
-  for items matching <em>${term}</em>.
-  Found <strong>${SiteReport.reportname.size()}</strong> hits.
-  </p>
+   
+    <p>Searched ${spotlight.content.SiteReport.count()} records for items matching <em>${term}</em>.
+       Found <strong>${reports.size()}</strong> hits.
+    </p>
+
     
     <ul>
-  	<g:each var="reportresults" in="${reportresults}">
-  		<li>${SiteReport.reportname}</li>
+  	<g:each var="reportName" in="${reports}">
+  		<li>${SiteReport.reportName}</li>
     </g:each>
   	</ul>
-  	<g:link> action='searchreports'>Search Again</g:link>
+  	<g:link> action="searchreports">${searchreports}</g:link>
   	  </div>
 </body>
 </html>
