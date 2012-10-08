@@ -24,11 +24,11 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="sitename" title="${message(code: 'siteDetail.sitename.label', default: 'Sitename')}" />
+						<g:sortableColumn property="siteName" title="${message(code: 'siteDetail.siteName.label', default: 'Site Name')}" />
 					
-						<g:sortableColumn property="sdescription" title="${message(code: 'siteDetail.sdescription.label', default: 'Sdescription')}" />
+						<g:sortableColumn property="sdescription" title="${message(code: 'siteDetail.sdescription.label', default: 'Site Description')}" />
 					
-						<g:sortableColumn property="spublished" title="${message(code: 'siteDetail.spublished.label', default: 'Spublished')}" />
+						<g:sortableColumn property="spublished" title="${message(code: 'siteDetail.spublished.label', default: 'Site Published')}" />
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'siteDetail.dateCreated.label', default: 'Date Created')}" />
 					
@@ -42,7 +42,7 @@
 				<g:each in="${siteDetailInstanceList}" status="i" var="siteDetailInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${siteDetailInstance.id}">${fieldValue(bean: siteDetailInstance, field: "sitename")}</g:link></td>
+						<td><g:link action="show" id="${siteDetailInstance.id}">${fieldValue(bean: siteDetailInstance, field: "siteName")}</g:link></td>
 					
 						<td>${fieldValue(bean: siteDetailInstance, field: "sdescription")}</td>
 					

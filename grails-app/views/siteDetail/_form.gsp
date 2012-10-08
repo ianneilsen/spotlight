@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sitename', 'error')} required">
-	<label for="sitename">
-		<g:message code="siteDetail.sitename.label" default="Sitename" />
+<div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'siteName', 'error')} required">
+	<label for="siteName">
+		<g:message code="siteDetail.siteName.label" default="siteName" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sitename" maxlength="170" required="" value="${siteDetailInstance?.sitename}"/>
+	<g:textField name="siteName" maxlength="170" required="" value="${siteDetailInstance?.siteName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: siteDetailInstance, field: 'sdescription', 'error')} required">
