@@ -33,7 +33,7 @@
 		<div class="footer" role="contentinfo">
 		<div class="footer-inner">
 		<div class="footer-left">
-		RAP Reporting Tool -Spotlight 2.0
+		RAP Reporting Tool -Spotlight <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/>
 		<br>
 		Copyright 2012 Red Hat, Inc. All rights reserved.
 		<br>INTERNAL USE ONLY</div>
