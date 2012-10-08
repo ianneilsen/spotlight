@@ -32,12 +32,12 @@ class SiteProfile {
 		bugzillaproduct(blank: true, unique: true)
 		bugzillacomponent(blank: true, unique: true)
 		rtqueue (blank: true)
-		teamqueueemail(blank: true)
+		teamqueueemail(blank: true,email: true)
 		etherpadurl (nullable: true, url: true)
 		
     }
 	
 	String toString() {
-		"Profile for ${siteadmin}"
+		return siteadmin
 	}
 }
