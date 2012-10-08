@@ -14,6 +14,11 @@ class SiteDetailController {
         params.max = Math.min(max ?: 10, 100)
         [siteDetailInstanceList: SiteDetail.list(params), siteDetailInstanceTotal: SiteDetail.count()]
     }
+	
+	def _weblist(){
+		def weblist = SiteDetail.list(max: 10, sort: "siteName", order: "desc")
+		return [weblist:weblist]
+	}
 
     def create() {
         [siteDetailInstance: new SiteDetail(params)]

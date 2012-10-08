@@ -115,5 +115,8 @@
 				</ul>
 			</div>
 		</div>
+		<div>
+	<g:render template="/siteDetail/weblist"/>
+</div>
 	</body>
 </html>
