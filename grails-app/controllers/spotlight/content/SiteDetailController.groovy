@@ -17,10 +17,11 @@ class SiteDetailController {
     }
 	
 	def _weblist(){
-		def weblist = SiteDetail.list(max: 20, sort: "siteName", order: "desc")
+		def weblist = SiteDetail.list(max: 20, sort: "siteName", order: "asec")
 		return [weblist:weblist]
 		def wlreports = SiteDetail.sitereports.list(max: 5, sort: "lastUpdated", order: "desc")
 		return [wlreports: wlreports]
+
 	}
 
     def create() {

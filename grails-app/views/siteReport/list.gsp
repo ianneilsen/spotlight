@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="reportName" title="${message(code: 'siteReport.reportName.label', default: 'reportName')}" />
+						<g:sortableColumn property="reportName" title="${message(code: 'siteReport.reportName.label', default: 'Report Name')}" />
 					
 						<g:sortableColumn property="reportcontent" title="${message(code: 'siteReport.reportcontent.label', default: 'Reportcontent')}" />
 					
 						<g:sortableColumn property="publisheddate" title="${message(code: 'siteReport.publisheddate.label', default: 'Publisheddate')}" />
 					
+						<g:sortableColumn property="published" title="${message(code: 'siteReport.published.label', default: 'Published')}" />
+					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'siteReport.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'siteReport.lastUpdated.label', default: 'Last Updated')}" />
-					
-						<th><g:message code="siteReport.sitedetail.label" default="Sitedetail" /></th>
 					
 					</tr>
 				</thead>
@@ -48,11 +48,11 @@
 					
 						<td><g:formatDate date="${siteReportInstance.publisheddate}" /></td>
 					
+						<td>${fieldValue(bean: siteReportInstance, field: "published")}</td>
+					
 						<td><g:formatDate date="${siteReportInstance.dateCreated}" /></td>
 					
 						<td><g:formatDate date="${siteReportInstance.lastUpdated}" /></td>
-					
-						<td>${fieldValue(bean: siteReportInstance, field: "sitedetail")}</td>
 					
 					</tr>
 				</g:each>

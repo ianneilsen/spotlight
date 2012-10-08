@@ -4,17 +4,16 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class SiteReportController {
 	
-	def scaffold = true
+	
+		def searchreport = {
+		}
+		
+		def reportresults = {
+			def reports = SiteReport.findAllByReportName ("%${params.reportName}%")
+			return [reports: reports, term: params.reportName]
+		}
 
-    def searchreport = {
-    }
-	
-	def reportresults = {
-		def reports = SiteReport.findAllByReportName ("%${params.reportName}%")
-		return [reports: reports, term: params.reportName]
-	}
-	
-	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -41,7 +40,7 @@ class SiteReportController {
     }
 
     def show(Long id) {
-        def siteReportInstance = SiteReport.get(id)
+        def siteReportInstance = SiteReport.get(params.id)
         if (!siteReportInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'siteReport.label', default: 'SiteReport'), id])
             redirect(action: "list")
@@ -50,6 +49,12 @@ class SiteReportController {
 
         [siteReportInstance: siteReportInstance]
     }
+	
+	def fivereports() {
+		def fivereports = SiteReport.list(max: 5, sort: "lastUpdated", order: "desc")
+		redirect(action:"list", id: fivereports.id)
+		return [fivereports: fivereports]
+	}
 
     def edit(Long id) {
         def siteReportInstance = SiteReport.get(id)

@@ -25,7 +25,7 @@
 			
 				<g:if test="${siteReportInstance?.reportName}">
 				<li class="fieldcontain">
-					<span id="reportName-label" class="property-label"><g:message code="siteReport.reportName.label" default="reportName" /></span>
+					<span id="reportName-label" class="property-label"><g:message code="siteReport.reportName.label" default="Report Name" /></span>
 					
 						<span class="property-value" aria-labelledby="reportName-label"><g:fieldValue bean="${siteReportInstance}" field="reportName"/></span>
 					
@@ -46,6 +46,15 @@
 					<span id="publisheddate-label" class="property-label"><g:message code="siteReport.publisheddate.label" default="Publisheddate" /></span>
 					
 						<span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${siteReportInstance?.publisheddate}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${siteReportInstance?.published}">
+				<li class="fieldcontain">
+					<span id="published-label" class="property-label"><g:message code="siteReport.published.label" default="Published" /></span>
+					
+						<span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${siteReportInstance}" field="published"/></span>
 					
 				</li>
 				</g:if>
@@ -73,6 +82,17 @@
 					<span id="sitedetail-label" class="property-label"><g:message code="siteReport.sitedetail.label" default="Sitedetail" /></span>
 					
 						<span class="property-value" aria-labelledby="sitedetail-label"><g:link controller="siteDetail" action="show" id="${siteReportInstance?.sitedetail?.id}">${siteReportInstance?.sitedetail?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${siteReportInstance?.tags}">
+				<li class="fieldcontain">
+					<span id="tags-label" class="property-label"><g:message code="siteReport.tags.label" default="Tags" /></span>
+					
+						<g:each in="${siteReportInstance.tags}" var="t">
+						<span class="property-value" aria-labelledby="tags-label"><g:link controller="tag" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

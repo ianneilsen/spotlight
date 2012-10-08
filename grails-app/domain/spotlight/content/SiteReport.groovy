@@ -22,7 +22,7 @@ class SiteReport {
 		reportName (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
 		publisheddate (blank: false)
-		published (blank: false, inList:["yes","no"])
+		published (blank: false, inlist: ["yes","no"])
     }
 	
 /*	String toString() {
