@@ -11,12 +11,12 @@ class SiteDetailController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 7, 100)
         [siteDetailInstanceList: SiteDetail.list(params), siteDetailInstanceTotal: SiteDetail.count()]
     }
 	
 	def _weblist(){
-		def weblist = SiteDetail.list(max: 10, sort: "siteName", order: "desc")
+		def weblist = SiteDetail.list(max: 20, sort: "siteName", order: "desc")
 		return [weblist:weblist]
 	}
 
