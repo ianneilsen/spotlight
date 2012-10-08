@@ -19,7 +19,8 @@
   		<li>${SiteReport.reportName}</li>
     </g:each>
   	</ul>
-  	<g:link> action="searchreports">${searchreports}</g:link>
+  	<g:link controller="SiteReport" action="searchreport">Search Reports</g:link>
+  	
   	  </div>
 </body>
 </html>

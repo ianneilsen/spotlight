@@ -6,7 +6,7 @@ class SiteReportController {
 	
 	def scaffold = true
 
-    def searchreports = {
+    def searchreport = {
     }
 	
 	def reportresults = {
