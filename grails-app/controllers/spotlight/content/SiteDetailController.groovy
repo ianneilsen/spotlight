@@ -2,6 +2,7 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 
+import spotlight.content.SiteReport
 class SiteDetailController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -18,6 +19,8 @@ class SiteDetailController {
 	def _weblist(){
 		def weblist = SiteDetail.list(max: 20, sort: "siteName", order: "desc")
 		return [weblist:weblist]
+		def wlreports = SiteDetail.sitereports.list(max: 5, sort: "lastUpdated", order: "desc")
+		return [wlreports: wlreports]
 	}
 
     def create() {

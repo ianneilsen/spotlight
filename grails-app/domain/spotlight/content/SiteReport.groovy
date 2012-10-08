@@ -9,17 +9,20 @@ class SiteReport {
 	Date dateCreated
 	Date lastUpdated
 	Date publisheddate = new Date()
+	String published
 	
 
 	static mapping ={
 		reportcontent (type:"text")
 		sort lastUpdated:"desc"
+
 	}
 	
 	static constraints = {
 		reportName (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
 		publisheddate (blank: false)
+		published (blank: false, inList:["yes","no"])
     }
 	
 /*	String toString() {
@@ -27,6 +30,6 @@ class SiteReport {
 	}*/
 	
 	String toString() {
-		"Profile for ${reportName}"
+		return reportName
 	}
 }

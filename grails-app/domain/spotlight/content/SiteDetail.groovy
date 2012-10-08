@@ -18,7 +18,7 @@ class SiteDetail {
 	
 	static mapping = {
 		siteadmin lazy:false
-		sitereport sort:"publisheddate"
+		
 	}
 	
 	String toString() {
