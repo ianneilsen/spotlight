@@ -4,8 +4,8 @@ class Tag {
 	
 	String tagname
 	
-	static hasMany = [sitereports: SiteReport]
-	static belongsTo = [SiteReport]
+	static belongsTo = [reports: SiteReport]
+	
 	
 
     static constraints = {

@@ -51,9 +51,7 @@ class SiteReportController {
     }
 	
 	def fivereports() {
-		def fivereports = SiteReport.list(max: 5, sort: "lastUpdated", order: "desc")
-		redirect(action:"list", id: fivereports.id)
-		return [fivereports: fivereports]
+		 [sitereports: SiteReport.list(params)]
 	}
 
     def edit(Long id) {

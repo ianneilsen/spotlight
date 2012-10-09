@@ -6,23 +6,23 @@ class SiteReport {
 	
 	String reportName
 	String reportcontent
-	Date dateCreated
-	Date lastUpdated
 	Date publisheddate = new Date()
 	String published
+	Date dateCreated
+	Date lastUpdated
 	
 
 	static mapping ={
 		reportcontent (type:"text")
-		sort lastUpdated:"desc"
+		
 
 	}
 	
 	static constraints = {
 		reportName (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
+		published (blank: false, inList: ["yes","no"])
 		publisheddate (blank: false)
-		published (blank: false, inlist: ["yes","no"])
     }
 	
 /*	String toString() {

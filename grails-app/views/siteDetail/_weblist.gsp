@@ -1,4 +1,4 @@
-<%@ page import="spotlight.content.SiteReport" %>
+
  <html>
 <meta name="layout" content="main">
  <body>
@@ -17,9 +17,9 @@
 			<li>Site Admin: ${it.siteprofile.siteadmin }</li>
 
 			
-			<li>Last 5 Reports: <g:link controller="siteReport" action="fivereports" id="${sitereport.Id}">${it.siteName}</g:link></li>
+			<li>Last 5 Reports: ${sitedetail.sitereport.reportName}</li>
 		</g:each>
-
+</ul>
 </div>
 	
 	</body>

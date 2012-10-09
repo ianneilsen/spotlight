@@ -1,7 +1,7 @@
 package spotlight.content
 
 class SiteDetail {
-	static hasMany = [sitereports: SiteReport]
+	static hasMany = [reports: SiteReport]
 	SiteProfile siteprofile
 		
 	String siteName
