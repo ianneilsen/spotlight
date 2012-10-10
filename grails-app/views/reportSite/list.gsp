@@ -1,5 +1,6 @@
 
 <%@ page import="spotlight.content.ReportSite" %>
+<%@ page import="spotlight.content.ReportProfile" %>
 <!doctype html>
 <html>
 	<head>
@@ -36,7 +37,7 @@
 						
 					    <g:sortableColumn property="siteadmin" title="${message(code: 'reportProfile.siteadmin.label', default: 'Site Admin')}" />
 					    
-						<th><g:message code="reportSite.reportprofile.label" default="Reportprofile" /></th>
+						
 					
 					</tr>
 				</thead>
@@ -54,9 +55,8 @@
 					
 						<td><g:formatDate date="${reportSiteInstance.lastUpdated}" /></td>
 						
-						<td>${reportSite.reportProfile.siteAdmin}</td>
-					
-						<td>${fieldValue(bean: reportSiteInstance, field: "reportprofile")}</td>
+								
+						<td><g:link controller="reportProfile" action="show" id="${reportSiteInstance?.reportprofile?.id}">${reportSiteInstance?.reportprofile?.encodeAsHTML()}</g:link></td>
 					
 					</tr>
 				</g:each>
@@ -66,5 +66,6 @@
 				<g:paginate total="${reportSiteInstanceTotal}" />
 			</div>
 		</div>
+		<h2><g:render template="/reportSite/weblist" model="[reportsite: ReportSite]"/></h2>
 	</body>
 </html>

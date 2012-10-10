@@ -25,7 +25,7 @@
 			
 				<g:if test="${reportProfileInstance?.siteadmin}">
 				<li class="fieldcontain">
-					<span id="siteadmin-label" class="property-label"><g:message code="reportProfile.siteadmin.label" default="Siteadmin" /></span>
+					<span id="siteadmin-label" class="property-label"><g:message code="reportProfile.siteadmin.label" default="Site Admin" /></span>
 					
 						<span class="property-value" aria-labelledby="siteadmin-label"><g:fieldValue bean="${reportProfileInstance}" field="siteadmin"/></span>
 					
@@ -34,7 +34,7 @@
 			
 				<g:if test="${reportProfileInstance?.siteemail}">
 				<li class="fieldcontain">
-					<span id="siteemail-label" class="property-label"><g:message code="reportProfile.siteemail.label" default="Siteemail" /></span>
+					<span id="siteemail-label" class="property-label"><g:message code="reportProfile.siteemail.label" default="Site Email" /></span>
 					
 						<span class="property-value" aria-labelledby="siteemail-label"><g:fieldValue bean="${reportProfileInstance}" field="siteemail"/></span>
 					
@@ -43,7 +43,7 @@
 			
 				<g:if test="${reportProfileInstance?.sitecc}">
 				<li class="fieldcontain">
-					<span id="sitecc-label" class="property-label"><g:message code="reportProfile.sitecc.label" default="Sitecc" /></span>
+					<span id="sitecc-label" class="property-label"><g:message code="reportProfile.sitecc.label" default="Site CC Email" /></span>
 					
 						<span class="property-value" aria-labelledby="sitecc-label"><g:fieldValue bean="${reportProfileInstance}" field="sitecc"/></span>
 					
@@ -52,7 +52,7 @@
 			
 				<g:if test="${reportProfileInstance?.sitefilestore}">
 				<li class="fieldcontain">
-					<span id="sitefilestore-label" class="property-label"><g:message code="reportProfile.sitefilestore.label" default="Sitefilestore" /></span>
+					<span id="sitefilestore-label" class="property-label"><g:message code="reportProfile.sitefilestore.label" default="Site filestore dir" /></span>
 					
 						<span class="property-value" aria-labelledby="sitefilestore-label"><g:fieldValue bean="${reportProfileInstance}" field="sitefilestore"/></span>
 					
@@ -61,7 +61,7 @@
 			
 				<g:if test="${reportProfileInstance?.siteupload}">
 				<li class="fieldcontain">
-					<span id="siteupload-label" class="property-label"><g:message code="reportProfile.siteupload.label" default="Siteupload" /></span>
+					<span id="siteupload-label" class="property-label"><g:message code="reportProfile.siteupload.label" default="Allow Site Uploads" /></span>
 					
 						<span class="property-value" aria-labelledby="siteupload-label"><g:fieldValue bean="${reportProfileInstance}" field="siteupload"/></span>
 					
@@ -70,7 +70,7 @@
 			
 				<g:if test="${reportProfileInstance?.sitecolor}">
 				<li class="fieldcontain">
-					<span id="sitecolor-label" class="property-label"><g:message code="reportProfile.sitecolor.label" default="Sitecolor" /></span>
+					<span id="sitecolor-label" class="property-label"><g:message code="reportProfile.sitecolor.label" default="Site reports css" /></span>
 					
 						<span class="property-value" aria-labelledby="sitecolor-label"><g:fieldValue bean="${reportProfileInstance}" field="sitecolor"/></span>
 					
@@ -79,7 +79,7 @@
 			
 				<g:if test="${reportProfileInstance?.sitehtml}">
 				<li class="fieldcontain">
-					<span id="sitehtml-label" class="property-label"><g:message code="reportProfile.sitehtml.label" default="Sitehtml" /></span>
+					<span id="sitehtml-label" class="property-label"><g:message code="reportProfile.sitehtml.label" default="Allow HTML in site" /></span>
 					
 						<span class="property-value" aria-labelledby="sitehtml-label"><g:fieldValue bean="${reportProfileInstance}" field="sitehtml"/></span>
 					
@@ -88,7 +88,7 @@
 			
 				<g:if test="${reportProfileInstance?.bugzillaproduct}">
 				<li class="fieldcontain">
-					<span id="bugzillaproduct-label" class="property-label"><g:message code="reportProfile.bugzillaproduct.label" default="Bugzillaproduct" /></span>
+					<span id="bugzillaproduct-label" class="property-label"><g:message code="reportProfile.bugzillaproduct.label" default="Bugzilla Product ID" /></span>
 					
 						<span class="property-value" aria-labelledby="bugzillaproduct-label"><g:fieldValue bean="${reportProfileInstance}" field="bugzillaproduct"/></span>
 					
@@ -97,7 +97,7 @@
 			
 				<g:if test="${reportProfileInstance?.bugzillacomponent}">
 				<li class="fieldcontain">
-					<span id="bugzillacomponent-label" class="property-label"><g:message code="reportProfile.bugzillacomponent.label" default="Bugzillacomponent" /></span>
+					<span id="bugzillacomponent-label" class="property-label"><g:message code="reportProfile.bugzillacomponent.label" default="Bugzilla Component ID" /></span>
 					
 						<span class="property-value" aria-labelledby="bugzillacomponent-label"><g:fieldValue bean="${reportProfileInstance}" field="bugzillacomponent"/></span>
 					
@@ -106,7 +106,7 @@
 			
 				<g:if test="${reportProfileInstance?.rtqueue}">
 				<li class="fieldcontain">
-					<span id="rtqueue-label" class="property-label"><g:message code="reportProfile.rtqueue.label" default="Rtqueue" /></span>
+					<span id="rtqueue-label" class="property-label"><g:message code="reportProfile.rtqueue.label" default="RT queue name" /></span>
 					
 						<span class="property-value" aria-labelledby="rtqueue-label"><g:fieldValue bean="${reportProfileInstance}" field="rtqueue"/></span>
 					
@@ -115,7 +115,7 @@
 			
 				<g:if test="${reportProfileInstance?.teamqueueemail}">
 				<li class="fieldcontain">
-					<span id="teamqueueemail-label" class="property-label"><g:message code="reportProfile.teamqueueemail.label" default="Teamqueueemail" /></span>
+					<span id="teamqueueemail-label" class="property-label"><g:message code="reportProfile.teamqueueemail.label" default="RT queue email" /></span>
 					
 						<span class="property-value" aria-labelledby="teamqueueemail-label"><g:fieldValue bean="${reportProfileInstance}" field="teamqueueemail"/></span>
 					
@@ -124,7 +124,7 @@
 			
 				<g:if test="${reportProfileInstance?.etherpadurl}">
 				<li class="fieldcontain">
-					<span id="etherpadurl-label" class="property-label"><g:message code="reportProfile.etherpadurl.label" default="Etherpadurl" /></span>
+					<span id="etherpadurl-label" class="property-label"><g:message code="reportProfile.etherpadurl.label" default="Etherpad URL for reports" /></span>
 					
 						<span class="property-value" aria-labelledby="etherpadurl-label"><g:fieldValue bean="${reportProfileInstance}" field="etherpadurl"/></span>
 					
@@ -133,7 +133,7 @@
 			
 				<g:if test="${reportProfileInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="reportProfile.dateCreated.label" default="Date Created" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="reportProfile.dateCreated.label" default="Date Site Created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${reportProfileInstance?.dateCreated}" /></span>
 					
@@ -142,7 +142,7 @@
 			
 				<g:if test="${reportProfileInstance?.lastUpdated}">
 				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="reportProfile.lastUpdated.label" default="Last Updated" /></span>
+					<span id="lastUpdated-label" class="property-label"><g:message code="reportProfile.lastUpdated.label" default="Last Update to site" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${reportProfileInstance?.lastUpdated}" /></span>
 					

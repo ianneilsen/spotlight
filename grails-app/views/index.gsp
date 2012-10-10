@@ -115,10 +115,7 @@
 				</ul>
 			</div>
 		</div>
-		<div>
-		<div class="weblist">
 		
-	<g:render template="/reportSite/weblist"/>
-	</div>
+
 	</body>
 </html>

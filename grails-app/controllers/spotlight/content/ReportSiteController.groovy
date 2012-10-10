@@ -15,6 +15,11 @@ class ReportSiteController {
         [reportSiteInstanceList: ReportSite.list(params), reportSiteInstanceTotal: ReportSite.count()]
     }
 
+	def _weblist (){
+		def _weblist = ReportSite.findAll(max: 20, sort:"lastUpdated")
+		[_weblist: _weblist]	  
+	}
+	
     def create() {
         [reportSiteInstance: new ReportSite(params)]
     }

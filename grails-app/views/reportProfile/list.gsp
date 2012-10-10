@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="siteadmin" title="${message(code: 'reportProfile.siteadmin.label', default: 'Siteadmin')}" />
+						<g:sortableColumn property="siteadmin" title="${message(code: 'reportProfile.siteadmin.label', default: 'Site Admin')}" />
 					
-						<g:sortableColumn property="siteemail" title="${message(code: 'reportProfile.siteemail.label', default: 'Siteemail')}" />
+						<g:sortableColumn property="siteemail" title="${message(code: 'reportProfile.siteemail.label', default: 'Site Email')}" />
 					
-						<g:sortableColumn property="sitecc" title="${message(code: 'reportProfile.sitecc.label', default: 'Sitecc')}" />
+						<g:sortableColumn property="sitecc" title="${message(code: 'reportProfile.sitecc.label', default: 'Site C Email')}" />
 					
-						<g:sortableColumn property="sitefilestore" title="${message(code: 'reportProfile.sitefilestore.label', default: 'Sitefilestore')}" />
+						<g:sortableColumn property="sitefilestore" title="${message(code: 'reportProfile.sitefilestore.label', default: 'Site filestore')}" />
 					
-						<g:sortableColumn property="siteupload" title="${message(code: 'reportProfile.siteupload.label', default: 'Siteupload')}" />
+						<g:sortableColumn property="siteupload" title="${message(code: 'reportProfile.siteupload.label', default: 'Allow site uploads')}" />
 					
-						<g:sortableColumn property="sitecolor" title="${message(code: 'reportProfile.sitecolor.label', default: 'Sitecolor')}" />
+						<g:sortableColumn property="sitecolor" title="${message(code: 'reportProfile.sitecolor.label', default: 'Site Color')}" />
 					
 					</tr>
 				</thead>

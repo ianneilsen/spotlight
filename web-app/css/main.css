@@ -149,6 +149,9 @@ h1 {
 ul {
 	padding: 0;
 }
+li {
+	line-height: 15%;
+}
 
 /*weblist list split for 2 columns*/
 
@@ -348,7 +351,7 @@ fieldset,
 
 .fieldcontain .property-value {
 	display: block;
-	margin-left: 27%;
+	margin-left: 15%;
 }
 
 label {

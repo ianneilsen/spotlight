@@ -28,7 +28,7 @@ class ReportProfile {
 		sitefilestore (blank: true)
 		siteupload (blank: false, inList:[1,0])
 		sitecolor (blank: true)
-		sitehtml (blank: true, inList: ["yes","no"])
+		sitehtml (blank: true, inList: ["Yes","No"])
 		bugzillaproduct(blank: true, unique: true)
 		bugzillacomponent(blank: true, unique: true)
 		rtqueue (blank: true)

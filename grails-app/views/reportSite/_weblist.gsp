@@ -1,26 +1,42 @@
 
- <html>
-<meta name="layout" content="main">
+<!doctype html>
+<html>
+	<head>
+		<meta name="layout" content="main">
+	</head>
  <body>
- <br>
-  <h1>Site List for <g:meta name="app.name"/>.</h1>
-	<p>Click site name to read or edit reports.</p>
-		<h6>Permissions apply to <strong>editing</strong> reports or documents.</h6>
-	<br>
-		<h3>Available sites for internal or external consumption:</h3>
-		<br>
-<div class="weblist">
-<ul id="double">
-		<g:each in="${weblist}">
-			<li>Site Name: <g:link action="show" params="siteName: currentReportSite.sitename">${it.siteName}</g:link></li>
-			<li>Site Description: ${it.sdescription }</li>
-			<li>Site Admin: ${it.reportprofile.siteadmin }</li>
-
+<div class="well well-small">
+		<h3>Available sites for external consumption:</h3>
+		</div>
 			
-			<li>Last 5 Reports: ${reportsite.report.reportName}</li>
-		</g:each>
+			<div class="alert alert-info">Permissions apply to <strong>editing</strong> reports or documents.<br>
+			<p>Click site name to read or edit reports.</p>
+			</div>
+	<br>
+
+<div id="show-reportSite" class="content scaffold-show" role="main">
+<ol class="property-list reportSite">
+<ul>
+		<g:each in="${weblist}" status="i" var="rsl">
+			<li>Site Name: <g:link controller="ReportSite" action="show" id="${rsl.id }">${rsl.siteName}</g:link></li>
+-			<li>Site Description: ${rsl.sdescription }</li>
+-			<li>Site Administrator: ${rsl.reportprofile.siteadmin }</li>
+					
+				<g:if test="${rsl?.reports}">
+				<li class="fieldcontain">
+					<span id="reports-label" class="property-label"><g:message code="reportSite.reports.label" default="Reports" /></span>
+					
+						<g:each in="${rsl.reports}" var="r">
+						<span class="property-value" aria-labelledby="reports-label"><g:link controller="report" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+---------------------------------------------------------			
+			
+	   </g:each>
 </ul>
+</ol>
 </div>
-	
 	</body>
 </html>

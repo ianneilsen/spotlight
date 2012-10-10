@@ -20,7 +20,7 @@ class Report {
 	static constraints = {
 		reportName (blank: false, unique: true, size: 8..100)
 		reportcontent (blank: true)
-		published (blank: false, inList: ["y","n"])
+		published (blank: false, inList: ["Yes","No"])
 		publisheddate (blank: false)
     }
 	

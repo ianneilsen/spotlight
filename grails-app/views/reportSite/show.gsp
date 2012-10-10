@@ -34,7 +34,7 @@
 			
 				<g:if test="${reportSiteInstance?.sdescription}">
 				<li class="fieldcontain">
-					<span id="sdescription-label" class="property-label"><g:message code="reportSite.sdescription.label" default="Sdescription" /></span>
+					<span id="sdescription-label" class="property-label"><g:message code="reportSite.sdescription.label" default="Site Description" /></span>
 					
 						<span class="property-value" aria-labelledby="sdescription-label"><g:fieldValue bean="${reportSiteInstance}" field="sdescription"/></span>
 					
@@ -43,7 +43,7 @@
 			
 				<g:if test="${reportSiteInstance?.spublished}">
 				<li class="fieldcontain">
-					<span id="spublished-label" class="property-label"><g:message code="reportSite.spublished.label" default="Spublished" /></span>
+					<span id="spublished-label" class="property-label"><g:message code="reportSite.spublished.label" default="Site wide publishing" /></span>
 					
 						<span class="property-value" aria-labelledby="spublished-label"><g:fieldValue bean="${reportSiteInstance}" field="spublished"/></span>
 					
@@ -70,7 +70,7 @@
 			
 				<g:if test="${reportSiteInstance?.reportprofile}">
 				<li class="fieldcontain">
-					<span id="reportprofile-label" class="property-label"><g:message code="reportSite.reportprofile.label" default="Reportprofile" /></span>
+					<span id="reportprofile-label" class="property-label"><g:message code="reportSite.reportprofile.label" default="Site Admin" /></span>
 					
 						<span class="property-value" aria-labelledby="reportprofile-label"><g:link controller="reportProfile" action="show" id="${reportSiteInstance?.reportprofile?.id}">${reportSiteInstance?.reportprofile?.encodeAsHTML()}</g:link></span>
 					
@@ -93,7 +93,9 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${reportSiteInstance?.id}" />
 					<g:link class="edit" action="edit" id="${reportSiteInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<a href="#" rel="tooltip" title="Watch it this deletes the entire site">
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+				</a>
 				</fieldset>
 			</g:form>
 		</div>
