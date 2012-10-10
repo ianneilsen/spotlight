@@ -48,7 +48,7 @@ header-wrapper{
     position: absolute;
     left: 0px;
     height: 75px;
-    background-image: url("images/Rap_logo2.png");
+    /*background-image: url("images/Rap_logo2.png");*/
     width: 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -338,8 +338,8 @@ fieldset,
 .fieldcontain label,
 .fieldcontain .property-label {
 	color: #666666;
-	text-align: right;
-	width: 25%;
+	text-align: left;
+	width: 10%;
 }
 
 .fieldcontain .property-label {
@@ -374,8 +374,8 @@ select[multiple] {
 	vertical-align: top;
 }
 
-textarea {
-	width: 400px;
+textArea {
+	width: 600px;
 	height: 400px;
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;

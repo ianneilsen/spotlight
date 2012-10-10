@@ -118,7 +118,7 @@
 		<div>
 		<div class="weblist">
 		
-	<g:render template="/siteDetail/weblist"/>
+	<g:render template="/reportSite/weblist"/>
 	</div>
 	</body>
 </html>

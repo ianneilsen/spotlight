@@ -24,7 +24,7 @@
 	    <div id="inner"></div>
 	            <div id="left"></div>
 	    	    <div id="right"></div>
-		<div id="spotlightLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'Rap_logo2.png')}" alt="Red Hat"/></a></div>
+		<div id="spotlightLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="Red Hat"/></a></div>
 		<div id="maincontent-wrapper">
 		<div id="inner-maincontent">
 		<g:layoutBody/>
