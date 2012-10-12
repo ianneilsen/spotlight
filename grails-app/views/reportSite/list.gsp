@@ -66,6 +66,11 @@
 				<g:paginate total="${reportSiteInstanceTotal}" />
 			</div>
 		</div>
-		<h2><g:render template="/reportSite/weblist" model="[reportsite: ReportSite]"/></h2>
+		
+		 <g:render template="/reportSite/weblist" />
+		
+		 
+		  
+		
 	</body>
 </html>

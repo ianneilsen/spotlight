@@ -20,11 +20,13 @@
 		<r:layoutResources />
 	</head>
 	<body>
-	  <div id="header-wrapper"></div>
-	    <div id="inner"></div>
+	  <div id="header-wrapper">
+	    <div id="inner">
 	            <div id="left"></div>
 	    	    <div id="right"></div>
 		<div id="spotlightLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="Red Hat"/></a></div>
+		</div>
+		</div>
 		<div id="maincontent-wrapper">
 		<div id="inner-maincontent">
 		<g:layoutBody/>

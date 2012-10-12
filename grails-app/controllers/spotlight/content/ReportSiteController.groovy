@@ -15,10 +15,20 @@ class ReportSiteController {
         [reportSiteInstanceList: ReportSite.list(params), reportSiteInstanceTotal: ReportSite.count()]
     }
 
+	//todo - index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
 	def _weblist (){
-		def _weblist = ReportSite.findAll(max: 20, sort:"lastUpdated")
-		[_weblist: _weblist]	  
+		def weblist = ReportSite.findAll(max: 20, sort:"lastUpdated")
+		def reports = Report.list(sort:"lastUpdated", order: "asc", max:'5')
+		//render template:"_weblist"
+		[weblist: weblist, reports:reports]	  
 	}
+	// test partial or template to render all sites and last 5 reports splitting by css into 2 columns - not working???
+	def _blah (){
+		def blah = ReportSite.findAll(max: 20, sort:"lastUpdated")
+		def reports = Report.list(sort:"lastUpdated", order:"asc")
+		[blah: blah, reports: reports]
+	}
+	
 	
     def create() {
         [reportSiteInstance: new ReportSite(params)]

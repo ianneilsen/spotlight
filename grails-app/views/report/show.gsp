@@ -17,7 +17,7 @@
 			</ul>
 		</div>
 		<div id="show-report" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1><g:message code="default.show.label" args="[entityName]" /> for <g:link controller="reportSite" action="show" id="${reportInstance?.reportsite?.id}">${reportInstance?.reportsite?.encodeAsHTML()}</g:link> </h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -34,7 +34,7 @@
 			
 				<g:if test="${reportInstance?.reportcontent}">
 				<li class="fieldcontain">
-					<span id="reportcontent-label" class="property-label"><g:message code="report.reportcontent.label" default="Reportcontent" /></span>
+					<span id="reportcontent-label" class="property-label"><g:message code="report.reportcontent.label" default="Report Content" /></span>
 					
 						<span class="property-value" aria-labelledby="reportcontent-label"><g:fieldValue bean="${reportInstance}" field="reportcontent"/></span>
 					
@@ -43,7 +43,7 @@
 			
 				<g:if test="${reportInstance?.published}">
 				<li class="fieldcontain">
-					<span id="published-label" class="property-label"><g:message code="report.published.label" default="Published" /></span>
+					<span id="published-label" class="property-label"><g:message code="report.published.label" default="Is Published" /></span>
 					
 						<span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${reportInstance}" field="published"/></span>
 					
@@ -52,7 +52,7 @@
 			
 				<g:if test="${reportInstance?.publisheddate}">
 				<li class="fieldcontain">
-					<span id="publisheddate-label" class="property-label"><g:message code="report.publisheddate.label" default="Publisheddate" /></span>
+					<span id="publisheddate-label" class="property-label"><g:message code="report.publisheddate.label" default="Published Date" /></span>
 					
 						<span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${reportInstance?.publisheddate}" /></span>
 					
@@ -79,7 +79,7 @@
 			
 				<g:if test="${reportInstance?.reportsite}">
 				<li class="fieldcontain">
-					<span id="reportsite-label" class="property-label"><g:message code="report.reportsite.label" default="Reportsite" /></span>
+					<span id="reportsite-label" class="property-label"><g:message code="report.reportsite.label" default="Back to list for Site" /></span>
 					
 						<span class="property-value" aria-labelledby="reportsite-label"><g:link controller="reportSite" action="show" id="${reportInstance?.reportsite?.id}">${reportInstance?.reportsite?.encodeAsHTML()}</g:link></span>
 					
