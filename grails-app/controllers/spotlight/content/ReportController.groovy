@@ -12,7 +12,7 @@ class ReportController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
+           [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
     }
 
     def create() {
@@ -40,6 +40,17 @@ class ReportController {
 
         [reportInstance: reportInstance]
     }
+    
+//        def weblistshow(Long id) {
+//        def reportInstance = Report.get(id)
+//        if (!reportInstance) {
+//            flash.message = message(code: 'default.not.found.message', args: [message(code: 'report.label', default: 'Report'), id])
+//            redirect(controller:"report", action: "show")
+//            return
+//        }
+//
+//        [reportInstance: reportInstance]
+//    }
 
     def edit(Long id) {
         def reportInstance = Report.get(id)

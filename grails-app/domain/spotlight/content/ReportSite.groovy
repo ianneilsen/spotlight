@@ -14,6 +14,7 @@ class ReportSite {
 		siteName (blank: false, size: 5..170, unique: true)
 		sdescription (blank: false, size: 5..200)
 		spublished (blank: false, inList:[1,0])
+        //ReportProfile unique: true - says to system that site can only have one unqiue profile
     }
 	
 	static mapping = {
@@ -24,4 +25,5 @@ class ReportSite {
 	String toString() {
 		return siteName
 	}
+
 }

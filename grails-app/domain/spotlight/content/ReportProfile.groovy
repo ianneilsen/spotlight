@@ -18,8 +18,6 @@ class ReportProfile {
 	Integer siteupload
 	Date dateCreated
 	Date lastUpdated
-	
-	
 
     static constraints = {
 		siteadmin (blank: false, size: 4..80)

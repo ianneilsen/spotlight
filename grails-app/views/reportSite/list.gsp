@@ -1,6 +1,5 @@
 
 <%@ page import="spotlight.content.ReportSite" %>
-<%@ page import="spotlight.content.ReportProfile" %>
 <!doctype html>
 <html>
 	<head>
@@ -66,11 +65,9 @@
 				<g:paginate total="${reportSiteInstanceTotal}" />
 			</div>
 		</div>
-		
-		 <g:render template="/reportSite/weblist" />
-		
-		 
-		  
-		
+        
+        <h5> Total number of sites: ${rsNumb}</h5>
+        
+
 	</body>
 </html>

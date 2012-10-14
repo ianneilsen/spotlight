@@ -6,8 +6,6 @@ class ReportTag {
 	
 	static belongsTo = [reports: Report]
 	
-	
-
     static constraints = {
 		tagname (blank: true, unique: true, size: 4..100)
     }

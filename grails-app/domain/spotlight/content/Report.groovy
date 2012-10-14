@@ -13,7 +13,7 @@ class Report {
 	
 
 	static mapping ={
-		reportcontent type:'text'
+		reportcontent type: 'text'
 		
 	}
 	
@@ -22,13 +22,14 @@ class Report {
 		reportcontent (blank: true)
 		published (blank: false, inList: ["Yes","No"])
 		publisheddate (blank: false)
+        
     }
-	
-/*	String toString() {
-		return ReportName
-	}*/
-	
+//return a substring of the reports content in the list view and show	
 	String toString() {
-		return reportName
-	}
+		if(reportcontent.size()>20){
+            return reportcontent.substring(0,19);
+          } else
+          return reportcontent;
+    }
+    
 }
