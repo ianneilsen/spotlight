@@ -15,12 +15,11 @@ class ReportSiteController {
 	def _webList (){
 		def webLists = ReportSite.list(params.id)
 		def webreports = Report.list([sort:"lastUpdated", order: "asc", max:'5'])
-            //render(action: "show", id: webreports.id)
-        //def reportscount = Report.count()
         def reportscount = Report.findAll().size()
            [webLists: webLists, webreports: webreports, reportscount: reportscount]
    }
-   
+     // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
+    //TODO: fix count - count total reports where site = id
 //    def reportcount(){
 //       def siteList=ReportSite.list()
 //            def reportList = ReportSite? Report.list()
@@ -31,7 +30,7 @@ class ReportSiteController {
 //    def rsNumb = ReportSite.count() 
     
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 5, 100)
         def rsNumb = ReportSite.count()
         [reportSiteInstanceList: ReportSite.list(params), reportSiteInstanceTotal: ReportSite.count(), rsNumb: rsNumb]
         

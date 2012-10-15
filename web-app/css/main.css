@@ -713,3 +713,16 @@ a.skip {
 	position: absolute;
 	left: -9999px;
 }
+
+.site-listing, .site-listing *{-moz-box-sizing: border-box; box-sizing: border-box; }
+.site-listing{width: 30%; margin:.5em; padding: 1em 0em 1em 1em ; display: inline-block; float:left; box-shadow:  inset 0 -2em  5em #fafafa, 0 .15em  .15em rgba(0,0,0,0.2); margin-bottom:2em;}
+
+.site-listing > div:first-child{font-size:2em; margin-bottom:.5em;}
+
+.property-list{position:relatve;}
+.property-list:after{content:""; display: block; height: 1px; width: 100%; clear:both;}
+
+.property-list ul a{background-color: ; color: #69c; display: block; width: 100%; }
+.property-list ul{list-style:none; marign:0; padding: 0; }
+.property-list ul li  > span:first-child{display: block; margin: 0; width: 100%; display:block; float:none; font-weight: bold; }
+.property-list ul li  span{ margin-left: 0 !important;}

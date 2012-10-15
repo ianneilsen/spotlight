@@ -9,7 +9,7 @@ class ReportSite {
 	Integer spublished
 	Date dateCreated
 	Date lastUpdated
-
+                      //TODO: check name mapping of sitename best practice
     static constraints = {
 		siteName (blank: false, size: 5..170, unique: true)
 		sdescription (blank: false, size: 5..200)
@@ -19,6 +19,8 @@ class ReportSite {
 	
 	static mapping = {
 		siteadmin lazy:false
+        table 'ReportSite'
+            siteName column: 'Site_Name'
 		
 	}
 	

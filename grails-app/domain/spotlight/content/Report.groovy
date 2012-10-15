@@ -10,7 +10,7 @@ class Report {
 	String published
 	Date dateCreated
 	Date lastUpdated
-	
+	                    //TODO: check why content mapping not producing a text box - possibly twitter-bootstrap issue in report.controller
 
 	static mapping ={
 		reportcontent type: 'text'
@@ -24,12 +24,16 @@ class Report {
 		publisheddate (blank: false)
         
     }
-//return a substring of the reports content in the list view and show	
-	String toString() {
-		if(reportcontent.size()>20){
-            return reportcontent.substring(0,19);
-          } else
-          return reportcontent;
+
+    String toString(){
+        reportName
     }
+//return a substring of the reports content in the list view and show	
+//	String toString() {
+//		if(reportcontent.size()>20){
+//            return reportcontent.substring(0,19);
+//                   } else
+//          return reportcontent;
+//    }
     
 }

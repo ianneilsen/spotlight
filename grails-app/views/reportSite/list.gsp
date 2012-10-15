@@ -1,5 +1,5 @@
 
-<%@ page import="spotlight.content.ReportSite" %>
+<%@ page import="spotlight.content.Report; spotlight.content.ReportSite" %>
 <!doctype html>
 <html>
 	<head>
@@ -35,27 +35,27 @@
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'reportSite.lastUpdated.label', default: 'Last Updated')}" />
 						
 					    <g:sortableColumn property="siteadmin" title="${message(code: 'reportProfile.siteadmin.label', default: 'Site Admin')}" />
-					    
-						
-					
+
+					                  // TODO: remove sorting on siteadmin column or fix. sorting not needed on column.
+                                      // TODO: place table into side column. weblist will take precendence.
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${reportSiteInstanceList}" status="i" var="reportSiteInstance">
+				<g:each in="${reportSiteInstanceList}" status="i" var="rsi"> <!-- var=reportSiteInstance -->
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${reportSiteInstance.id}">${fieldValue(bean: reportSiteInstance, field: "siteName")}</g:link></td>
+						<td><g:link action="show" id="${rsi.id}">${fieldValue(bean: rsi, field: "siteName")}</g:link></td>
 					
-						<td>${fieldValue(bean: reportSiteInstance, field: "sdescription")}</td>
+						<td>${fieldValue(bean: rsi, field: "sdescription")}</td>
 					
-						<td>${fieldValue(bean: reportSiteInstance, field: "spublished")}</td>
+						<td>${fieldValue(bean: rsi, field: "spublished")}</td>
 					
-						<td><g:formatDate date="${reportSiteInstance.dateCreated}" /></td>
+						<td><g:formatDate date="${rsi.dateCreated}" /></td>
 					
-						<td><g:formatDate date="${reportSiteInstance.lastUpdated}" /></td>
+						<td><g:formatDate date="${rsi.lastUpdated}" /></td>
 						
 								
-						<td><g:link controller="reportProfile" action="show" id="${reportSiteInstance?.reportprofile?.id}">${reportSiteInstance?.reportprofile?.encodeAsHTML()}</g:link></td>
+						<td><g:link controller="reportProfile" action="show" id="${rsi?.reportprofile?.id}">${rsi?.reportprofile?.encodeAsHTML()}</g:link></td>
 					
 					</tr>
 				</g:each>
@@ -65,9 +65,7 @@
 				<g:paginate total="${reportSiteInstanceTotal}" />
 			</div>
 		</div>
-        
-        <h5> Total number of sites: ${rsNumb}</h5>
-        
 
+        <g:include controller="reportSite" action="_webList" />
 	</body>
 </html>
