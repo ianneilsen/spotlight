@@ -14,6 +14,8 @@ class Report {
 
 	static mapping ={
 		reportcontent type: 'text'
+        table 'Report'
+        reportSite_Id column: 'Report_Site_Id'
 		
 	}
 	

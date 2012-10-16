@@ -40,7 +40,22 @@ class BootStrap {
 	def reportcontent12 = new Report(reportName:"Report 5", reportcontent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",reportsite:detail2).save()
 	def reportcontent13 = new Report(reportName:"Report 6", reportcontent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",reportsite:detail2).save()
 	def reportcontent14 = new Report(reportName:"Report 7", reportcontent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",reportsite:detail2).save()
-	
+
+        def profile3 = new ReportProfile(sitehtml:"No",siteemail:"ian@redhat.com",sitecc:"ian@redhat.com",siteadmin:"Docs QE Team",
+                sitefilestore:"a folder",sitecolor:"green",bugzillaproduct:"product2",bugzillacomponent:"component2",
+                rtqueue:"hss-rap",teamqueueemail:"hss-rap-list@redhat.com",etherpadurl:"http://someurl.com",siteupload:0).save(failOnError: true)
+
+        def detail3 = new ReportSite(siteName:"Site 3 - Entitlement", sdescription:"Site information about site 3 entitlement", spublished:1, reportprofile:profile3)
+
+        detail3.save(failOnError: true)
+
+        def reportcontent15 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 40", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('08/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent16 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 41", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('09/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent17 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 42", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('10/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent18 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 43", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('11/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent19 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 44", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('12/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent20 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 45", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('13/10/2012'),published:"No",reportsite:detail3).save()
+        def reportcontent21 = new Report(reportName:"Entitlement Weekly Executive Briefing - Week 46", reportcontent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('14/10/2012'),published:"No",reportsite:detail3).save()
 		}
     
 	def destroy = {

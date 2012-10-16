@@ -23,7 +23,7 @@
 
                    <h6>Number of reports: ${reportscount}</h6>
 
-                   <p>Report count is: ${webreports?.size()}</p>
+                   <p>Report count is: ${reportscount}</p>
 
 
 			<g:if test="${rsl?.reports}">

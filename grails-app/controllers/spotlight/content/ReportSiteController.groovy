@@ -15,7 +15,8 @@ class ReportSiteController {
 	def _webList (){
 		def webLists = ReportSite.list(params.id)
 		def webreports = Report.list([sort:"lastUpdated", order: "asc", max:'5'])
-        def reportscount = Report.findAll().size()
+        def reportList = Report.find
+        def reportscount = reportList.count {reportList}
            [webLists: webLists, webreports: webreports, reportscount: reportscount]
    }
      // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
