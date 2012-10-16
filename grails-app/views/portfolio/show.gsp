@@ -1,5 +1,5 @@
 
-<%@ page import="spotlight.content.ReportSite" %>
+<%@ page import="spotlight.content.Portfolio" %>
 <!doctype html>
 <html>
 	<head>

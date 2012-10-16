@@ -1,8 +1,9 @@
 import java.util.Date;
 
-import spotlight.content.ReportSite
+import spotlight.content.Portfolio
 import spotlight.content.ReportProfile
 import spotlight.content.Report
+import spotlight.content.Portfolio
 
 
 class BootStrap {
@@ -13,7 +14,7 @@ class BootStrap {
 												sitefilestore:"home folder",sitecolor:"red",bugzillaproduct:"bugzilla product",bugzillacomponent:"bz component",
 												rtqueue:"hss-rap",teamqueueemail:"hss-rap-list@redhat.com",etherpadurl:"http://url.com",siteupload:1).save(failOnError: true)
 												
-	def detail1 = new ReportSite(siteName:"Site 1",sdescription:"Site information about site",spublished:1,reportprofile:profile1)
+	def detail1 = new Portfolio(siteName:"Site 1",sdescription:"Site information about site",spublished:1,reportprofile:profile1)
 		
 	detail1.save(failOnError: true)
 		

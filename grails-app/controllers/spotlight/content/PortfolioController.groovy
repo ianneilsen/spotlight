@@ -1,9 +1,8 @@
 package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
-import spotlight.content.Report
 
-class ReportSiteController {
+class PortfolioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -13,7 +12,7 @@ class ReportSiteController {
 
     //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
 	def _webList (){
-		def webLists = ReportSite.list(params.id)
+		def webLists = Portfolio.list(params.id)
 		def webreports = Report.listOrderByLastUpdated(reportsite:webLists ).get(5)
         def reportscount = Report.count()
            [webLists: webLists, webreports: webreports, reportscount: reportscount]
@@ -21,8 +20,8 @@ class ReportSiteController {
          }
 
     def reportcount (){
-        def sitel = ReportSite.get(params)
-            def sitereports = Report.list(ReportSite.load(params))
+        def sitel = Portfolio.get(params)
+            def sitereports = Report.list(Portfolio.load(params))
                 def countreports = sitereports.count(sitereports)
         [countreports: countreports]
     }
@@ -40,7 +39,7 @@ class ReportSiteController {
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
         def rsNumb = ReportSite.count()
-        [reportSiteInstanceList: ReportSite.list(params), reportSiteInstanceTotal: ReportSite.count(), rsNumb: rsNumb]
+        [reportSiteInstanceList: Portfolio.list(params), reportSiteInstanceTotal: ReportSite.count(), rsNumb: rsNumb]
         
     }
 	
@@ -71,7 +70,7 @@ class ReportSiteController {
     }
 
     def edit(Long id) {
-        def reportSiteInstance = ReportSite.get(id)
+        def reportSiteInstance = Portfolio.get(id)
         if (!reportSiteInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportSite.label', default: 'ReportSite'), id])
             redirect(action: "list")
@@ -82,7 +81,7 @@ class ReportSiteController {
     }
 
     def update(Long id, Long version) {
-        def reportSiteInstance = ReportSite.get(id)
+        def reportSiteInstance = Portfolio.get(id)
         if (!reportSiteInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportSite.label', default: 'ReportSite'), id])
             redirect(action: "list")
@@ -111,7 +110,7 @@ class ReportSiteController {
     }
 
     def delete(Long id) {
-        def reportSiteInstance = ReportSite.get(id)
+        def reportSiteInstance = Portfolio.get(id)
         if (!reportSiteInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'reportSite.label', default: 'ReportSite'), id])
             redirect(action: "list")

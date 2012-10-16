@@ -1,9 +1,7 @@
 package spotlight.content
 
-import javassist.runtime.Desc
-
 class Report {
-	static belongsTo = [reportsite: ReportSite]
+	static belongsTo = [reportsite: Portfolio]
 	static hasMany = [tags: ReportTag]
 	
 	String reportName

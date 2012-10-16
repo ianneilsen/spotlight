@@ -1,13 +1,10 @@
 package spotlight.content
 
-
-
-import org.junit.*
 import grails.test.mixin.*
 
-@TestFor(ReportSiteController)
+@TestFor(PortfolioController)
 @Mock(ReportSite)
-class ReportSiteControllerTests {
+class PortfolioControllerTests {
 
     def populateValidParams(params) {
         assert params != null
@@ -57,7 +54,7 @@ class ReportSiteControllerTests {
         assert response.redirectedUrl == '/reportSite/list'
 
         populateValidParams(params)
-        def reportSite = new ReportSite(params)
+        def reportSite = new Portfolio(params)
 
         assert reportSite.save() != null
 
@@ -95,7 +92,7 @@ class ReportSiteControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def reportSite = new ReportSite(params)
+        def reportSite = new Portfolio(params)
 
         assert reportSite.save() != null
 
@@ -139,17 +136,17 @@ class ReportSiteControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def reportSite = new ReportSite(params)
+        def reportSite = new Portfolio(params)
 
         assert reportSite.save() != null
-        assert ReportSite.count() == 1
+        assert Portfolio.count() == 1
 
         params.id = reportSite.id
 
         controller.delete()
 
         assert ReportSite.count() == 0
-        assert ReportSite.get(reportSite.id) == null
+        assert Portfolio.get(reportSite.id) == null
         assert response.redirectedUrl == '/reportSite/list'
     }
 }

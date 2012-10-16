@@ -1,4 +1,4 @@
-<%@ page import="spotlight.content.Report" %>
+<%@ page import="spotlight.content.Portfolio; spotlight.content.portfolio; spotlight.content.Report" %>
 
 
 
@@ -41,7 +41,7 @@
 		<g:message code="report.reportsite.label" default="Linked to Report Site" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="reportsite" name="reportsite.id" from="${spotlight.content.ReportSite.list()}" optionKey="id" required="" value="${reportInstance?.reportsite?.id}" class="many-to-one"/>
+	<g:select id="reportsite" name="reportsite.id" from="${Portfolio.list()}" optionKey="id" required="" value="${reportInstance?.reportsite?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reportInstance, field: 'tags', 'error')} ">

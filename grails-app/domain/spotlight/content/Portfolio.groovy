@@ -1,6 +1,6 @@
 package spotlight.content
 
-class ReportSite {
+class Portfolio {
 	static hasMany = [reports: Report]
 	ReportProfile reportprofile
 		

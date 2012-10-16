@@ -12,7 +12,7 @@ class ReportController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 20, 100)
-             [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count(), numofreports: numofreports ]
+             [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count() ]
 
     }
 
