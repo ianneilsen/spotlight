@@ -11,8 +11,15 @@ class ReportController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-           [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count()]
+        params.max = Math.min(max ?: 20, 100)
+             [reportInstanceList: Report.list(params), reportInstanceTotal: Report.count(), numofreports: numofreports ]
+
+    }
+
+    def numofreports (){
+        def countreports = Report.list()
+            def  numofreports = countreports.count(Report: Report)
+        [numofreports: numofreports ]
     }
 
     def create() {

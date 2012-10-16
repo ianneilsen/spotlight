@@ -23,7 +23,8 @@
 
                    <h6>Number of reports: ${reportscount}</h6>
 
-                   <p>Report count is: ${reportscount}</p>
+                   <p>Report count is: ${Report.count()}</p>
+                <h6>Number of reports: ${numofreports}</h6>
 
 
 			<g:if test="${rsl?.reports}">
@@ -31,9 +32,12 @@
                 <li class="fieldcontain">
 					<span id="reports-label" class="property-label"><g:message code="reportSite.reports.label" default="Last 5 Reports:" /></span>
 					<g:each in="${rsl.reports}" var="r">
+
                       	<span class="property-value" aria-labelledby="reports-label"><g:link controller="report" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+
 			        </g:each>
-			    </li>
+                    <h6>Number of reports: ${numofreports}</h6>
+                     </li>
                 </ul>
                 </g:if>
                </div>

@@ -14,11 +14,18 @@ class ReportSiteController {
     //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
 	def _webList (){
 		def webLists = ReportSite.list(params.id)
-		def webreports = Report.list([sort:"lastUpdated", order: "asc", max:'5'])
-        def reportList = Report.find
-        def reportscount = reportList.count {reportList}
+		def webreports = Report.listOrderByLastUpdated(reportsite:webLists ).get(5)
+        def reportscount = Report.count()
            [webLists: webLists, webreports: webreports, reportscount: reportscount]
-   }
+
+         }
+
+    def reportcount (){
+        def sitel = ReportSite.get(params)
+            def sitereports = Report.list(ReportSite.load(params))
+                def countreports = sitereports.count(sitereports)
+        [countreports: countreports]
+    }
      // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
     //TODO: fix count - count total reports where site = id
 //    def reportcount(){
@@ -31,7 +38,7 @@ class ReportSiteController {
 //    def rsNumb = ReportSite.count() 
     
     def list(Integer max) {
-        params.max = Math.min(max ?: 5, 100)
+        params.max = Math.min(max ?: 4, 100)
         def rsNumb = ReportSite.count()
         [reportSiteInstanceList: ReportSite.list(params), reportSiteInstanceTotal: ReportSite.count(), rsNumb: rsNumb]
         

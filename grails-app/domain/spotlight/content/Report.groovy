@@ -1,5 +1,7 @@
 package spotlight.content
 
+import javassist.runtime.Desc
+
 class Report {
 	static belongsTo = [reportsite: ReportSite]
 	static hasMany = [tags: ReportTag]
@@ -13,10 +15,9 @@ class Report {
 	                    //TODO: check why content mapping not producing a text box - possibly twitter-bootstrap issue in report.controller
 
 	static mapping ={
-		reportcontent type: 'text'
-        table 'Report'
-        reportSite_Id column: 'Report_Site_Id'
-		
+		reportcontent type: "text"
+        sort(lastUpdated:"desc")
+
 	}
 	
 	static constraints = {
