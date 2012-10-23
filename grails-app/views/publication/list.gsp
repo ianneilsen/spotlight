@@ -1,21 +1,21 @@
 
-<%@ page import="spotlight.content.Report" %>
+<%@ page import="spotlight.content.Publication" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'report.label', default: 'Report')}" />
+		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-report" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#list-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/reportSite/List')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-report" class="content scaffold-list" role="main">
+		<div id="list-publication" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -24,42 +24,42 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="reportName" title="${message(code: 'report.reportName.label', default: 'Report Name')}" />
+						<g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
 					
-						<g:sortableColumn property="reportcontent" title="${message(code: 'report.reportcontent.label', default: 'Report Content')}" />
+						<g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
 					
-						<g:sortableColumn property="published" title="${message(code: 'report.published.label', default: 'Is Published')}" />
+						<g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 					
-						<g:sortableColumn property="publisheddate" title="${message(code: 'report.publisheddate.label', default: 'Published Date')}" />
+						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'report.dateCreated.label', default: 'Date Created')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="lastUpdated" title="${message(code: 'report.lastUpdated.label', default: 'Last Updated')}" />
+						<g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', default: 'Last Updated')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${reportInstanceList}" status="i" var="reportInstance">
+				<g:each in="${publicationInstanceList}" status="i" var="publicationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${reportInstance.id}">${fieldValue(bean: reportInstance, field: "reportName")}</g:link></td>
+						<td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 					
-						<td>${fieldValue(bean: reportInstance, field: "reportcontent")}</td>
+						<td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 					
-						<td>${fieldValue(bean: reportInstance, field: "published")}</td>
+						<td>${fieldValue(bean: publicationInstance, field: "published")}</td>
 					
-						<td><g:formatDate date="${reportInstance.publisheddate}" /></td>
+						<td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
 					
-						<td><g:formatDate date="${reportInstance.dateCreated}" /></td>
+						<td><g:formatDate date="${publicationInstance.dateCreated}" /></td>
 					
-						<td><g:formatDate date="${reportInstance.lastUpdated}" /></td>
+						<td><g:formatDate date="${publicationInstance.lastUpdated}" /></td>
 					
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${reportInstanceTotal}" />
+				<g:paginate total="${publicationInstanceTotal}" />
 			</div>
 		</div>
 	</body>

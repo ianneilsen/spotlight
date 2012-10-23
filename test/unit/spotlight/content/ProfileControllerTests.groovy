@@ -17,35 +17,35 @@ class ProfileControllerTests {
 
     void testIndex() {
         controller.index()
-        assert "/reportProfile/list" == response.redirectedUrl
+        assert "/profile/list" == response.redirectedUrl
     }
 
     void testList() {
 
         def model = controller.list()
 
-        assert model.reportProfileInstanceList.size() == 0
-        assert model.reportProfileInstanceTotal == 0
+        assert model.profileInstanceList.size() == 0
+        assert model.profileInstanceTotal == 0
     }
 
     void testCreate() {
         def model = controller.create()
 
-        assert model.reportProfileInstance != null
+        assert model.profileInstance != null
     }
 
     void testSave() {
         controller.save()
 
-        assert model.reportProfileInstance != null
-        assert view == '/reportProfile/create'
+        assert model.profileInstance != null
+        assert view == '/profile/create'
 
         response.reset()
 
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/reportProfile/show/1'
+        assert response.redirectedUrl == '/profile/show/1'
         assert controller.flash.message != null
         assert Profile.count() == 1
     }
@@ -54,102 +54,102 @@ class ProfileControllerTests {
         controller.show()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/reportProfile/list'
+        assert response.redirectedUrl == '/profile/list'
 
         populateValidParams(params)
-        def reportProfile = new Profile(params)
+        def profile = new Profile(params)
 
-        assert reportProfile.save() != null
+        assert profile.save() != null
 
-        params.id = reportProfile.id
+        params.id = profile.id
 
         def model = controller.show()
 
-        assert model.reportProfileInstance == reportProfile
+        assert model.profileInstance == profile
     }
 
     void testEdit() {
         controller.edit()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/reportProfile/list'
+        assert response.redirectedUrl == '/profile/list'
 
         populateValidParams(params)
-        def reportProfile = new Profile(params)
+        def profile = new Profile(params)
 
-        assert reportProfile.save() != null
+        assert profile.save() != null
 
-        params.id = reportProfile.id
+        params.id = profile.id
 
         def model = controller.edit()
 
-        assert model.reportProfileInstance == reportProfile
+        assert model.profileInstance == profile
     }
 
     void testUpdate() {
         controller.update()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/reportProfile/list'
+        assert response.redirectedUrl == '/profile/list'
 
         response.reset()
 
         populateValidParams(params)
-        def reportProfile = new Profile(params)
+        def profile = new Profile(params)
 
-        assert reportProfile.save() != null
+        assert profile.save() != null
 
         // test invalid parameters in update
-        params.id = reportProfile.id
+        params.id = profile.id
         //TODO: add invalid values to params object
 
         controller.update()
 
-        assert view == "/reportProfile/edit"
-        assert model.reportProfileInstance != null
+        assert view == "/profile/edit"
+        assert model.profileInstance != null
 
-        reportProfile.clearErrors()
+        profile.clearErrors()
 
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/reportProfile/show/$reportProfile.id"
+        assert response.redirectedUrl == "/profile/show/$profile.id"
         assert flash.message != null
 
         //test outdated version number
         response.reset()
-        reportProfile.clearErrors()
+        profile.clearErrors()
 
         populateValidParams(params)
-        params.id = reportProfile.id
+        params.id = profile.id
         params.version = -1
         controller.update()
 
-        assert view == "/reportProfile/edit"
-        assert model.reportProfileInstance != null
-        assert model.reportProfileInstance.errors.getFieldError('version')
+        assert view == "/profile/edit"
+        assert model.profileInstance != null
+        assert model.profileInstance.errors.getFieldError('version')
         assert flash.message != null
     }
 
     void testDelete() {
         controller.delete()
         assert flash.message != null
-        assert response.redirectedUrl == '/reportProfile/list'
+        assert response.redirectedUrl == '/profile/list'
 
         response.reset()
 
         populateValidParams(params)
-        def reportProfile = new Profile(params)
+        def profile = new Profile(params)
 
-        assert reportProfile.save() != null
+        assert profile.save() != null
         assert Profile.count() == 1
 
-        params.id = reportProfile.id
+        params.id = profile.id
 
         controller.delete()
 
         assert Profile.count() == 0
-        assert Profile.get(reportProfile.id) == null
-        assert response.redirectedUrl == '/reportProfile/list'
+        assert Profile.get(profile.id) == null
+        assert response.redirectedUrl == '/profile/list'
     }
 }

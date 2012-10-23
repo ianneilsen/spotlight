@@ -1,97 +1,97 @@
 
-<%@ page import="spotlight.content.Report" %>
+<%@ page import="spotlight.content.Publication" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'report.label', default: 'Report')}" />
+		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-report" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/reportSite/List')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="show-report" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /> for <g:link controller="reportSite" action="show" id="${reportInstance?.reportsite?.id}">${reportInstance?.reportsite?.encodeAsHTML()}</g:link> </h1>
+		<div id="show-publication" class="content scaffold-show" role="main">
+			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list report">
+			<ol class="property-list publication">
 			
-				<g:if test="${reportInstance?.reportName}">
+				<g:if test="${publicationInstance?.publicationName}">
 				<li class="fieldcontain">
-					<span id="reportName-label" class="property-label"><g:message code="report.reportName.label" default="Report Name" /></span>
+					<span id="publicationName-label" class="property-label"><g:message code="publication.publicationName.label" default="Publication Name" /></span>
 					
-						<span class="property-value" aria-labelledby="reportName-label"><g:fieldValue bean="${reportInstance}" field="reportName"/></span>
+						<span class="property-value" aria-labelledby="publicationName-label"><g:fieldValue bean="${publicationInstance}" field="publicationName"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.reportcontent}">
+				<g:if test="${publicationInstance?.publicationContent}">
 				<li class="fieldcontain">
-					<span id="reportcontent-label" class="property-label"><g:message code="report.reportcontent.label" default="Report Content" /></span>
+					<span id="publicationContent-label" class="property-label"><g:message code="publication.publicationContent.label" default="Publication Content" /></span>
 					
-						<span class="property-value" aria-labelledby="reportcontent-label"><g:fieldValue bean="${reportInstance}" field="reportcontent"/></span>
+						<span class="property-value" aria-labelledby="publicationContent-label"><g:fieldValue bean="${publicationInstance}" field="publicationContent"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.published}">
+				<g:if test="${publicationInstance?.published}">
 				<li class="fieldcontain">
-					<span id="published-label" class="property-label"><g:message code="report.published.label" default="Is Published" /></span>
+					<span id="published-label" class="property-label"><g:message code="publication.published.label" default="Published" /></span>
 					
-						<span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${reportInstance}" field="published"/></span>
+						<span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${publicationInstance}" field="published"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.publisheddate}">
+				<g:if test="${publicationInstance?.publisheddate}">
 				<li class="fieldcontain">
-					<span id="publisheddate-label" class="property-label"><g:message code="report.publisheddate.label" default="Published Date" /></span>
+					<span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Publisheddate" /></span>
 					
-						<span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${reportInstance?.publisheddate}" /></span>
+						<span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${publicationInstance?.publisheddate}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.dateCreated}">
+				<g:if test="${publicationInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="report.dateCreated.label" default="Date Created" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date Created" /></span>
 					
-						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${reportInstance?.dateCreated}" /></span>
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${publicationInstance?.dateCreated}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.lastUpdated}">
+				<g:if test="${publicationInstance?.lastUpdated}">
 				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="report.lastUpdated.label" default="Last Updated" /></span>
+					<span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last Updated" /></span>
 					
-						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${reportInstance?.lastUpdated}" /></span>
+						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.reportsite}">
+				<g:if test="${publicationInstance?.portfolio}">
 				<li class="fieldcontain">
-					<span id="reportsite-label" class="property-label"><g:message code="report.reportsite.label" default="Back to list for Site" /></span>
+					<span id="portfolio-label" class="property-label"><g:message code="publication.portfolio.label" default="Portfolio" /></span>
 					
-						<span class="property-value" aria-labelledby="reportsite-label"><g:link controller="reportSite" action="show" id="${reportInstance?.reportsite?.id}">${reportInstance?.reportsite?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="portfolio-label"><g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${reportInstance?.tags}">
+				<g:if test="${publicationInstance?.pubtags}">
 				<li class="fieldcontain">
-					<span id="tags-label" class="property-label"><g:message code="report.tags.label" default="Tags" /></span>
+					<span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Pubtags" /></span>
 					
-						<g:each in="${reportInstance.tags}" var="t">
-						<span class="property-value" aria-labelledby="tags-label"><g:link controller="publicationTag" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
+						<g:each in="${publicationInstance.pubtags}" var="p">
+						<span class="property-value" aria-labelledby="pubtags-label"><g:link controller="publicationTag" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
@@ -100,8 +100,8 @@
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${reportInstance?.id}" />
-					<g:link class="edit" action="edit" id="${reportInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:hiddenField name="id" value="${publicationInstance?.id}" />
+					<g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>

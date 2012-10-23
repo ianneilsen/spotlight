@@ -6,7 +6,7 @@ import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(PublicationController)
-@Mock(Report)
+@Mock(Publication)
 class PublicationControllerTests {
 
     def populateValidParams(params) {
@@ -17,139 +17,139 @@ class PublicationControllerTests {
 
     void testIndex() {
         controller.index()
-        assert "/report/list" == response.redirectedUrl
+        assert "/publication/list" == response.redirectedUrl
     }
 
     void testList() {
 
         def model = controller.list()
 
-        assert model.reportInstanceList.size() == 0
-        assert model.reportInstanceTotal == 0
+        assert model.publicationInstanceList.size() == 0
+        assert model.publicationInstanceTotal == 0
     }
 
     void testCreate() {
         def model = controller.create()
 
-        assert model.reportInstance != null
+        assert model.publicationInstance != null
     }
 
     void testSave() {
         controller.save()
 
-        assert model.reportInstance != null
-        assert view == '/report/create'
+        assert model.publicationInstance != null
+        assert view == '/publication/create'
 
         response.reset()
 
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/report/show/1'
+        assert response.redirectedUrl == '/publication/show/1'
         assert controller.flash.message != null
-        assert Report.count() == 1
+        assert Publication.count() == 1
     }
 
     void testShow() {
         controller.show()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/report/list'
+        assert response.redirectedUrl == '/publication/list'
 
         populateValidParams(params)
-        def report = new Report(params)
+        def publication = new Publication(params)
 
-        assert report.save() != null
+        assert publication.save() != null
 
-        params.id = report.id
+        params.id = publication.id
 
         def model = controller.show()
 
-        assert model.reportInstance == report
+        assert model.publicationInstance == publication
     }
 
     void testEdit() {
         controller.edit()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/report/list'
+        assert response.redirectedUrl == '/publication/list'
 
         populateValidParams(params)
-        def report = new Report(params)
+        def publication = new Publication(params)
 
-        assert report.save() != null
+        assert publication.save() != null
 
-        params.id = report.id
+        params.id = publication.id
 
         def model = controller.edit()
 
-        assert model.reportInstance == report
+        assert model.publicationInstance == publication
     }
 
     void testUpdate() {
         controller.update()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/report/list'
+        assert response.redirectedUrl == '/publication/list'
 
         response.reset()
 
         populateValidParams(params)
-        def report = new Report(params)
+        def publication = new Publication(params)
 
-        assert report.save() != null
+        assert publication.save() != null
 
         // test invalid parameters in update
-        params.id = report.id
+        params.id = publication.id
         //TODO: add invalid values to params object
 
         controller.update()
 
-        assert view == "/report/edit"
-        assert model.reportInstance != null
+        assert view == "/publication/edit"
+        assert model.publicationInstance != null
 
-        report.clearErrors()
+        publication.clearErrors()
 
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/report/show/$report.id"
+        assert response.redirectedUrl == "/publication/show/$publication.id"
         assert flash.message != null
 
         //test outdated version number
         response.reset()
-        report.clearErrors()
+        publication.clearErrors()
 
         populateValidParams(params)
-        params.id = report.id
+        params.id = publication.id
         params.version = -1
         controller.update()
 
-        assert view == "/report/edit"
-        assert model.reportInstance != null
-        assert model.reportInstance.errors.getFieldError('version')
+        assert view == "/publication/edit"
+        assert model.publicationInstance != null
+        assert model.publicationInstance.errors.getFieldError('version')
         assert flash.message != null
     }
 
     void testDelete() {
         controller.delete()
         assert flash.message != null
-        assert response.redirectedUrl == '/report/list'
+        assert response.redirectedUrl == '/publication/list'
 
         response.reset()
 
         populateValidParams(params)
-        def report = new Report(params)
+        def publication = new Publication(params)
 
-        assert report.save() != null
-        assert Report.count() == 1
+        assert publication.save() != null
+        assert Publication.count() == 1
 
-        params.id = report.id
+        params.id = publication.id
 
         controller.delete()
 
-        assert Report.count() == 0
-        assert Report.get(report.id) == null
-        assert response.redirectedUrl == '/report/list'
+        assert Publication.count() == 0
+        assert Publication.get(publication.id) == null
+        assert response.redirectedUrl == '/publication/list'
     }
 }

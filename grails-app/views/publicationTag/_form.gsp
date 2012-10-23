@@ -4,7 +4,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: publicationTagInstance, field: 'pubtagname', 'error')} ">
 	<label for="pubtagname">
-		<g:message code="publicationTag.pubtagname.label" default="Tag Name" />
+		<g:message code="publicationTag.pubtagname.label" default="Pubtagname" />
 		
 	</label>
 	<g:textField name="pubtagname" maxlength="100" value="${publicationTagInstance?.pubtagname}"/>
@@ -15,6 +15,6 @@
 		<g:message code="publicationTag.publications.label" default="Publications" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="publications" name="publications.id" from="${spotlight.publicationContent.Publication.list()}" optionKey="id" required="" value="${publicationTagInstance?.publications?.id}" class="many-to-one"/>
+	<g:select id="publications" name="publications.id" from="${spotlight.content.Publication.list()}" optionKey="id" required="" value="${publicationTagInstance?.publications?.id}" class="many-to-one"/>
 </div>
 

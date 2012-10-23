@@ -1,35 +1,35 @@
-<%@ page import="spotlight.content.Report" %>
+<%@ page import="spotlight.content.Publication" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'report.label', default: 'Report')}" />
+		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#edit-report" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<a href="#edit-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/reportSite/List')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="edit-report" class="content scaffold-edit" role="main">
+		<div id="edit-publication" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<g:hasErrors bean="${reportInstance}">
+			<g:hasErrors bean="${publicationInstance}">
 			<ul class="errors" role="alert">
-				<g:eachError bean="${reportInstance}" var="error">
+				<g:eachError bean="${publicationInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
 			<g:form method="post" >
-				<g:hiddenField name="id" value="${reportInstance?.id}" />
-				<g:hiddenField name="version" value="${reportInstance?.version}" />
+				<g:hiddenField name="id" value="${publicationInstance?.id}" />
+				<g:hiddenField name="version" value="${publicationInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

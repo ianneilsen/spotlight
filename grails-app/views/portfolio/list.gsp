@@ -1,5 +1,5 @@
 
-<%@ page import="spotlight.content.Publication; spotlight.content.Portfolio" %>
+<%@ page import="spotlight.content.Portfolio" %>
 <!doctype html>
 <html>
 	<head>
@@ -11,7 +11,7 @@
 		<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -26,36 +26,33 @@
 					
 						<g:sortableColumn property="portfolioName" title="${message(code: 'portfolio.portfolioName.label', default: 'Portfolio Name')}" />
 					
-						<g:sortableColumn property="portdescrip" title="${message(code: 'portfolio.portdescrip.label', default: 'Portfolio Info')}" />
+						<g:sortableColumn property="portdescrip" title="${message(code: 'portfolio.portdescrip.label', default: 'Portdescrip')}" />
 					
-						<g:sortableColumn property="portpublished" title="${message(code: 'portfolio.portpublished.label', default: 'Is Globally Published')}" />
+						<g:sortableColumn property="portpublished" title="${message(code: 'portfolio.portpublished.label', default: 'Portpublished')}" />
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'portfolio.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'portfolio.lastUpdated.label', default: 'Last Updated')}" />
-						
-					    <g:sortableColumn property="portfolioAdmin" title="${message(code: 'profile.portfolioAdmin.label', default: 'Portfolio Admin')}" />
-
-					                  // TODO: remove sorting on portfolio admin column or fix. sorting not needed on column.
-                                      // TODO: place table into side column. weblist will take precendence.
+					
+						<th><g:message code="portfolio.profile.label" default="Profile" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${portfolioInstanceList}" status="i" var="rsi"> <!-- var=portfolioInstance -->
+				<g:each in="${portfolioInstanceList}" status="i" var="portfolioInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${rsi.id}">${fieldValue(bean: rsi, field: "portfolioName")}</g:link></td>
+						<td><g:link action="show" id="${portfolioInstance.id}">${fieldValue(bean: portfolioInstance, field: "portfolioName")}</g:link></td>
 					
-						<td>${fieldValue(bean: rsi, field: "portdescrip")}</td>
+						<td>${fieldValue(bean: portfolioInstance, field: "portdescrip")}</td>
 					
-						<td>${fieldValue(bean: rsi, field: "portpublished")}</td>
+						<td>${fieldValue(bean: portfolioInstance, field: "portpublished")}</td>
 					
-						<td><g:formatDate date="${rsi.dateCreated}" /></td>
+						<td><g:formatDate date="${portfolioInstance.dateCreated}" /></td>
 					
-						<td><g:formatDate date="${rsi.lastUpdated}" /></td>
-						
-								
-						<td><g:link controller="profile" action="show" id="${rsi?.profile?.id}">${rsi?.profile?.encodeAsHTML()}</g:link></td>
+						<td><g:formatDate date="${portfolioInstance.lastUpdated}" /></td>
+					
+						<td>${fieldValue(bean: portfolioInstance, field: "profile")}</td>
 					
 					</tr>
 				</g:each>
@@ -65,7 +62,5 @@
 				<g:paginate total="${portfolioInstanceTotal}" />
 			</div>
 		</div>
-
-        <g:include controller="portfolio" action="_webList" />
 	</body>
 </html>

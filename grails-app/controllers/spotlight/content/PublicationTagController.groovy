@@ -26,14 +26,14 @@ class PublicationTagController {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), publicationTagInstance.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), publicationTagInstance.id])
         redirect(action: "show", id: publicationTagInstance.id)
     }
 
     def show(Long id) {
         def publicationTagInstance = PublicationTag.get(id)
         if (!publicationTagInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "list")
             return
         }
@@ -44,7 +44,7 @@ class PublicationTagController {
     def edit(Long id) {
         def publicationTagInstance = PublicationTag.get(id)
         if (!publicationTagInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "list")
             return
         }
@@ -55,7 +55,7 @@ class PublicationTagController {
     def update(Long id, Long version) {
         def publicationTagInstance = PublicationTag.get(id)
         if (!publicationTagInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "list")
             return
         }
@@ -63,8 +63,8 @@ class PublicationTagController {
         if (version != null) {
             if (publicationTagInstance.version > version) {
                 publicationTagInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'publicationTag.label', default: 'Publication Tag')] as Object[],
-                          "Another user has updated this Publication Tag while you were editing")
+                          [message(code: 'publicationTag.label', default: 'PublicationTag')] as Object[],
+                          "Another user has updated this PublicationTag while you were editing")
                 render(view: "edit", model: [publicationTagInstance: publicationTagInstance])
                 return
             }
@@ -77,25 +77,25 @@ class PublicationTagController {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), publicationTagInstance.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), publicationTagInstance.id])
         redirect(action: "show", id: publicationTagInstance.id)
     }
 
     def delete(Long id) {
         def publicationTagInstance = PublicationTag.get(id)
         if (!publicationTagInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "list")
             return
         }
 
         try {
             publicationTagInstance.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'publicationTag.label', default: 'Publication Tag'), id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'publicationTag.label', default: 'PublicationTag'), id])
             redirect(action: "show", id: id)
         }
     }

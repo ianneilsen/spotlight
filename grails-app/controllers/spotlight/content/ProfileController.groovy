@@ -55,7 +55,7 @@ class ProfileController {
     def update(Long id, Long version) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'profile'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'profile.label', default: 'Profile'), id])
             redirect(action: "list")
             return
         }

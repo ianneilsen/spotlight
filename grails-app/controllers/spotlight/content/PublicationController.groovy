@@ -11,15 +11,8 @@ class PublicationController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 20, 100)
-             [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count() ]
-
-    }
-
-    def numofpublications (){
-        def countpublications = Publication.list()
-            def  numofpublications = countpublications.count(Publication: Publication)
-        [numofpublications: numofpublications ]
+        params.max = Math.min(max ?: 10, 100)
+        [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
     def create() {
@@ -47,17 +40,6 @@ class PublicationController {
 
         [publicationInstance: publicationInstance]
     }
-    
-//        def weblistshow(Long id) {
-//        def publicationInstance = Publication.get(id)
-//        if (!publicationInstance) {
-//            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
-//            redirect(controller:"publication", action: "show")
-//            return
-//        }
-//
-//        [publicationInstance: publicationInstance]
-//    }
 
     def edit(Long id) {
         def publicationInstance = Publication.get(id)

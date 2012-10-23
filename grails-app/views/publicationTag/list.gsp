@@ -1,16 +1,17 @@
+
 <%@ page import="spotlight.content.PublicationTag" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'publicationTag.label', default: 'Publication Tag')}" />
+		<g:set var="entityName" value="${message(code: 'publicationTag.label', default: 'PublicationTag')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<a href="#list-publicationTag" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -23,7 +24,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="pubtagname" title="${message(code: 'publicationTag.pubtagname.label', default: 'Tag Name')}" />
+						<g:sortableColumn property="pubtagname" title="${message(code: 'publicationTag.pubtagname.label', default: 'Pubtagname')}" />
 					
 						<th><g:message code="publicationTag.publications.label" default="Publications" /></th>
 					
