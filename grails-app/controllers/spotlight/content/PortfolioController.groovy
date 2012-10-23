@@ -9,10 +9,37 @@ class PortfolioController {
     def index() {
         redirect(action: "list", params: params)
     }
+    //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
+    def _webList (){
+        def webLists = Portfolio.list(params.id)
+        def webreports = Publication.listOrderByLastUpdated(Portfolio:webLists )//.get(5)
+        def reportscount = Publication.count()
+        [webLists: webLists, webreports: webreports, reportscount: reportscount]
+
+    }
+
+    def reportcount (){
+        def portfolioresults = Portfolio.get(params)
+        def sitereports = Publication.list(Portfolio.load(params))
+        def countreports = sitereports.count(sitereports)
+        [portfolioresults: portfolioresults, countreports: countreports]
+    }
+    // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
+    //TODO: fix count - count total reports where site = id
+//    def reportcount(){
+//       def siteList=Portfolio.list()
+//            def reportList = Portfolio? Report.list()
+//                def reportcount = Report.count()
+//                [reportcount:reportcount]
+//    }
+
+//    def rsNumb = Portfolio.count()
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [portfolioInstanceList: Portfolio.list(params), portfolioInstanceTotal: Portfolio.count()]
+        params.max = Math.min(max ?: 4, 100)
+        def rsNumb = Portfolio.count()
+        [portfolioInstanceList: Portfolio.list(params), portfolioInstanceTotal: Portfolio.count(), rsNumb: rsNumb]
+
     }
 
     def create() {

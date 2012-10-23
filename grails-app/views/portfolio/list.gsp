@@ -11,7 +11,7 @@
 		<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -53,6 +53,8 @@
 						<td><g:formatDate date="${portfolioInstance.lastUpdated}" /></td>
 					
 						<td>${fieldValue(bean: portfolioInstance, field: "profile")}</td>
+
+                        <td><g:link controller="profile" action="show" id="${rsi?.profile?.id}">${rsi?.profile?.encodeAsHTML()}</g:link></td>
 					
 					</tr>
 				</g:each>
@@ -62,5 +64,6 @@
 				<g:paginate total="${portfolioInstanceTotal}" />
 			</div>
 		</div>
+    <g:include controller="portfolio" action="_webList" />
 	</body>
 </html>

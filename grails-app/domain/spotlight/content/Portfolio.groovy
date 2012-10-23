@@ -2,7 +2,7 @@ package spotlight.content
 
 class Portfolio {
 	static hasMany = [publications: Publication]
-	Profile profile
+    Profile profile
 		
 	String portfolioName
 	String portdescrip
@@ -20,8 +20,9 @@ class Portfolio {
     static mapping = {
         portfolioAdmin lazy:false
     }
-	
-	String toString() {
+
+
+    String toString() {
 		PortfolioName
 	}
 
