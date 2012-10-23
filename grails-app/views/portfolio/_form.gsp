@@ -1,51 +1,51 @@
-<%@ page import="spotlight.content.ReportSite" %>
+<%@ page import="spotlight.content.Portfolio" %>
 
 
 
-<div class="fieldcontain ${hasErrors(bean: reportSiteInstance, field: 'siteName', 'error')} required">
-	<label for="siteName">
-		<g:message code="reportSite.siteName.label" default="Site Name" />
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portfolioName', 'error')} required">
+	<label for="portfolioName">
+		<g:message code="portfolio.portfolioName.label" default="Portfolio Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="siteName" maxlength="170" required="" value="${reportSiteInstance?.siteName}"/>
+	<g:textField name="portfolioName" maxlength="170" required="" value="${portfolioInstance?.portfolioName}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reportSiteInstance, field: 'sdescription', 'error')} required">
-	<label for="sdescription">
-		<g:message code="reportSite.sdescription.label" default="Report Site Descrip" />
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portdescrip', 'error')} required">
+	<label for="portdescrip">
+		<g:message code="portfolio.portdescrip.label" default="Portfolio Site Descrip" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sdescription" maxlength="200" required="" value="${reportSiteInstance?.sdescription}"/>
+	<g:textField name="portdescrip" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reportSiteInstance, field: 'spublished', 'error')} required">
-	<label for="spublished">
-		<g:message code="reportSite.spublished.label" default="Site is published" />
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portpublished', 'error')} required">
+	<label for="portpublished">
+		<g:message code="portfolio.portpublished.label" default="Site is published" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="spublished" from="${reportSiteInstance.constraints.spublished.inList}" required="" value="${fieldValue(bean: reportSiteInstance, field: 'spublished')}" valueMessagePrefix="reportSite.spublished"/>
+	<g:select name="portpublished" from="${portfolioInstance.constraints.portpublished.inList}" required="" value="${fieldValue(bean: portfolioInstance, field: 'portpublished')}" valueMessagePrefix="portfolio.portpublished"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reportSiteInstance, field: 'reportprofile', 'error')} required">
-	<label for="reportprofile">
-		<g:message code="reportSite.reportprofile.label" default="Report Profile" />
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portfolioprofile', 'error')} required">
+	<label for="profile">
+		<g:message code="portfolio.profile.label" default="Portfolio Profile" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="reportprofile" name="reportprofile.id" from="${spotlight.content.ReportProfile.list()}" optionKey="id" required="" value="${reportSiteInstance?.reportprofile?.id}" class="many-to-one"/>
+	<g:select id="profile" name="profile.id" from="${spotlight.content.profile.list()}" optionKey="id" required="" value="${portfolioInstance?.profile?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: reportSiteInstance, field: 'reports', 'error')} ">
-	<label for="reports">
-		<g:message code="reportSite.reports.label" default="Linked Reports" />
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'publications', 'error')} ">
+	<label for="publications">
+		<g:message code="portfolio.publications.label" default="Linked publications" />
 		
 	</label>
 	
 <ul class="one-to-many">
-<g:each in="${reportSiteInstance?.reports?}" var="r">
-    <li><g:link controller="report" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+<g:each in="${portfolioInstance?.publications?}" var="r">
+    <li><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="report" action="create" params="['reportSite.id': reportSiteInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'report.label', default: 'Report')])}</g:link>
+<g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'Publications')])}</g:link>
 </li>
 </ul>
 

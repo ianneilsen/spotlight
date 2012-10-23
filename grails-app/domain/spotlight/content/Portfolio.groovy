@@ -1,28 +1,28 @@
 package spotlight.content
 
 class Portfolio {
-	static hasMany = [reports: Report]
-	ReportProfile reportprofile
+	static hasMany = [publications: Publication]
+	Profile profile
 		
-	String siteName
-	String sdescription
-	Integer spublished
+	String portfolioName
+	String portdescrip
+	Integer portpublished
 	Date dateCreated
 	Date lastUpdated
-                      //TODO: check name mapping of sitename best practice
+                      
     static constraints = {
-		siteName (blank: false, size: 5..170, unique: true)
-		sdescription (blank: false, size: 5..200)
-		spublished (blank: false, inList:[1,0])
-        //ReportProfile (unique: true)
+        portfolioName (blank: false, size: 5..170, unique: true)
+        portdescrip (blank: false, size: 5..200)
+        portpublished (blank: false, inList:[1,0])
+        //Profile (unique: true)
     }
-	
-	static mapping = {
-		siteadmin lazy:false
+
+    static mapping = {
+        portfolioAdmin lazy:false
     }
 	
 	String toString() {
-		return siteName
+		PortfolioName
 	}
 
 }
