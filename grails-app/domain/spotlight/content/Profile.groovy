@@ -2,7 +2,7 @@ package spotlight.content
 
 
 class Profile {
-	static belongsTo = [portfolio: Portfolio]
+	static belongsTo = [portfolio:Portfolio]
 		
 	String portfoliohtml
 	String portfolioEmail

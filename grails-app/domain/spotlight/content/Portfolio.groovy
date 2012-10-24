@@ -1,7 +1,12 @@
 package spotlight.content
 
+import org.apache.commons.collections.list.LazyList;
+import org.apache.commons.collections.FactoryUtils;
+import spotlight.content.Publication
+
 class Portfolio {
-	static hasMany = [publications: Publication]
+//    List publications = new ArrayList()
+	static hasMany = [publications:Publication]
     Profile profile
 		
 	String portfolioName
@@ -21,9 +26,13 @@ class Portfolio {
         portfolioAdmin lazy:false
     }
 
-
     String toString() {
-		PortfolioName
+		portfolioName
 	}
 
+/*    def getPublicationsList() {
+        return LazyList.decorate(
+                publications,
+                FactoryUtils.instantiateFactory(Publication.class))
+    }*/
 }

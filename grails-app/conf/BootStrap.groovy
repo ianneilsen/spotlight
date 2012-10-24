@@ -1,59 +1,94 @@
 import java.util.Date;
-
-import spotlight.content.Profile
-import spotlight.content.Portfolio
-import spotlight.content.Publication
-
-
+import spotlight.content.Profile;
+import spotlight.content.Portfolio;
+import spotlight.content.Publication;
+import spotlight.content.PublicationTag;
 
 class BootStrap {
 
     def init = { servletContext ->
 
-        def profile1 = new Profile(portfoliohtml:"Yes",portfolioEmail:"ian@ian.com",portfoliocc:"ian@ian.com",portfolioAdmin:"Ian Neilsen",
-                portfolioFilestore:"home folder",portfolioColor:"red",bugzillaproduct:"bugzilla product",bugzillacomponent:"bz component",
-                rtqueue:"hss-rap",teamqueueemail:"hss-rap-list@redhat.com",etherpadurl:"http://url.com",siteupload:1).save(failOnError: true)
+    def portfolio = new Portfolio(portfolioName:"Portfolio 1", portdescrip:"portfolio descrition field", portpublished:1)
+        portfolio.profile =  new Profile(portfoliohtml:"No",
+                                        portfolioEmail: "ian@redhat.com",
+                                        portfolioAdmin:"Ian Neilsen",
+                                        bugzillaproduct:"bz prod name",
+                                        bugzillacomponent:"comp name",
+                                        siteupload:1,
+                                        portfoliocc: "ian@ian.com",
+                                        portfolioColor:"red",
+                                        portfolioFilestore:"blah",
+                                        rtqueue:"hss-rap",
+                                        teamqueueemail:"hss-rap@redhat.com",
+                                        etherpadurl:"http://url.com",)
+        portfolio.save(failOnError: true)
 
-        def detail1 = new Portfolio(portfolioName:"Site 1",portdescrip:"Site information about site",portpublished:1,portfolioprofile:  profile1).save(failOnError: true)
+    def portfolio2 = new Portfolio(portfolioName:"Portfolio 2", portdescrip:"portfolio2 descrition field", portpublished:1)
+        portfolio2.profile =  new Profile(portfoliohtml:"Yes",
+                portfolioEmail: "ian@redhat.com",
+                portfolioAdmin:"neilo",
+                bugzillaproduct:"bz name",
+                bugzillacomponent:"component name",
+                siteupload:1,
+                portfoliocc: "ian@ian.com",
+                portfolioColor:"blue",
+                portfolioFilestore:"where are your files",
+                rtqueue:"hss-rap",
+                teamqueueemail:"hss-rap@redhat.com",
+                etherpadurl:"http://etherpad.url.com",)
+        portfolio2.save(failOnError: true)
 
-        def reportcontent1 = new Publication(publicationName:"Week 70 - Report 1", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent2 = new Publication(publicationName:"Week 70 - Report 2", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent3 = new Publication(publicationName:"Week 70 - Report 3", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent4 = new Publication(publicationName:"Week 70 - Report 4", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent5 = new Publication(publicationName:"Week 70 - Report 5", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent6 = new Publication(publicationName:"Week 70 - Report 6", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
-        def reportcontent7 = new Publication(publicationName:"Week 70 - Report 7", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"Yes",portfolio:detail1).save()
+    def portfolio3 = new Portfolio(portfolioName:"Portfolio 3", portdescrip:"portfolio3 descrition field", portpublished:0)
+        portfolio3.profile =  new Profile(portfoliohtml:"No",
+                portfolioEmail: "ian@redhat.com",
+                portfolioAdmin:"neilo",
+                bugzillaproduct:"bugzilla prod",
+                bugzillacomponent:"1",
+                siteupload:1,
+                portfoliocc: "ian@ian.com",
+                portfolioColor:"pink",
+                portfolioFilestore:"where are your files",
+                rtqueue:"hss-rap",
+                teamqueueemail:"hss-rap@redhat.com",
+                etherpadurl:"http://etherpad.url.com",)
+        portfolio3.save(failOnError: true)
 
-        def profile2 = new Profile(portfoliohtml:"No",portfolioEmail:"ian@ian.com",portfoliocc:"ian@ian.com",portfolioAdmin:"RAP Team",
-                portfolioFilestore:"a folder",portfolioColor:"blue",bugzillaproduct:"product",bugzillacomponent:"component",
-                rtqueue:"hss",teamqueueemail:"hss-rap@redhat.com",etherpadurl:"http://someurl.com",siteupload:0).save(failOnError: true)
+    def portfolio4 = new Portfolio(portfolioName:"Portfolio 4", portdescrip:"portfolio4 descrition field", portpublished:1)
+        portfolio4.profile =  new Profile(portfoliohtml:"Yes",
+                portfolioEmail: "ian@redhat.com",
+                portfolioAdmin:"neilo",
+                bugzillaproduct:"12378",
+                bugzillacomponent:"999987",
+                siteupload:1,
+                portfoliocc: "ian@ian.com",
+                portfolioColor:"black",
+                portfolioFilestore:"where are your files",
+                rtqueue:"hss-rap",
+                teamqueueemail:"hss-rap@redhat.com",
+                etherpadurl:"http://etherpad.url.com",)
+        portfolio4.save(failOnError: true)
 
-        def detail2 = new Portfolio(portfolioName:"Site 2", portdescrip:"Site information about site 2", portpublished:0, portfolioprofile: profile2).save(failOnError: true)
-
-        def reportcontent8 = new Publication(publicationName:"Report 1", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent9 = new Publication(publicationName:"Report 2", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent10 = new Publication(publicationName:"Report 3", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent11 = new Publication(publicationName:"Report 4", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent12 = new Publication(publicationName:"Report 5", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent13 = new Publication(publicationName:"Report 6", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-        def reportcontent14 = new Publication(publicationName:"Report 7", publicationContent: "this is the text of the report",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail2).save()
-
-        def profile3 = new Profile(portfoliohtml:"No",portfolioEmail:"ian@redhat.com",portfoliocc:"ian@redhat.com",portfolioAdmin:"Docs QE Team",
-                portfolioFilestore:"a folder",portfolioColor:"green",bugzillaproduct:"product2",bugzillacomponent:"component2",
-                rtqueue:"hss-rap",teamqueueemail:"hss-rap-list@redhat.com",etherpadurl:"http://someurl.com",siteupload:0).save(failOnError: true)
-
-        def detail3 = new Portfolio(portfolioName:"Site 3 - Entitlement", portdescrip:"Site information about site 3 entitlement", portpublished:1, portfolioprofile: profile3).save(failOnError: true)
-
-        def reportcontent15 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 40", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('08/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent16 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 41", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('09/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent17 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 42", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('10/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent18 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 43", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('11/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent19 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 44", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('12/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent20 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 45", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('13/10/2012'),published:"No",portfolio:detail3).save()
-        def reportcontent21 = new Publication(publicationName:"Entitlement Weekly Executive Briefing - Week 46", publicationContent: "this is the text of the report for the report but a little longer than the others",publisheddate: new Date('14/10/2012'),published:"No",portfolio:detail3).save()
-
+    def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing -3", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing -4", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing -5", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing -6", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio).save(failOnError: true)
+        def r7 = new Publication(publicationName:"RAP Weekly Executive Briefing -7", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r8 = new Publication(publicationName:"RAP Weekly Executive Briefing -8", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r9 = new Publication(publicationName:"RAP Weekly Executive Briefing -9", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r10 = new Publication(publicationName:"RAP Weekly Executive Briefing -10", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r11 = new Publication(publicationName:"RAP Weekly Executive Briefing -11", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r12 = new Publication(publicationName:"RAP Weekly Executive Briefing -12", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2).save(failOnError: true)
+        def r13 = new Publication(publicationName:"RAP Weekly Executive Briefing -13", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
+        def r14 = new Publication(publicationName:"RAP Weekly Executive Briefing -14", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
+        def r15 = new Publication(publicationName:"RAP Weekly Executive Briefing -15", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
+        def r16 = new Publication(publicationName:"RAP Weekly Executive Briefing -16", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
+        def r17 = new Publication(publicationName:"RAP Weekly Executive Briefing -17", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
+        def r18 = new Publication(publicationName:"RAP Weekly Executive Briefing -18", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3).save(failOnError: true)
 
     }
+
     
 	def destroy = {
     }

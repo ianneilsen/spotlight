@@ -9,6 +9,7 @@
 			<div class="alert alert-info">Permissions apply to <strong>editing</strong> reports or documents.<br>
 			<p>Click portfolio name to read or edit publications.</p>
                 <p><h5> Total number of sites: ${rsNumb}</h5></p>
+                    <h6>Total number of publications: ${reportscount}</h6>
 			</div>
 	<br>
 <!--<div id="show-Portfolio" class="content scaffold-show" role="main">         -->
@@ -21,10 +22,7 @@
 			<div>Site Description: ${rsl.portdescrip }</div>
 			<div>Site Administrator: ${rsl.profile.portfolioAdmin }</div>
 
-                   <h6>Number of publications: ${reportscount}</h6>
-
-                   <p>Publication count is: ${Publication.count()}</p>
-                <h6>Number of publications: ${numofreports}</h6>
+             <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
 
 
 			<g:if test="${rsl?.publications}">
@@ -36,7 +34,7 @@
                       	<span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 
 			        </g:each>
-                    <h6>Number of publications: ${numofreports}</h6>
+                    <h6>Number of publications: </h6>
                      </li>
                 </ul>
                 </g:if>
