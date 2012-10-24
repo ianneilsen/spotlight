@@ -2,6 +2,7 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 
+
 class PortfolioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -12,12 +13,11 @@ class PortfolioController {
     //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
     def _webList (){
         def webLists = Portfolio.list(params.id)
-        def webreports = Publication.listOrderByLastUpdated(Portfolio:webLists )//.get(5)
+        def webreports = Publication.listOrderByLastUpdated(Portfolio:webLists )
         def reportscount = Publication.count()
         [webLists: webLists, webreports: webreports, reportscount: reportscount]
 
     }
-
     def reportcount (){
         def portfolioresults = Portfolio.get(params)
         def sitereports = Publication.list(Portfolio.load(params))
@@ -26,14 +26,6 @@ class PortfolioController {
     }
     // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
     //TODO: fix count - count total reports where site = id
-//    def reportcount(){
-//       def siteList=Portfolio.list()
-//            def reportList = Portfolio? Report.list()
-//                def reportcount = Report.count()
-//                [reportcount:reportcount]
-//    }
-
-//    def rsNumb = Portfolio.count()
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)

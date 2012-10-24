@@ -75,20 +75,7 @@
 						<span class="property-value" aria-labelledby="profile-label"><g:link controller="profile" action="show" id="${portfolioInstance?.profile?.id}">${portfolioInstance?.profile?.encodeAsHTML()}</g:link></span>
 					
 				</li>
-				</g:if>
-			
-				<g:if test="${portfolioInstance?.publications}">
-				<li class="fieldcontain">
-					<span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Publications" /></span>
-					
-						<g:each in="${portfolioInstance.publications}" var="p">
-						<span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-			</ol>
+
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${portfolioInstance?.id}" />
@@ -97,6 +84,9 @@
 				</fieldset>
 			</g:form>
 		</div>
+                </g:if>
+
+
     <table>
         <thead>
         <tr>
@@ -116,10 +106,10 @@
         </tr>
         </thead>
         <tbody>
-        <g:each in="${publicationInstanceList}" status="i" var="publicationInstance">
+        <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                <td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
+                <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
                 <td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 
