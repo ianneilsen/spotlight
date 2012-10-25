@@ -15,7 +15,7 @@
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-	<g:textField name="publicationContent" value="${publicationInstance?.publicationContent}"/>
+	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"></g:textArea>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'published', 'error')} required">

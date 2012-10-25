@@ -11,6 +11,8 @@ class PortfolioController {
         redirect(action: "list", params: params)
     }
     //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
+    //TODO - add in subscription model
+    //TODO - add in user profile page - ajax live updates for subscriptions based on categories
     def _webList (){
         def webLists = Portfolio.list(params.id)
         def webreports = Publication.listOrderByLastUpdated(Portfolio:webLists )
@@ -24,7 +26,7 @@ class PortfolioController {
         def countreports = sitereports.count(sitereports)
         [portfolioresults: portfolioresults, countreports: countreports]
     }
-    // TODO: apply styling to weblist.gsp - better li ,border, font styling double columns.
+    // TODO: fix styling for  weblist column data - narrow col width or padding
     //TODO: fix count - count total reports where site = id
 
     def list(Integer max) {

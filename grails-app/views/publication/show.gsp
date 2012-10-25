@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="publicationContent-label" class="property-label"><g:message code="publication.publicationContent.label" default="Publication Content" /></span>
 					
-						<span class="property-value" aria-labelledby="publicationContent-label"><g:fieldValue bean="${publicationInstance}" field="publicationContent"/></span>
+						<span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><g:fieldValue bean="${publicationInstance}" field="publicationContent"/></markdown:renderHtml></span>
 					
 				</li>
 				</g:if>
