@@ -111,7 +111,7 @@
 
                 <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
-                <td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
+                <td style="word-wrap:break-word;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 
                 <td>${fieldValue(bean: publicationInstance, field: "published")}</td>
 
