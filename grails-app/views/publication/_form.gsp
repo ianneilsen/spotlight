@@ -1,7 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
 
-
-
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
 	<label for="publicationName">
 		<g:message code="publication.publicationName.label" default="Publication Name" />
@@ -56,6 +54,4 @@
 <g:link controller="publicationTag" action="create" params="['publication.id': publicationInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publicationTag.label', default: 'PublicationTag')])}</g:link>
 </li>
 </ul>
-
 </div>
-

@@ -724,3 +724,9 @@ a.skip {
 .property-list ul{list-style:none; marign:0; padding: 0; }
 .property-list ul li  > span:first-child{display: block; margin: 0; width: 100%; display:block; float:none; font-weight: bold; }
 .property-list ul li  span{ margin-left: 0 !important;}
+
+#back-top {
+    position: relative;
+    bottom: 30px;
+
+}
