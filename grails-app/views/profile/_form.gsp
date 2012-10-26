@@ -15,15 +15,17 @@
 		<g:message code="profile.portfolioEmail.label" default="Portfolio Email" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="email" name="portfolioEmail" required="" value="${profileInstance?.portfolioEmail}"/>
+	<div class="input-prepend">
+        <span class="add-on">@</span> <g:field type="email" name="portfolioEmail" required="" value="${profileInstance?.portfolioEmail}"/></div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfoliocc', 'error')} ">
 	<label for="portfoliocc">
 		<g:message code="profile.portfoliocc.label" default="Portfoliocc" />
-		
 	</label>
-	<g:field type="email" name="portfoliocc" value="${profileInstance?.portfoliocc}"/>
+    <div class="input-prepend">
+      <span class="add-on">@</span><g:field type="email" name="portfoliocc" value="${profileInstance?.portfoliocc}"/>
+    </div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfolioColor', 'error')} ">
@@ -87,7 +89,9 @@
 		<g:message code="profile.teamqueueemail.label" default="Teamqueueemail" />
 		
 	</label>
-	<g:field type="email" name="teamqueueemail" value="${profileInstance?.teamqueueemail}"/>
+    <div class="input-prepend">
+      <span class="add-on">@</span><g:field type="email" name="teamqueueemail" value="${profileInstance?.teamqueueemail}"/>
+    </div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'etherpadurl', 'error')} ">
@@ -95,7 +99,9 @@
 		<g:message code="profile.etherpadurl.label" default="Etherpadurl" />
 		
 	</label>
-	<g:field type="url" name="etherpadurl" value="${profileInstance?.etherpadurl}"/>
+    <div class="input-prepend">
+      <span class="add-on">URL</span><g:field type="url" name="etherpadurl" value="${profileInstance?.etherpadurl}"/>
+    </div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfolio', 'error')} required">
