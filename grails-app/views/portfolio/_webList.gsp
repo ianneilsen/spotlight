@@ -15,8 +15,9 @@
 			  <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
 			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>
 
-              <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
-
+              <h6>Number of publications: ${portfolioInstance?.Publication?.size()}</h6>
+                  <h6>pubscount: ${pubscount}</h6>
+                  <h6>pubscount: ${numberpubs}</h6>
 
 	 <g:if test="${rsl?.publications}">
          <ul class="site-publication">
@@ -26,17 +27,15 @@
 
            <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
              </g:each>
-               <h6>Number of publications: </h6>
+               <h6>pubscount: ${pubscount}</h6>
+               <h6>pubscount: ${numberpubs}</h6>
            </li>
 
          </ul>
      </g:if>
      </div>
-     </g:each>
-
-     <g:each in="${portfolioInstance?.publications?}" var="r">
-     <li><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
 </g:each>
+
 </div>
 
 <!-- todo - add in mobile css for report lists -->

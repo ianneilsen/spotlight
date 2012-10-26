@@ -26,6 +26,13 @@ class PortfolioController {
         def countreports = sitereports.count(sitereports)
         [portfolioresults: portfolioresults, countreports: countreports]
     }
+
+    def numberpubs (){
+        def portfolios = Portfolio.get(id)
+            def pubs = portfolios.publications.findAll()
+        pubs.executeQuery("select count(*) from publication where portfolioId = params.id")
+    }
+
     // TODO: fix styling for  weblist column data - narrow col width or padding
     //TODO: fix count - count total reports where site = id
 
