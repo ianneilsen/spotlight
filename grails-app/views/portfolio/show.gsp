@@ -113,8 +113,8 @@
 
                 <td style="text-overflow: ellipsis; width: 30em; height: 2em; display:block; overflow: hidden; white-space: nowrap;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 
-                <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
-                     <g:else><p class="label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>
+                <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
+                     <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>
                     </td>
 
                 <td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
@@ -129,3 +129,5 @@
     </table>
 	</body>
 </html>
+
+<!-- todo - tidy up css for table and show vie win general -->

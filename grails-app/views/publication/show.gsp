@@ -43,7 +43,7 @@
 			
 				<g:if test="${publicationInstance?.published}">
 				<li class="fieldcontain">
-					<span id="published-label" class="property-label"><g:message code="publication.published.label" default="Published" /></span>
+					<span id="published-label" class="property-label"><g:message code="publication.published.label" default="Is Published" /></span>
 					
 						<span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${publicationInstance}" field="published"/></span>
 					

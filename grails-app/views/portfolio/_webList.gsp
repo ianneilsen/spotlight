@@ -2,9 +2,6 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Publication" %>
 
-<div class="well well-small">
-		<h3>Available sites for external consumption:</h3>
-		</div>
             <div class="alert alert-info">Permissions apply to <strong>editing</strong> reports or documents.<br>
 			<p>Click portfolio name to read or edit publications.</p>
                 <p><h5> Total number of sites: ${rsNumb}</h5></p>
@@ -14,9 +11,9 @@
      <div class="property-list portfolio">
            <g:each in="${webLists}" status="i" var="rsl">
               <div class="site-listing">
-			  <div>Site Name: <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
-			  <div>Site Description: ${rsl.portdescrip }</div>
-			  <div>Site Administrator: ${rsl.profile.portfolioAdmin }</div>
+			  <div><span class="label">Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
+			  <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
+			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>
 
               <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
 

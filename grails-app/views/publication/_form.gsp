@@ -18,7 +18,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'published', 'error')} required">
 	<label for="published">
-		<g:message code="publication.published.label" default="Published" />
+		<g:message code="publication.published.label" default="Ready for publishing" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
@@ -26,7 +26,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publisheddate', 'error')} required">
 	<label for="publisheddate">
-		<g:message code="publication.publisheddate.label" default="Publisheddate" />
+		<g:message code="publication.publisheddate.label" default="Publish on date" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
