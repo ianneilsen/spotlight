@@ -111,9 +111,11 @@
 
                 <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
-                <td style="word-wrap:break-word;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
+                <td style="text-overflow: ellipsis; width: 30em; height: 2em; display:block; overflow: hidden; white-space: nowrap;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 
-                <td>${fieldValue(bean: publicationInstance, field: "published")}</td>
+                <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
+                     <g:else><p class="label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>
+                    </td>
 
                 <td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
 
