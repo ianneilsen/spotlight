@@ -10,20 +10,17 @@ class Publication {
 	String published
 	Date dateCreated
 	Date lastUpdated
-	                    //TODO: check why content mapping not producing a text box - possibly twitter-bootstrap issue in publication.controller
 
 	static mapping ={
 		publicationContent type: "text"
-        sort(lastUpdated:"desc")
-
-	}
+        sort(lastUpdated: "asc")
+    }
 	
 	static constraints = {
 		publicationName (blank: false, unique: true, size: 8..100)
 		publicationContent (blank: true)
 		published (blank: false, inList: ["Yes","No"])
 		publisheddate (blank: false)
-        
     }
 
     String toString(){
