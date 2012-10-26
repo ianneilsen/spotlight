@@ -2,12 +2,12 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Publication" %>
 
-            <div class="alert alert-info">Permissions apply to <strong>editing</strong> reports or documents.<br>
+            <div class="alert alert-info">Permissions apply to <strong>editing</strong> publications.<br>
 			<p>Click portfolio name to read or edit publications.</p>
                 <p><h5> Total number of sites: ${rsNumb}</h5></p>
                     <h6>Total number of publications: ${reportscount}</h6>
 			</div>
-<!--<div id="show-Portfolio" class="content scaffold-show" role="main">         -->
+<!--<div id="show-Portfolio" class="content scaffold-show" role="main"         -->
      <div class="property-list portfolio">
            <g:each in="${webLists}" status="i" var="rsl">
               <div class="site-listing">
