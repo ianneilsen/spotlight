@@ -34,7 +34,7 @@
 			
 				<g:if test="${portfolioInstance?.portdescrip}">
 				<li class="fieldcontain">
-					<span id="portdescrip-label" class="property-label"><g:message code="portfolio.portdescrip.label" default="Portdescrip" /></span>
+					<span id="portdescrip-label" class="property-label"><g:message code="portfolio.portdescrip.label" default="Portfolio Description" /></span>
 					
 						<span class="property-value" aria-labelledby="portdescrip-label"><g:fieldValue bean="${portfolioInstance}" field="portdescrip"/></span>
 					
@@ -43,7 +43,7 @@
 			
 				<g:if test="${portfolioInstance?.portpublished}">
 				<li class="fieldcontain">
-					<span id="portpublished-label" class="property-label"><g:message code="portfolio.portpublished.label" default="Portpublished" /></span>
+					<span id="portpublished-label" class="property-label"><g:message code="portfolio.portpublished.label" default="Portfolio Protected" /></span>
 					
 						<span class="property-value" aria-labelledby="portpublished-label"><g:fieldValue bean="${portfolioInstance}" field="portpublished"/></span>
 					
@@ -52,7 +52,7 @@
 			
 				<g:if test="${portfolioInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="portfolio.dateCreated.label" default="Date Created" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="portfolio.dateCreated.label" default="Portfolio created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${portfolioInstance?.dateCreated}" /></span>
 					
@@ -61,7 +61,7 @@
 			
 				<g:if test="${portfolioInstance?.lastUpdated}">
 				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="portfolio.lastUpdated.label" default="Last Updated" /></span>
+					<span id="lastUpdated-label" class="property-label"><g:message code="portfolio.lastUpdated.label" default="Portfolio last updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${portfolioInstance?.lastUpdated}" /></span>
 					
@@ -70,7 +70,7 @@
 			
 				<g:if test="${portfolioInstance?.profile}">
 				<li class="fieldcontain">
-					<span id="profile-label" class="property-label"><g:message code="portfolio.profile.label" default="Profile" /></span>
+					<span id="profile-label" class="property-label"><g:message code="portfolio.profile.label" default="Portfolio Profile" /></span>
 					
 						<span class="property-value" aria-labelledby="profile-label"><g:link controller="profile" action="show" id="${portfolioInstance?.profile?.id}">${portfolioInstance?.profile?.encodeAsHTML()}</g:link></span>
 					
@@ -97,7 +97,7 @@
 
             <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 
-            <g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
+            <g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publish Date')}" />
 
             <g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 

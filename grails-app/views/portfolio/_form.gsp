@@ -12,7 +12,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portdescrip', 'error')} required">
 	<label for="portdescrip">
-		<g:message code="portfolio.portdescrip.label" default="Portdescrip" />
+		<g:message code="portfolio.portdescrip.label" default="Portfolio site description" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="portdescrip" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
@@ -20,7 +20,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'portpublished', 'error')} required">
 	<label for="portpublished">
-		<g:message code="portfolio.portpublished.label" default="Portpublished" />
+		<g:message code="portfolio.portpublished.label" default="Portfolio is Protected" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="portpublished" from="${portfolioInstance.constraints.portpublished.inList}" required="" value="${fieldValue(bean: portfolioInstance, field: 'portpublished')}" valueMessagePrefix="portfolio.portpublished"/>
@@ -28,7 +28,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'profile', 'error')} required">
 	<label for="profile">
-		<g:message code="portfolio.profile.label" default="Profile" />
+		<g:message code="portfolio.profile.label" default="Site Admin" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="profile" name="profile.id" from="${spotlight.content.Profile.list()}" optionKey="id" required="" value="${portfolioInstance?.profile?.id}" class="many-to-one"/>

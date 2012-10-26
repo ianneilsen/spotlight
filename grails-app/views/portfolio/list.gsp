@@ -27,13 +27,13 @@
 					
 						<g:sortableColumn property="portfolioName" title="${message(code: 'portfolio.portfolioName.label', default: 'Portfolio Name')}" />
 					
-						<g:sortableColumn property="portdescrip" title="${message(code: 'portfolio.portdescrip.label', default: 'Portdescrip')}" />
+						<g:sortableColumn property="portdescrip" title="${message(code: 'portfolio.portdescrip.label', default: 'Portfolio Info')}" />
 					
-						<g:sortableColumn property="portpublished" title="${message(code: 'portfolio.portpublished.label', default: 'Portpublished')}" />
+						<g:sortableColumn property="portpublished" title="${message(code: 'portfolio.portpublished.label', default: 'Portfolio Protected')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'portfolio.dateCreated.label', default: 'Date Created')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'portfolio.dateCreated.label', default: 'Portfolio Created')}" />
 					
-						<g:sortableColumn property="lastUpdated" title="${message(code: 'portfolio.lastUpdated.label', default: 'Last Updated')}" />
+						<g:sortableColumn property="lastUpdated" title="${message(code: 'portfolio.lastUpdated.label', default: 'Portfolio Last Updated')}" />
 					
 						<th><g:message code="portfolio.profile.label" default="Profile" /></th>
 					

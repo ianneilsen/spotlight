@@ -39,5 +39,6 @@
 </g:each>
 </div>
 
-
+<!-- todo - add in mobile css for report lists -->
+<!-- todo - fix column widths and padding in whole page -->
 
