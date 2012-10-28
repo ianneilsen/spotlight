@@ -60,7 +60,19 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
-
+//Markdownplugin config settings
+markdown.tables = true           // Configuration
+markdown.fencedCodeBlocks = true
+markdown.autoLinks = true
+markdown.hardwraps = true
+markdown.fencedCodeBlocks = true
+markdown.smart = true
+markdown.definitionLists = true
+markdown.abbreviations = true
+//markdown.autoLinks = true
+//markdown.removeHtml = true       // Configuration  set trueor false based on portfolio site htmlflag call the map
+//[removeHtml: true]               // Custom Map
+/////////////////////////////////////
 environments {
     development {
         grails.logging.jul.usebridge = true
