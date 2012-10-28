@@ -2,7 +2,6 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 
-
 class PortfolioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -13,28 +12,15 @@ class PortfolioController {
     //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
     //TODO - add in subscription model
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
+
     def _webList (){
         def webLists = Portfolio.list(params.id)
-        def webreports = Publication.listOrderByLastUpdated(Portfolio:webLists )
+        def webreports = Publication.findAll("from Publication as p where p.published=:published",[published:"Yes"],[max:5])
         def reportscount = Publication.count()
         [webLists: webLists, webreports: webreports, reportscount: reportscount]
-
-    }
-    def reportcount (){
-        def portfolioresults = Portfolio.get(params)
-        def sitereports = Publication.list(Portfolio.load(params))
-        def countreports = sitereports.count(sitereports)
-        [portfolioresults: portfolioresults, countreports: countreports]
-    }
-
-    def numberpubs (){
-        def portfolios = Portfolio.get(id)
-            def pubs = portfolios.publications.findAll()
-        pubs.executeQuery("select count(*) from publication where portfolioId = params.id")
     }
 
     // TODO: fix styling for  weblist column data - narrow col width or padding
-    //TODO: fix count - count total reports where site = id
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
