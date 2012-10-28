@@ -1,5 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
-
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
 	<label for="publicationName">
 		<g:message code="publication.publicationName.label" default="Publication Name" />
