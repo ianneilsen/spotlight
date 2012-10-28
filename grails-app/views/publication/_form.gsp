@@ -8,28 +8,28 @@
 	<g:textField name="publicationName" maxlength="100" required="" value="${publicationInstance?.publicationName}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'published', 'error')} required">
+    <label for="published">
+        <g:message code="publication.published.label" default="Ready for publishing" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publisheddate', 'error')} required">
+    <label for="publisheddate">
+        <g:message code="publication.publisheddate.label" default="Publish on date" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
 	<label for="publicationContent">
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"></g:textArea>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'published', 'error')} required">
-	<label for="published">
-		<g:message code="publication.published.label" default="Ready for publishing" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publisheddate', 'error')} required">
-	<label for="publisheddate">
-		<g:message code="publication.publisheddate.label" default="Publish on date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
+	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">

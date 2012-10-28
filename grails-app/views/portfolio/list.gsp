@@ -16,8 +16,7 @@
             </ul>
 		</div>
 		<div id="list-portfolio" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <div class="reportcount" style="position: relative;left: 200px; z-index: 1;"><p>Total number of sites: ${rsNumb}</p> </div>
+			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${rsNumb}</span> </div>
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

@@ -2,7 +2,7 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Publication" %>
 
-<div class="alert alert-info">Permissions apply to <strong>editing</strong> publications.<br>
+<div class="alert alert-info" xmlns="http://www.w3.org/1999/html">Permissions apply to <strong>editing</strong> publications.<br>
 	<p>Click portfolio name to read or edit publications.</p>
     <p><h5> Total number of sites: ${rsNumb}</h5></p>
     <h6>Total number of publications: ${reportscount}</h6>
@@ -13,8 +13,8 @@
        <div class="site-listing">
               <div><span class="label">Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
 			  <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
-			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>
-              <h6>Total ${rsl.publications.size()} publications</h6>
+			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
+       <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
 
 	 <g:if test="${rsl?.publications}">
          <ul class="site-publication">

@@ -15,6 +15,15 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+    <g:form method="post" >
+        <g:hiddenField name="id" value="${publicationInstance?.id}" />
+        <g:hiddenField name="version" value="${publicationInstance?.version}" />
+        <fieldset class="buttons">
+            <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+            <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+            <a href="#bottom">To Bottom page</a>
+        </fieldset>
+    </g:form>
 		<div id="edit-publication" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">

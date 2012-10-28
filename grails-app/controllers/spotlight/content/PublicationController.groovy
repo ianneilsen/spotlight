@@ -92,11 +92,11 @@ class PublicationController {
         try {
             publicationInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'publication.label', default: 'Publication'), id])
-            redirect(action: "list")
+            redirect(controller: "portfolio", action: "show", id: "publication.portfolioId")
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'publication.label', default: 'Publication'), id])
             redirect(action: "show", id: id)
-        }
+        }                                 //todo - fix redirect on delete action to redirect to portfolio/show/$id  not list
     }
 }

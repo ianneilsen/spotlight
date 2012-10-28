@@ -70,7 +70,7 @@ markdown.smart = true
 markdown.definitionLists = true
 markdown.abbreviations = true
 //markdown.autoLinks = true
-//markdown.removeHtml = true       // Configuration  set trueor false based on portfolio site htmlflag call the map
+markdown.removeHtml = false       // Configuration  set true or false based on portfolio site profile-htmlflag call the map
 //[removeHtml: true]               // Custom Map
 /////////////////////////////////////
 environments {
