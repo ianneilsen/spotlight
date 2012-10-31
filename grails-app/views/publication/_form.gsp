@@ -1,5 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
 	<label for="publicationName">
 		<g:message code="publication.publicationName.label" default="Publication Name" />
@@ -24,12 +24,16 @@
     <g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
 </div>
 
+<!-- editor -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
 	<label for="publicationContent">
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
+    <ckeditor:editor name="publicationContent" height="400px" width="50%">
+        ${publicationInstance?.publicationContent}
+    </ckeditor:editor>
+	<!--//<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>               -->
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">
