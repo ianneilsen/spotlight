@@ -17,6 +17,7 @@
        <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
 
 	 <g:if test="${rsl?.publications}">
+         <g:set var="publications" value="2"/>
          <ul class="site-publication">
            <li class="fieldcontain">
 		   <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 Publications:" /></span>

@@ -30,10 +30,7 @@
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-    <ckeditor:editor name="publicationContent" height="400px" width="50%">
-        ${publicationInstance?.publicationContent}
-    </ckeditor:editor>
-	<!--//<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>               -->
+	<g:textArea id="markitup" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">

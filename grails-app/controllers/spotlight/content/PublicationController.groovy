@@ -6,6 +6,9 @@ class PublicationController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def testmarkitup (){
+
+    }
     def index() {
         redirect(action: "list", params: params)
     }
