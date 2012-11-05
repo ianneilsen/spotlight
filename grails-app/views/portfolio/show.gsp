@@ -105,6 +105,14 @@
 
         </tr>
         </thead>
+        <ul class="one-to-many">
+%{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+            </g:each>--}%
+            <li class="add">
+                <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'Publication')])}</g:link>
+            </li>
+        </ul>
         <tbody>
         <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">

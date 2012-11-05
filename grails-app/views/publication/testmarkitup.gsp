@@ -13,12 +13,12 @@
     <meta charset="utf-8">
 
     <title>markItUp! Universal markup editor</title>
-  <g:javascript library="jquery"/>
+<g:setProvider library="jquery"/>
 
     <script type="text/javascript" src="jquery.markdown-editor.js"></script>
 </head>
 
-    <script type="text/javascript">
+<g:javascript>
 
         jQuery(document).ready(function($){
 
@@ -26,7 +26,7 @@
 
         });
 
-    </script>
+    </g:javascript>
 
     <style type="text/css">
 

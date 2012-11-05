@@ -3,6 +3,7 @@ package spotlight.content
 class Publication {
 	static belongsTo = [portfolio: Portfolio]
 	static hasMany = [pubtags: PublicationTag]
+    static hasOne = [Pubcategory, Pubproduct]
 	
 	String publicationName
 	String publicationContent
@@ -19,7 +20,7 @@ class Publication {
 	static constraints = {
 		publicationName (blank: false, unique: true, size: 8..100)
 		publicationContent (blank: true)
-		published (blank: false, inList: ["Yes","No"])
+		published (blank: false, inList: ["No","Yes"])
 		publisheddate (blank: false)
     }
 
