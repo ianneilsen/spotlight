@@ -2,11 +2,11 @@ package spotlight.content
 
 class Pubcategory {
 
-    static belongsTo = [Publication]
+    String pubcategory
 
-    String pubCategory
+ Publication publication
 
     static constraints = {
-        pubCategory(blank: true)
+        pubcategory(blank: true, size: 2..100)
     }
 }

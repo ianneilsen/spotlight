@@ -22,7 +22,7 @@
            <li class="fieldcontain">
 		   <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 Publications:" /></span>
 			        <g:each in="${rsl.publications}" var="r">
-           <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+           <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" maxSize="5" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
              </g:each>
            </li>
          </ul>

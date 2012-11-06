@@ -1,4 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
+<%@ page import="spotlight.content.Pubproduct" %>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
 	<label for="publicationName">
@@ -24,13 +25,38 @@
     <g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
 </div>
 
+<!------------------------------------------------------------------------------------------------------>
+<div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'pubproduct', 'error')} ">
+    <label for="pubproduct">
+        <g:message code="pubproduct.pubproduct.label" default="Pubproduct" />
+
+    </label>
+    <g:textField name="pubproduct" maxlength="100" value="${pubproductInstance?.pubproduct}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'publication', 'error')} required">
+    <label for="publication">
+        <g:message code="pubproduct.publication.label" default="Publication" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select id="publication" name="publication.id" from="${spotlight.content.Publication.list()}" optionKey="id" required="" value="${pubproductInstance?.publication?.id}" class="many-to-one"/>
+</div>
+
+
+
+
+
+<!------------------------------------------------------------------------------------------------------->
+
+
+
 <!-- editor -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
 	<label for="publicationContent">
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-	<g:textArea id="markitup" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
+	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">

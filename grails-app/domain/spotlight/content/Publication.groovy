@@ -1,10 +1,7 @@
 package spotlight.content
 
 class Publication {
-	static belongsTo = [portfolio: Portfolio]
-	static hasMany = [pubtags: PublicationTag]
-    static hasOne = [Pubcategory, Pubproduct]
-	
+
 	String publicationName
 	String publicationContent
 	Date publisheddate = new Date()
@@ -16,7 +13,10 @@ class Publication {
 		publicationContent type: "text"
         sort(lastUpdated: "asc")
     }
-	
+
+    static belongsTo = [portfolio: Portfolio]
+    static hasMany = [pubtags: PublicationTag]
+
 	static constraints = {
 		publicationName (blank: false, unique: true, size: 8..100)
 		publicationContent (blank: true)

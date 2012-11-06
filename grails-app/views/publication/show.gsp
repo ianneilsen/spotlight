@@ -1,5 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
-
+<%@ page import="spotlight.content.Pubproduct" %>
 <!doctype html>
 <html>
 	<head>
@@ -73,6 +73,18 @@
 					
 				</li>
 				</g:if>
+
+
+                <g:if test="${pubproductInstance?.pubproduct}">
+                    <li class="fieldcontain">
+                        <span id="pubproduct-label" class="property-label"><g:message code="pubproduct.pubproduct.label" default="Product" /></span>
+
+                        <g:each in="${pubproductInstance.pubproduct}" var="p">
+                            <span class="property-value" aria-labelledby="pubtags-label"><g:link controller="pubproduct" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+                        </g:each>
+
+                    </li>
+                </g:if>
 
                 <g:if test="${publicationInstance?.publicationContent}">
                     <li class="fieldcontain">

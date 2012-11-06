@@ -4,9 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class PubproductController {
 
-    static scaffold = true
-
-/*    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -100,5 +98,5 @@ class PubproductController {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'pubproduct.label', default: 'Pubproduct'), id])
             redirect(action: "show", id: id)
         }
-    }*/
+    }
 }

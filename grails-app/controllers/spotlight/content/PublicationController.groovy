@@ -1,4 +1,5 @@
 package spotlight.content
+import spotlight.content.Pubproduct
 
 import org.springframework.dao.DataIntegrityViolationException
 
@@ -19,13 +20,13 @@ class PublicationController {
     }
 
     def create() {
-        [publicationInstance: new Publication(params)]
+        [publicationInstance: new Publication(params), pubproduct: Pubproduct]
     }
 
     def save() {
         def publicationInstance = new Publication(params)
         if (!publicationInstance.save(flush: true)) {
-            render(view: "create", model: [publicationInstance: publicationInstance])
+            render(view: "create", model: [publicationInstance: publicationInstance, pubproduct: Pubproduct])
             return
         }
 
@@ -52,7 +53,7 @@ class PublicationController {
             return
         }
 
-        [publicationInstance: publicationInstance]
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct]
     }
 
     def update(Long id, Long version) {
@@ -76,7 +77,7 @@ class PublicationController {
         publicationInstance.properties = params
 
         if (!publicationInstance.save(flush: true)) {
-            render(view: "edit", model: [publicationInstance: publicationInstance])
+            render(view: "edit", model: [publicationInstance: publicationInstance, pubproduct: Pubproduct])
             return
         }
 
