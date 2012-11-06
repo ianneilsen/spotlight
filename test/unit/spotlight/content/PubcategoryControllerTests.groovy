@@ -1,8 +1,5 @@
 package spotlight.content
 
-
-
-import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(PubcategoryController)

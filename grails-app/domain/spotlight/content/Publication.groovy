@@ -16,6 +16,7 @@ class Publication {
 
     static belongsTo = [portfolio: Portfolio]
     static hasMany = [pubtags: PublicationTag]
+    Pubproduct pubproduct
 
 	static constraints = {
 		publicationName (blank: false, unique: true, size: 8..100)
