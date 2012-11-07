@@ -5,15 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
-   <!-- markItUp! skin -->
-        <link rel="stylesheet" href="${resource(dir: 'markitup/skins/markitup/', file: 'style.css')}" type="text/css">
-   <!--  markItUp! toolbar skin -->
-        <link rel="stylesheet" href="${resource(dir: 'markitup/sets/default/', file: 'style.css')}" type="text/css">
-   <!-- markItUp! -->
-        <g:javascript src="markitup/jquery.markitup.js"/>
-   <!-- markItUp! toolbar settings -->
-        <g:javascript src="markitup/sets/default/set.js"/>
-	</head>
+ 	</head>
 	<body>
 <!-- top  main navigation --------------------------->
 		<a href="#edit-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -24,18 +16,50 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>                                      <!-- todo- top update button not saving changes??  -->
 		</div>
-<!-- top menu path for edit and delete of docs -->
-    <g:form method="post" >
-        <g:hiddenField name="id" value="${publicationInstance?.id}" />
-        <g:hiddenField name="version" value="${publicationInstance?.version}" />
-        <fieldset class="buttons">
-            <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-            <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-            <a href="#bottom">To Bottom page</a>
+<!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
+<div id="pub-nav">
+    <div class="btn-group">
+        <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+            Actions
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+            <g:form method="post" >
+                <g:hiddenField name="id" value="${publicationInstance?.id}" />
+                <g:hiddenField name="version" value="${publicationInstance?.version}" />
+                <fieldset class="buttons">
+                    <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                    </fieldset>
+                <fieldset class="buttons">
+                    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+
+                </fieldset>
+            </g:form>
+        </ul>
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                 To Bottom of page
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <!-- dropdown menu links -->
+                <a href="#bottom">To Bottom page</a>
+            </ul>
+        </div>
 <!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
-            <a href="/publication/markdownHelp" role="button" class="btn btn-info" data-toggle="modal">Markdown Help</a>
-        </fieldset>
-    </g:form>
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                Markdown Help
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+     <!-- dropdown menu links -->
+                <a href="/publication/markdownHelp"  data-toggle="modal">Markdown Help</a>
+            </ul>
+        </div>
+    </div>
+ </div>
 <!-- error spring stuff -------------------->
 		<div id="edit-publication" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
@@ -63,40 +87,6 @@
                 </fieldset>
 			</g:form>
 		</div>
-<!------js for makritup  jquery script --------------->
-    <g:javascript>
-        $(function() {
-            // Add markItUp! to your textarea in one line
-            // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
-            $('#markituptext').markItUp(mySettings);
 
-
-
-            // You can add content from anywhere in your page
-            // $.markItUp( { Settings } );
-            $('.add').click(function() {
-                $('#markituptext').markItUp('insert',
-                        { 	openWith:'<opening tag>',
-                            closeWith:'<\/closing tag>',
-                            placeHolder:"New content"
-                        }
-                );
-                return false;
-            });
-
-            // And you can add/remove markItUp! whenever you want
-            // $(textarea).markItUpRemove();
-            $('.toggle').click(function() {
-                if ($("#markituptext.markItUpEditor").length === 1) {
-                    $("#markituptext").markItUp('remove');
-                    $("span", this).text("get markItUp! back");
-                } else {
-                    $('#markituptext').markItUp(mySettings);
-                    $("span", this).text("remove markItUp!");
-                }
-                return false;
-            });
-        });
-    </g:javascript>
 	</body>
 </html>

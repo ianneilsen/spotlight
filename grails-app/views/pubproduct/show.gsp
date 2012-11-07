@@ -32,15 +32,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${pubproductInstance?.publication}">
-				<li class="fieldcontain">
-					<span id="publication-label" class="property-label"><g:message code="pubproduct.publication.label" default="Publication" /></span>
-					
-						<span class="property-value" aria-labelledby="publication-label"><g:link controller="publication" action="show" id="${pubproductInstance?.publication?.id}">${pubproductInstance?.publication?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

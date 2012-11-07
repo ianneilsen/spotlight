@@ -317,6 +317,15 @@ footer {
 	background-image: url(../images/skin/database_add.png);
 }
 
+/* Inner navigation for forms */
+
+#pub-nav .btn-group {
+    position: relative;
+    display: inline-block;
+    font-size: 0px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
 fieldset,

@@ -26,30 +26,14 @@
 </div>
 
 <!------------------------------------------------------------------------------------------------------>
-<div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'pubproduct', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'pubproduct', 'error')} required">
     <label for="pubproduct">
-        <g:message code="pubproduct.pubproduct.label" default="Pubproduct" />
-
+        <g:message code="publication.pubproduct.label" default="Product Association" />
     </label>
-    <g:textField name="pubproduct" maxlength="100" value="${pubproductInstance?.pubproduct}"/>
+    <g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/>
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'publication', 'error')} required">
-    <label for="publication">
-        <g:message code="pubproduct.publication.label" default="Publication" />
-        <span class="required-indicator">*</span>
-    </label>
-    <g:select id="publication" name="publication.id" from="${spotlight.content.Publication.list()}" optionKey="id" required="" value="${pubproductInstance?.publication?.id}" class="many-to-one"/>
-</div>
-
-
-
-
 
 <!------------------------------------------------------------------------------------------------------->
-
-
-
 <!-- editor -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
 	<label for="publicationContent">
@@ -59,6 +43,7 @@
 	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
 </div>
 
+<!--  portfolio item -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">
 	<label for="portfolio">
 		<g:message code="publication.portfolio.label" default="Portfolio" />
@@ -67,6 +52,7 @@
 	<g:select id="portfolio" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${publicationInstance?.portfolio?.id}" class="many-to-one"/>
 </div>
 
+<!--  tags for publications -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'pubtags', 'error')} ">
 	<label for="pubtags">
 		<g:message code="publication.pubtags.label" default="Pubtags" />

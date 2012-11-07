@@ -15,10 +15,18 @@ class PortfolioController {
 
     def _webList (){
         def webLists = Portfolio.list(params.id)
-        def webreports = Publication.findAll("from Publication as p where p.published=:published",[published:"Yes"],[max:5])
+        def webreports = Publication.findAll("from Publication as p where p.published=:published",[published:"Yes"],[max:3])
         def reportscount = Publication.count()
         [webLists: webLists, webreports: webreports, reportscount: reportscount]
     }
+
+/*    def _webList (){
+        def webLists = Portfolio.list(params.id)
+        def webreports = Publication.where {published=="Yes"}
+        def results = webreports.list(max: 3, sort: "lastUpdated")
+        [webLists: webLists, webreports: webreports, results: results]
+
+    }*/
 
     // TODO: fix styling for  weblist column data - narrow col width or padding
 

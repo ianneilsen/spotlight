@@ -6,6 +6,7 @@ import spotlight.content.Publication
 
 class Portfolio {
 //    List publications = new ArrayList()
+/*    SortedSet publications*/
 	static hasMany = [publications:Publication]
     Profile profile
 		

@@ -16,6 +16,18 @@ class PublicationController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        if (params.sort==null){
+            params.sort = "published"
+/*        def list = Publication.list().sort{
+            a, b ->
+            if (params.order == 'desc') {
+                b."${params.sort}" <=> a."${params.sort}"
+            } else {
+                a."${params.sort}" <=> b."${params.sort}"
+            }
+        }*/
+
+        }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
@@ -26,7 +38,7 @@ class PublicationController {
     def save() {
         def publicationInstance = new Publication(params)
         if (!publicationInstance.save(flush: true)) {
-            render(view: "create", model: [publicationInstance: publicationInstance, pubproduct: Pubproduct])
+            render(view: "create", model: [publicationInstance: publicationInstance, pubproduct: Pubproduct.properties])
             return
         }
 
@@ -42,7 +54,7 @@ class PublicationController {
             return
         }
 
-        [publicationInstance: publicationInstance]
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct]
     }
 
     def edit(Long id) {
@@ -69,7 +81,7 @@ class PublicationController {
                 publicationInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
                           [message(code: 'publication.label', default: 'Publication')] as Object[],
                           "Another user has updated this Publication while you were editing")
-                render(view: "edit", model: [publicationInstance: publicationInstance])
+                render(view: "edit", model: [publicationInstance: publicationInstance, pubproduct: Pubproduct])
                 return
             }
         }

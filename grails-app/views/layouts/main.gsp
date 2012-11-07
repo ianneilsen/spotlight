@@ -24,7 +24,7 @@
 	    <div id="inner">
 	            <div id="left"></div>
 	    	    <div id="right"></div>
-		<div id="spotlightLogo" role="banner"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'Rap_logo.png')}" alt="Red Hat"/></a></div>
+		<div id="spotlightLogo" role="banner"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'spotlight2_sml.png')}" alt="Red Hat"/></a></div>
 		</div>
 		</div>
 		<div id="maincontent-wrapper">
@@ -39,7 +39,8 @@
 		<br>
 		Copyright 2012 Red Hat, Inc. All rights reserved.
 		<br>INTERNAL USE ONLY</div>
-		<div class="footer-right"><a href="http://redhat.com"><img src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat"/></a>
+            <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team"/></a>
+		<div class="footer-right"><a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat"/></a>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		</div>
 		</div>

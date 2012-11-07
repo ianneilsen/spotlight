@@ -38,6 +38,18 @@
 				</li>
 				</g:if>
 
+                <g:if test="${publicationInstance?.pubproduct}">
+                    <li class="fieldcontain">
+                        <span id="pubproduct-label" class="property-label"><g:message code="pubproduct.pubproduct.label" default="Product" /></span>
+
+                        <g:each in="${publicationInstance.pubproduct}" var="p">
+                            <span class="property-value" aria-labelledby="pubtags-label"><g:link controller="pubproduct" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+                        </g:each>
+
+                    </li>
+                </g:if>
+
+
 				<g:if test="${publicationInstance?.published}">
 				<li class="fieldcontain">
 					<span id="published-label" class="property-label"><g:message code="publication.published.label" default="Is Published" /></span>
@@ -75,16 +87,6 @@
 				</g:if>
 
 
-                <g:if test="${pubproductInstance?.pubproduct}">
-                    <li class="fieldcontain">
-                        <span id="pubproduct-label" class="property-label"><g:message code="pubproduct.pubproduct.label" default="Product" /></span>
-
-                        <g:each in="${pubproductInstance.pubproduct}" var="p">
-                            <span class="property-value" aria-labelledby="pubtags-label"><g:link controller="pubproduct" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-                        </g:each>
-
-                    </li>
-                </g:if>
 
                 <g:if test="${publicationInstance?.publicationContent}">
                     <li class="fieldcontain">
@@ -118,5 +120,5 @@
 			</g:form>
 		</div>
                               <!-- todo - fix redirect on delete action to redirect to portfolio/show/$id  not list-->
-	</body>
-</html>
+	</body>                   <!-- todo - add in url shortener and published url when user is not logged in based on published flag set to yes. -->
+</html>                         <!--http://aehlke.github.com/tag-it/ for jquery tag form field-->

@@ -11,7 +11,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def portfolio = new Portfolio(portfolioName:"Portfolio 1", portdescrip:"portfolio descrition field", portpublished:1)
+        def portfolio = new Portfolio(portfolioName:"Portfolio 1", portdescrip:"Description about site or portfolio.", portpublished:1)
         portfolio.profile =  new Profile(portfoliohtml:"No",
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"Ian Neilsen",
@@ -26,7 +26,7 @@ class BootStrap {
                 etherpadurl:"http://url.com",)
         portfolio.save(failOnError: true)
 
-        def portfolio2 = new Portfolio(portfolioName:"Portfolio 2", portdescrip:"portfolio2 descrition field", portpublished:1)
+        def portfolio2 = new Portfolio(portfolioName:"Portfolio 2", portdescrip:"Description about site or portfolio.", portpublished:1)
         portfolio2.profile =  new Profile(portfoliohtml:"Yes",
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
@@ -41,7 +41,7 @@ class BootStrap {
                 etherpadurl:"http://etherpad.url.com",)
         portfolio2.save(failOnError: true)
 
-        def portfolio3 = new Portfolio(portfolioName:"Portfolio 3", portdescrip:"portfolio3 descrition field", portpublished:0)
+        def portfolio3 = new Portfolio(portfolioName:"Portfolio 3", portdescrip:"Description about site or portfolio.", portpublished:0)
         portfolio3.profile =  new Profile(portfoliohtml:"No",
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
@@ -56,7 +56,7 @@ class BootStrap {
                 etherpadurl:"http://etherpad.url.com",)
         portfolio3.save(failOnError: true)
 
-        def portfolio4 = new Portfolio(portfolioName:"Portfolio 4", portdescrip:"portfolio4 descrition field", portpublished:1)
+        def portfolio4 = new Portfolio(portfolioName:"Portfolio 4", portdescrip:"Description about site or portfolio.", portpublished:1)
         portfolio4.profile =  new Profile(portfoliohtml:"Yes",
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
@@ -71,34 +71,37 @@ class BootStrap {
                 etherpadurl:"http://etherpad.url.com",)
         portfolio4.save(failOnError: true)
 
-        def product =new Pubproduct(pubproduct: "beaker").save()
+        def product1 =new Pubproduct(pubproduct: "Request Tracker").save()
+        def product2 =new Pubproduct(pubproduct: "Errata Tool").save()
+        def product3 =new Pubproduct(pubproduct: "Beaker").save()
+        def product4 =new Pubproduct(pubproduct: "TCMS").save()
 
-        def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product)
-
-                .save(failOnError: true)
-        def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product)
-
-                .save(failOnError: true)
-        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing -3", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product)
+        def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product1)
 
                 .save(failOnError: true)
-        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing -4", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product)
+        def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product1)
+
                 .save(failOnError: true)
-        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing -5", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product)
+        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing -3", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product1)
+
                 .save(failOnError: true)
-        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing -6", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product).save(failOnError: true)
-        def r7 = new Publication(publicationName:"RAP Weekly Executive Briefing -7", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r8 = new Publication(publicationName:"RAP Weekly Executive Briefing -8", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r9 = new Publication(publicationName:"RAP Weekly Executive Briefing -9", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r10 = new Publication(publicationName:"RAP Weekly Executive Briefing -10", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r11 = new Publication(publicationName:"RAP Weekly Executive Briefing -11", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r12 = new Publication(publicationName:"RAP Weekly Executive Briefing -12", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product).save(failOnError: true)
-        def r13 = new Publication(publicationName:"RAP Weekly Executive Briefing -13", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
-        def r14 = new Publication(publicationName:"RAP Weekly Executive Briefing -14", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
-        def r15 = new Publication(publicationName:"RAP Weekly Executive Briefing -15", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
-        def r16 = new Publication(publicationName:"RAP Weekly Executive Briefing -16", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
-        def r17 = new Publication(publicationName:"RAP Weekly Executive Briefing -17", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
-        def r18 = new Publication(publicationName:"RAP Weekly Executive Briefing -18", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product).save(failOnError: true)
+        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing -4", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product1)
+                .save(failOnError: true)
+        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing -5", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product2)
+                .save(failOnError: true)
+        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing -6", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio, pubproduct: product2).save(failOnError: true)
+        def r7 = new Publication(publicationName:"RAP Weekly Executive Briefing -7", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product2).save(failOnError: true)
+        def r8 = new Publication(publicationName:"RAP Weekly Executive Briefing -8", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product2).save(failOnError: true)
+        def r9 = new Publication(publicationName:"RAP Weekly Executive Briefing -9", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product2).save(failOnError: true)
+        def r10 = new Publication(publicationName:"RAP Weekly Executive Briefing -10", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product3).save(failOnError: true)
+        def r11 = new Publication(publicationName:"RAP Weekly Executive Briefing -11", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product3).save(failOnError: true)
+        def r12 = new Publication(publicationName:"RAP Weekly Executive Briefing -12", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio2, pubproduct: product3).save(failOnError: true)
+        def r13 = new Publication(publicationName:"RAP Weekly Executive Briefing -13", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product3).save(failOnError: true)
+        def r14 = new Publication(publicationName:"RAP Weekly Executive Briefing -14", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
+        def r15 = new Publication(publicationName:"RAP Weekly Executive Briefing -15", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
+        def r16 = new Publication(publicationName:"RAP Weekly Executive Briefing -16", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
+        def r17 = new Publication(publicationName:"RAP Weekly Executive Briefing -17", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
+        def r18 = new Publication(publicationName:"RAP Weekly Executive Briefing -18", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
 
 
 

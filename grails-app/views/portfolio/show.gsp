@@ -1,5 +1,6 @@
 
 <%@ page import="spotlight.content.Portfolio" %>
+<%@ page import="spotlight.content.Pubproduct" %>
 <!doctype html>
 <html>
 	<head>
@@ -94,6 +95,7 @@
             <g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
 
             <g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
+            <g:sortableColumn property="pubproduct" title="${message(code: 'pubproduct.pubproduct', default: 'Product Name')}" />
 
             <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 
@@ -101,7 +103,7 @@
 
             <g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 
-            <g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', default: 'Last Updated')}" />
+            <g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', defaultOrder="desc", default: 'Last Updated')}" />
 
         </tr>
         </thead>
@@ -120,6 +122,8 @@
                 <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
                 <td style="text-overflow: ellipsis; width: 30em; height: 2em; display:block; overflow: hidden; white-space: nowrap;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
+
+                <td>${publicationInstance.pubproduct}</td>
 
                 <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
                      <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>

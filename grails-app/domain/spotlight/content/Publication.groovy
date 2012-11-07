@@ -1,6 +1,6 @@
 package spotlight.content
 
-class Publication {
+class Publication /*implements Comparable*/ {
 
 	String publicationName
 	String publicationContent
@@ -9,9 +9,12 @@ class Publication {
 	Date dateCreated
 	Date lastUpdated
 
+/*        int compareTo(obj){
+            lastUpdated.compareTo(obj.lastUpdated) }*/
+
 	static mapping ={
 		publicationContent type: "text"
-        sort(lastUpdated: "asc")
+        sort lastUpdated: "desc"
     }
 
     static belongsTo = [portfolio: Portfolio]

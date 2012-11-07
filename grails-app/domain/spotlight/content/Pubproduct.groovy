@@ -5,6 +5,10 @@ class Pubproduct {
     String pubproduct
 
     static constraints = {
-        pubproduct(blank: true, size: 2..100)
+        pubproduct(blank: false, size: 2..100)
+    }
+
+    String toString() {
+        pubproduct
     }
 }

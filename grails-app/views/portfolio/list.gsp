@@ -33,7 +33,8 @@
 						<g:sortableColumn property="dateCreated" title="${message(code: 'portfolio.dateCreated.label', default: 'Portfolio Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'portfolio.lastUpdated.label', default: 'Portfolio Last Updated')}" />
-					
+
+
 						<th><g:message code="portfolio.profile.label" default="Profile" /></th>
 					
 					</tr>

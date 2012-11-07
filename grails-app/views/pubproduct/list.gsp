@@ -26,8 +26,6 @@
 					
 						<g:sortableColumn property="pubproduct" title="${message(code: 'pubproduct.pubproduct.label', default: 'Pubproduct')}" />
 					
-						<th><g:message code="pubproduct.publication.label" default="Publication" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -35,8 +33,6 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${pubproductInstance.id}">${fieldValue(bean: pubproductInstance, field: "pubproduct")}</g:link></td>
-					
-						<td>${fieldValue(bean: pubproductInstance, field: "publication")}</td>
 					
 					</tr>
 				</g:each>
