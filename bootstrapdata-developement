@@ -146,7 +146,7 @@ class BootStrap {
                 etherpadurl:"http://etherpad.url.com",)
         portfolio24.save(failOnError: true)
 
-        def portfolio74 = new Portfolio(portfolioName:"Portfolio 744", portdescrip:"Description about site or portfolio.", portpublished:"Yes")
+        def portfolio74 = new Portfolio(portfolioName:"Portfolio 74", portdescrip:"Description about site or portfolio.", portpublished:"Yes")
         portfolio74.profile =  new Profile(/*htmlpuballowed:"Yes",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo77",
