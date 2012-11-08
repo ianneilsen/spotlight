@@ -36,21 +36,21 @@
 	<g:textField name="portfolioColor" value="${profileInstance?.portfolioColor}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfoliohtml', 'error')} ">
-	<label for="portfoliohtml">
-		<g:message code="profile.portfoliohtml.label" default="Portfoliohtml" />
+%{--<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'htmlpuballowed', 'error')} ">
+	<label for="htmlpuballowed">
+		<g:message code="profile.htmlpuballowed.label" default="htmlpuballowed" />
 		
 	</label>
-	<g:select name="portfoliohtml" from="${profileInstance.constraints.portfoliohtml.inList}" value="${profileInstance?.portfoliohtml}" valueMessagePrefix="profile.portfoliohtml" noSelection="['': '']"/>
-</div>
+	<g:select name="htmlpuballowed" from="${profileInstance.constraints.htmlpuballowed.inList}" value="${profileInstance?.htmlpuballowed}" valueMessagePrefix="profile.htmlpuballowed" noSelection="['': '']"/>
+</div>--}%
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'siteupload', 'error')} required">
+%{--<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'siteupload', 'error')} required">
 	<label for="siteupload">
 		<g:message code="profile.siteupload.label" default="Siteupload" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="siteupload" from="${profileInstance.constraints.siteupload.inList}" required="" value="${fieldValue(bean: profileInstance, field: 'siteupload')}" valueMessagePrefix="profile.siteupload"/>
-</div>
+</div>--}%
 
 <div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfolioFilestore', 'error')} ">
 	<label for="portfolioFilestore">
@@ -104,11 +104,11 @@
     </div>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfolio', 'error')} required">
+%{--<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'portfolio', 'error')} required">
 	<label for="portfolio">
 		<g:message code="profile.portfolio.label" default="Portfolio" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="portfolio" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${profileInstance?.portfolio?.id}" class="many-to-one"/>
-</div>
+</div>--}%
 

@@ -3,8 +3,9 @@ package spotlight.content
 
 class Profile {
 	static belongsTo = [portfolio:Portfolio]
+
 		
-	String portfoliohtml
+/*	String htmlpuballowed*/    //todo find out why a html constraint will not load in a bidirectional relationship in another controller-view ie portfolio create action
 	String portfolioEmail
 	String portfoliocc
 	String portfolioAdmin
@@ -15,7 +16,7 @@ class Profile {
 	String rtqueue
 	String teamqueueemail
 	String etherpadurl
-	Integer siteupload
+/*	String siteupload*/
 	Date dateCreated
 	Date lastUpdated
 
@@ -24,8 +25,8 @@ class Profile {
 		portfolioEmail (blank: false, email: true)
 		portfoliocc (blank: true, email: true)
 		portfolioColor (blank: true)
-		portfoliohtml (blank: true, inList: ["Yes","No"])
-        siteupload (blank: false, inList:[1,0])
+/*        htmlpuballowed (blank: true, inList:["Yes","No"])*/
+/*        siteupload (blank: true, inList:["Yes","No"])*/
         portfolioFilestore (blank: true)
 		bugzillaproduct(blank: true, unique: true)
 		bugzillacomponent(blank: true, unique: true)

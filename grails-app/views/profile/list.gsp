@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="portfolioColor" title="${message(code: 'profile.portfolioColor.label', default: 'Portfolio Color')}" />
 					
-						<g:sortableColumn property="portfoliohtml" title="${message(code: 'profile.portfoliohtml.label', default: 'Portfoliohtml')}" />
+%{--						<g:sortableColumn property="htmlpuballowed" title="${message(code: 'profile.htmlpuballowed.label', default: 'htmlpuballowed')}" />--}%
 					
-						<g:sortableColumn property="siteupload" title="${message(code: 'profile.siteupload.label', default: 'Siteupload')}" />
+%{--						<g:sortableColumn property="siteupload" title="${message(code: 'profile.siteupload.label', default: 'Siteupload')}" />--}%
 					
 					</tr>
 				</thead>
@@ -50,9 +50,9 @@
 					
 						<td>${fieldValue(bean: profileInstance, field: "portfolioColor")}</td>
 					
-						<td>${fieldValue(bean: profileInstance, field: "portfoliohtml")}</td>
+%{--						<td>${fieldValue(bean: profileInstance, field: "htmlpuballowed")}</td>--}%
 					
-						<td>${fieldValue(bean: profileInstance, field: "siteupload")}</td>
+%{--						<td>${fieldValue(bean: profileInstance, field: "siteupload")}</td>--}%
 					
 					</tr>
 				</g:each>

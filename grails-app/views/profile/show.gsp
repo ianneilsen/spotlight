@@ -59,23 +59,23 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.portfoliohtml}">
+%{--				<g:if test="${profileInstance?.htmlpuballowed}">
 				<li class="fieldcontain">
-					<span id="portfoliohtml-label" class="property-label"><g:message code="profile.portfoliohtml.label" default="Portfoliohtml" /></span>
+					<span id="htmlpuballowed-label" class="property-label"><g:message code="profile.htmlpuballowed.label" default="htmlpuballowed" /></span>
 					
-						<span class="property-value" aria-labelledby="portfoliohtml-label"><g:fieldValue bean="${profileInstance}" field="portfoliohtml"/></span>
+						<span class="property-value" aria-labelledby="htmlpuballowed-label"><g:fieldValue bean="${profileInstance}" field="htmlpuballowed"/></span>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
-				<g:if test="${profileInstance?.siteupload}">
+%{--				<g:if test="${profileInstance?.siteupload}">
 				<li class="fieldcontain">
 					<span id="siteupload-label" class="property-label"><g:message code="profile.siteupload.label" default="Siteupload" /></span>
 					
 						<span class="property-value" aria-labelledby="siteupload-label"><g:fieldValue bean="${profileInstance}" field="siteupload"/></span>
 					
 				</li>
-				</g:if>
+				</g:if>--}%
 			
 				<g:if test="${profileInstance?.portfolioFilestore}">
 				<li class="fieldcontain">

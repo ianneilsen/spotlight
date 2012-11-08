@@ -12,14 +12,14 @@ class Portfolio {
 		
 	String portfolioName
 	String portdescrip
-	Integer portpublished
+	String portpublished
 	Date dateCreated
 	Date lastUpdated
                       
     static constraints = {
         portfolioName (blank: false, size: 5..170, unique: true)
         portdescrip (blank: false, size: 5..200)
-        portpublished (blank: false, inList:[1,0])
+        portpublished (blank: false, inList:["No", "Yes"])
         //Profile (unique: true)
     }
 

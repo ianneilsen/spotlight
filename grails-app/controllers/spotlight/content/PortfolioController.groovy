@@ -38,11 +38,12 @@ class PortfolioController {
     }
 
     def create() {
-        [portfolioInstance: new Portfolio(params)]
+        [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
     }
 
     def save() {
         def portfolioInstance = new Portfolio(params)
+        portfolioInstance.properties = params
         if (!portfolioInstance.save(flush: true)) {
             render(view: "create", model: [portfolioInstance: portfolioInstance])
             return
@@ -65,6 +66,7 @@ class PortfolioController {
 
     def edit(Long id) {
         def portfolioInstance = Portfolio.get(id)
+        portfolioInstance.properties = params
         if (!portfolioInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), id])
             redirect(action: "list")
@@ -95,7 +97,7 @@ class PortfolioController {
         portfolioInstance.properties = params
 
         if (!portfolioInstance.save(flush: true)) {
-            render(view: "edit", model: [portfolioInstance: portfolioInstance])
+            render(view: "edit", model: [portfolioInstance: portfolioInstance, profileInstance: profileInstance])
             return
         }
 

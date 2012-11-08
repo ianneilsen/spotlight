@@ -1,4 +1,3 @@
-
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Pubproduct" %>
 <!doctype html>
@@ -95,7 +94,7 @@
             <g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
 
             <g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
-            <g:sortableColumn property="pubproduct" title="${message(code: 'pubproduct.pubproduct', default: 'Product Name')}" />
+            <g:sortableColumn property="pubproduct" title="${message(code: 'spubproduct.pubproduct', default: 'Product Name')}" />
 
             <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 
@@ -141,5 +140,3 @@
     </table>
 	</body>
 </html>
-
-<!-- todo - tidy up css for table and show vie win general -->

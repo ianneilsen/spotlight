@@ -12,12 +12,12 @@ class BootStrap {
     def init = { servletContext ->
 
         def portfolio = new Portfolio(portfolioName:"Portfolio 1", portdescrip:"Description about site or portfolio.", portpublished:1)
-        portfolio.profile =  new Profile(portfoliohtml:"No",
+        portfolio.profile =  new Profile(/*htmlpuballowed:"No",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"Ian Neilsen",
                 bugzillaproduct:"bz prod name",
                 bugzillacomponent:"comp name",
-                siteupload:1,
+                /*siteupload:1,*/
                 portfoliocc: "ian@ian.com",
                 portfolioColor:"red",
                 portfolioFilestore:"blah",
@@ -27,12 +27,12 @@ class BootStrap {
         portfolio.save(failOnError: true)
 
         def portfolio2 = new Portfolio(portfolioName:"Portfolio 2", portdescrip:"Description about site or portfolio.", portpublished:1)
-        portfolio2.profile =  new Profile(portfoliohtml:"Yes",
+        portfolio2.profile =  new Profile(/*htmlpuballowed:"Yes",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
                 bugzillaproduct:"bz name",
                 bugzillacomponent:"component name",
-                siteupload:1,
+                /*siteupload:1,*/
                 portfoliocc: "ian@ian.com",
                 portfolioColor:"blue",
                 portfolioFilestore:"where are your files",
@@ -42,12 +42,12 @@ class BootStrap {
         portfolio2.save(failOnError: true)
 
         def portfolio3 = new Portfolio(portfolioName:"Portfolio 3", portdescrip:"Description about site or portfolio.", portpublished:0)
-        portfolio3.profile =  new Profile(portfoliohtml:"No",
+        portfolio3.profile =  new Profile(/*htmlpuballowed:"No",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
                 bugzillaproduct:"bugzilla prod",
                 bugzillacomponent:"1",
-                siteupload:1,
+                /*siteupload:1,*/
                 portfoliocc: "ian@ian.com",
                 portfolioColor:"pink",
                 portfolioFilestore:"where are your files",
@@ -57,12 +57,12 @@ class BootStrap {
         portfolio3.save(failOnError: true)
 
         def portfolio4 = new Portfolio(portfolioName:"Portfolio 4", portdescrip:"Description about site or portfolio.", portpublished:1)
-        portfolio4.profile =  new Profile(portfoliohtml:"Yes",
+        portfolio4.profile =  new Profile(/*htmlpuballowed:"Yes",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"neilo",
                 bugzillaproduct:"12378",
                 bugzillacomponent:"999987",
-                siteupload:1,
+                /*siteupload:1,*/
                 portfoliocc: "ian@ian.com",
                 portfolioColor:"black",
                 portfolioFilestore:"where are your files",
