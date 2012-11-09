@@ -1,5 +1,7 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Pubproduct" %>
+<%@ page import="spotlight.pubtemplates.Templateemail" %>
+<%@  page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
 <html>
 	<head>
@@ -94,6 +96,7 @@
             <g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
 
             <g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
+
             <g:sortableColumn property="pubproduct" title="${message(code: 'spubproduct.pubproduct', default: 'Product Name')}" />
 
             <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
@@ -111,7 +114,23 @@
                 <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
             </g:each>--}%
             <li class="add">
-                <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'Publication')])}</g:link>
+                <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'a new Publication')])}</g:link>
+            </li>
+        </ul>
+        <ul class="one-to-many">
+            %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+            </g:each>--}%
+            <li class="add">
+                <g:link controller="templateemail" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templateemail.label', default: 'an email template')])}</g:link>
+            </li>
+        </ul>
+        <ul class="one-to-many">
+            %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+            </g:each>--}%
+            <li class="add">
+                <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'a report template')])}</g:link>
             </li>
         </ul>
         <tbody>

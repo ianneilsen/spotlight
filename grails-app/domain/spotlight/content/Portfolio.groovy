@@ -3,11 +3,13 @@ package spotlight.content
 import org.apache.commons.collections.list.LazyList;
 import org.apache.commons.collections.FactoryUtils;
 import spotlight.content.Publication
+import spotlight.pubtemplates.Templateemail
+import spotlight.pubtemplates.Templatepublication
 
 class Portfolio {
 //    List publications = new ArrayList()
 /*    SortedSet publications*/
-	static hasMany = [publications:Publication]
+	static hasMany = [publications:Publication, templatesemail: Templateemail, templatespublications: Templatepublication]
     Profile profile
 		
 	String portfolioName

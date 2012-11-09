@@ -3,9 +3,8 @@
 <%@ page import="spotlight.content.Publication" %>
 
 <div class="alert alert-info" xmlns="http://www.w3.org/1999/html">Permissions apply to <strong>editing</strong> publications.<br>
-	<p>Click portfolio name to read or edit publications.</p>
-    <p><h5> Total number of sites: ${rsNumb}</h5></p>
-    <h6>Total number of publications: ${reportscount}</h6>
+<div style="display: inline;"><p>Click portfolio name to read or edit publications. Total number of sites: <strong>${rsNumb}</strong> | Total number of publications: <strong>${reportscount}</strong> </p>
+</div>
 </div>
 
 <div class="property-list portfolio">

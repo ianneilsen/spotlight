@@ -61,6 +61,7 @@
                 <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
                 <a href="SpotLight-Grails/publication/uploadattachment"  data-toggle="modal">Upload attachment</a>
                 <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Send team message</a>
+                <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Clone publication</a>
             </ul>
         </div>
     </div>
