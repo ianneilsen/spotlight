@@ -18,6 +18,7 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+
 		<div id="show-portfolio" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -51,7 +52,7 @@
 					
 				</li>
 				</g:if>
-			
+
 				<g:if test="${portfolioInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="portfolio.dateCreated.label" default="Portfolio created" /></span>
