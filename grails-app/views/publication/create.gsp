@@ -32,9 +32,8 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-<!-- footer nav ------>
+<!-- footer nav ------>         <!-- todo set default drop down select for publication product to NA -->
             <div id="create-pubproduct" class="content scaffold-create" role="main">
-                <h1><g:message code="default.create.label" args="[entityName]" /></h1>
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
