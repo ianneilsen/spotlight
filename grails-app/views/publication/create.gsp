@@ -3,9 +3,10 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+        <meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+
 	</head>
 	<body>
 		<a href="#create-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -15,6 +16,10 @@
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+    <!-- publication nav --------------->
+    <g:render template="pubnav"/>
+    <!--- error reporting ------------->
+
 		<div id="create-publication" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -27,6 +32,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+<!-- footer nav ------>
             <div id="create-pubproduct" class="content scaffold-create" role="main">
                 <h1><g:message code="default.create.label" args="[entityName]" /></h1>
                 <g:if test="${flash.message}">

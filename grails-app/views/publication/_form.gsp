@@ -43,6 +43,12 @@
 	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
 </div>
 
+
+
+<uploadr:add name="pcitureupload" path="/SpotLight-Grails/tmp" allowedExtensions="gif,png,jpg,jpeg" direction="up" maxVisible="5"  maxSize="2000" />
+
+
+
 <!--  portfolio item -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">
 	<label for="portfolio">

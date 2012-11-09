@@ -5,6 +5,8 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <r:require modules="uploadr"/>
+
  	</head>
 	<body>
 <!-- top  main navigation --------------------------->
@@ -16,51 +18,16 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>                                      <!-- todo- top update button not saving changes??  -->
 		</div>
-<!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
-<div id="pub-nav">
-    <div class="btn-group">
-        <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-            Actions
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            <!-- dropdown menu links -->
-            <g:form method="post" >
-                <g:hiddenField name="id" value="${publicationInstance?.id}" />
-                <g:hiddenField name="version" value="${publicationInstance?.version}" />
-                <fieldset class="buttons">
-                    <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                    </fieldset>
-                <fieldset class="buttons">
-                    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+<!-- top menu path for edit and delete of docs----------------->
+<g:render template="pubnav"/>
 
-                </fieldset>
-            </g:form>
-        </ul>
-        <div class="btn-group">
-            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                 To Bottom of page
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <!-- dropdown menu links -->
-                <a href="#bottom">To Bottom page</a>
-            </ul>
-        </div>
-<!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
-        <div class="btn-group">
-            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                Markdown Help
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-     <!-- dropdown menu links -->
-                <a href="/publication/markdownHelp"  data-toggle="modal">Markdown Help</a>
-            </ul>
-        </div>
-    </div>
- </div>
-<!-- error spring stuff -------------------->
+
+
+<!-- Button to trigger modal ----------------->
+
+
+
+<!-- error stuff -------------------->
 		<div id="edit-publication" class="content scaffold-edit" role="main">
 			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
