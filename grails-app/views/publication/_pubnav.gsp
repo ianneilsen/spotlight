@@ -38,12 +38,15 @@
         </ul>
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                To Bottom of page
+                Templates
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
                 <!-- dropdown menu links -->
                 <a href="#bottom">To Bottom page</a>
+                <a href="SpotLight-Grails/publication/clonepub"  data-toggle="modal">Clone publication</a>
+                <a href="SpotLight-Grails/publication/emailtempla"  data-toggle="modal">Use email template</a>
+                <a href="SpotLight-Grails/publication/pubtempla"  data-toggle="modal">Insert publication template</a>
             </ul>
         </div>
         <!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
@@ -61,7 +64,7 @@
                 <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
                 <a href="SpotLight-Grails/publication/uploadattachment"  data-toggle="modal">Upload attachment</a>
                 <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Send team message</a>
-                <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Clone publication</a>
+
             </ul>
         </div>
     </div>

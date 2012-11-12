@@ -89,7 +89,35 @@
 		</div>
                 </g:if>
 
-
+    <ul class="one-to-many">
+        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+        </g:each>--}%
+        <li class="add">
+            <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'a new Publication')])}</g:link>
+        </li>
+    </ul>
+    <ul class="one-to-many">
+        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+        </g:each>--}%
+        <li class="add">
+            <g:link controller="templateemail" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templateemail.label', default: 'an email template')])}</g:link>
+        </li>
+    </ul>
+    <ul class="one-to-many">
+        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+        </g:each>--}%
+        <li class="add">
+            <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'a report template')])}</g:link>
+        </li>
+    </ul>
+    <div id="list-publication" class="content scaffold-list" role="main">
+        <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
     <table>
         <thead>
         <tr>
@@ -110,30 +138,6 @@
 
         </tr>
         </thead>
-        <ul class="one-to-many">
-%{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-            </g:each>--}%
-            <li class="add">
-                <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'a new Publication')])}</g:link>
-            </li>
-        </ul>
-        <ul class="one-to-many">
-            %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-            </g:each>--}%
-            <li class="add">
-                <g:link controller="templateemail" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templateemail.label', default: 'an email template')])}</g:link>
-            </li>
-        </ul>
-        <ul class="one-to-many">
-            %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-                <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-            </g:each>--}%
-            <li class="add">
-                <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'a report template')])}</g:link>
-            </li>
-        </ul>
         <tbody>
         <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
@@ -158,5 +162,6 @@
         </g:each>
         </tbody>
     </table>
+
 	</body>
 </html>

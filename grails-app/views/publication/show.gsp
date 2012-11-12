@@ -23,12 +23,14 @@
                             <span class="property-value" aria-labelledby="portfolio-label"><g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link></span>
 
                 </g:if></h1>
-
+        <!--- error reporting ------------->
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list publication">
-			
+            <!-- publication nav --------------->
+                <g:render template="pubnav"/>
+            <!-- publication nav --------------->
 				<g:if test="${publicationInstance?.publicationName}">
 				<li class="fieldcontain">
 					<span id="publicationName-label" class="property-label"><g:message code="publication.publicationName.label" default="Publication Name" /></span>
