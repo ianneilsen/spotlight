@@ -9,7 +9,7 @@ import spotlight.pubtemplates.Templatepublication
 class Portfolio {
 //    List publications = new ArrayList()
 /*    SortedSet publications*/
-	static hasMany = [publications:Publication, templatesemail: Templateemail, templatespublications: Templatepublication]
+	static hasMany = [publications:Publication, pubemailtempl: Templateemail, pubtempl: Templatepublication]
     Profile profile
 		
 	String portfolioName

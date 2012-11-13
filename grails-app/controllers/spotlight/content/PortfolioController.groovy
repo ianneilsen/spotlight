@@ -13,13 +13,17 @@ class PortfolioController {
     //TODO - add in subscription model
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
 
+    def publishedCriteria = 'Yes'
+
     def _webList (){
         def webLists = Portfolio.list(params.id)
-        def webreports = Publication.findAll("from Publication as p where p.published=:published",[published:"Yes"],[max:3])
+        /*def webreports = Publication.findAll("from Publication where published='Yes'",offset:0, max:3)*/
+        def webreports = Publication.findAllByPublished(publishedCriteria,[sort:'lastUpdated', max: 2, offset: 0, order: 'desc'])
         def reportscount = Publication.count()
         [webLists: webLists, webreports: webreports, reportscount: reportscount]
     }
 
+/*    def artistList = Artist.findAllByStyle(styleCriteria, [sort: 'name', max: 2, offset: 1, order: 'asc'])*/
 /*    def _webList (){
         def webLists = Portfolio.list(params.id)
         def webreports = Publication.where {published=="Yes"}

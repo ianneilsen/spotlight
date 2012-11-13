@@ -12,6 +12,9 @@ class Templatepublication {
 
     static constraints = {
         tplnamepub(blank: false, size: 4..100)
-        tplcontentpub(blank: true, size: 2..1000)
-}
+        tplcontentpub(blank: true, size: 2..2000)
+    }
+    String toString() {
+        tplnamepub
+    }
 }

@@ -15,6 +15,10 @@ class TemplatepublicationController {
         [templatepublicationInstanceList: Templatepublication.list(params), templatepublicationInstanceTotal: Templatepublication.count()]
     }
 
+
+    def templatelist = Templatepublication.list([fetch: [portfolioInstance]])
+
+
     def create() {
         [templatepublicationInstance: new Templatepublication(params)]
     }
