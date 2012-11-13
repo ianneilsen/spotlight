@@ -1,4 +1,6 @@
 <%@ page import="spotlight.content.Publication" %>
+<%@ page import="spotlight.content.Portfolio" %>
+<%@ page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
 <html>
 	<head>
@@ -21,11 +23,7 @@
 <!-- top menu path for edit and delete of docs----------------->
 <g:render template="pubnav"/>
 
-
-
 <!-- Button to trigger modal ----------------->
-
-
 
 <!-- error stuff -------------------->
 		<div id="edit-publication" class="content scaffold-edit" role="main">

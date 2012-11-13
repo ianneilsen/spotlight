@@ -1,22 +1,25 @@
 <!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
+<%@ page import="spotlight.content.Portfolio" %>
+<%@ page import="spotlight.pubtemplates.Templatepublication" %>
+
 <div id="pub-nav">
-        <div class="markdown-help">
-    <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">Markdown Guide</a>
+   <div class="markdown-help">
+       <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">Markdown Guide</a>
 
     <!-- Modal -->
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Markdown Help</h3>
-        </div>
-        <div class="modal-body">
-            <a href="https://pride.engineering.redhat.com/docs/en-US/Reports_and_Publication/6.rap/html/Markdown_cheat_sheet/index.html" target="_blank">Markdown cheat sheet on document server.</a>
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-
-        </div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Markdown Help</h3>
+      </div>
+    <div class="modal-body">
+      <a href="https://pride.engineering.redhat.com/docs/en-US/Reports_and_Publication/6.rap/html/Markdown_cheat_sheet/index.html" target="_blank">Markdown cheat sheet on document server.</a>
     </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+
     <div class="btn-group">
         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             Actions
@@ -43,11 +46,17 @@
             </a>
             <ul class="dropdown-menu">
                 <!-- dropdown menu links -->
-                <a href="#bottom">To Bottom page</a>
                 <a href="SpotLight-Grails/publication/clonepub"  data-toggle="modal">Clone publication</a>
                 <a href="SpotLight-Grails/publication/emailtempla"  data-toggle="modal">Use email template</a>
-                <a href="SpotLight-Grails/publication/pubtempla"  data-toggle="modal">Insert publication template</a>
-            </ul>
+                <li class="divider"></li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Insert Template</a>
+                    <ul class="dropdown-menu">
+                        <g:hiddenField name="id" value="${portfolioInstance?.id}" />
+
+                <g:each in="${templatelist}" var="p">
+                    <li><g:link controller="templatepublication" action="templatelist" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                </g:each>
         </div>
         <!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
         <div class="btn-group">
@@ -67,5 +76,6 @@
 
             </ul>
         </div>
-    </div>
+
+  </div>
 </div>
