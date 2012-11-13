@@ -53,10 +53,13 @@
                     <a tabindex="-1" href="#">Insert Template</a>
                     <ul class="dropdown-menu">
                         <g:hiddenField name="id" value="${portfolioInstance?.id}" />
+                    
+                     <g:select name="portfolio.templatepublication.id" from="${spotlight.pubtemplates.Templatepublication.list()}" optionKey="id"/>
 
-                <g:each in="${templatelist}" var="p">
+                    
+                    %{--        <g:each in="${portfolioInstance?.pubtempl?.tplnamepub}" var="p">
                     <li><g:link controller="templatepublication" action="templatelist" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-                </g:each>
+                </g:each>--}%
         </div>
         <!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
         <div class="btn-group">

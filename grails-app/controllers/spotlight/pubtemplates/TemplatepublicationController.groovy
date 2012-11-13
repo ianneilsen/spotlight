@@ -16,9 +16,6 @@ class TemplatepublicationController {
     }
 
 
-    def templatelist = Templatepublication.list([fetch: [portfolioInstance]])
-
-
     def create() {
         [templatepublicationInstance: new Templatepublication(params)]
     }
