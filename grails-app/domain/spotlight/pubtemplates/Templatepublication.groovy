@@ -2,6 +2,7 @@
 package spotlight.pubtemplates
 
 import spotlight.content.Portfolio
+import spotlight.content.Publication
 
 class Templatepublication {
 

@@ -1,6 +1,9 @@
 package spotlight.pubtemplates
 
+
 import org.springframework.dao.DataIntegrityViolationException
+import spotlight.content.Portfolio
+import spotlight.content.Publication
 
 class TemplatepublicationController {
 
@@ -15,7 +18,11 @@ class TemplatepublicationController {
         [templatepublicationInstanceList: Templatepublication.list(params), templatepublicationInstanceTotal: Templatepublication.count()]
     }
 
-
+    def portfoliotemps (){
+        def portfolio = Portfolio.list(params.id)
+          def templatepublications = findAll(Portfolio)
+        [portfoliotemps: templatepublications]
+    }
     def create() {
         [templatepublicationInstance: new Templatepublication(params)]
     }

@@ -1,12 +1,9 @@
 package spotlight.pubtemplates
 
-
-
-import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(TemplateemailController)
-@Mock(Templateemail)
+@Mock(Emailtemplate)
 class TemplateemailControllerTests {
 
     def populateValidParams(params) {
@@ -47,7 +44,7 @@ class TemplateemailControllerTests {
 
         assert response.redirectedUrl == '/templateemail/show/1'
         assert controller.flash.message != null
-        assert Templateemail.count() == 1
+        assert Emailtemplate.count() == 1
     }
 
     void testShow() {
@@ -57,7 +54,7 @@ class TemplateemailControllerTests {
         assert response.redirectedUrl == '/templateemail/list'
 
         populateValidParams(params)
-        def templateemail = new Templateemail(params)
+        def templateemail = new Emailtemplate(params)
 
         assert templateemail.save() != null
 
@@ -75,7 +72,7 @@ class TemplateemailControllerTests {
         assert response.redirectedUrl == '/templateemail/list'
 
         populateValidParams(params)
-        def templateemail = new Templateemail(params)
+        def templateemail = new Emailtemplate(params)
 
         assert templateemail.save() != null
 
@@ -95,7 +92,7 @@ class TemplateemailControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def templateemail = new Templateemail(params)
+        def templateemail = new Emailtemplate(params)
 
         assert templateemail.save() != null
 
@@ -139,17 +136,17 @@ class TemplateemailControllerTests {
         response.reset()
 
         populateValidParams(params)
-        def templateemail = new Templateemail(params)
+        def templateemail = new Emailtemplate(params)
 
         assert templateemail.save() != null
-        assert Templateemail.count() == 1
+        assert Emailtemplate.count() == 1
 
         params.id = templateemail.id
 
         controller.delete()
 
-        assert Templateemail.count() == 0
-        assert Templateemail.get(templateemail.id) == null
+        assert Emailtemplate.count() == 0
+        assert Emailtemplate.get(templateemail.id) == null
         assert response.redirectedUrl == '/templateemail/list'
     }
 }

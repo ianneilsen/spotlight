@@ -59,6 +59,7 @@ class PortfolioController {
 
     def show(Long id) {
         def portfolioInstance = Portfolio.get(id)
+        portfolioInstance.properties=params
         if (!portfolioInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), id])
             redirect(action: "list")
