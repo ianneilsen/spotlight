@@ -23,6 +23,9 @@
 <!-- top menu path for edit and delete of docs----------------->
 <g:render template="pubnav"/>
 
+
+
+
 <!-- Button to trigger modal ----------------->
 
 <!-- error stuff -------------------->

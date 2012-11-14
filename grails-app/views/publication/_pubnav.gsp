@@ -1,7 +1,4 @@
 <!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
-<%@ page import="spotlight.content.Portfolio" %>
-<%@ page import="spotlight.pubtemplates.Templatepublication" %>
-
 <div id="pub-nav">
    <div class="markdown-help">
        <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">Markdown Guide</a>
@@ -39,28 +36,8 @@
                 </fieldset>
             </g:form>
         </ul>
-        <div class="btn-group">
-            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                Templates
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <!-- dropdown menu links -->
-                <a href="SpotLight-Grails/publication/clonepub"  data-toggle="modal">Clone publication</a>
-                <a href="SpotLight-Grails/publication/emailtempla"  data-toggle="modal">Use email template</a>
-                <li class="divider"></li>
-                <li class="dropdown-submenu">
-                    <a tabindex="-1" href="#">Insert Template</a>
-                    <ul class="dropdown-menu">
-                        <g:hiddenField name="id" value="${portfolioInstance?.id}" />
-                    
-                     <g:select name="portfolio.templatepublication.id" from="${spotlight.pubtemplates.Templatepublication.list()}" optionKey="id"/>
+<!--  publication templates ---------------------------------->
 
-                    
-                    %{--        <g:each in="${portfolioInstance?.pubtempl?.tplnamepub}" var="p">
-                    <li><g:link controller="templatepublication" action="templatelist" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-                </g:each>--}%
-        </div>
         <!--markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
@@ -70,7 +47,7 @@
             <ul class="dropdown-menu">
                 <!-- dropdown menu links -->
 
-                <a href="SpotLight-Grails/publication/markdownHelp"  data-toggle="modal">Email Publication</a>
+                <a href="SpotLight-Grails/publication/emailpublication"  data-toggle="modal">Email Publication</a>
                 <a href="SpotLight-Grails/publication/converttodocbook"  data-toggle="modal">Convert to docbook</a>
                 <a href="SpotLight-Grails/publication/userchart"  data-toggle="modal">Insert Chart</a>
                 <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
@@ -80,5 +57,21 @@
             </ul>
         </div>
 
+        <div class="btn-group">
+          <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+             Templates
+            <span class="caret"></span>
+          </a>
+        <ul class="dropdown-menu">
+        <!-- dropdown menu links -->
+        <a href="SpotLight-Grails/publication/clonepub"  data-toggle="modal">Clone publication</a>
+        <a href="SpotLight-Grails/publication/emailtemplate"  data-toggle="modal">Use email template</a>
+        <li class="divider"></li>
+        <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Insert Template</a>
+              <ul class="dropdown-menu">
+                 <g:hiddenField name="portfolioInstance" value="id"/>
+                   <g:select  name="templatepublication.id" from="${spotlight.pubtemplates.Templatepublication.list()}" optionKey="id" required="" value="${portfolioInstance?.pubtempl?.id}" class="many-to-one"/>
+        </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 <%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Pubproduct" %>
+<%@ page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
 <html>
 	<head>

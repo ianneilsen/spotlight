@@ -1,6 +1,6 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Pubproduct" %>
-<%@ page import="spotlight.pubtemplates.Templateemail" %>
+<%@ page import="spotlight.pubtemplates.Emailtemplate" %>
 <%@  page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
 <html>
@@ -103,8 +103,8 @@
             <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
         </g:each>--}%
         <li class="add">
-            <g:link controller="templateemail" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templateemail.label', default: 'an email template')])}</g:link>
-        <div><span class="label"> Total Email Templates:</span><span class="badge badge-success"> ${portfolioInstance?.pubemailtempl.size()}</span> </div>
+            <g:link controller="emailtemplate" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'emailtemplate.label', default: 'an email template')])}</g:link>
+        <div><span class="label"> Total Email Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates.size()}</span> </div>
     </li>
     </ul>
     <ul class="one-to-many">
@@ -113,7 +113,7 @@
         </g:each>--}%
         <li class="add">
             <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'a report template')])}</g:link>
-        <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.pubtempl.size()}</span> </div>
+        <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates.size()}</span> </div>
     </li>
     </ul>
     <ul class="one-to-many">
