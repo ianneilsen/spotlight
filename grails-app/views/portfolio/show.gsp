@@ -3,7 +3,7 @@
 <%@ page import="spotlight.pubtemplates.Emailtemplate" %>
 <%@  page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
@@ -24,7 +24,9 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list portfolio">
+
+
+			 <ol class="property-list portfolio">
 			
 				<g:if test="${portfolioInstance?.portfolioName}">
 				<li class="fieldcontain">
@@ -47,12 +49,13 @@
 				<g:if test="${portfolioInstance?.portpublished}">
 				<li class="fieldcontain">
 					<span id="portpublished-label" class="property-label"><g:message code="portfolio.portpublished.label" default="Portfolio Protected" /></span>
-					
+
 						<span class="property-value" aria-labelledby="portpublished-label"><g:fieldValue bean="${portfolioInstance}" field="portpublished"/></span>
-					
+
 				</li>
 				</g:if>
 
+       %{--      <ol class="property-list portfolio">--}%
 				<g:if test="${portfolioInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="portfolio.dateCreated.label" default="Portfolio created" /></span>
@@ -70,7 +73,7 @@
 					
 				</li>
 				</g:if>
-			
+
 				<g:if test="${portfolioInstance?.profile}">
 				<li class="fieldcontain">
 					<span id="profile-label" class="property-label"><g:message code="portfolio.profile.label" default="Portfolio Profile" /></span>
@@ -79,6 +82,8 @@
 					
 				</li>
 
+
+<!---------------buttons ----------------------------------------->
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${portfolioInstance?.id}" />
@@ -88,34 +93,76 @@
 			</g:form>
 		</div>
                 </g:if>
+    <!-----------------------pubs ---------------------------------------------->
+    <ul class="one-to-many">
+        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+        </g:each>--}%
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                Publications
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="add">
+                   <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'new Publication')])}</g:link>
+                </li>
+                <li>
+                    <g:link controller="publication" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'publication.label', default: 'Publications')])}</g:link>
+                </li>
+            </ul>
+        </div>
+
+    <div><span class="label"> Total Publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications.size()}</span> </div>
+    </ul>
+    <!-------------------------email ------------------------------------------->
+    <ul class="one-to-many">
+        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
+            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+        </g:each>--}%
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                Email Templates
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="add">
+                    <g:link controller="emailtemplate" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'emailtemplate.label', default: 'Email template')])}</g:link>
+                </li>
+                <li>
+                    <g:link controller="emailtemplate" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'emailtemplate.label', default: 'Email template')])}</g:link>
+                </li>
+            </ul>
+        </div>
+
+        <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates.size()}</span> </div>
+
+    </ul>
+    <!--------------------------pubs ---------------------------------------------->
 
     <ul class="one-to-many">
         %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
             <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
         </g:each>--}%
-        <li class="add">
-            <g:link controller="publication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'a new Publication')])}</g:link>
-        <div><span class="label"> Total Publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications.size()}</span> </div>
-    </li>
-    </ul>
-    <ul class="one-to-many">
-        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-        </g:each>--}%
-        <li class="add">
-            <g:link controller="emailtemplate" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'emailtemplate.label', default: 'an email template')])}</g:link>
-        <div><span class="label"> Total Email Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates.size()}</span> </div>
-    </li>
-    </ul>
-    <ul class="one-to-many">
-        %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-            <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-        </g:each>--}%
-        <li class="add">
-            <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'a report template')])}</g:link>
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                Publication Templates
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="add">
+                    <g:link controller="templatepublication" action="create" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'Portfolio template')])}</g:link>
+                </li>
+                <li>
+                    <g:link controller="templatepublication" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'templatepublication.label', default: 'Portfolio template')])}</g:link>
+                </li>
+            </ul>
+        </div>
+
         <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates.size()}</span> </div>
-    </li>
+
     </ul>
+    <!----------------------unpublished ------------------------------------------------->
     <ul class="one-to-many">
         %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
             <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
@@ -125,7 +172,7 @@
             <div><span class="label"> Total Unpublished:</span><span class="badge badge-success"> ${portfolioInstance?.publications.pubtags}</span> </div>
         </li>
     </ul>
-
+    <!----------------------------------table list ---------------------------------------->
     <div id="list-publication" class="content scaffold-list" role="main">
         <h1><g:message code="default.list.label" args="[entityName]" /></h1>
         <g:if test="${flash.message}">
