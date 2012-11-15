@@ -31,6 +31,25 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
+    def emailpublication(){
+        if (params.email) {
+            sendMail {
+                to params.email
+                subject "Report for today"
+                body """
+                Todays report contains infor from
+                params.name
+
+                params.footer
+                """
+            }
+            flash.message = "Report Email Sent"
+        }
+
+    }
+
+
+
     def create() {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct]
     }

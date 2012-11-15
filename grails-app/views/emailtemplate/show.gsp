@@ -25,7 +25,7 @@
 			
 				<g:if test="${emailtemplateInstance?.nameemailtemplate}">
 				<li class="fieldcontain">
-					<span id="nameemailtemplate-label" class="property-label"><g:message code="emailtemplate.nameemailtemplate.label" default="Nameemailtemplate" /></span>
+					<span id="nameemailtemplate-label" class="property-label"><g:message code="emailtemplate.nameemailtemplate.label" default="Template Name" /></span>
 					
 						<span class="property-value" aria-labelledby="nameemailtemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="nameemailtemplate"/></span>
 					
@@ -34,7 +34,7 @@
 			
 				<g:if test="${emailtemplateInstance?.toemailtemplate}">
 				<li class="fieldcontain">
-					<span id="toemailtemplate-label" class="property-label"><g:message code="emailtemplate.toemailtemplate.label" default="Toemailtemplate" /></span>
+					<span id="toemailtemplate-label" class="property-label"><g:message code="emailtemplate.toemailtemplate.label" default="Email To:" /></span>
 					
 						<span class="property-value" aria-labelledby="toemailtemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="toemailtemplate"/></span>
 					
@@ -43,7 +43,7 @@
 			
 				<g:if test="${emailtemplateInstance?.ccemailtemplate}">
 				<li class="fieldcontain">
-					<span id="ccemailtemplate-label" class="property-label"><g:message code="emailtemplate.ccemailtemplate.label" default="Ccemailtemplate" /></span>
+					<span id="ccemailtemplate-label" class="property-label"><g:message code="emailtemplate.ccemailtemplate.label" default="Email CC:" /></span>
 					
 						<span class="property-value" aria-labelledby="ccemailtemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="ccemailtemplate"/></span>
 					
@@ -52,7 +52,7 @@
 			
 				<g:if test="${emailtemplateInstance?.contentemailtemplate}">
 				<li class="fieldcontain">
-					<span id="contentemailtemplate-label" class="property-label"><g:message code="emailtemplate.contentemailtemplate.label" default="Contentemailtemplate" /></span>
+					<span id="contentemailtemplate-label" class="property-label"><g:message code="emailtemplate.contentemailtemplate.label" default="Header Content" /></span>
 					
 						<span class="property-value" aria-labelledby="contentemailtemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="contentemailtemplate"/></span>
 					
@@ -61,7 +61,7 @@
 			
 				<g:if test="${emailtemplateInstance?.footeremailtemplate}">
 				<li class="fieldcontain">
-					<span id="footeremailtemplate-label" class="property-label"><g:message code="emailtemplate.footeremailtemplate.label" default="Footeremailtemplate" /></span>
+					<span id="footeremailtemplate-label" class="property-label"><g:message code="emailtemplate.footeremailtemplate.label" default="Footer Content" /></span>
 					
 						<span class="property-value" aria-labelledby="footeremailtemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="footeremailtemplate"/></span>
 					

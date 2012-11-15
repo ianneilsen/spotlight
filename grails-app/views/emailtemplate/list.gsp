@@ -24,15 +24,15 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="nameemailtemplate" title="${message(code: 'emailtemplate.nameemailtemplate.label', default: 'Nameemailtemplate')}" />
+						<g:sortableColumn property="nameemailtemplate" title="${message(code: 'emailtemplate.nameemailtemplate.label', default: 'Template Name')}" />
 					
-						<g:sortableColumn property="toemailtemplate" title="${message(code: 'emailtemplate.toemailtemplate.label', default: 'Toemailtemplate')}" />
+						<g:sortableColumn property="toemailtemplate" title="${message(code: 'emailtemplate.toemailtemplate.label', default: 'TO Address')}" />
 					
-						<g:sortableColumn property="ccemailtemplate" title="${message(code: 'emailtemplate.ccemailtemplate.label', default: 'Ccemailtemplate')}" />
+						<g:sortableColumn property="ccemailtemplate" title="${message(code: 'emailtemplate.ccemailtemplate.label', default: 'CC Address')}" />
 					
-						<g:sortableColumn property="contentemailtemplate" title="${message(code: 'emailtemplate.contentemailtemplate.label', default: 'Contentemailtemplate')}" />
+						<g:sortableColumn property="contentemailtemplate" title="${message(code: 'emailtemplate.contentemailtemplate.label', default: 'Header')}" />
 					
-						<g:sortableColumn property="footeremailtemplate" title="${message(code: 'emailtemplate.footeremailtemplate.label', default: 'Footeremailtemplate')}" />
+						<g:sortableColumn property="footeremailtemplate" title="${message(code: 'emailtemplate.footeremailtemplate.label', default: 'Footer')}" />
 					
 						<th><g:message code="emailtemplate.portfolio.label" default="Portfolio" /></th>
 					

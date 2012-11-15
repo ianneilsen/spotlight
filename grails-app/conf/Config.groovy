@@ -54,6 +54,10 @@ grails.enable.native2ascii = true
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
 grails.web.disable.multipart=false
+// mail system for sending email from publication show
+grails.mail.host="localhost"
+grails.mail.default.from="ineilsen@redhat.com"
+
 
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
