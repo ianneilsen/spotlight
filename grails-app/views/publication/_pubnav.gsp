@@ -71,7 +71,7 @@
             <a tabindex="-1" href="#">Insert Template</a>
               <ul class="dropdown-menu">
                  <g:hiddenField name="portfolioInstance" value="id"/>
-                   <g:select  name="templatepublication.id" from="${spotlight.pubtemplates.Templatepublication.list()}" optionKey="id" required="" value="${portfolioInstance?.pubtempl?.id}" class="many-to-one"/>
+                   <g:select  name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
         </div>
   </div>
 </div>
