@@ -4,7 +4,8 @@ import spotlight.content.Portfolio;
 import spotlight.content.Publication;
 import spotlight.content.PublicationTag;
 //import spotlight.content.Pubcategory;
-import spotlight.content.Pubproduct;
+import spotlight.content.Pubproduct
+import spotlight.pubtemplates.Templatepublication;
 
 
 class BootStrap {
@@ -194,8 +195,9 @@ class BootStrap {
         def r17 = new Publication(publicationName:"RAP Weekly Executive Briefing -17", publicationContent:"report content in markdown **bold** + bullet point",published:"No", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
         def r18 = new Publication(publicationName:"RAP Weekly Executive Briefing -18", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes", publisheddate: new Date (2012-10-24),portfolio: portfolio3, pubproduct: product4).save(failOnError: true)
 
-
-
+        def pubtemplate1= new Templatepublication(tplnamepub:"temp1", tplcontentpub:"template 1 for portfolio 1", portfolio: portfolio).save()
+        def pubtemplate2= new Templatepublication(tplnamepub:"temp2", tplcontentpub:"template 2 for portfolio 1", portfolio: portfolio).save()
+        def pubtemplate3= new Templatepublication(tplnamepub:"temp3", tplcontentpub:"template 3 for portfolio 2", portfolio: portfolio2).save()
     }
 
 
