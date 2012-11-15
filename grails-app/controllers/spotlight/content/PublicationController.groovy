@@ -35,6 +35,9 @@ class PublicationController {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct]
     }
 
+   /* def countpublishedno = Publication.countByPublished("No")*/
+
+
     def save() {
         def publicationInstance = new Publication(params)
         if (!publicationInstance.save(flush: true)) {

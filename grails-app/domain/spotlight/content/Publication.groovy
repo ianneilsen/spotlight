@@ -38,5 +38,6 @@ class Publication /*implements Comparable*/ {
 //                   } else
 //          return publicationContent;
 //    }
-    
+
+
 }
