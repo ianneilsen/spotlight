@@ -2,6 +2,8 @@ package spotlight.content
 import spotlight.content.Pubproduct
 
 import org.springframework.dao.DataIntegrityViolationException
+import spotlight.pubtemplates.Templatepublication
+import spotlight.pubtemplates.Emailtemplate
 
 class PublicationController {
 
@@ -35,15 +37,14 @@ class PublicationController {
         if (params.email) {
             sendMail {
                 to params.email
-                subject "Report for today"
-                body """
-                Todays report contains infor from
-                params.name
+                subject params.publicationName
+                body params.publicationContent
+                     params.footeremailtemplate
 
-                params.footer
-                """
             }
-            flash.message = "Report Email Sent"
+            flash.message = "Awesome you just sent an email"
+            redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publication.id'] as Long)])
+
         }
 
     }
@@ -51,7 +52,7 @@ class PublicationController {
 
 
     def create() {
-        [publicationInstance: new Publication(params), pubproduct: Pubproduct]
+        [publicationInstance: new Publication(params), pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
    /* def countpublishedno = Publication.countByPublished("No")*/
@@ -76,7 +77,7 @@ class PublicationController {
             return
         }
 
-        [publicationInstance: publicationInstance, pubproduct: Pubproduct]
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
     def edit(Long id) {
@@ -87,7 +88,7 @@ class PublicationController {
             return
         }
 
-        [publicationInstance: publicationInstance, pubproduct: Pubproduct]
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication]
     }
 
     def update(Long id, Long version) {

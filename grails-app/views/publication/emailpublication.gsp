@@ -26,11 +26,12 @@
         </g:if>
         <g:if test="${publicationInstance?.publicationContent}">
             <li class="fieldcontain">
-                <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>
+                <span class="property-value" aria-labelledby="publicationContent-label"><%=publicationInstance?.publicationContent%></span>
 
             </li>
         </g:if>
     </ol>
+
 
     <input type="submit"/>
 </g:form>

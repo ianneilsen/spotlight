@@ -1,6 +1,7 @@
 package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
+import spotlight.pubtemplates.Emailtemplate
 
 class PortfolioController {
 
@@ -66,7 +67,7 @@ class PortfolioController {
             return
         }
 
-        [portfolioInstance: portfolioInstance]
+        [portfolioInstance: portfolioInstance, emailtemplates: Emailtemplate]
     }
 
     def edit(Long id) {
