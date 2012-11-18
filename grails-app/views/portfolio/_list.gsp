@@ -1,0 +1,55 @@
+
+<%@ page import="spotlight.content.Publication" %>
+<%@ page import="spotlight.content.Portfolio" %>
+
+<a href="#list-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+
+<div id="list-publication" class="content scaffold-list" role="main">
+    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
+    <table>
+        <thead>
+        <tr>
+
+            <g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
+
+            <g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
+
+            <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
+
+            <g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
+
+            <g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
+
+            <g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', default: 'Last Updated')}" />
+
+        </tr>
+        </thead>
+        <tbody>
+        <g:each in="${portfolioInstance.publications}" status="i" var="publicationInstance">
+            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+                <td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
+
+                <td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
+
+                <td>${fieldValue(bean: publicationInstance, field: "published")}</td>
+
+                <td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
+
+                <td><g:formatDate date="${publicationInstance.dateCreated}" /></td>
+
+                <td><g:formatDate date="${publicationInstance.lastUpdated}" /></td>
+
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+    <div class="pagination">
+
+        <g:paginate total="${publicationInstanceTotal}" />
+        <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
+    </div>
+</div>

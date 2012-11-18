@@ -28,7 +28,9 @@
 		</div>
 		</div>
 		<div id="maincontent-wrapper">
+
 		<div id="inner-maincontent">
+
 		<g:layoutBody/>
 		</div>
 		</div>

@@ -1,5 +1,6 @@
 
 <%@ page import="spotlight.content.Publication" %>
+<%@ page import="spotlight.content.Portfolio" %>
 <!doctype html>
 <html>
 	<head>
@@ -39,7 +40,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${publicationInstanceList}" status="i" var="publicationInstance">
+				<g:each in="${portfolioInstance.publications}" status="i" var="publicationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
