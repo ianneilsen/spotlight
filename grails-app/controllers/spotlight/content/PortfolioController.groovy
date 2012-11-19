@@ -2,6 +2,7 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Emailtemplate
+import spotlight.content.Publication
 
 class PortfolioController {
 
@@ -40,6 +41,12 @@ class PortfolioController {
         def rsNumb = Portfolio.count()
         [portfolioInstanceList: Portfolio.list(params), portfolioInstanceTotal: Portfolio.count(), rsNumb: rsNumb]
 
+    }
+
+    def publicationcounts(){
+        def portfolioInstance = Portfolio.list(params.id)
+           def portfolioresults = portfolioInstance? Publication.countByPublished("No")
+        render(publicationcounts())
     }
 
     def create() {

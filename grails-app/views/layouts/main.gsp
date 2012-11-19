@@ -21,12 +21,14 @@
 	</head>
 	<body>
 	  <div id="header-wrapper">
-	    <div id="inner">
-	            <div id="left"></div>
+          <div id="inner">
+              <div id="left"></div>
+ <!--TODO: add in inner right hand log in option , css broken on header inner left and right-->
 	    	    <div id="right"></div>
 		<div id="spotlightLogo" role="banner"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'spotlight2_sml.png')}" alt="Red Hat"/></a></div>
 		</div>
 		</div>
+
 		<div id="maincontent-wrapper">
 
 		<div id="inner-maincontent">

@@ -1,5 +1,6 @@
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.content.Pubproduct" %>
+<%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.pubtemplates.Emailtemplate" %>
 <%@  page import="spotlight.pubtemplates.Templatepublication" %>
 <!doctype html>
@@ -168,10 +169,11 @@
             <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
         </g:each>--}%
         <li class="add">
-            <g:link controller="publication" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'Unpublished documents')])}</g:link>
-            <div><span class="label"> Total Unpublished:</span><span class="badge badge-success"> ${portfolioInstance?.publications.pubtags}</span> </div>
+            <g:link  controller="publication" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'Unpublished documents')])}</g:link>
+            <g:include id="[portfolioInstance.id]" action="publicationcounts"/>
+        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${params.portfolioresults}</span> </div>
         </li>
-    </ul>
+    </ul>                                                                                              %{--Message.executeQuery('select count(m) from Publication m where SIZE(m.published) = No')--}%
     <!----------------------------------table list ---------------------------------------->
     <div id="list-publication" class="content scaffold-list" role="main">
         <h1><g:message code="default.list.label" args="[entityName]" /></h1>
@@ -191,6 +193,8 @@
             <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 
             <g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publish Date')}" />
+
+            <g:sortableColumn property="publishedemail" title="${message(code: 'publication.published.label', default: 'Publication Emailed')}" />
 
             <g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 
@@ -213,6 +217,10 @@
                     </td>
 
                 <td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
+
+                <td> <g:if test="${publicationInstance.publishedemail=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "publishedemail")}</p></g:if>
+                    <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "publishedemail")}</p></g:else>
+                </td>
 
                 <td><g:formatDate date="${publicationInstance.dateCreated}" /></td>
 

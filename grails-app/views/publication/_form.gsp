@@ -18,6 +18,13 @@
     <g:select name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publishedemail', 'error')} required">
+    <label for="published">
+        <g:message code="publication.publishedemail.label" default="Publication emailed" />
+    </label>
+    <g:select name="publishedemail" from="${publicationInstance.constraints.publishedemail.inList}" required="" value="${publicationInstance?.publishedemail}" valueMessagePrefix="publication.publishedemail"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publisheddate', 'error')} required">
     <label for="publisheddate">
         <g:message code="publication.publisheddate.label" default="Publish on date" />

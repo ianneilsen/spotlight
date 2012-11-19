@@ -32,7 +32,9 @@
 						<g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 					
 						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
-					
+
+                        <g:sortableColumn property="publishedemail" title="${message(code: 'publication.publishedemail.label', default: 'Publishedemail')}" />
+
 						<g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', default: 'Last Updated')}" />
@@ -50,6 +52,8 @@
 						<td>${fieldValue(bean: publicationInstance, field: "published")}</td>
 					
 						<td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
+
+                        <td>${fieldValue(bean: publicationInstance, field: "publishedemail")}</td>
 					
 						<td><g:formatDate date="${publicationInstance.dateCreated}" /></td>
 					

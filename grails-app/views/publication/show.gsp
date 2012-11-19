@@ -42,7 +42,7 @@
       <ol class="property-list publication">
 				<g:if test="${publicationInstance?.publicationName}">
 				<li class="fieldcontain">
-					<span id="publicationName-label" class="property-label"><g:message code="publication.publicationName.label" default="Publication Name" /></span>
+					<span id="publicationName-label" class="property-label"><g:message code="publication.publicationName.label" default="Publication name" /></span>
 					
 						<span class="property-value" aria-labelledby="publicationName-label"><g:fieldValue bean="${publicationInstance}" field="publicationName"/></span>
 					
@@ -69,10 +69,19 @@
 					
 				</li>
 				</g:if>
+
+          <g:if test="${publicationInstance?.publishedemail}">
+              <li class="fieldcontain">
+                  <span id="publishedemail-label" class="property-label"><g:message code="publication.publishedemail.label" default="Publication emailed" /></span>
+
+                  <span class="property-value" aria-labelledby="publishedemail-label"><g:fieldValue bean="${publicationInstance}" field="publishedemail"/></span>
+
+              </li>
+          </g:if>
 			
 				<g:if test="${publicationInstance?.publisheddate}">
 				<li class="fieldcontain">
-					<span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Publisheddate" /></span>
+					<span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Published date" /></span>
 					
 						<span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${publicationInstance?.publisheddate}" /></span>
 					
@@ -81,7 +90,7 @@
 			
 				<g:if test="${publicationInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date Created" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${publicationInstance?.dateCreated}" /></span>
 					
@@ -90,7 +99,7 @@
 			
 				<g:if test="${publicationInstance?.lastUpdated}">
 				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last Updated" /></span>
+					<span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span>
 					
@@ -101,7 +110,7 @@
 
                 <g:if test="${publicationInstance?.publicationContent}">
                     <li class="fieldcontain">
-                        <span id="publicationContent-label" class="property-label"><g:message code="publication.publicationContent.label" default="Publication Content" /></span>
+                        <span id="publicationContent-label" class="property-label"><g:message code="publication.publicationContent.label" default="Publication content" /></span>
 
                         <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>
 
@@ -111,7 +120,7 @@
 
 				<g:if test="${publicationInstance?.pubtags}">
 				<li class="fieldcontain">
-					<span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Pubtags" /></span>
+					<span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Publication tags" /></span>
 					
 						<g:each in="${publicationInstance.pubtags}" var="p">
 						<span class="property-value" aria-labelledby="pubtags-label"><g:link controller="publicationTag" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>

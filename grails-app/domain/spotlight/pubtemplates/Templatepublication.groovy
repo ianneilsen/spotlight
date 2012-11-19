@@ -10,10 +10,12 @@ class Templatepublication {
 
     String tplnamepub
     String tplcontentpub
+    String tplshare
 
     static constraints = {
         tplnamepub(blank: false, size: 4..100)
         tplcontentpub(blank: true, size: 2..2000)
+        tplshare(inList: ["Yes","No"])
     }
     String toString() {
         tplnamepub
