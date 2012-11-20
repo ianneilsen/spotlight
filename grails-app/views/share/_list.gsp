@@ -2,8 +2,6 @@
 <%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Portfolio" %>
 
-<a href="#list-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-
 <div id="list-publication" class="content scaffold-list" role="main">
     <h1><g:message code="default.list.label" args="[entityName]" /></h1>
     <g:if test="${flash.message}">
@@ -13,31 +11,43 @@
         <thead>
         <tr>
 
-            <g:sortableColumn property="publicationName" title="${message(code: 'publication.publicationName.label', default: 'Publication Name')}" />
+            <g:sortableColumn property="publicationName" title="${message(code: 'portfolioInstance.publication.publicationName.label', default: 'Publication Name')}" />
 
-            <g:sortableColumn property="publicationContent" title="${message(code: 'publication.publicationContent.label', default: 'Publication Content')}" />
+            <g:sortableColumn property="publicationContent" title="${message(code: 'portfolioInstance.publication.publicationContent.label', default: 'Publication Content')}" />
 
-            <g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
+            <g:sortableColumn property="pubproduct" title="${message(code: 'portfolioInstance.spubproduct.pubproduct', default: 'Product Name')}"  />
 
-            <g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
+            <g:sortableColumn property="published" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Published')}" />
 
-            <g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
+            <g:sortableColumn property="publisheddate" title="${message(code: 'portfolioInstance.publication.publisheddate.label', default: 'Publish Date')}"  />
 
-            <g:sortableColumn property="lastUpdated" title="${message(code: 'publication.lastUpdated.label', default: 'Last Updated')}" />
+            <g:sortableColumn property="publishedemail" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Publication Emailed')}" />
+
+            <g:sortableColumn property="dateCreated" title="${message(code: 'portfolioInstance.publication.dateCreated.label', default: 'Date Created')}" />
+
+            <g:sortableColumn property="lastUpdated" title="${message(code: 'portfolioInstance.publication.lastUpdated.label', default: 'Last Updated')}"  />
 
         </tr>
         </thead>
         <tbody>
-        <g:each in="${portfolioInstance.publications}" status="i" var="publicationInstance">
+        <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                <td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
+                <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
-                <td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
+                <td style="text-overflow: ellipsis; width: 30em; height: 2em; display:block; overflow: hidden; white-space: nowrap;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 
-                <td>${fieldValue(bean: publicationInstance, field: "published")}</td>
+                <td>${publicationInstance.pubproduct}</td>
+
+                <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
+                    <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>
+                </td>
 
                 <td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
+
+                <td> <g:if test="${publicationInstance.publishedemail=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "publishedemail")}</p></g:if>
+                    <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "publishedemail")}</p></g:else>
+                </td>
 
                 <td><g:formatDate date="${publicationInstance.dateCreated}" /></td>
 
@@ -47,9 +57,10 @@
         </g:each>
         </tbody>
     </table>
-    <div class="pagination">
+  %{--  <div class="pagination">
 
-        <g:paginate total="${publicationInstanceTotal}" />
-        <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
-    </div>
+        <g:paginate total="${portfolioInstance?.publications}" />
+        <h6>Number of publications: ${portfolioInstance?.publications?.list().size()}</h6>
+    </div>--}%
+    <!-- todo killpagination for a moment while i fix partial render within a render -->s
 </div>

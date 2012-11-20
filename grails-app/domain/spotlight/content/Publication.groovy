@@ -1,8 +1,13 @@
 package spotlight.content
 
-class Publication /*implements Comparable*/ {
+class Publication  {
 
-	String publicationName
+    static belongsTo = [portfolio: Portfolio]
+    static hasMany = [pubtags: PublicationTag]
+    Pubproduct pubproduct
+
+
+    String publicationName
 	String publicationContent
 	Date publisheddate = new Date()
     String publishedemail
@@ -10,17 +15,10 @@ class Publication /*implements Comparable*/ {
 	Date dateCreated
 	Date lastUpdated
 
-/*        int compareTo(obj){
-            lastUpdated.compareTo(obj.lastUpdated) }*/
-
 	static mapping ={
 		publicationContent type: "text"
-        sort lastUpdated: "desc"
-    }
 
-    static belongsTo = [portfolio: Portfolio]
-    static hasMany = [pubtags: PublicationTag]
-    Pubproduct pubproduct
+    }
 
 	static constraints = {
 		publicationName (blank: false, unique: true, size: 8..100)
@@ -30,17 +28,9 @@ class Publication /*implements Comparable*/ {
         publishedemail(blank: false, inList: ["No","Yes"])
     }
 
-
     String toString(){
         publicationName
     }
-//return a substring of the publications content in the list view and show	
-//	String toString() {
-//		if(publicationContent.size()>20){
-//            return publicationContent.substring(0,19);
-//                   } else
-//          return publicationContent;
-//    }
 
 
 }

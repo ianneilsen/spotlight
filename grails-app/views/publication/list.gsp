@@ -42,14 +42,16 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${portfolioInstance.publications}" status="i" var="publicationInstance">
+				<g:each in="${publicationInstanceList}" status="i" var="publicationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 					
 						<td>${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
-					
-						<td>${fieldValue(bean: publicationInstance, field: "published")}</td>
+
+                        <td> <g:if test="${publicationInstance.published=="Yes"}"><p class="label label-success">${fieldValue(bean: publicationInstance, field: "published")}</p></g:if>
+                            <g:else><p class="label label-important">${fieldValue(bean: publicationInstance, field: "published")}</p></g:else>
+                        </td>
 					
 						<td><g:formatDate date="${publicationInstance.publisheddate}" /></td>
 

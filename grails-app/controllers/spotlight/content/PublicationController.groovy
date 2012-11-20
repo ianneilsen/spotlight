@@ -20,14 +20,6 @@ class PublicationController {
         params.max = Math.min(max ?: 10, 100)
         if (params.sort==null){
             params.sort = "published"
-/*        def list = Publication.list().sort{
-            a, b ->
-            if (params.order == 'desc') {
-                b."${params.sort}" <=> a."${params.sort}"
-            } else {
-                a."${params.sort}" <=> b."${params.sort}"
-            }
-        }*/
 
         }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]

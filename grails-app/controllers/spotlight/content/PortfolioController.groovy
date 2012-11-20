@@ -43,11 +43,12 @@ class PortfolioController {
 
     }
 
-    def publicationcounts(){
+/*    def publicationcounts(){
         def portfolioInstance = Portfolio.list(params.id)
            def portfolioresults = portfolioInstance? Publication.countByPublished("No")
-        render(publicationcounts())
-    }
+
+              [publicationcounts()]
+    }*/
 
     def create() {
         [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
