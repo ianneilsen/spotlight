@@ -30,7 +30,8 @@
         </tr>
         </thead>
         <tbody>
-        <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
+        <g:each in="${portfolioInstance?.publications.sort{a,b-> a.id.compareTo(b.id)} }" status="i" var="publicationInstance">
+            %{--.sort{a,b-> a.id.compareTo(b.id)}--}%
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>

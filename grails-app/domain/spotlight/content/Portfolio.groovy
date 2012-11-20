@@ -2,12 +2,11 @@ package spotlight.content
 
 import spotlight.pubtemplates.Templatepublication
 import spotlight.pubtemplates.Emailtemplate
-import spotlight.content.Publication
 
 class Portfolio {
 //    List publications = new ArrayList()
 /*    SortedSet publications*/
-    List publications = new ArrayList();
+    //List publications //= new ArrayList();
     static hasMany = [publications: Publication, emailtemplates: Emailtemplate, publicationtemplates: Templatepublication]
     Profile profile
 		
