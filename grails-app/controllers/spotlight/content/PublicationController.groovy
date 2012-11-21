@@ -25,6 +25,8 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
+
+
     def emailpublication(){
         if (params.email) {
             sendMail {

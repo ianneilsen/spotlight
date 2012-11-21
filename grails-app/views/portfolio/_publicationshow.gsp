@@ -80,4 +80,8 @@
 </ul>                                                                                              %{--Message.executeQuery('select count(m) from Publication m where SIZE(m.published) = No')--}%
 <!----------------------------------table list ---------------------------------------->
 
-<tmpl:/share/list publications="${portfolioInstance?.publications}"/>
+%{--<tmpl:/share/list publications="${portfolioInstance?.publications}"/>--}%
+
+%{--<g:render template="/share/list" action="list" model="[publicationInstanceList: spotlight.content.Publication?.list(params), publicationInstanceTotal: spotlight.content.Publication?.count()]"/>--}%
+
+<g:render template="/share/list" action="list" />

@@ -11,26 +11,26 @@
         <thead>
         <tr>
 
-            <g:sortableColumn property="publicationName" title="${message(code: 'portfolioInstance.publication.publicationName.label', default: 'Publication Name')}" />
+            <g:sortableColumn  property="publicationName" title="${message(code: 'portfolioInstance.publication.publicationName.label', default: 'Publication Name')}" />
 
-            <g:sortableColumn property="publicationContent" title="${message(code: 'portfolioInstance.publication.publicationContent.label', default: 'Publication Content')}" />
+            <g:sortableColumn  property="publicationContent" title="${message(code: 'portfolioInstance.publication.publicationContent.label', default: 'Publication Content')}" />
 
-            <g:sortableColumn property="pubproduct" title="${message(code: 'portfolioInstance.spubproduct.pubproduct', default: 'Product Name')}"  />
+            <g:sortableColumn  property="pubproduct" title="${message(code: 'portfolioInstance.spubproduct.pubproduct', default: 'Product Name')}"  />
 
-            <g:sortableColumn property="published" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Published')}" />
+            <g:sortableColumn  property="published" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Published')}" />
 
-            <g:sortableColumn property="publisheddate" title="${message(code: 'portfolioInstance.publication.publisheddate.label', default: 'Publish Date')}"  />
+            <g:sortableColumn  property="publisheddate" title="${message(code: 'portfolioInstance.publication.publisheddate.label', default: 'Publish Date')}"  />
 
-            <g:sortableColumn property="publishedemail" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Publication Emailed')}" />
+            <g:sortableColumn  property="publishedemail" title="${message(code: 'portfolioInstance.publication.published.label', default: 'Publication Emailed')}" />
 
-            <g:sortableColumn property="dateCreated" title="${message(code: 'portfolioInstance.publication.dateCreated.label', default: 'Date Created')}" />
+            <g:sortableColumn  property="dateCreated" title="${message(code: 'portfolioInstance.publication.dateCreated.label', default: 'Date Created')}" />
 
-            <g:sortableColumn property="lastUpdated" title="${message(code: 'portfolioInstance.publication.lastUpdated.label', default: 'Last Updated')}"  />
+            <g:sortableColumn  property="lastUpdated" title="${message(code: 'portfolioInstance.publication.lastUpdated.label', default: 'Last Updated')}"  />
 
         </tr>
         </thead>
         <tbody>
-        <g:each in="${portfolioInstance?.publications.sort{a,b-> a.id.compareTo(b.id)} }" status="i" var="publicationInstance">
+        <g:each in="${portfolioInstance?.publications }" status="i" var="publicationInstance">
             %{--.sort{a,b-> a.id.compareTo(b.id)}--}%
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
@@ -63,5 +63,5 @@
         <g:paginate total="${portfolioInstance?.publications}" />
         <h6>Number of publications: ${portfolioInstance?.publications?.list().size()}</h6>
     </div>--}%
-    <!-- todo killpagination for a moment while i fix partial render within a render -->s
+    <!-- todo killpagination for a moment while i fix partial render within a render -->
 </div>

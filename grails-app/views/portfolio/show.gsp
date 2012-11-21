@@ -94,6 +94,9 @@
 			</g:form>
 		</div>
                 </g:if>
-<tmpl:publicationshow publications="${portfolioInstance?.publications}"/>
+%{--<tmpl:publicationshow action="list" publications="${portfolioInstance?.publications}"/>--}%
+    <tmpl:/share/list action="list" publications="${portfolioInstance?.publications}"/>
+
+   %{-- <g:render template="/share/list"  />--}%
 	</body>
 </html>
