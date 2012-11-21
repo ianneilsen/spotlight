@@ -17,15 +17,13 @@ class PublicationController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 5, 52)
         if (params.sort==null){
             params.sort = "published"
 
         }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
-
-
 
     def emailpublication(){
         if (params.email) {
@@ -38,19 +36,15 @@ class PublicationController {
             }
             flash.message = "Awesome you just sent an email"
             redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publication.id'] as Long)])
-
         }
 
     }
-
-
 
     def create() {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
    /* def countpublishedno = Publication.countByPublished("No")*/
-
 
     def save() {
         def publicationInstance = new Publication(params)

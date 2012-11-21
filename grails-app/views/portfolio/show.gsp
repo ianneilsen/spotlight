@@ -7,6 +7,9 @@
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta name="layout" content="main">
+        <style type="text/css" title="currentStyle">
+        @import "/DataTables/media/css/demo_table.css";
+        </style>
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -94,8 +97,8 @@
 			</g:form>
 		</div>
                 </g:if>
-%{--<tmpl:publicationshow action="list" publications="${portfolioInstance?.publications}"/>--}%
-    <tmpl:/share/list action="list" publications="${portfolioInstance?.publications}"/>
+<tmpl:publicationshow action="list" publications="${portfolioInstance?.publications}"/>
+    %{--<tmpl:/share/list action="list" publications="${portfolioInstance?.publications}"/>--}%
 
    %{-- <g:render template="/share/list"  />--}%
 	</body>

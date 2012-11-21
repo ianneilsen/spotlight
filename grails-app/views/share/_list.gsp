@@ -7,11 +7,15 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <table>
+    <g:javascript>$(document).ready( function () {
+        $('#table_id').dataTable();
+    } )</g:javascript>
+    <table id="table_id" class="display">
+    %{--<table>--}%
         <thead>
         <tr>
 
-            <g:sortableColumn  property="publicationName" title="${message(code: 'portfolioInstance.publication.publicationName.label', default: 'Publication Name')}" />
+          %{--  <g:sortableColumn  property="publicationName" title="${message(code: 'portfolioInstance.publication.publicationName.label', default: 'Publication Name')}" />
 
             <g:sortableColumn  property="publicationContent" title="${message(code: 'portfolioInstance.publication.publicationContent.label', default: 'Publication Content')}" />
 
@@ -25,8 +29,15 @@
 
             <g:sortableColumn  property="dateCreated" title="${message(code: 'portfolioInstance.publication.dateCreated.label', default: 'Date Created')}" />
 
-            <g:sortableColumn  property="lastUpdated" title="${message(code: 'portfolioInstance.publication.lastUpdated.label', default: 'Last Updated')}"  />
-
+            <g:sortableColumn  property="lastUpdated" title="${message(code: 'portfolioInstance.publication.lastUpdated.label', default: 'Last Updated')}"  />--}%
+            <th>Publication Name</th>
+            <th>Content</th>
+            <th>Product Name</th>
+            <th>Published</th>
+            <th>Publish date</th>
+            <th>Publication emailed</th>
+            <th>Date created</th>
+            <th>Last Updated</th>
         </tr>
         </thead>
         <tbody>
@@ -65,3 +76,4 @@
     </div>--}%
     <!-- todo killpagination for a moment while i fix partial render within a render -->
 </div>
+<g:javascript src="DataTables/media/js/jquery.dataTables.js" />

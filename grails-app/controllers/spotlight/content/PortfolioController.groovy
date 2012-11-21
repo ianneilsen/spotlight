@@ -25,15 +25,6 @@ class PortfolioController {
         [webLists: webLists, webreports: webreports, reportscount: reportscount]
     }
 
-/*    def artistList = Artist.findAllByStyle(styleCriteria, [sort: 'name', max: 2, offset: 1, order: 'asc'])*/
-/*    def _webList (){
-        def webLists = Portfolio.list(params.id)
-        def webreports = Publication.where {published=="Yes"}
-        def results = webreports.list(max: 3, sort: "lastUpdated")
-        [webLists: webLists, webreports: webreports, results: results]
-
-    }*/
-
     // TODO: fix styling for  weblist column data - narrow col width or padding
 
     def list(Integer max) {
@@ -42,7 +33,6 @@ class PortfolioController {
         [portfolioInstanceList: Portfolio.list(params), portfolioInstanceTotal: Portfolio.count(), rsNumb: rsNumb]
 
     }
-
 
     def create() {
         [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
@@ -70,6 +60,14 @@ class PortfolioController {
         }
 
         [portfolioInstance: portfolioInstance, emailtemplates: Emailtemplate]
+    }
+
+    def _publicationlist (Integer max) {
+        def portfolioInstance = Portfolio.get(id)
+        portfolioInstance.properties=params
+        def publications = Publication.list(params)
+        render(view: publications)
+
     }
 
     def edit(Long id) {
