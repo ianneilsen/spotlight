@@ -17,7 +17,7 @@ class Publication  {
 
 	static mapping ={
 		publicationContent type: "text"
-
+        sort published: "desc"
     }
 
 	static constraints = {

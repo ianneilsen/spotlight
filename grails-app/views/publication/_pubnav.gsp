@@ -69,7 +69,8 @@
           </a>
         <ul class="dropdown-menu">
         <!-- dropdown menu links -->
-        <a href="SpotLight-Grails/publication/clonepub"  data-toggle="modal">Clone publication</a>
+        <g:hiddenField name="id" value="${publicationInstance?.id}" />
+        <a href="clonepublication"  data-toggle="modal">Clone publication</a>
         <a href="SpotLight-Grails/publication/emailtemplate"  data-toggle="modal">Use email template</a>
         <li class="divider"></li>
         <li class="dropdown-submenu">

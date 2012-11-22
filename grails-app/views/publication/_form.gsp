@@ -66,6 +66,7 @@
 	<g:select id="portfolio" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${publicationInstance?.portfolio?.id}" class="many-to-one"/>
 </div>
 
+
 <!--  tags for publications -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'pubtags', 'error')} ">
 	<label for="pubtags">

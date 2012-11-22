@@ -44,7 +44,11 @@ class PublicationController {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
-   /* def countpublishedno = Publication.countByPublished("No")*/
+    def clonepublication (){
+        def getpublication = Publication.get(params)
+               render(action: "clonepublication", model: [getpublication: publicationInstance, pubproduct: pubproduct])
+    }
+
 
     def save() {
         def publicationInstance = new Publication(params)
