@@ -10,6 +10,14 @@
 	<g:textField name="tplnamepub" maxlength="100" required="" value="${templatepublicationInstance?.tplnamepub}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: templatepublicationInstance, field: 'tplshare', 'error')} required">
+    <label for="tplshare">
+        <g:message code="templatepublication.tplshare.label" default="Share Template" />
+
+    </label>
+    <g:textField name="tplshare" value="${templatepublicationInstance?.tplshare}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: templatepublicationInstance, field: 'tplcontentpub', 'error')} ">
 	<label for="tplcontentpub">
 		<g:message code="templatepublication.tplcontentpub.label" default="Publication template" />

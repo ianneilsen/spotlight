@@ -45,10 +45,8 @@ class PublicationController {
     }
 
     def clonepublication (){
-        def getpublication = Publication.get(params)
-               render(action: "clonepublication", model: [getpublication: publicationInstance, pubproduct: pubproduct])
-    }
 
+    }
 
     def save() {
         def publicationInstance = new Publication(params)

@@ -2,7 +2,7 @@
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
 
-<div id="pub-nav" xmlns="http://www.w3.org/1999/html">
+<div id="pub-nav" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <!-----------markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
 
@@ -69,8 +69,8 @@
           </a>
         <ul class="dropdown-menu">
         <!-- dropdown menu links -->
-        <g:hiddenField name="id" value="${publicationInstance?.id}" />
-        <a href="clonepublication"  data-toggle="modal">Clone publication</a>
+        <g:link action="show" id="${publicationInstance.id}">Clone-${publicationInstance?.publicationName}</g:link>
+
         <a href="SpotLight-Grails/publication/emailtemplate"  data-toggle="modal">Use email template</a>
         <li class="divider"></li>
         <li class="dropdown-submenu">

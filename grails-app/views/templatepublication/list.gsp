@@ -27,7 +27,9 @@
 						<g:sortableColumn property="tplnamepub" title="${message(code: 'templatepublication.tplnamepub.label', default: 'Template Name')}" />
 					
 						<g:sortableColumn property="tplcontentpub" title="${message(code: 'templatepublication.tplcontentpub.label', default: 'Template layout')}" />
-					
+
+                        <g:sortableColumn property="tplshare" title="${message(code: 'templatepublication.tplshare.label', default: 'Template is shared')}" />
+
 						<th><g:message code="templatepublication.portfolio.label" default="Portfolio" /></th>
 					
 					</tr>
@@ -39,7 +41,9 @@
 						<td><g:link action="show" id="${templatepublicationInstance.id}">${fieldValue(bean: templatepublicationInstance, field: "tplnamepub")}</g:link></td>
 					
 						<td>${fieldValue(bean: templatepublicationInstance, field: "tplcontentpub")}</td>
-					
+
+                        <td>${fieldValue(bean: templatepublicationInstance, field: "tplshare")}</td>
+
 						<td>${fieldValue(bean: templatepublicationInstance, field: "portfolio")}</td>
 					
 					</tr>

@@ -31,7 +31,16 @@
 					
 				</li>
 				</g:if>
-			
+
+                <g:if test="${templatepublicationInstance?.tplshare}">
+                    <li class="fieldcontain">
+                        <span id="tplshare-label" class="property-label"><g:message code="templatepublication.tplshare.label" default="Template shared" /></span>
+
+                        <span class="property-value" aria-labelledby="tplshare-label"><g:fieldValue bean="${templatepublicationInstance}" field="tplshare"/></span>
+
+                    </li>
+                </g:if>
+
 				<g:if test="${templatepublicationInstance?.tplcontentpub}">
 				<li class="fieldcontain">
 					<span id="tplcontentpub-label" class="property-label"><g:message code="templatepublication.tplcontentpub.label" default="Template layout" /></span>
