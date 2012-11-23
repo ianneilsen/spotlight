@@ -25,13 +25,23 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
+    def emailbody(){
+        text << "Welcome to SpotLight"
+        text << "${portfolioInstance?.contentemailtemplate}"
+        text << "${portfolioInstance?.publicationContent}"
+        text << "${portfolioInstance?.footeremailtemplate}"
+        text = text.toString()
+
+    }
+
     def emailpublication(){
         if (params.email) {
             sendMail {
+                from "ineilsen@redhat.com"
                 to params.email
                 subject params.publicationName
-                body params.publicationContent
-                     params.footeremailtemplate
+                body emailbody()
+
 
             }
             flash.message = "Awesome you just sent an email"

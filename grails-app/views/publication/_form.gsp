@@ -2,7 +2,9 @@
 <%@ page import="spotlight.content.Pubproduct" %>
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
 
-<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
+
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required"
+     xmlns="http://www.w3.org/1999/html">
 	<label for="publicationName">
 		<g:message code="publication.publicationName.label" default="Publication Name" />
 		<span class="required-indicator">*</span>
@@ -30,7 +32,7 @@
         <g:message code="publication.publisheddate.label" default="Publish on date" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}"  />
+    <g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}" ></g:datePicker>
 </div>
 
 <!------------------------------------------------------------------------------------------------------>
@@ -48,11 +50,25 @@
 		<g:message code="publication.publicationContent.label" default="Publication Content" />
 		
 	</label>
-	<g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40" escapeHtml="false"></g:textArea>
+    <g:textArea name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"></g:textArea>
+%{--
+    <div class="CodeMirror CodeMirror-wrap">
+        <div class="CodeMirror-scroll cm-s-default" tabindex="-1">
+            <div class="CodeMirror-gutter" style="height: 300px;">
+
+                <textArea name="body" id="pubcontent" class="input-fullsize" rows="10" cols="30" style="display: none;"></textarea>
+
+            <div class="CodeMirror-gutter-text"></div>
+        </div>
+        <div class="CodeMirror-lines"></div>
+    </div>--}%
+    </div>
 </div>
 
 
 
+
+<!----- upload me  -------------------------------------------------------------------------------------->
 <uploadr:add name="pcitureupload" path="/SpotLight-Grails/tmp" allowedExtensions="gif,png,jpg,jpeg" direction="up" maxVisible="5"  maxSize="2000" />
 
                       <!--todo - add in new context and url mapping to save stored images  at /applicationName/portofolioName/images and to strem them back via this context -->
@@ -63,7 +79,8 @@
 		<g:message code="publication.portfolio.label" default="Portfolio" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="portfolio" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${publicationInstance?.portfolio?.id}" class="many-to-one"/>
+%{--	<g:select id="portfolio" readonly="portfolio.id" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${publicationInstance?.portfolio?.id}" class="many-to-one"/>--}%
+<g:textField id="portfolio" readonly="" name="portfolio.id" value="${publicationInstance?.portfolio?.id}" class="many-to-one" />
 </div>
 
 

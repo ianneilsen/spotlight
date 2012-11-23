@@ -23,7 +23,8 @@
       </div>
 
 <!------------------------------ dropdown menu links ----------------------------------------------->
-
+                                                                              <!--todo image tab lib -->
+<!------ burningimagetablib  research use with html5 drop lib ---------------------->
       <div class="btn-group">
         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             Actions

@@ -12,7 +12,7 @@
 <g:hiddenField name="publication" value="publicationInstance.id"/>
 <g:form action="emailpublication">
 
-
+%{--
     <h6><g:field type="string" name="email" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
 
     <h6><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
@@ -21,7 +21,11 @@
 
     <h6><g:field type="string" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
 
-    <!-- todo ad in  markitup html to markdown or add in html to text option here for emailing plain text -->
+    <!-- todo ad in  markitup html to markdown or add in html to text option here for emailing plain text -->--}%
+
+    <g:each in="${emailbody}" var="eb">
+        <h6>${emailbody}</h6>
+    </g:each>
 
     <input type="submit"/>
 </g:form>

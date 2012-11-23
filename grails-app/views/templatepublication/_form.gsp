@@ -15,7 +15,7 @@
         <g:message code="templatepublication.tplshare.label" default="Share Template" />
 
     </label>
-    <g:textField name="tplshare" value="${templatepublicationInstance?.tplshare}"/>
+    <g:select id="templatepublication" from="${templatepublicationInstance?.tplshare}" name="tplshare" value="${templatepublicationInstance?.tplshare}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: templatepublicationInstance, field: 'tplcontentpub', 'error')} ">
