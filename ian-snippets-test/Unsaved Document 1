@@ -1,0 +1,71 @@
+see urls also
+
+This seems to work:
+def annotation = Annotation.get (params.id)
+def copyAnnotation = new Annotation()
+copyAnnotation.properties = annotation.properties
+copyAnnotation.id = null
+copyAnnotation.save()
+
+At first I thought you could just set the id of your original
+annotation to null, and Hibernate would think it's a new Object --
+apparently not because it barfed when I tried that.  If you make a new
+object & copy the params, _then_ set the id to null, Hibernate sees it
+as a new object
+
+ll
+class FooTests extends GroovyTestCase {
+
+    void testSomething() {
+        final int ORIGINAL_BAR_VALUE = System.currentTimeMillis() // now
+
+        def fooOriginal = new Foo()
+        fooOriginal.bar = new Date(ORIGINAL_BAR_VALUE)
+        fooOriginal.save()
+
+        def fooClone = new Foo()
+        fooClone.bar = new Date(fooOriginal.bar.getTime())
+        fooClone.id = null
+        fooClone.save()
+
+        // Verify that the clone has the same value as the source
+        assertEquals(fooOriginal.bar.getTime(), fooClone.bar.getTime())
+
+        println "fooOriginal.properties -- " + fooOriginal.properties
+        println "fooClone.properties -- " + fooClone.properties
+
+        fooClone.bar.setTime(0) // the beginning of time
+
+        println "fooOriginal.properties -- " + fooOriginal.properties
+        println "fooClone.properties -- " + fooClone.properties
+
+        assertEquals(ORIGINAL_BAR_VALUE,
+fooOriginal.bar.getTime())
+    }
+}
+
+--------------------------------------------------------
+
+
+       def annotation = Annotation.get (params.id)
+
+        def copyAnnotation = new Annotation()
+
+        def copyProps = annotation.properties
+        copyProps.id = copyAnnotation.id
+        copyAnnotation.properties = copyProps
+        copyAnnotation.save(
+
+--------------------------------------------------------
+def annotation = Annotation.get (params.id)
+def copyAnnotation = new Annotation()
+copyAnnotation.properties = annotation.properties
+copyAnnotation.id = null
+copyAnnotation.save()
+
+--------------------------------------------------------
+
+
+http://grails.1312388.n4.nabble.com/GORM-copy-td1328304.html
+
+--------------------------------------------------------

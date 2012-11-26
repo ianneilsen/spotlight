@@ -1,0 +1,23 @@
+http://stackoverflow.com/questions/6772350/how-to-create-a-new-directory-in-grails-application-to-store-jasper-report-files
+
+when a new site is created
+create a directory to house images. keep in mind the future use of site dir stores
+when a user inserts an image to the publication using ![image name](images/image-name.png) the image must be
+retrieved from the sites dir and not a global directory
+
+we may have to use outputstream to get images since am not sure if dirs will be accessible
+
+http://stackoverflow.com/questions/2692772/how-can-i-create-a-new-folder-in-my-web-app-for-upload-photo-album-with-grails
+
+define root path in webapp using groovy.config
+set inside of rootpath the sitename+date as dir
+when site created save images from reports to this root path
+call images from this root path to display
+set permissions correctly as read/write by app main user or site users kerberos auth via service
+
+http://stackoverflow.com/questions/3600030/how-to-make-directory-public-on-grails
+
+http://sysgears.com/articles/how-create-your-own-grails-portlet-liferay/
+
+http://stackoverflow.com/questions/6800083/how-to-create-file-in-current-system-from-within-grails-controller-action-and-sa
+

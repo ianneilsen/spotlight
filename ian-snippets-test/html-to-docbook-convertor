@@ -1,0 +1,13 @@
+http://www.michael-a-fuchs.de/
+
+convert html code to docbook file
+
+display publication you want converted
+create temp directry structure in sites temp area from templates set
+action submit to docbook convertor
+pass result to docbook.xml
+
+look at using publican api to convert markdown to docbook
+copy pubication domain model to text file and create directory structure
+run publican build
+presnt user back a zip file or download location to get zip file

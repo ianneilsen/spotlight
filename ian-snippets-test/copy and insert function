@@ -1,0 +1,15 @@
+copy domain field to live edit of new or updatable domain object
+
+user select which report they want to copy from
+only publication content area is copied not other domain properties
+clone the content area
+the cloned domain object should be rendered to json
+pass the json object to the submit button on action submit to textarea
+pass it in as json
+populate textarea with json response
+
+gotchas
+formatting of text when returned via json
+may have to write some js or jquery to do this
+
+

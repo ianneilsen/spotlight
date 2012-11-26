@@ -1,0 +1,10 @@
+http://grails.org/doc/latest/ref/Tags/actionSubmitImage.html
+
+http://www.quirksmode.org/bugreports/archives/2006/07/Namevalue_pairs_arent_submitted_for_image_submit_b.html
+
+possible issue with img submit optin from textarea. may have to use js to fix
+
+http://fbflex.wordpress.com/2008/11/26/a-simple-grails-controller-for-file-management/
+
+http://www.vclcomponents.com/s/0__/embedding_images_to_textarea/
+

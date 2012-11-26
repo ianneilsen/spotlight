@@ -1,0 +1,43 @@
+http://xytang.blogspot.com.au/2007/01/grails-how-to-send-out-email-after-some.html
+
+http://weceem.org/weceem/documentation/Developer-Guide/Form-handling-with-Groovy-scri
+
+
+let user populate new window with details of publication
+include email template
+user can edit main content, email addresses and footer
+validation must happen with email address fields to stop swamping or emails
+user actionsubmit  to preview email or send email
+return acton on success to show page of publication with action.message email successfully sent
+send 2 emails
+1 to list and 1 to user - confirm this action to ensure no email overload
+we need an after send action to update the emailsend domain field to be flag as true or yes and update to database
+
+issues
+grails mail plugin may not be full featured and capable of sending inline resources
+may have to use
+http://static.springsource.org/spring/docs/1.2.7/reference/mail.html
+
+http://stackoverflow.com/questions/5289849/how-do-i-send-html-email-in-spring-mvc
+
+http://yves.vindevogel.net/projects/groovy/wiki/How_to_send_email_using_your_Gmail_account_with_a_Groovy_script
+
+http://code.google.com/p/easygsp/wiki/email
+
+when using the mail javamail.api - we can use multiple asyn emailing
+we need to watch the log files for failed emails as it is not instance
+
+to add in more then one body  to the properties of the email template prior to sending use
+
+email.body params.header
+email.body params.content
+email.body params.footer
+
+email.htmlBody can also be used inline
+
+need to catch exceptions, currently no e
+
+http://groovy.codehaus.org/Formatting+simple+tabular+text+data
+
+we also need to wrap text at the word boundary to create nice looking emails
+we also need to remove certain string types and replace with human readable strings
