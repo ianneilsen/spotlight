@@ -36,7 +36,7 @@
 
             <g:render template="pubnav"/>
 
-            <g:render template="emailmodal"/>
+            <g:render template="emailmodal" />
 
             <!-- publication nav --------------->
       <ol class="property-list publication">

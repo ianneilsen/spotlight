@@ -15,7 +15,7 @@
 		<g:message code="emailtemplate.toemailtemplate.label" default="Email To:" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="email" name="toemailtemplate" maxlength="200" required="" value="${emailtemplateInstance?.toemailtemplate}"/>
+	<g:field type="string" name="toemailtemplate" maxlength="250" required="" value="${emailtemplateInstance?.toemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'ccemailtemplate', 'error')} ">
@@ -23,7 +23,7 @@
 		<g:message code="emailtemplate.ccemailtemplate.label" default="Email CC:" />
 		
 	</label>
-	<g:field type="email" name="ccemailtemplate" maxlength="200" value="${emailtemplateInstance?.ccemailtemplate}"/>
+	<g:field type="string" name="ccemailtemplate" maxlength="250" value="${emailtemplateInstance?.ccemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'contentemailtemplate', 'error')} ">

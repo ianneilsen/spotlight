@@ -25,44 +25,23 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
-/*    def emailbody(){
-        text << "Welcome to SpotLight"
-        text << "${portfolioInstance?.contentemailtemplate}"
-        text << "${portfolioInstance?.publicationContent}"
-        text << "${portfolioInstance?.footeremailtemplate}"
-        text = text.toString()
-
-    }*/
-
-/*    def emailpublication(){
-        if (params.email) {
-            sendMail {
-                from "ineilsen@redhat.com"
-                to params.email
-                subject params.publicationName
-                html g.render(template: "emailmodal")
-
-
-
-            }
-            flash.message = "Awesome you just sent an email"
-            redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publication.id'] as Long)])
-        }
-
-    }*/
+    //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
-        sendMail{
-            to params.emailto
-            from "ineilsen@redhat.com"
-            subject params.publicationName
-            text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
-        }
-        flash.message = "Awesome you just sent an email"
-        redirect(action: "show", model: [publicationInstance: Publication.get(params['publication.id'] as Long)])
-    }
+         sendMail{
+                 to params.emailto             //todo research setting to array
+                 from "ineilsen@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
+                 subject params.publicationName
+                 text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
+             }
+
+        /*redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publicationid'] as Long)])*/
+        redirect(action: "show", params: params)
+        /*redirect(view: "show", model: [publicationInstance: (params.id)])*/
+        flash.message = "${params.publicationName} sent to ${params.emailto}"
+    }                               //todo not redirecting correctly to params id. not sure why it is not picking up properties
 
 
-    def create() {
+def create() {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 

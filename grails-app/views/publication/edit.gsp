@@ -18,15 +18,11 @@
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>                                      <!-- todo- top update button not saving changes??  -->
+			</ul>
 		</div>
 <!-- top menu path for edit and delete of docs----------------->
 <g:render template="pubnav"/>
-
-
-
-
-<!-- Button to trigger modal ----------------->
+<!-- todo- top update button not saving changes??  -->
 
 <!-- error stuff -------------------->
 		<div id="edit-publication" class="content scaffold-edit" role="main">
@@ -41,6 +37,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+
 <!----------- footer form buttons ------>
 			<g:form method="post" >
 				<g:hiddenField name="id" value="${publicationInstance?.id}" />

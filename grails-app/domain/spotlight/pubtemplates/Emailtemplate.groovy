@@ -14,8 +14,8 @@ class Emailtemplate {
 
     static constraints = {
         nameemailtemplate(blank: false, size: 4..100)
-        toemailtemplate(blank: false, size: 2..200, email: true)
-        ccemailtemplate(blank: true, size: 2..200, email: true)
+        toemailtemplate(blank: false, size: 2..250)
+        ccemailtemplate(blank: true, size: 2..250)
         contentemailtemplate(blank: true, size: 2..500)
         footeremailtemplate(blank: true, size: 2..500)
     }

@@ -29,9 +29,7 @@ we need to watch the log files for failed emails as it is not instance
 
 to add in more then one body  to the properties of the email template prior to sending use
 
-email.body params.header
-email.body params.content
-email.body params.footer
+text params.header +  params.content + params.footer
 
 email.htmlBody can also be used inline
 
@@ -44,3 +42,18 @@ we also need to remove certain string types and replace with human readable stri
 
 todo - allow multiple emails in to and cc list. need to still provide validation on email field though. still to figure out how to do at the domain level.
 todo - set boolean publishedemail to true on successful email send - need to read email services log to flag dynamically.
+todo - use GStringTemplateEngine Basically the same as SimpleTemplateEngine, except the template is stored internally as a writable closure in future.
+
+parsing multiple emails in textarea or field http://grails.1312388.n4.nabble.com/Validating-multiple-emails-td1369681.html
+
+
+There is a pitfall when using a List for storing the recipients. You'll have to invoke toArray when providing it to the builder, like this:
+
+sendMail {
+    to issue.watchers.email.toArray()
+    subject "The issue you watch has been updated"
+    body "Hello Watcher!"
+}
+
+If you forget the call to toArray , Groovy will convert the list (even a list with a single entry) to a String (the same way it does on the interactive console).
+The result will be something that is not a valid email address and you'll face javax.mail.internet.AddressException
