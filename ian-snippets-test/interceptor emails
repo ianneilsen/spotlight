@@ -41,3 +41,6 @@ http://groovy.codehaus.org/Formatting+simple+tabular+text+data
 
 we also need to wrap text at the word boundary to create nice looking emails
 we also need to remove certain string types and replace with human readable strings
+
+todo - allow multiple emails in to and cc list. need to still provide validation on email field though. still to figure out how to do at the domain level.
+todo - set boolean publishedemail to true on successful email send - need to read email services log to flag dynamically.

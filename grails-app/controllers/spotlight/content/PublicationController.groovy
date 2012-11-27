@@ -25,22 +25,23 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
-    def emailbody(){
+/*    def emailbody(){
         text << "Welcome to SpotLight"
         text << "${portfolioInstance?.contentemailtemplate}"
         text << "${portfolioInstance?.publicationContent}"
         text << "${portfolioInstance?.footeremailtemplate}"
         text = text.toString()
 
-    }
+    }*/
 
-    def emailpublication(){
+/*    def emailpublication(){
         if (params.email) {
             sendMail {
                 from "ineilsen@redhat.com"
                 to params.email
                 subject params.publicationName
-                body emailbody()
+                html g.render(template: "emailmodal")
+
 
 
             }
@@ -48,7 +49,18 @@ class PublicationController {
             redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publication.id'] as Long)])
         }
 
+    }*/
+    def emailpublication(){
+        sendMail{
+            to params.emailto
+            from "ineilsen@redhat.com"
+            subject params.publicationName
+            text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
+        }
+        flash.message = "Awesome you just sent an email"
+        redirect(action: "show", model: [publicationInstance: Publication.get(params['publication.id'] as Long)])
     }
+
 
     def create() {
         [publicationInstance: new Publication(params), pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
