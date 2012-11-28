@@ -20,12 +20,21 @@ class PortfolioController {
     def _webList (){
         def webLists = Portfolio.list(params.id)
         /*def webreports = Publication.findAll("from Publication where published='Yes'",offset:0, max:3)*/
-        def webreports = Publication.findAllByPublished(publishedCriteria,[sort:'lastUpdated', max: 2, offset: 0, order: 'desc'])
+        /*def webreports = Publication.findAllByPublished(publishedCriteria,[sort:'lastUpdated', max: 2, offset: 0, order: 'desc'])*/
+        def lastfive = webLists.publications.createCriteria()
+        def results =  lastfive.list {
+            eq("published", "Yes")
+
+            maxResults(2)
+            order("lastUpdated", "desc")
+        }
         def reportscount = Publication.count()
-        [webLists: webLists, webreports: webreports, reportscount: reportscount]
+        [webLists: webLists,lastfive: lastfive, results: results, reportscount: reportscount]
     }
 
     // TODO: fix styling for  weblist column data - narrow col width or padding
+
+
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)

@@ -362,7 +362,13 @@ footer {
 	display: inline-block;
     position: absolute;
     right: 0px;
-    top: 30px;
+    top: -5px;
+}
+.footer-right img {
+    border: 0 none;
+    height: auto;
+    max-width: 30%;
+    vertical-align: middle;
 }
 
 .spinner {

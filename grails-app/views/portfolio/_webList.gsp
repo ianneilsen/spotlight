@@ -15,17 +15,19 @@
 			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
        <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
 
-	 <g:if test="${rsl?.publications}">
-         <g:set var="publications" value="2"/>
+             last five ${results?.publicationName}
+
+%{--	 <g:if test="${rsl?.publications}">
+         <g:set var="publications" />
          <ul class="site-publication">
            <li class="fieldcontain">
 		   <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 Publications:" /></span>
-			        <g:each in="${rsl.publications}" var="r">
+			        <g:each in="${rsl.results}" var="r">
            <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
              </g:each>
            </li>
          </ul>
-     </g:if>
+     </g:if>--}%
 </div>
 
 </g:each>

@@ -1,8 +1,15 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    dbCreate = "update"
+    //driverClassName = "org.h2.Driver"
+    driverClassName = "org.postgresql.Driver"
+    //driverClassName = "jdbc:postgresql://localhost:5432/spotlight"
+    //dialect = net.sf.hibernate.dialect.PostgreSQLDialect
+    dialect = org.hibernate.dialect.PostgreSQLDialect
+    //username = "sa"
+    //password = ""
+    username = "spotlight"
+    password = "redhat"
     loggingSql = true
 }
 hibernate {
@@ -14,19 +21,23 @@ hibernate {
 environments {
     development {
         dataSource {
+            //dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            //url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:postgresql://localhost:5432/spotdev"
         }
     }
     test {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            //dbCreate = "update"
+            //url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:postgresql://localhost:5432/spottest"
         }
     }
     production {
         dataSource {
-            dbCreate = "update"
+/*            dbCreate = "update"
             url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             pooled = true
             properties {
@@ -37,8 +48,10 @@ environments {
                testOnBorrow=true
                testWhileIdle=true
                testOnReturn=true
-               validationQuery="SELECT 1"
+               validationQuery="SELECT 1"*/
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:postgresql://localhost:5432/spotprod"
             }
         }
     }
-}
+

@@ -39,15 +39,15 @@
 		<div class="footer" role="contentinfo">
 		<div class="footer-inner">
 		<div class="footer-left">
-		RAP Reporting Tool -Spotlight <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/>
+		RAP Reporting Tool - Spotlight <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/>
 		<br>
 		Copyright 2012 Red Hat, Inc. All rights reserved.
 		<br>INTERNAL USE ONLY</div>
-            <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team"/></a>
-		<div class="footer-right"><a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat"/></a>
+            <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team home page"/></a>
+		%{--<div class="footer-right">--}%<a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat website"/></a>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		</div>
-		</div>
+		%{--</div>--}%
 		</div>
 		<g:javascript library="application"/>
 		<r:layoutResources />
