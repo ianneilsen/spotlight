@@ -15,24 +15,28 @@ class PortfolioController {
     //TODO - add in subscription model
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
 
-    def publishedCriteria = 'Yes'
+
 
     def _webList (){
-        def webLists = Portfolio.list(params.id)
-        /*def webreports = Publication.findAll("from Publication where published='Yes'",offset:0, max:3)*/
-        /*def webreports = Publication.findAllByPublished(publishedCriteria,[sort:'lastUpdated', max: 2, offset: 0, order: 'desc'])*/
-        def lastfive = Publication.createCriteria()
-        def results =  lastfive.list {
-            eq("published", "Yes")
+        def portfolios = Portfolio.list(params.id)
+        def results = Publication.createCriteria().list {
+            //eq ('portfolio', portfolios)
+            and {
+                eq ("published", "Yes")
+            }
 
-            maxResults(2)
+            maxResults(5)
             order("lastUpdated", "desc")
         }
         def reportscount = Publication.count()
-        [webLists: webLists, lastfive: lastfive, results: results, reportscount: reportscount]
+
+        [portfolios: portfolios, results: results, reportscount: reportscount]
     }
 
+
+
     // TODO: fix styling for  weblist column data - narrow col width or padding
+
 
 
 
@@ -61,7 +65,6 @@ class PortfolioController {
 
     def show(Long id) {
         def portfolioInstance = Portfolio.get(id)
-        portfolioInstance.properties=params
         if (!portfolioInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), id])
             redirect(action: "list")

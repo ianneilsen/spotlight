@@ -8,17 +8,18 @@
 </div>
 
 <div class="property-list portfolio">
-    <g:each in="${webLists}" status="i" var="rsl">
+
+    <g:each in="${portfolios}" status="i" var="rsl">
        <div class="site-listing">
               <div><span class="label">Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
-			  <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
+              <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
 			  <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
        <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
 
-             %{--last five ${results}--}%
 
 	 <g:if test="${rsl?.publications}">
          <g:set var="publications" />
+         <g:hiddenField name="id" value="${portfolioInstance?.id}"/>
          <ul class="site-publication">
            <li class="fieldcontain">
 		   <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 published publications:" /></span>

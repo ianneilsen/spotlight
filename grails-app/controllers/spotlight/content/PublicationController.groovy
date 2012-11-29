@@ -1,6 +1,5 @@
 package spotlight.content
 import spotlight.content.Pubproduct
-
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Templatepublication
 import spotlight.pubtemplates.Emailtemplate
@@ -25,6 +24,20 @@ class PublicationController {
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
 
+/*    def portfoliopublications (){
+        def portfolios = Portfolio.list(params.id)
+        def results = Publication.createCriteria().list {
+            portfolios {
+                eq('id', portfolioId)}
+            and {
+                eq ("published", "Yes")
+            }
+            maxResults(5)
+            order("lastUpdated", "desc")
+        }
+
+        [portfolios: portfolios, results: results]
+    }*/
     //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
          sendMail{
