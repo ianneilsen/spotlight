@@ -2,6 +2,7 @@ package spotlight.content
 
 import spotlight.pubtemplates.Templatepublication
 import spotlight.pubtemplates.Emailtemplate
+import java.sql.Timestamp
 
 class Portfolio {
 
@@ -25,6 +26,7 @@ class Portfolio {
 
     static mapping = {
         portfolioAdmin lazy:false
+        autoTimestamp(true)
 
     }
 

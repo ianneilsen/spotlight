@@ -1,5 +1,7 @@
 package spotlight.content
 
+import java.sql.Timestamp
+
 class Publication  {
 
     static belongsTo = [portfolio: Portfolio]
@@ -18,6 +20,7 @@ class Publication  {
 	static mapping ={
 		publicationContent type: "text"
         sort published: "desc"
+        autoTimestamp(true)
     }
 
 	static constraints = {

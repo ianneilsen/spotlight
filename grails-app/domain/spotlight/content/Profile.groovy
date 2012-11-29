@@ -35,6 +35,9 @@ class Profile {
 		etherpadurl (nullable: true, url: true)
 		
     }
+    static mapping = {
+        autoTimestamp(true)
+    }
 	
 	String toString() {
 		portfolioAdmin

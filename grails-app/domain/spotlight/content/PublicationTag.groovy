@@ -9,6 +9,9 @@ class PublicationTag {
     static constraints = {
 		pubtagname (blank: true, unique: true, size: 4..100)
     }
+/*    static mapping = {
+        autoTimestamp(true)
+    }*/
 	
 	String toString() {
 		pubtagname
