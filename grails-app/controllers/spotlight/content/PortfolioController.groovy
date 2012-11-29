@@ -21,7 +21,7 @@ class PortfolioController {
         def webLists = Portfolio.list(params.id)
         /*def webreports = Publication.findAll("from Publication where published='Yes'",offset:0, max:3)*/
         /*def webreports = Publication.findAllByPublished(publishedCriteria,[sort:'lastUpdated', max: 2, offset: 0, order: 'desc'])*/
-        def lastfive = webLists.publications.createCriteria()
+        def lastfive = Publication.createCriteria()
         def results =  lastfive.list {
             eq("published", "Yes")
 
@@ -29,7 +29,7 @@ class PortfolioController {
             order("lastUpdated", "desc")
         }
         def reportscount = Publication.count()
-        [webLists: webLists,lastfive: lastfive, results: results, reportscount: reportscount]
+        [webLists: webLists, lastfive: lastfive, results: results, reportscount: reportscount]
     }
 
     // TODO: fix styling for  weblist column data - narrow col width or padding
