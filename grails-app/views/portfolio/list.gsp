@@ -1,13 +1,15 @@
-
+<%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Portfolio" %>
 <!doctype html>
 <html>
+
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
-        	</head>
-	<body>
+    </head>
+
+<body>
 		<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -65,6 +67,13 @@
 				<g:paginate total="${portfolioInstanceTotal}" />
 			</div>
 		</div>
-    <g:include controller="portfolio" action="_webList" />
+%{--<g:applyLayout action="_webList_">--}%
+  %{--  <g:include controller="portfolio" action="_webList" />--}%
+%{--<g:include controller="portfolio" action="webList" model="['portfolios': portfolios]" />--}%
+%{--</g:applyLayout>--}%
+<g:render template="/portfolio/webList" model="['portfolios': portfolios]" />
+    <!-----  full code replacing the partial  - partial not rendering for some reason --->
+      <!--  end of partial render ------------------------------------>
+
 	</body>
 </html>

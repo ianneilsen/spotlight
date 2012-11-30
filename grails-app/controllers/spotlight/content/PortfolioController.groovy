@@ -4,6 +4,8 @@ import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Emailtemplate
 import spotlight.content.Publication
 
+import static org.hibernate.criterion.CriteriaSpecification.*
+
 class PortfolioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -15,23 +17,35 @@ class PortfolioController {
     //TODO - add in subscription model
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
 
+    def webList (){
+        def portfolios = Portfolio.createCriteria().list {
+            idEq(params.id)
+            publications(LEFT_JOIN) {
+                eq("published", "Yes")
+                order("lastUpdated", "desc")
+               firstResult(5)
+            }
+        }
 
+        def reportscount = Publication.count()
 
-    def _webList (){
+        [portfolios: portfolios, reportscount: reportscount]
+    }
+
+/*    def _webList (){
         def portfolios = Portfolio.list(params.id)
         def results = Publication.createCriteria().list {
             //eq ('portfolio', portfolios)
             and {
                 eq ("published", "Yes")
             }
-
             maxResults(5)
             order("lastUpdated", "desc")
         }
         def reportscount = Publication.count()
 
         [portfolios: portfolios, results: results, reportscount: reportscount]
-    }
+    }*/
 
 
 
@@ -66,7 +80,7 @@ class PortfolioController {
     def show(Long id) {
         def portfolioInstance = Portfolio.get(id)
         if (!portfolioInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: "portfolio.label", default: 'Portfolio'), id])
             redirect(action: "list")
             return
         }
