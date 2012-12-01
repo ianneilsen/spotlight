@@ -80,6 +80,7 @@ markdown.removeHtml = false       // Configuration  set true or false based on p
 environments {
     development {
         grails.logging.jul.usebridge = true
+        rootPath="/web-app/images/"
     }
     production {
         grails.logging.jul.usebridge = false

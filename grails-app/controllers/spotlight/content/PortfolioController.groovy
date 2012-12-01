@@ -2,8 +2,12 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Emailtemplate
+import org.codehaus.groovy.grails.commons.ConfigurationHolder as Conf
+import java.io.File;
+
 
 import static org.hibernate.criterion.CriteriaSpecification.*
+import static java.io.File.*
 
 class PortfolioController {
 
@@ -47,11 +51,18 @@ class PortfolioController {
 
     }
 
+    def unpublishedDocs(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        def publicationInstance = Publication.where {published == 'No'}
+        [publicationInstance:publicationInstance.list(params), publicationInstanceUnpubTotal: Publication.count()]
+
+    }
+
 
     def _webList (){
-        def portfolios = Portfolio.where {status == 'Active'}.list(params)
+        def portfolios = Portfolio.list(params.id)
         def results = Publication.createCriteria().list {
-            eq ('published', 'Yes')
+            eq('published', 'Yes')
             order('lastUpdated', 'desc')
             firstResult(5)
         }
@@ -63,9 +74,10 @@ class PortfolioController {
 
 
     def create() {
-        [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
+       [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
     }
 
+//save action saves the portfolio and profile domain classes, following the save a new dir is created in the config path
     def save() {
         def portfolioInstance = new Portfolio(params)
         portfolioInstance.properties = params
@@ -73,9 +85,11 @@ class PortfolioController {
             render(view: "create", model: [portfolioInstance: portfolioInstance])
             return
         }
-
         flash.message = message(code: 'default.created.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), portfolioInstance.id])
+        def portfolioDirName = portfolioInstance.id
+            def portfolioDir = new File(Conf.config.rootPath + portfolioDirName + "images").mkdir()
         redirect(action: "show", id: portfolioInstance.id)
+                  [portfolioDir: portfolioDir]           //todo conf path not valid in a save range used this way find another way
     }
 
     def show(Long id) {
