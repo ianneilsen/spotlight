@@ -29,6 +29,7 @@ class Portfolio {
     static mapping = {
         portfolioAdmin lazy:false
         autoTimestamp(true)
+        sort(lastUpdated: 'desc')
 
     }
 
@@ -36,9 +37,19 @@ class Portfolio {
 		portfolioName
 	}
 
-/*    def getPublicationsList() {
-        return LazyList.decorate(
-                publications,
-                FactoryUtils.instantiateFactory(Publication.class))
+/*    static final String path = "web-app/portfolioImages"; //<-- generic path on your SERVER!
+    //Conf.config.rootPath+"images"
+
+    static{
+        //static initializer to make sure directory gets created.  Better ways to do this but this will work!
+
+        File pathAsFile = new File(path).mkdirs()
+
+        if (pathAsFile.exists()){
+            println("CREATED REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
+        }else{
+            println("FAILED TO CREATE REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
+        }
+
     }*/
 }

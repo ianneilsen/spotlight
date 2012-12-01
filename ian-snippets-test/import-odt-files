@@ -1,0 +1,10 @@
+grails dfeaultdomainclass to find persistent properties
+------------------------------------------------------------
+http://cantina.co/2010/07/15/grails-exporting-importing-domain-objects-using-defaultgrailsdomainclass/
+
+import from file using configslurper
+----------------------------------------
+see above link
+
+http://stackoverflow.com/questions/9622957/grails-copying-hasmany-relationships-from-one-domain-object-to-another
+

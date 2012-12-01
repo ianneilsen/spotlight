@@ -33,12 +33,14 @@
 			</g:if>
 
             <!-- publication nav --------------->
-           %{-- <g:render template="emailmodal" />--}%
 
             <fieldset class="buttons">
                 <g:hiddenField name="id" value="${publicationInstance?.id}" />
                 <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                 <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
+                <g:link class="edit" action="publicationClone" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="publicationClone" /></g:link>
+
+
                 <g:render template="navshow"/>
             </fieldset>
 
@@ -147,5 +149,5 @@
 		</div>
                               <!-- todo - fix redirect on delete action to redirect to portfolio/show/$id  not list-->
 	</body>                   <!-- todo - add in url shortener and published url when user is not logged in based on published flag set to yes. -->
-                              <!-- todo - insert document version to show page -maybe aloow a link through to history page -->
+                              <!-- todo - insert document version to show page -maybe allow a link through to history page -->
 </html>                       <!-- todo - http://aehlke.github.com/tag-it/ for jquery tag form field-->

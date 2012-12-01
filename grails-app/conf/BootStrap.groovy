@@ -13,7 +13,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date())
+        def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date(),status: "Active")
         portfolio.profile =  new Profile(/*htmlpuballowed:"No",*/
                 portfolioEmail: "ian@redhat.com",
                 portfolioAdmin:"Ian Neilsen",

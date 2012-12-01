@@ -1,0 +1,27 @@
+http://grails.1312388.n4.nabble.com/Convert-json-to-domain-object-td3686467.html
+
+connect to ethperad instance via url and credentials
+get json data
+parse json data or and map  json map to domain objects
+def someDomain = new SomeDomain(JSON.parse(jsonData))
+
+JSON.parse
+
+                        List list = [new Foo("first"), new Foo("second")]
+                        def jsonString = (list as JSON).toString()
+
+                        List parsedList = JSON.parse(jsonString) as List
+                        Foo foo = new Foo()
+                        bindData(foo, parsedList[0]);
+
+http://stackoverflow.com/questions/7364327/using-json-to-create-an-object-in-groovy-grails
+http://stackoverflow.com/questions/7364327/using-json-to-create-an-object-in-groovy-grails
+
+ @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
+ public ResponseEntity<String> createFromJson(@RequestBody String json) {
+     Owner.fromJsonToOwner(json).persist();
+     return new ResponseEntity<String>(HttpStatus.CREATED);
+ }
+
+http://static.springsource.org/spring-roo/reference/html/base-json.html
+

@@ -73,10 +73,11 @@
         <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
     </g:each>--}%
     <li class="add">
-        <g:link  controller="publication" action="list" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'templatepublication.label', default: 'Unpublished documents')])}</g:link>
+        <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
 
-        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${portfolioInstance?.publications?.size()}</span> </div>
+        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${publicationInstanceUnpubTotal}</span> </div>
     </li>
+
 </ul>                                                                                              %{--Message.executeQuery('select count(m) from Publication m where SIZE(m.published) = No')--}%
 <!----------------------------------table list ---------------------------------------->
 

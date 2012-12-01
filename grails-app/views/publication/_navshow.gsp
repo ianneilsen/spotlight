@@ -109,3 +109,17 @@
 
             </ul>
         </div>
+        <!--- clone --------------------------->
+        <div class="btn-group">
+            <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                Clone
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <!-- dropdown menu links -->
+
+               <a> <g:link action="publicationClone" id="${publicationInstance?.id}" data-toggle="modal"/>Clone publication</a>
+                                        <!--todo glink doesnt seem to work in twitterbootstrap modal drop down - look at other action buttons    -->
+
+            </ul>
+        </div>
