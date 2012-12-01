@@ -2,7 +2,6 @@ package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Emailtemplate
-import spotlight.content.Publication
 
 import static org.hibernate.criterion.CriteriaSpecification.*
 
@@ -13,53 +12,47 @@ class PortfolioController {
     def index() {
         redirect(action: "list", params: params)
     }
-    //TODO- index page redirect or url mapping. is landing home page for app. currently sort does is not working for some reason maybe h2 in mem db issue??
     //TODO - add in subscription model
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
 
-    def webList (){
+//listing portfolios and their publications
+/*    def webList (){
         def portfolios = Portfolio.createCriteria().list {
-            idEq(params.id)
-            publications(LEFT_JOIN) {
+            //if you needed to filter the list by for example portfolio status or something you could add that here
+            or {
+                eq('status','Active')
+
+            }
+            publications(org.hibernate.criterion.CriteriaSpecification.LEFT_JOIN) {
                 eq("published", "Yes")
                 order("lastUpdated", "desc")
-               firstResult(5)
+                firstResult(5)
             }
         }
 
-        def reportscount = Publication.count()
-
-        [portfolios: portfolios, reportscount: reportscount]
-    }
-
-/*    def _webList (){
-        def portfolios = Portfolio.list(params.id)
-        def results = Publication.createCriteria().list {
-            //eq ('portfolio', portfolios)
-            and {
-                eq ("published", "Yes")
-            }
-            maxResults(5)
-            order("lastUpdated", "desc")
-        }
-        def reportscount = Publication.count()
-
-        [portfolios: portfolios, results: results, reportscount: reportscount]
+        [portfolios: portfolios, portfolioCount:portfolios.size()]
     }*/
-
-
-
-    // TODO: fix styling for  weblist column data - narrow col width or padding
-
-
-
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
-        def rsNumb = Portfolio.count()
-        [portfolioInstanceList: Portfolio.list(params), portfolioInstanceTotal: Portfolio.count(), rsNumb: rsNumb]
+        def portfolioInstanceList = Portfolio.where {status == 'Active'}
+        [portfolioInstanceList: portfolioInstanceList.list(params), portfolioInstanceTotal: Portfolio.count()]
 
     }
+
+    def _webList (){
+        def portfolios = Portfolio.where {status == 'Active'}.list(params)
+        def results = Publication.createCriteria().list {
+            eq ('published', 'Yes')
+            order('lastUpdated', 'desc')
+            firstResult(5)
+        }
+
+        def reportscount = Publication.count()
+
+        [ portfolios: portfolios, results: results, reportscount: reportscount]
+    }
+
 
     def create() {
         [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]

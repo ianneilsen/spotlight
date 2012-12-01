@@ -27,6 +27,13 @@
 	<g:select name="portpublished" from="${portfolioInstance.constraints.portpublished.inList}" required="" value="${fieldValue(bean: portfolioInstance, field: 'portpublished')}" valueMessagePrefix="portfolio.portpublished"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance, field: 'status', 'error')} required">
+    <label for="status">
+        <g:message code="portfolio.status.label" default="Portfolio status " />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select name="status" from="${portfolioInstance.constraints.status.inList}" required="" value="${fieldValue(bean: portfolioInstance, field: 'status')}" valueMessagePrefix="portfolio.status"/>
+</div>
 
 
 

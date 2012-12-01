@@ -18,7 +18,7 @@
             </ul>
 		</div>
 		<div id="list-portfolio" class="content scaffold-list" role="main">
-			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${rsNumb}</span> </div>
+			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${portfolioInstanceTotal}</span> </div>
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -67,13 +67,16 @@
 				<g:paginate total="${portfolioInstanceTotal}" />
 			</div>
 		</div>
+
+
 %{--<g:applyLayout action="_webList_">--}%
   %{--  <g:include controller="portfolio" action="_webList" />--}%
-%{--<g:include controller="portfolio" action="webList" model="['portfolios': portfolios]" />--}%
+<g:include action="_webList" />
+%{--<g:render template="webList" model="[portfolios: portfolios, results: results]"/>--}%
 %{--</g:applyLayout>--}%
-<g:render template="/portfolio/webList" model="['portfolios': portfolios]" />
-    <!-----  full code replacing the partial  - partial not rendering for some reason --->
-      <!--  end of partial render ------------------------------------>
+%{--<g:render template="/portfolio/webList" model="['portfolios': portfolios]" />--}%
+%{--<g:include action='webList' controller='portfolio' model="['portfolios': portfolios]" />--}%
+
 
 	</body>
 </html>

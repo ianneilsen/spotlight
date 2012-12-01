@@ -59,6 +59,14 @@
 				</li>
 				</g:if>
 
+				<g:if test="${portfolioInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="portfolio.status.label" default="Portfolio status" /></span>
+
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${portfolioInstance}" field="status"/></span>
+
+				</li>
+				</g:if>
        %{--      <ol class="property-list portfolio">--}%
 				<g:if test="${portfolioInstance?.dateCreated}">
 				<li class="fieldcontain">

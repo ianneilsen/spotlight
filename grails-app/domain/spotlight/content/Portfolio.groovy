@@ -16,11 +16,13 @@ class Portfolio {
 	String portpublished
 	Date dateCreated
 	Date lastUpdated
+    String status
                       
     static constraints = {
         portfolioName (blank: false, size: 5..170, unique: true)
         portdescrip (blank: false, size: 5..200)
         portpublished (blank: false, inList:["No", "Yes"])
+        status(blank: false, inList: ["Active","Closed"])
         //Profile (unique: true)
     }
 
