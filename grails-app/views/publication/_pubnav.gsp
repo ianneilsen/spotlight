@@ -1,4 +1,5 @@
 <!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
+<!-- edit menus ------------------------------------------------------------->
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
 
@@ -25,25 +26,7 @@
 <!------------------------------ dropdown menu links ----------------------------------------------->
                                                                               <!--todo image tab lib -->
 <!------ burningimagetablib  research use with html5 drop lib ---------------------->
-      <div class="btn-group">
-        <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-            Actions
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
 
-            <g:form method="post" >
-                <g:hiddenField name="id" value="${publicationInstance?.id}" />
-                <g:hiddenField name="version" value="${publicationInstance?.version}" />
-                <fieldset class="buttons">
-                    <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-
-                </fieldset>
-            </g:form>
-        </ul>
 <!----------------------------------------  publication tools ---------------------------------->
 
       <div class="btn-group">
@@ -54,7 +37,6 @@
             <ul class="dropdown-menu">
                 <!-- dropdown menu links -->
 
-                <a href="SpotLight-Grails/publication/converttodocbook"  data-toggle="modal">Convert to docbook</a>
                 <a href="SpotLight-Grails/publication/userchart"  data-toggle="modal">Insert Chart</a>
                 <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
                 <a href="SpotLight-Grails/publication/uploadattachment"  data-toggle="modal">Upload attachment</a>

@@ -33,10 +33,16 @@
 			</g:if>
 
             <!-- publication nav --------------->
-
-            <g:render template="pubnav"/>
-
             <g:render template="emailmodal" />
+
+            <fieldset class="buttons">
+                <g:hiddenField name="id" value="${publicationInstance?.id}" />
+                <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
+                 <g:render template="navshow"/>
+
+
+            </fieldset>
 
             <!-- publication nav --------------->
       <ol class="property-list publication">

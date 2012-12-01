@@ -2,12 +2,10 @@
 <%@ page import="spotlight.content.Pubproduct" %>
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
 
-
-<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required"
-     xmlns="http://www.w3.org/1999/html">
-	<label for="publicationName">
-		<g:message code="publication.publicationName.label" default="Publication Name" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
+    <label for="publicationName">
+	    <g:message code="publication.publicationName.label" default="Publication Name(Required)" />
+		    <span class="required-indicator">*</span>
 	</label>
 	<g:textField name="publicationName" maxlength="100" required="" value="${publicationInstance?.publicationName}"/>
 </div>
@@ -15,7 +13,7 @@
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'published', 'error')} required">
     <label for="published">
         <g:message code="publication.published.label" default="Ready for publishing" />
-        <span class="required-indicator">*</span>
+            <span class="required-indicator">*</span>
     </label>
     <g:select name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
 </div>
