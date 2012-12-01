@@ -40,6 +40,14 @@ class PortfolioController {
 
     }
 
+    def archivedportfolios(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        def portfolioInstanceList = Portfolio.where {status == 'Closed'}
+        [portfolioInstanceList: portfolioInstanceList.list(params), portfolioInstanceTotal: Portfolio.count()]
+
+    }
+
+
     def _webList (){
         def portfolios = Portfolio.where {status == 'Active'}.list(params)
         def results = Publication.createCriteria().list {
