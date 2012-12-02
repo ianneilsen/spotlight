@@ -4,6 +4,9 @@ import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Templatepublication
 import spotlight.pubtemplates.Emailtemplate
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
+import org.xwiki.rendering.*
+import org.springframework.mail.MailException
+import javax.mail.MessagingException
 
 class PublicationController {
 
@@ -25,15 +28,26 @@ class PublicationController {
 
     //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
+        def recipient= new ArrayList()
+        def measure1 = measure(recipient, 5)
+        assert measure1 == [params.sendEmailTo]
+
+        try {
          sendMail{
-                 to params.emailto             //todo research setting to array
-                 from "ineilsen@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
+                 to  recipient.toArray[]           //todo research setting to array
+                 from "ian.neilsen@gmail.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
                  text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
              }
 
-        /*redirect(action: "show", model: [publicationInstance:Publication, publicationInstance: Publication.get(params['publicationid'] as Long)])*/
-        redirect(action: "show", params: params)
+        }
+        catch (MailException e) {
+            log.error "Failed to send emails: $e.message", e
+        }
+        catch (MessagingException e) {
+            log.error "Failed to send emails: $e.message", e
+        }
+        redirect(uri: "/publication/show/${params}")
         /*redirect(view: "show", model: [publicationInstance: (params.id)])*/
         flash.message = "${params.publicationName} sent to ${params.emailto}"
     }                               //todo not redirecting correctly to params id. not sure why it is not picking up properties

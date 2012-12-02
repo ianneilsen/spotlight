@@ -7,7 +7,7 @@ grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 //xwiki buildconfig
 grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
-grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
+//grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration  comment out throwing an error need more info
 //------------------------------------------
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies

@@ -60,11 +60,13 @@ class PortfolioController {
 
 
     def _webList (){
+        //def per = Portfolio.properties
         def portfolios = Portfolio.list(params.id)
-        def results = Publication.createCriteria().list {
+        def results = Publication.withCriteria {
+
             eq('published', 'Yes')
             order('lastUpdated', 'desc')
-            firstResult(5)
+            maxResults(5)
         }
 
         def reportscount = Publication.count()
