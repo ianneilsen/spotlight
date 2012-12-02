@@ -64,6 +64,12 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
+
+//wiki configuration and use of macros -see also BuildConfig.gsp for boolean options.
+grails.xwiki.rendering.macros.enabled = true
+//grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
+/*grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"*/
+
 //Markdownplugin config settings
 markdown.tables = true           // Configuration
 markdown.fencedCodeBlocks = true
@@ -75,7 +81,7 @@ markdown.definitionLists = true
 markdown.abbreviations = true
 //markdown.autoLinks = true
 markdown.removeHtml = false       // Configuration  set true or false based on portfolio site profile-htmlflag call the map
-//[removeHtml: true]               // Custom Map
+//[removeHtml: false]               // Custom Map
 /////////////////////////////////////
 environments {
     development {

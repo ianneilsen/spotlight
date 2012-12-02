@@ -5,7 +5,10 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
-
+//xwiki buildconfig
+grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
+grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
+//------------------------------------------
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
