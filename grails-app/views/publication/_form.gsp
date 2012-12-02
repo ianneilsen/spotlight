@@ -64,12 +64,10 @@
 </div>
 
 
-
-
 <!----- upload me  -------------------------------------------------------------------------------------->
-<uploadr:add name="pcitureupload" path="/SpotLight-Grails/tmp" allowedExtensions="gif,png,jpg,jpeg" direction="up" maxVisible="5"  maxSize="2000" />
+<uploadr:add name="pcitureupload" path="web-app/images/tmp" allowedExtensions="jpeg,png,jpg,svg" viewable="false" downloadable="false" maxVisible="2" maxSize="1048576" noSound="true" />
 
-                      <!--todo - add in new context and url mapping to save stored images  at /applicationName/portofolioName/images and to strem them back via this context -->
+<!--todo - path needs to be set relataive to application and for sec reasons. need to set based on serverURL path once in deployment out of dev enviro -->
 
 <!--  portfolio item -->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'portfolio', 'error')} required">

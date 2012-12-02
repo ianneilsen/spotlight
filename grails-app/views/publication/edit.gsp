@@ -5,9 +5,11 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+        <r:require modules="uploadr"/>
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
-        <r:require modules="uploadr"/>
+
+
 
  	</head>
 	<body>
@@ -23,8 +25,8 @@
 <!-- top menu path for edit and delete of docs----------------->
 
     <g:form method="post" >
-        <g:hiddenField name="id" value="${publicationInstance?.id}" />
-        <g:hiddenField name="version" value="${publicationInstance?.version}" />
+     %{--   <g:hiddenField name="id" value="${publicationInstance?.id}" />
+        <g:hiddenField name="version" value="${publicationInstance?.version}" />--}%
         <fieldset class="buttons">
             <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
             <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
