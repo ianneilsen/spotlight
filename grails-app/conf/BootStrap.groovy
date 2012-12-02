@@ -6,7 +6,8 @@ import spotlight.content.PublicationTag;
 //import spotlight.content.Pubcategory;
 import spotlight.content.Pubproduct
 import spotlight.pubtemplates.Templatepublication
-import java.sql.Timestamp;
+import java.sql.Timestamp
+import spotlight.pubtemplates.Emailtemplate;
 
 
 class BootStrap {
@@ -40,6 +41,11 @@ class BootStrap {
 
         def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product1)
         portfolio.addToPublications(r2)
+        portfolio.save(failOnError: true)
+
+        def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ian.neilsen@gmail.com,ian.neilsen@gmail.com",
+                                             ccemailtemplate:"ian.neilsen@gmail.com",footeremailtemplate:"footer of email template")
+        portfolio.addToEmailtemplates(newEmailTemp)
         portfolio.save(failOnError: true)
 
     }
