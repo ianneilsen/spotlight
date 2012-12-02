@@ -1,0 +1,6 @@
+ <!--<span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>    -->
+ above placed back in
+
+ removed not back in
+ <span class="property-value" aria-labelledby="publicationContent-label"><xwiki:render inputSyntax="markdown/1.0" outputSyntax="html/4.01"><%=publicationInstance?.publicationContent%></xwiki:render> </span>
+ from publication show page
