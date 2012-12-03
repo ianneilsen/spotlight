@@ -75,7 +75,7 @@
     <li class="add">
         <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
 
-        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${publicationInstanceUnpubTotal}</span> </div>
+        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${unpublishedcount}</span> </div>
     </li>
 
 </ul>                                                                                              %{--Message.executeQuery('select count(m) from Publication m where SIZE(m.published) = No')--}%
