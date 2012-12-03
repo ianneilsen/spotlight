@@ -43,8 +43,8 @@ class BootStrap {
         portfolio.addToPublications(r2)
         portfolio.save(failOnError: true)
 
-        def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ian.neilsen@gmail.com,ian.neilsen@gmail.com",
-                                             ccemailtemplate:"ian.neilsen@gmail.com",footeremailtemplate:"footer of email template")
+        def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@redhat.com,ineilsen@redhat.com",
+                                             ccemailtemplate:"ineilsen@redhat.com",footeremailtemplate:"footer of email template")
         portfolio.addToEmailtemplates(newEmailTemp)
         portfolio.save(failOnError: true)
 

@@ -1,14 +1,18 @@
+////////////datasource
 dataSource {
     pooled = true
     dbCreate = "update"
-    driverClassName = "org.h2.Driver"
+    //h2 settings
+/*    driverClassName = "org.h2.Driver"
     username = "sa"
-    password = ""
-/*    driverClassName = "org.postgresql.Driver"
+    password = ""*/
+
+    //postgres settings
+    driverClassName = "org.postgresql.Driver"
     dialect = org.hibernate.dialect.PostgreSQLDialect
     //dialect = net.sf.hibernate.dialect.PostgreSQLDialect
     username = "spotlight"
-    password = "redhat"*/
+    password = "redhat"
     loggingSql = true
 }
 hibernate {
@@ -16,14 +20,16 @@ hibernate {
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
-// environment specific settings
+////////////////////////////// environment specific settings
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-            /*dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/spotdev"*/
+         //h2 settings
+/*          dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"*/
+         //postgresql setting
+            dbCreate = "create-drop"
+            url = "jdbc:postgresql://localhost:5432/spotdev"
         }
     }
     test {
@@ -36,8 +42,12 @@ environments {
     }
     production {
         dataSource {
+        //h2 prod settings
+            /*dbCreate = "update"
+            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"*/
+        //postgresql settings
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:postgresql://localhost:5432/spotprod"
             pooled = true
             properties {
                maxActive = -1
@@ -48,8 +58,7 @@ environments {
                testWhileIdle=true
                testOnReturn=true
                validationQuery="SELECT 1" }
-            /*dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/spotprod"*/
+
             }
         }
     }

@@ -15,15 +15,15 @@
 <div class="modal-body">
 <g:form action="emailpublication">
 
-    <h6><g:field type="email" name="sendEmailTo" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
+    <h6><g:field type="text" name="sendEmailTo" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
 
     <h6><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
 
-    <h6><g:field type="string" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
+    <h6><g:field type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
     <h6><g:textArea type="string" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
 
-    <h6><g:field type="string" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
+    <h6><g:field type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
 
    %{-- <h6><g:field type="number" name="publicationid" value="${publicationInstance?.id}"/> </h6>--}%
 

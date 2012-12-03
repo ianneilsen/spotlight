@@ -66,8 +66,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-
-				<g:paginate total="${publicationInstanceTotal}" />
+                 <g:paginate total="${publicationInstanceTotal}" />
                 <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
 			</div>
 		</div>

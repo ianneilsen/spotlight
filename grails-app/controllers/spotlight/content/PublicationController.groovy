@@ -1,12 +1,11 @@
 package spotlight.content
-import spotlight.content.Pubproduct
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Templatepublication
 import spotlight.pubtemplates.Emailtemplate
 import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import org.xwiki.rendering.*
 import org.springframework.mail.MailException
-import javax.mail.MessagingException
+import javax.mail.*
 
 class PublicationController {
 
@@ -22,20 +21,19 @@ class PublicationController {
             params.sort = "published"
 
         }
-        [publicationInstanceList: Publication.list(params), publicationInstance: Publication.count()]
+        [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
+
 
 
     //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
-        def recipient= new ArrayList()
-        def measure1 = measure(recipient, 5)
-        assert measure1 == [params.sendEmailTo]
-
+        //def recipient = request.getParameterValues('whogetsemail')
+        List<String> recipients = request.getParameterValues("whogetsemail")
         try {
          sendMail{
-                 to  recipient.toArray[]           //todo research setting to array
-                 from "ian.neilsen@gmail.com"        //todo - set as user.session.emailaddress if validated and logged in
+                 to  (recipients.toArray())          //todo research setting to array
+                 from "ineilsen@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
                  text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
              }

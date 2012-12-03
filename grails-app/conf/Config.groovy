@@ -56,7 +56,7 @@ grails.spring.bean.packages = []
 grails.web.disable.multipart=false
 // mail system for sending email from publication show
 grails.mail.host="localhost"
-grails.mail.default.from="ian.neilsen@gmail.com"
+grails.mail.default.from="ineilsen@redhat.com"
 
 
 // request parameters to mask when logging exceptions
