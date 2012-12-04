@@ -45,7 +45,7 @@
             %{--.sort{a,b-> a.id.compareTo(b.id)}--}%
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                <td><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
+                <td><i class="icon-edit"></i><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>
 
                 <td style="text-overflow: ellipsis; width: 30em; height: 2em; display:block; overflow: hidden; white-space: nowrap;">${fieldValue(bean: publicationInstance, field: "publicationContent")}</td>
 

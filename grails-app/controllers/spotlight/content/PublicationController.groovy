@@ -29,10 +29,11 @@ class PublicationController {
     //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
         //def recipient = request.getParameterValues('whogetsemail')
-        List<String> recipients = request.getParameterValues("whogetsemail")
+        //List<String> recipients = request.getParameterValues("whogetsemail")
+        List<String> recipients = params.whogetsemail.split(',').collect { it.trim() }
         try {
          sendMail{
-                 to  (recipients.toArray())          //todo research setting to array
+                 to  recipients         //todo research setting to array
                  from "ineilsen@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
                  text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate

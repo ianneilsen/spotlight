@@ -29,15 +29,15 @@
 
 <g:each in="${portfolios}" status="i" var="rsl">
     <div class="site-listing">
-        <div><span class="label">Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
-        <div><span class="label">Site Description:</span>  ${rsl.portdescrip }</div>   <br>
-        <div><span class="label">Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
-        <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
+        <div><span class="label"><i class="icon-briefcase"></i> Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
+        <div><span class="label"><i class="icon-info-sign"></i> Site Description:</span>  ${rsl.portdescrip }</div>   <br>
+        <div><span class="label"><i class="icon-user"></i> Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
+        <div><span class="label"><i class="icon-list-alt"></i> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
 
     %{--last five ${results}--}%
 
         <g:if test="${rsl?.publications}">
-        %{--<g:set var="publications" />--}%
+        <g:set var="rsl" value="portfolioInstance?.id"/>
             <g:hiddenField name="id" value="${portfolioInstance?.id}"/>
             <ul class="site-publication">
                 <li class="fieldcontain">

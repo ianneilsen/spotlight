@@ -8,7 +8,7 @@
     <!-----------markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
 
     <div class="markdown-help">
-        <a href="#markupModal" role="button" class="btn btn-small" data-toggle="modal">Markdown Guide</a>
+    <a href="#markupModal" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-book"></i> Markdown Guide</a>
 
         <div id="markupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="markupModalLabel" aria-hidden="true">
             <div class="modal-header">
@@ -29,7 +29,7 @@
 
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                Publication Tools
+                <i class="icon-wrench"></i> Publication Tools
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -47,7 +47,7 @@
         <!---- email stuff ---------------------->
     <div class="btn-group">
     <div class="email-publication">
-        <a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal">Email Publication</a>
+        <a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-envelope"></i> Email Publication</a>
 
         <div id="emailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
             <div class="modal-header">
@@ -82,7 +82,7 @@
          <!---- preview  --------->
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                Preview
+                <i class="icon-eye-open"></i>Preview
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -97,7 +97,7 @@
         <!---history --------------->
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                History-Diff
+                <i class="icon-camera"></i>History-Diff
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -112,7 +112,7 @@
         <!--- clone --------------------------->
         <div class="btn-group">
             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-                Clone
+                <i class="icon-plus-sign"></i>Clone
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
