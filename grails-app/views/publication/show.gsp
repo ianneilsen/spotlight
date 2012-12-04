@@ -16,7 +16,15 @@
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
-			</ul>
+                <div id="show-publication" class="content scaffold-show" role="main">
+                    <h1><g:message code="default.show.label" args="[entityName]" /> for
+                        <g:if test="${publicationInstance?.portfolio}">
+                            <span class="property-value" aria-labelledby="portfolio-label">
+                                <g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link>
+                            </span>
+                        </g:if>
+                    </h1>
+            </ul>
 		</div>
 	<div id="show-publication" class="content scaffold-show" role="main">
 	    <h1><g:message code="default.show.label" args="[entityName]" /> for
@@ -36,7 +44,6 @@
                 <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                 <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
                 <g:link class="edit" action="publicationClone" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="publicationClone" /></g:link>
-
                 <g:render template="navshow"/>
             </fieldset>
 <!---- publication content---->
