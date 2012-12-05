@@ -6,26 +6,20 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
-		    <title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title><g:message code="default.show.label" args="[entityName]" /></title>
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	</head>
 <body>
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
+        <div class="navbar1">
+            <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
                 <div id="show-publication" class="content scaffold-show" role="main">
-                    <h1><g:message code="default.show.label" args="[entityName]" /> for
-                        <g:if test="${publicationInstance?.portfolio}">
-                            <span class="property-value" aria-labelledby="portfolio-label">
-                                <g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link>
-                            </span>
-                        </g:if>
-                    </h1>
             </ul>
 		</div>
+<!---- action and site name ---->
 	<div id="show-publication" class="content scaffold-show" role="main">
 	    <h1><g:message code="default.show.label" args="[entityName]" /> for
             <g:if test="${publicationInstance?.portfolio}">

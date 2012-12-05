@@ -1,8 +1,6 @@
 <!-- weblist partial showing list of reporting sites and last 5 reports ordered by published date in asc order-->
-<div class="alert alert-info" xmlns="http://www.w3.org/1999/html">Permissions apply to <strong>editing</strong> publications.<br>
-<div style="display: inline;"><p>Click portfolio name to read or edit publications. Total number of sites: <strong>${portfolioInstanceTotal}</strong> | Total number of publications: <strong>${reportscount}</strong> </p>
-</div>
-</div>
+<div class="alert alert-info" >Permissions apply to <strong>editing</strong> publications. | Click portfolio name or choose from the last five published reports under the portfolio heading.</div>
+
 
 <div class="property-list portfolio">
 %{--<g:each in="${portfolios}" var="portfolioInstance" status="i">

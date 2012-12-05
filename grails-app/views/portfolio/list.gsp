@@ -10,15 +10,17 @@
     </head>
 
 <body>
-		<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
+		%{--<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
+            <div class="navbar1">
+                <ul class="nav1">
+				    <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="home"/></a></li>
+				    <li id="navNew" class=""><g:link class="create" action="create"><g:message code="new" args="[entityName]" /></g:link></li>
+                </ul>
 		</div>
-		<div id="list-portfolio" class="content scaffold-list" role="main">
-			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${portfolioInstanceTotal}</span> </div>
+        <div class="breadcrumb">
+            <div id="list-portfolio" class="content scaffold-list" role="main">
+			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${portfolioInstanceTotal} | Total number of publications: <strong>${spotlight.content.Publication.count()}</strong></span> </div>
+                     </div>
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

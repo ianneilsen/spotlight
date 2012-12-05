@@ -1,4 +1,4 @@
-<!-----------------------pubs ---------------------------------------------->
+<!---- pubs ---->
 <ul class="one-to-many">
     %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
         <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
@@ -20,7 +20,7 @@
 
     <div><span class="label"> Total Publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications.size()}</span> </div>
 </ul>
-<!-------------------------email ------------------------------------------->
+<!---- email ---->
 <ul class="one-to-many">
     %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
         <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
@@ -43,7 +43,7 @@
     <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates.size()}</span> </div>
 
 </ul>
-<!--------------------------pubs ---------------------------------------------->
+<!---- pubs ---->
 
 <ul class="one-to-many">
     %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
@@ -67,7 +67,7 @@
     <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates.size()}</span> </div>
 
 </ul>
-<!----------------------unpublished ------------------------------------------------->
+<!---- unpublished ---->
 <ul class="one-to-many">
     %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
         <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
@@ -78,11 +78,7 @@
         <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${unpublishedcount}</span> </div>
     </li>
 
-</ul>                                                                                              %{--Message.executeQuery('select count(m) from Publication m where SIZE(m.published) = No')--}%
+</ul>
 <!----------------------------------table list ---------------------------------------->
-
-%{--<tmpl:/share/list publications="${portfolioInstance?.publications}"/>--}%
-
-%{--<g:render template="/share/list" action="list" model="[publicationInstanceList: spotlight.content.Publication?.list(params), publicationInstanceTotal: spotlight.content.Publication?.count()]"/>--}%
 
 <g:render template="/share/list" action="list" />

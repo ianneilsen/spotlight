@@ -13,21 +13,28 @@
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
-	<body>
-		<a href="#show-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
+<body>
+%{--<a href="#show-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div class="nav" role="navigation">--}%
+<div class="navbar1">
+    <ul class="nav1">
+                <li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+        <g:hiddenField name="id" value="${portfolioInstance?.id}" />
+        <li><g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.label" default="Edit Portfolio" /></g:link></li>
 
-            </ul>
-		</div>
 
+    </ul>
+	</div>
+<!---- breadcrumb below nav bar ---->
+<div class="breadcrumb">
+    <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+</div>
+<!--- flash messages ---->
 		<div id="show-portfolio" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+		    <g:if test="${flash.message}">
+			    <div class="message" role="status">${flash.message}</div>
 			</g:if>
 
 <!-- row1 ---->
@@ -63,14 +70,11 @@
                 <div class="span2"><span class="property-value" aria-labelledby="profile-label"><g:link controller="profile" action="show" id="${portfolioInstance?.profile?.id}">${portfolioInstance?.profile?.portfolioEmail?.encodeAsHTML()}</g:link></span></div>
             </g:if>
     </div>
-
-
-
 <!---- buttons ---->
 	<g:form>
 	    <fieldset class="buttons">
-		    <g:hiddenField name="id" value="${portfolioInstance?.id}" />
-				<g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.label" default="Edit Portfolio" /></g:link>
+		    %{--<--}%%{--g:hiddenField name="id" value="${portfolioInstance?.id}" />
+				<g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.label" default="Edit Portfolio" /></g:link>--}%
 			    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete Portfolio')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete the entire portfolio?')}');" />
 		</fieldset>
 	</g:form>

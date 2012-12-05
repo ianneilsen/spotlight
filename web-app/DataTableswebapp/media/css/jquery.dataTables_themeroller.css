@@ -63,7 +63,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	float: left;
 }
 
-
 /*
  * Filter
  */
@@ -71,7 +70,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	float: right;
 	text-align: right;
 }
-
 
 /*
  * Table information
@@ -81,7 +79,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	clear: both;
 	float: left;
 }
-
 
 /*
  * Pagination
@@ -189,7 +186,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	background-color: #99B3FF;
 }
 
-
 /*
  * Processing indicator
  */
@@ -208,7 +204,6 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	font-size: 14px;
 	background-color: white;
 }
-
 
 /*
  * Sorting
@@ -229,7 +224,6 @@ table.dataTable th:active {
 	outline: none;
 }
 
-
 /*
  * Scrolling
  */
@@ -241,4 +235,3 @@ table.dataTable th:active {
 	*margin-top: -1px;
 	-webkit-overflow-scrolling: touch;
 }
-

@@ -5,7 +5,7 @@
 
 <div id="pub-nav" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
-<!-----------markuphelp  partial page in inner navigation to use twitter javascript to produce a pop-up to show mark help through partial view gsp -->
+<!---- markup ---->
 
       <div class="markdown-help">
        <a href="#markupModal" role="button" class="btn btn-small" data-toggle="modal">Markdown Guide</a>
@@ -22,11 +22,6 @@
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
       </div>
-
-<!------------------------------ dropdown menu links ----------------------------------------------->
-                                                                              <!--todo image tab lib -->
-<!------ burningimagetablib  research use with html5 drop lib ---------------------->
-
 <!----------------------------------------  publication tools ---------------------------------->
 
       <div class="btn-group">
@@ -62,9 +57,5 @@
                  <g:hiddenField name="portfolioInstance" value="id"/>
                    <g:select  name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
       </div>
-
-
-
-
   </div>   <!--div for btn-group-->
 </div>     <!--pubnav-->
