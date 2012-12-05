@@ -15,7 +15,7 @@ class Templatepublication {
     static constraints = {
         tplnamepub(blank: false, size: 4..100)
         tplcontentpub(blank: true, size: 2..2000)
-        tplshare(inList: ["Yes","No"])
+        tplshare(inList: ["No","Yes"])
     }
     String toString() {
         tplnamepub

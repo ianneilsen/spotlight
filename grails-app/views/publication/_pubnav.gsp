@@ -39,6 +39,21 @@
 
             </ul>
       </div>
+    <!---- preview  --------->
+    <div class="btn-group">
+        <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-eye-open"></i>Preview
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+
+            <a href="SpotLight-Grails/publication/previewpub"  data-toggle="modal">Preview before save.</a>
+            <a href="SpotLight-Grails/publication/turnonlivepreview"  data-toggle="modal">Turn on live preview.</a>
+
+
+        </ul>
+    </div>
 <!----------------------------------------  templates ---------------------------------->
       <div class="btn-group">
           <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
