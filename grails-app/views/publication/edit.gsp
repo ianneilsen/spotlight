@@ -6,9 +6,7 @@
 	<head>
 		<meta name="layout" content="main">
         <r:require modules="uploadr"/>
-        <jqplot:resources/>
-        <jqplot:plugin name="pieRenderer"/>
-        		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
+   		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 </head>
 <body>
@@ -64,6 +62,36 @@
                 </fieldset>
 			</g:form>
 		</div>
+<g:javascript>/****************************************
+ * Floating Navigation jQuery feature
+ ****************************************/
+$(function() {
 
+    // get initial top offset of navigation
+    var floating_navigation_offset_top = $('#pubnav').offset().top;
+
+    // define the floating navigation function
+    var floating_navigation = function(){
+        // current vertical position from the top
+        var scroll_top = $(window).scrollTop();
+
+        // if scrolled more than the navigation, change its
+        // position to fixed to float to top, otherwise change
+        // it back to relative
+        if (scroll_top > floating_navigation_offset_top) {
+            $('#pubnav').css({ 'position': 'fixed', 'top':0});
+        } else {
+            $('#pubnav').css({ 'position': 'relative' });
+        }
+    };
+    // run function on load
+    floating_navigation();
+    // run function every time you scroll
+    $(window).scroll(function() {
+        floating_navigation();
+    });
+
+});</g:javascript>
 	</body>
+
 </html>

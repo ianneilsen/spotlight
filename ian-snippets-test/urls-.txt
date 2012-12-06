@@ -1,3 +1,14 @@
+charting
+html5 and js building charts ofd table data
+-----------------------------------------
+http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/
+
+insert text to text area using new jquery methods
+----------------------------------------------
+http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
+http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
+
+
 http://blogs.bytecode.com.au/glen/2008/05/01/writing-a-wysiwyg-wiki-editor-with-yui-and-grails.html
 
 email stuff
@@ -31,6 +42,45 @@ music
 http://www.di.fm/liquiddubstep
 
 http://mrhaki.blogspot.com.au/2009/09/groovy-goodness-working-with-arrays.html
+get latest text value
+----------------------
+http://blog.ekini.net/2009/02/24/jquery-getting-the-latest-textvalue-inside-a-textarea/
+http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
 
 
+floating bar
+----------------
+http://liljosh.com/how-to-build-a-floating-navigation-when-scrolling/
 
+/****************************************
+ * Floating Navigation jQuery feature
+ ****************************************/
+$(function() {
+
+    // get initial top offset of navigation
+    var floating_navigation_offset_top = $('#navi').offset().top;
+
+    // define the floating navigation function
+    var floating_navigation = function(){
+                // current vertical position from the top
+        var scroll_top = $(window).scrollTop();
+
+        // if scrolled more than the navigation, change its
+                // position to fixed to float to top, otherwise change
+                // it back to relative
+        if (scroll_top > floating_navigation_offset_top) {
+            $('#navi').css({ 'position': 'fixed', 'top':0});
+        } else {
+            $('#navi').css({ 'position': 'relative' });
+        }
+    };
+
+    // run function on load
+    floating_navigation();
+
+    // run function every time you scroll
+    $(window).scroll(function() {
+         floating_navigation();
+    });
+
+});
