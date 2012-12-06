@@ -6,7 +6,9 @@
 	<head>
 		<meta name="layout" content="main">
         <r:require modules="uploadr"/>
-		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
+        <jqplot:resources/>
+        <jqplot:plugin name="pieRenderer"/>
+        		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 </head>
 <body>

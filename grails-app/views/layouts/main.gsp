@@ -53,7 +53,7 @@
 
 		<div id="inner-maincontent">
 
-		<g:layoutBody/>
+            <g:layoutBody/>
 		</div>
 		</div>
 
@@ -75,7 +75,7 @@
 		</div>
     	</div>
         </div>
-		<g:javascript library="application"/>
-		<r:layoutResources />
+         <g:javascript library="application"/>
+        <r:layoutResources/>
 	</body>
 </html>

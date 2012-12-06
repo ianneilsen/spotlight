@@ -80,10 +80,6 @@ class PortfolioController {
     }
 
 
-    def create() {
-       [portfolioInstance: new Portfolio(params), profileInstance: new Profile(params)]
-    }
-
 //save action saves the portfolio and profile domain classes, following the save a new dir is created in the config path
     def save() {
         def portfolioInstance = new Portfolio(params)

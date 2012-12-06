@@ -7,7 +7,10 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+%{--         <r:require modules="jquery,jquery-ui"/>
+   --}%%{--     <script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%%{--
+        <jqplot:resources/>--}%
+<zing:include />
 	</head>
 <body>
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -74,6 +77,13 @@
             </g:if>
       </div>
 
+    <!--------------------------------------------tetsing chartings ------------------------>
+%{--    <div id="chart1" style="height:400px;width:300px; ">
+       <jqplot:plugin name="canvasTextRenderer,canvasAxisLabelRenderer"><r:script>$(document).ready(function(){
+           var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
+       });</r:script></jqplot:plugin> </div>--}%
+
+    <!----------------------------------------------------------------------------------------------------------
 <!-- pubtags -->
            <g:if test="${publicationInstance?.pubtags}">
 				<li class="fieldcontain">
@@ -110,6 +120,7 @@
         </fieldset>
     </g:form>
 </div>
+
 </body>
 </html>
 <!-- todo - insert document version to show page -maybe allow a link through to history page -->
