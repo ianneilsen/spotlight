@@ -38,11 +38,13 @@
             });
 
         });</g:javascript>
+
+
 </head>
 <body>
-<!-- top  main navigation --------------------------->
+<!---- main nav ---->
 
-	<a href="#edit-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+<a href="#edit-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
             <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
@@ -51,9 +53,10 @@
 			</ul>
 		</div>
 <div id="edit-publication" class="content scaffold-edit" role="main">
-    <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 
-<!-- error stuff ------%{--<g:render template="pubnav"/>--}%-------------->
+        <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+
+<!---- error stuff ---->
 
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
@@ -68,32 +71,29 @@
 
 <!-- top menu path for edit and delete of docs----------------->
 <div id="slidenav" style="z-index: 9999">
-    <g:form method="post">
+    <g:form method="post" action="update" controller="publication">
         <g:hiddenField name="id" value="${publicationInstance?.id}" />
         <g:hiddenField name="version" value="${publicationInstance?.version}" />
             <fieldset class="buttons">
-               %{-- <g:formRemote name="contentform" url="[controller='publication', action='update']"/>--}%
-                <g:actionSubmit id="contentform" class="save" action="updatetwo" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                <g:actionSubmit id="contentform" class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 <g:actionSubmit class="delete" action="delete" value="delete" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
             </fieldset>
         <g:render template="pubnav"/>
-     </g:form>
+
  </div>
 <!----------- footer form buttons ------>
     <div id="contentform">
-			<g:form method="post" name="contentform" >
-				<g:hiddenField name="id" value="${publicationInstance?.id}" />
-				<g:hiddenField name="version" value="${publicationInstance?.version}" />
+
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
-				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                    <a href="#top">Back To Top</a>
-                </fieldset>
-			</g:form>
+        <fieldset class="buttons">
+            <a href="#top"> Back To Top</a>
+        </fieldset>
     </div>
+
+
+    </g:form>
 
   </div>
 

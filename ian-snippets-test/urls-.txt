@@ -1,11 +1,11 @@
 charting
 html5 and js building charts ofd table data
 -----------------------------------------
-http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/
+http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/
 
 insert text to text area using new jquery methods
 ----------------------------------------------
-http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
+http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
 http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
 
 
@@ -42,6 +42,7 @@ music
 http://www.di.fm/liquiddubstep
 
 http://mrhaki.blogspot.com.au/2009/09/groovy-goodness-working-with-arrays.html
+
 get latest text value
 ----------------------
 http://blog.ekini.net/2009/02/24/jquery-getting-the-latest-textvalue-inside-a-textarea/

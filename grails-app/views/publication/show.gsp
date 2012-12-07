@@ -7,10 +7,12 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-%{--         <r:require modules="jquery,jquery-ui"/>
-   --}%%{--     <script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%%{--
-        <jqplot:resources/>--}%
-<zing:include />
+         <r:require modules="jquery,jquery-ui"/>
+        %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css.css')}" type="text/css">
+        <g:javascript src="visualize.jQuery.js" />
+%{--        <jqplot:resources/>
+<zing:include />--}%
 <g:javascript>/****************************************
  * Floating Navigation jQuery feature
  ****************************************/
@@ -41,7 +43,10 @@ $(function() {
     });
 
 });</g:javascript>
-	</head>
+
+     <g:javascript>$('#table').visualize();</g:javascript>
+
+    </head>
 <body>
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
@@ -107,13 +112,46 @@ $(function() {
                 <div class="span10"><span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span></div>
                 <div class="span1"></div>
             </g:if>
+        1
       </div>
 
     <!--------------------------------------------tetsing chartings ------------------------>
-%{--    <div id="chart1" style="height:400px;width:300px; ">
-       <jqplot:plugin name="canvasTextRenderer,canvasAxisLabelRenderer"><r:script>$(document).ready(function(){
-           var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
-       });</r:script></jqplot:plugin> </div>--}%
+
+    <table>
+        <caption>2009 Employee Sales by Department</caption>
+        <thead>
+        <tr>
+            <td></td>
+            <th scope="col">food</th>
+            <th scope="col">auto</th>
+            <th scope="col">household</th>
+            <th scope="col">furniture</th>
+            <th scope="col">kitchen</th>
+            <th scope="col">bath</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Mary</th>
+            <td>190</td>
+            <td>160</td>
+            <td>40</td>
+            <td>120</td>
+            <td>30</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <th scope="row">Tom</th>
+            <td>3</td>
+            <td>40</td>
+            <td>30</td>
+            <td>45</td>
+            <td>35</td>
+            <td>49</td>
+        </tr>
+
+        </tbody>
+    </table>
 
     <!----------------------------------------------------------------------------------------------------------
 <!-- pubtags -->
@@ -145,10 +183,7 @@ $(function() {
 
    <g:form>
     	<fieldset class="buttons">
-	    	%{--<g:hiddenField name="id" value="${publicationInstance?.id}" />
-		    	<g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-				<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
-                --}%   <a href="#top"> Back To Top</a>
+	    	<a href="#top"> Back To Top</a>
         </fieldset>
     </g:form>
 </div>

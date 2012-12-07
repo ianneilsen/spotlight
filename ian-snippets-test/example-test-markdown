@@ -218,10 +218,10 @@ equivalent of <code>&amp;mdash;</code>.</p>
 tables
 --------
 
-| heading | headingv|
+| heading1 | heading2|
 |:----------|:-------------|
-|data    | data |
-|data  | data |
+|data1    | data2 |
+|data3  | data4 |
 
 
 |              |          Grouping           ||
@@ -347,4 +347,12 @@ Content       |   **Cell**    |         Cell |
 New section   |     More      |         Data |
 And more      |            And more         ||
 [Prototype table]
+
+
+
+|           |apples | oranges | bannas|
+| ------ | --------- | ---------- | ---------- |
+|ian    | 10         |  20        | 40         |
+|dianne | 20         | 40         | 60         |
+|nick   | 40         |   80       | 120     |
 

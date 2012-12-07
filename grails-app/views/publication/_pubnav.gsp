@@ -55,6 +55,7 @@
         </ul>
     </div>
 <!----------------------------------------  templates ---------------------------------->
+
       <div class="btn-group">
           <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
              Templates
@@ -64,13 +65,16 @@
         <!-- dropdown menu links -->
         <g:link action="show" id="${publicationInstance.id}">Clone-${publicationInstance?.publicationName}</g:link>
 
-        <a href="SpotLight-Grails/publication/emailtemplate"  data-toggle="modal">Use email template</a>
         <li class="divider"></li>
-        <li class="dropdown-submenu">
-            <a tabindex="-1" href="#">Insert Template</a>
-              <ul class="dropdown-menu">
-                 <g:hiddenField name="portfolioInstance" value="id"/>
-                   <g:select  name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Insert Template</a>
+                    <ul class="dropdown-menu">
+                        <g:hiddenField name="portfolioInstance" value="id"/>
+
+                        <g:select  name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
+
       </div>
-  </div>   <!--div for btn-group-->
-</div>     <!--pubnav-->
+
+
+  </div>
+</div>

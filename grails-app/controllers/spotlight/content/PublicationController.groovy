@@ -191,6 +191,7 @@ def publicationClone(){
         redirect(action: "show", id: publicationInstance.id)
     }
 
+
     def delete(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
