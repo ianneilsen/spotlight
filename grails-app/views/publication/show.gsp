@@ -11,6 +11,36 @@
    --}%%{--     <script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%%{--
         <jqplot:resources/>--}%
 <zing:include />
+<g:javascript>/****************************************
+ * Floating Navigation jQuery feature
+ ****************************************/
+$(function() {
+
+    // get initial top offset of navigation
+    var floating_navigation_offset_top = $('#slidenav').offset().top;
+
+    // define the floating navigation function
+    var floating_navigation = function(){
+        // current vertical position from the top
+        var scroll_top = $(window).scrollTop();
+
+        // if scrolled more than the navigation, change its
+        // position to fixed to float to top, otherwise change
+        // it back to relative
+        if (scroll_top > floating_navigation_offset_top) {
+            $('#slidenav').css({ 'position': 'fixed', 'top':0});
+        } else {
+            $('#slidenav').css({ 'position': 'relative' });
+        }
+    };
+    // run function on load
+    floating_navigation();
+    // run function every time you scroll
+    $(window).scroll(function() {
+        floating_navigation();
+    });
+
+});</g:javascript>
 	</head>
 <body>
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -35,7 +65,8 @@
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-<!---- publication nav ---->
+<!---- sliding publication nav ---->
+    <div id="slidenav">
             <fieldset class="buttons">
                 <g:hiddenField name="id" value="${publicationInstance?.id}" />
                 <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
@@ -43,6 +74,7 @@
                 <g:link class="edit" action="publicationClone" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="publicationClone" /></g:link>
                 <g:render template="navshow"/>
             </fieldset>
+    </div>
 <!---- publication content---->
 <!-- row 1 -->
       <div class="row">
@@ -113,10 +145,10 @@
 
    <g:form>
     	<fieldset class="buttons">
-	    	<g:hiddenField name="id" value="${publicationInstance?.id}" />
+	    	%{--<g:hiddenField name="id" value="${publicationInstance?.id}" />
 		    	<g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 				<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
-                   <a href="#top"> Back To Top</a>
+                --}%   <a href="#top"> Back To Top</a>
         </fieldset>
     </g:form>
 </div>

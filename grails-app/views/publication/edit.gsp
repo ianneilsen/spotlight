@@ -8,6 +8,36 @@
         <r:require modules="uploadr"/>
    		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <g:javascript>/****************************************
+         * Floating Navigation jQuery feature
+         ****************************************/
+        $(function() {
+
+            // get initial top offset of navigation
+            var floating_navigation_offset_top = $('#slidenav').offset().top;
+
+            // define the floating navigation function
+            var floating_navigation = function(){
+                // current vertical position from the top
+                var scroll_top = $(window).scrollTop();
+
+                // if scrolled more than the navigation, change its
+                // position to fixed to float to top, otherwise change
+                // it back to relative
+                if (scroll_top > floating_navigation_offset_top) {
+                    $('#slidenav').css({ 'position': 'fixed', 'top':0});
+                } else {
+                    $('#slidenav').css({ 'position': 'relative' });
+                }
+            };
+            // run function on load
+            floating_navigation();
+            // run function every time you scroll
+            $(window).scroll(function() {
+                floating_navigation();
+            });
+
+        });</g:javascript>
 </head>
 <body>
 <!-- top  main navigation --------------------------->
@@ -22,34 +52,36 @@
 		</div>
 <div id="edit-publication" class="content scaffold-edit" role="main">
     <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+
+<!-- error stuff ------%{--<g:render template="pubnav"/>--}%-------------->
+
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
+    <g:hasErrors bean="${publicationInstance}">
+        <ul class="errors" role="alert">
+            <g:eachError bean="${publicationInstance}" var="error">
+                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+            </g:eachError>
+        </ul>
+    </g:hasErrors>
+
 <!-- top menu path for edit and delete of docs----------------->
-    <g:form method="post" >
+<div id="slidenav" style="z-index: 9999">
+    <g:form method="post">
         <g:hiddenField name="id" value="${publicationInstance?.id}" />
         <g:hiddenField name="version" value="${publicationInstance?.version}" />
-        <fieldset class="buttons">
-            <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-            <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-            <g:render template="pubnav"/>
-        </fieldset>
-    </g:form>
-
-<!-- todo- top update button not saving changes??  -->
-
-<!-- error stuff -------------------->
-
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${publicationInstance}">
-			<ul class="errors" role="alert">
-				<g:eachError bean="${publicationInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-				</g:eachError>
-			</ul>
-			</g:hasErrors>
-
+            <fieldset class="buttons">
+               %{-- <g:formRemote name="contentform" url="[controller='publication', action='update']"/>--}%
+                <g:actionSubmit id="contentform" class="save" action="updatetwo" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                <g:actionSubmit class="delete" action="delete" value="delete" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+            </fieldset>
+        <g:render template="pubnav"/>
+     </g:form>
+ </div>
 <!----------- footer form buttons ------>
-			<g:form method="post" >
+    <div id="contentform">
+			<g:form method="post" name="contentform" >
 				<g:hiddenField name="id" value="${publicationInstance?.id}" />
 				<g:hiddenField name="version" value="${publicationInstance?.version}" />
 				<fieldset class="form">
@@ -61,37 +93,10 @@
                     <a href="#top">Back To Top</a>
                 </fieldset>
 			</g:form>
-		</div>
-<g:javascript>/****************************************
- * Floating Navigation jQuery feature
- ****************************************/
-$(function() {
+    </div>
 
-    // get initial top offset of navigation
-    var floating_navigation_offset_top = $('#pubnav').offset().top;
+  </div>
 
-    // define the floating navigation function
-    var floating_navigation = function(){
-        // current vertical position from the top
-        var scroll_top = $(window).scrollTop();
-
-        // if scrolled more than the navigation, change its
-        // position to fixed to float to top, otherwise change
-        // it back to relative
-        if (scroll_top > floating_navigation_offset_top) {
-            $('#pubnav').css({ 'position': 'fixed', 'top':0});
-        } else {
-            $('#pubnav').css({ 'position': 'relative' });
-        }
-    };
-    // run function on load
-    floating_navigation();
-    // run function every time you scroll
-    $(window).scroll(function() {
-        floating_navigation();
-    });
-
-});</g:javascript>
-	</body>
+ </body>
 
 </html>
