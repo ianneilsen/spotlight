@@ -30,17 +30,38 @@ class BootStrap {
                 dateCreated: new Date())
         portfolio.save(failOnError: true)
 
-        def product1 =new Pubproduct(pubproduct: "Request Tracker").save()
+        def product1 =new Pubproduct(pubproduct: "NA").save()
         def product2 =new Pubproduct(pubproduct: "Errata Tool").save()
         def product3 =new Pubproduct(pubproduct: "Beaker").save()
-        def product4 =new Pubproduct(pubproduct: "TCMS").save()
+        def product4 =new Pubproduct(pubproduct: "RHEL").save()
+        def product5 =new Pubproduct(pubproduct: "OpenShift").save()
+        def product6 =new Pubproduct(pubproduct: "Mitai").save()
+        def product7 =new Pubproduct(pubproduct: "Spotlight").save()
+        def product8 =new Pubproduct(pubproduct: "p360").save()
+        def product9 =new Pubproduct(pubproduct: "Publican").save()
 
         def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (),pubproduct: product1)
         portfolio.addToPublications(r1)
         portfolio.save(failOnError: true)
 
-        def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product1)
+        def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product2)
         portfolio.addToPublications(r2)
+        portfolio.save(failOnError: true)
+
+        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing - 3", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product3)
+        portfolio.addToPublications(r3)
+        portfolio.save(failOnError: true)
+
+        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing - 4", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product4)
+        portfolio.addToPublications(r4)
+        portfolio.save(failOnError: true)
+
+        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing - 5", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product5)
+        portfolio.addToPublications(r5)
+        portfolio.save(failOnError: true)
+
+        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing - 6", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product7)
+        portfolio.addToPublications(r6)
         portfolio.save(failOnError: true)
 
         def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@redhat.com,ineilsen@redhat.com",

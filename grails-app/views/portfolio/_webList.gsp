@@ -1,30 +1,13 @@
 <!-- weblist partial showing list of reporting sites and last 5 reports ordered by published date in asc order-->
+
+
+%{--<script src="${resource(dir: 'js', file: 'lastfiver.js')}" type="text/javascript"></script>--}%
+
+
 <div class="alert alert-info" >Permissions apply to <strong>editing</strong> publications. | Click portfolio name or choose from the last five published reports under the portfolio heading.</div>
 
 
 <div class="property-list portfolio">
-%{--<g:each in="${portfolios}" var="portfolioInstance" status="i">
-    <div class="site-listing">
-        <div><span class="label">Site Name:</span><g:link action="show" id="${portfolioInstance?.id }">${portfolioInstance?.portfolioName?.encodeAsHTML()}</g:link></div>
-        <div><span class="label">Site Description:</span>${portfolioInstance?.portdescrip?.encodeAsHTML() }</div>   <br>
-        <div><span class="label">Site Administrator:</span>${portfolioInstance?.profile?.portfolioAdmin?.encodeAsHTML() }</div>   <br>
-        <div><span class="label"> Total publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications?.size()}</span> </div>
-    <!-- whatever else you need here -->
-    <!-- now iterate through the pubs -->
-        <g:if test="${portfolioInstance?.publications}">
-            <g:set var="publicationInstance" status='j' />
-                <ul class="site-publication">
-                     <li class="fieldcontain">
-                         <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 published publications:" /></span>
-                             <g:each in="${portfolioInstance.publications}" var="publicationInstance">
-                                 ${publicationInstance?.id}
-                                    <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${publicationInstance.id}">${publicationInstance?.encodeAsHTML()}</g:link></span>
-    <!-- and again whatever else you need here -->
-                             </g:each>
-            </g:if>
-</g:each>
-</div>--}%
-
 <g:each in="${portfolios}" status="i" var="rsl">
     <div class="site-listing">
         <div><span class="label"><i class="icon-briefcase"></i> Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
@@ -36,19 +19,34 @@
 
         <g:if test="${rsl?.publications}">
         <g:set var="rsl" value="portfolios"/>
-            <ul class="site-publication">
-                <li class="fieldcontain">
-                    <span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 published publications:" /></span>
+            <ul class="more">
+                <li>
+                    %{--<span id="publications-label" class="property-label"><g:message code="portfolio.publications.label" default="Last 5 published publications:" /></span>--}%
                         <g:each in="${results}" var="r">
-                            <span class="property-value" aria-labelledby="publications-label"><g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+                            %{--<span class="property-value" aria-labelledby="publications-label">--}%<g:link controller="publication" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>%{--</span>--}%
                         </g:each>
                 </li>
             </ul>
+
         </g:if>
     </div>
 
 </g:each>
-</div
+</div>
+
+<ul class="more">
+    <li><a href="SpotLight-Grails/publication/show/1"> one</a></li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+    <li>six</li>
+    <li>seven</li>
+    <li>eight</li>
+    <li>nine</li>
+    <li>ten</li>
+</ul>
+
 
 
 <!-- todo - add in mobile css for report lists -->

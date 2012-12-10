@@ -20,22 +20,21 @@ class PortfolioController {
     //TODO - add in user profile page - ajax live updates for subscriptions based on categories
 
 //listing portfolios and their publications
-/*    def webList (){
-        def portfolios = Portfolio.createCriteria().list {
-            //if you needed to filter the list by for example portfolio status or something you could add that here
-            or {
-                eq('status','Active')
+    def _webList (){
+        //def per = Portfolio.properties
+        def portfolios = Portfolio.list(params.id)
+        def results = Publication.listOrderByLastUpdated()
+                /*def results = Publication.withCriteria {
 
-            }
-            publications(org.hibernate.criterion.CriteriaSpecification.LEFT_JOIN) {
-                eq("published", "Yes")
-                order("lastUpdated", "desc")
-                firstResult(5)
-            }
-        }
+            eq('published', 'Yes')
+            order('lastUpdated', 'desc')
+            maxResults(5)
+        }*/
 
-        [portfolios: portfolios, portfolioCount:portfolios.size()]
-    }*/
+        def reportscount = Publication.count()
+
+        [ portfolios: portfolios, results: results, reportscount: reportscount]
+    }
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
@@ -63,20 +62,8 @@ class PortfolioController {
         render (unpublishedcount())
     }
 
-
-    def _webList (){
-        //def per = Portfolio.properties
-        def portfolios = Portfolio.list(params.id)
-        def results = Publication.withCriteria {
-
-            eq('published', 'Yes')
-            order('lastUpdated', 'desc')
-            maxResults(5)
-        }
-
-        def reportscount = Publication.count()
-
-        [ portfolios: portfolios, results: results, reportscount: reportscount]
+    def create () {
+        [portfolioInstance: new Portfolio(params)]
     }
 
 
@@ -91,7 +78,7 @@ class PortfolioController {
         flash.message = message(code: 'default.created.message', args: [message(code: 'portfolio.label', default: 'Portfolio'), portfolioInstance.id])
         def portfolioDirName = portfolioInstance.id
             def portfolioDir = new File(Conf.config.rootPath + portfolioDirName + "images").mkdir()
-        redirect(action: "show", id: portfolioInstance.id)
+                redirect(action: "show", id: portfolioInstance.id)
                   [portfolioDir: portfolioDir]           //todo conf path not valid in a save range used this way find another way
     }
 

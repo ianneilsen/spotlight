@@ -140,6 +140,7 @@ def publicationClone(){
         redirect(action: "show", id: publicationInstance.id)
     }
 
+
     def show(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {

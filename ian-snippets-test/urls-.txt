@@ -1,3 +1,8 @@
+hide and display with js or css
+----------------------------
+http://www.devinrolsen.com/css-hide-and-display-content/
+
+
 charting
 html5 and js building charts ofd table data
 -----------------------------------------
