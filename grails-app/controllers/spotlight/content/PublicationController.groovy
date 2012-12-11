@@ -6,6 +6,8 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass
 import org.xwiki.rendering.*
 import org.springframework.mail.MailException
 import javax.mail.*
+import groovy.json.*
+import grails.converters.*
 
 class PublicationController {
 
@@ -14,6 +16,22 @@ class PublicationController {
     def index() {
         redirect(action: "list", params: params)
     }
+
+    /*def readEtherpad(){
+        def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
+        def json = JSON.parse(padurl)
+        render("json out from etherpad: ${json.toString()}")
+
+    }*/
+
+    def readEtherpad(){
+        def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
+        def padjson = new JsonSlurper().parseText(padurl)
+        render("json: ${padjson}").toString()
+
+    }
+
+
 
     def list(Integer max) {
         params.max = Math.min(max ?: 5, 52)

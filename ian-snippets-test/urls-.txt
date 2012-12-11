@@ -1,3 +1,10 @@
+json
+-----
+http://manbuildswebsite.com/2010/01/29/rendering-json-using-grails-part-1-collections-testing-and-the-jsonbuilder/
+
+http://www.kellyrob99.com/blog/2010/06/02/a-grails-app-demoing-the-stackexchange-api/
+may be good above
+
 hide and display with js or css
 ----------------------------
 http://www.devinrolsen.com/css-hide-and-display-content/

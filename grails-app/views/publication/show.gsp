@@ -9,7 +9,7 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
          <r:require modules="jquery,jquery-ui"/>
         %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
         <g:javascript src="visualize.jQuery.js" />
 %{--        <jqplot:resources/>
 <zing:include />--}%
