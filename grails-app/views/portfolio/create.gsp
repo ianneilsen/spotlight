@@ -15,7 +15,10 @@
 			</ul>
 		</div>
 		<div id="create-portfolio" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <div class="esobreadcrumb">
+                <h1><g:message code="default.create.publications.label" default="Create a new publications portfolio/site" args="[entityName]" /></h1>
+            </div>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

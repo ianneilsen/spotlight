@@ -32,7 +32,7 @@
         </ul>
     </g:hasErrors>
     <!-- publication nav --------------->
-    <g:render template="pubnav"/>
+    <g:render template="navedit"/>
 
 <!-- footer nav ------>         <!-- todo set default drop down select for publication product to NA -->
             <div id="create-pubproduct" class="content scaffold-create" role="main">

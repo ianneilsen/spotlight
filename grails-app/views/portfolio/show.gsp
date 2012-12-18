@@ -22,14 +22,13 @@
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
         <g:hiddenField name="id" value="${portfolioInstance?.id}" />
-        <li><g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.label" default="Edit Portfolio" /></g:link></li>
-
-
+        <li><g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.portfolio.label" default="Edit Portfolio" /></g:link></li>
+        <li><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.portfolio.label', default: 'Delete Portfolio')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete the entire portfolio?')}');" /></li>
     </ul>
 	</div>
 <!---- breadcrumb below nav bar ---->
-<div class="breadcrumb">
-    <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+<div class="esobreadcrumb">
+    <h1><g:message code="default.show.label" args="[entityName]" /> details</h1>
 </div>
 <!--- flash messages ---->
 		<div id="show-portfolio" class="content scaffold-show" role="main">
@@ -75,7 +74,9 @@
 	    <fieldset class="buttons">
 		    %{--<--}%%{--g:hiddenField name="id" value="${portfolioInstance?.id}" />
 				<g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.label" default="Edit Portfolio" /></g:link>--}%
+%{--
 			    <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete Portfolio')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete the entire portfolio?')}');" />
+--}%
 		</fieldset>
 	</g:form>
 </div>

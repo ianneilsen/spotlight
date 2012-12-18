@@ -4,8 +4,6 @@ import org.springframework.dao.DataIntegrityViolationException
 import spotlight.pubtemplates.Emailtemplate
 import org.codehaus.groovy.grails.commons.ConfigurationHolder as Conf
 import java.io.File;
-
-
 import static org.hibernate.criterion.CriteriaSpecification.*
 import static java.io.File.*
 
@@ -23,18 +21,19 @@ class PortfolioController {
     def _webList (){
         //def per = Portfolio.properties
         def portfolios = Portfolio.list(params.id)
-        def results = Publication.listOrderByLastUpdated()
+        def results = Publication.where {published=='Yes'}.list([sort: "lastUpdated", max: 5, offset: 0])
+        /*def results = Publication.listOrderByLastUpdated([max: 5])*/
                 /*def results = Publication.withCriteria {
 
             eq('published', 'Yes')
             order('lastUpdated', 'desc')
             maxResults(5)
         }*/
-
         def reportscount = Publication.count()
 
         [ portfolios: portfolios, results: results, reportscount: reportscount]
     }
+
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
@@ -42,6 +41,7 @@ class PortfolioController {
         [portfolioInstanceList: portfolioInstanceList.list(params), portfolioInstanceTotal: Portfolio.count()]
 
     }
+
 
     def archivedportfolios(Integer max) {
         params.max = Math.min(max ?: 10, 100)

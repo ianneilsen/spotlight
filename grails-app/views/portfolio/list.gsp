@@ -7,19 +7,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
-        <r:script>
-            $(function() {
-                $("ul.more").each(function() {
-                    $("li:gt(4)", this).hide();
-                    $("li:nth-child(5)", this).after("<li class='more'><a href='#'>More...</a></li>");
-                });
-                $("li.more a").live("click", function() {
-                    var li = $(this).parents("li:first");
-                    li.parent().children().show();
-                    li.remove();
-                    return false;
-                });
-            });</r:script>
+
     </head>
 
 <body>

@@ -109,3 +109,4 @@
 
             </ul>
         </div>
+<g:link class="edit" action="publicationClone" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="publicationClone" /></g:link>

@@ -19,11 +19,11 @@
 
     <h6><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
 
-    <h6><g:field type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
+    <h6><g:field  type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
-    <h6><g:textArea type="string" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
+    <g:textArea  type="string" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="20"/>
 
-    <h6><g:field type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
+    <div style="width: 300px;"><g:field type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" /> </div>
 
    %{-- <h6><g:field type="number" name="publicationid" value="${publicationInstance?.id}"/> </h6>--}%
 

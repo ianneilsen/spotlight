@@ -16,7 +16,7 @@ class BootStrap {
 
         def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date(),status: "Active")
         portfolio.profile =  new Profile(/*htmlpuballowed:"No",*/
-                portfolioEmail: "ian@redhat.com",
+                portfolioEmail: "ian@ian.com",
                 portfolioAdmin:"Ian Neilsen",
                 bugzillaproduct:"bz prod name",
                 bugzillacomponent:"comp name",
@@ -25,7 +25,7 @@ class BootStrap {
                 portfolioColor:"red",
                 portfolioFilestore:"blah",
                 rtqueue:"hss-rap",
-                teamqueueemail:"hss-rap@redhat.com",
+                teamqueueemail:"hss-rap@ian.com",
                 etherpadurl:"http://url.com",
                 dateCreated: new Date())
         portfolio.save(failOnError: true)
@@ -64,8 +64,8 @@ class BootStrap {
         portfolio.addToPublications(r6)
         portfolio.save(failOnError: true)
 
-        def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@redhat.com,ineilsen@redhat.com",
-                                             ccemailtemplate:"ineilsen@redhat.com",footeremailtemplate:"footer of email template")
+        def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@ian.com,ineilsen@ian.com",
+                                             ccemailtemplate:"ineilsen@ian.com",footeremailtemplate:"footer of email template")
         portfolio.addToEmailtemplates(newEmailTemp)
         portfolio.save(failOnError: true)
 

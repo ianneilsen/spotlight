@@ -11,8 +11,8 @@
 <g:each in="${portfolios}" status="i" var="rsl">
     <div class="site-listing">
         <div><span class="label"><i class="icon-briefcase"></i> Site Name:</span> <g:link action="show" id="${rsl.id }">${rsl?.portfolioName.encodeAsHTML()}</g:link></div>
-        <div><span class="label"><i class="icon-info-sign"></i> Site Description:</span>  ${rsl.portdescrip }</div>   <br>
-        <div><span class="label"><i class="icon-user"></i> Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>   <br>
+        <div><span class="label"><i class="icon-info-sign"></i> Site Description:</span>  ${rsl.portdescrip }</div>
+        <div><span class="label"><i class="icon-user"></i> Site Administrator:</span>  ${rsl.profile.portfolioAdmin }</div>
         <div><span class="label"><i class="icon-list-alt"></i> Total publications:</span><span class="badge badge-success"> ${rsl.publications.size()}</span> </div>
         <g:hiddenField name="id" value="${portfolioInstance?.id}"/>
     %{--last five ${results}--}%
@@ -33,7 +33,7 @@
 
 </g:each>
 </div>
-
+%{--
 <ul class="more">
     <li><a href="SpotLight-Grails/publication/show/1"> one</a></li>
     <li>two</li>
@@ -45,7 +45,7 @@
     <li>eight</li>
     <li>nine</li>
     <li>ten</li>
-</ul>
+</ul>--}%
 
 
 

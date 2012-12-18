@@ -59,12 +59,13 @@ $(function() {
 		</div>
 <!---- action and site name ---->
 	<div id="show-publication" class="content scaffold-show" role="main">
-	    <h1><g:message code="default.show.label" args="[entityName]" /> for
+	    <h1 style="font-size: 20px;"> ${publicationInstance?.publicationName} from
             <g:if test="${publicationInstance?.portfolio}">
                 <span class="property-value" aria-labelledby="portfolio-label">
                     <g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link>
                 </span>
             </g:if>
+            portfolio
         </h1>
 <!---- error reporting ---->
             <g:if test="${flash.message}">
@@ -76,7 +77,7 @@ $(function() {
                 <g:hiddenField name="id" value="${publicationInstance?.id}" />
                 <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                 <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
-                <g:link class="edit" action="publicationClone" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="publicationClone" /></g:link>
+
                 <g:render template="navshow"/>
             </fieldset>
     </div>

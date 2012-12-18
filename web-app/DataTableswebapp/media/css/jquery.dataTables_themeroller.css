@@ -60,15 +60,17 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
  * Page length menu
  */
 .dataTables_length {
-	float: left;
+	float: right;
+    width: 50%;
 }
 
 /*
  * Filter
  */
 .dataTables_filter {
-	float: right;
+	float: left;
 	text-align: right;
+    width: 40%;
 }
 
 /*
