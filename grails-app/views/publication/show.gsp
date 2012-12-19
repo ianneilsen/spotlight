@@ -7,10 +7,11 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+
          <r:require modules="jquery,jquery-ui"/>
         %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
-        <g:javascript src="visualize.jQuery.js" />
+     %{--   <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
+        <g:javascript src="visualize.jQuery.js" />--}%
 %{--        <jqplot:resources/>
 <zing:include />--}%
 <g:javascript>/****************************************
@@ -43,10 +44,7 @@ $(function() {
     });
 
 });</g:javascript>
-
-     <g:javascript>$('#table').visualize();</g:javascript>
-
-    </head>
+</head>
 <body>
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
@@ -76,13 +74,12 @@ $(function() {
             <fieldset class="buttons">
                 <g:hiddenField name="id" value="${publicationInstance?.id}" />
                 <g:link class="edit" action="edit" id="${publicationInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
-
+                <g:actionSubmit id="${publicationInstance?.id}" class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete this publication?')}');" />
                 <g:render template="navshow"/>
             </fieldset>
     </div>
 <!---- publication content---->
-<!-- row 1 -->
+<!-- row META -->
       <div class="row">
             <ol class="property-list publication">
 				<g:if test="${publicationInstance?.publicationName}">
@@ -106,21 +103,19 @@ $(function() {
                 </g:if>
       </div>
 
-<!-- row 3 content -->
-      <div class="row">
-            <g:if test="${publicationInstance?.publicationContent}">
-                <div class="span1"></div>
-                <div class="span10"><span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span></div>
-                <div class="span1"></div>
-            </g:if>
-        1
-      </div>
-
-    <!--------------------------------------------tetsing chartings ------------------------>
+<!-- row 3 CONTENT -->
+<div class="row">
+    <g:if test="${publicationInstance?.publicationContent}">
+        <div class="span1"></div>
+            <div class="span10"><span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span></div>
+        <div class="span1"></div>
+    </g:if>
+</div>
+<!--------------------------------------------tetsing chartings ------------------------>
 
 
-    <!----------------------------------------------------------------------------------------------------------
-<!-- pubtags -->
+<!----------------------------------------------------------------------------------------------------------
+<!-- TAGS -->
            <g:if test="${publicationInstance?.pubtags}">
 				<li class="fieldcontain">
 					<span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Publication tags" /></span>
@@ -130,6 +125,7 @@ $(function() {
 				</li>
 			</g:if>
    </ol>
+<!-- DATES ---->
    <div class="well well-small">
       <div class="row">
           <g:if test="${publicationInstance?.publisheddate}">
@@ -146,14 +142,13 @@ $(function() {
           </g:if>
       </div>
    </div>
-
+<!-- BACK --->
    <g:form>
     	<fieldset class="buttons">
 	    	<a href="#top"> Back To Top</a>
         </fieldset>
     </g:form>
 </div>
-
 </body>
 </html>
 <!-- todo - insert document version to show page -maybe allow a link through to history page -->

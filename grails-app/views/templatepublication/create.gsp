@@ -17,7 +17,7 @@
 			</ul>
 		</div>
 		<div id="create-templatepublication" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1 style="font-size: 20px;"><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

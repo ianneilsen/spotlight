@@ -34,8 +34,8 @@ grails.mime.types = [
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-grails.plugin.twitterbootstrap.fixtaglib = true
-grails.plugin.twitterbootstrap.defaultBundle = 'bundle_bootstrap'
+/*grails.plugin.twitterbootstrap.fixtaglib = true
+grails.plugin.twitterbootstrap.defaultBundle = 'bundle_bootstrap'*/
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -91,7 +91,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "ip adddress"
+        //grails.serverURL = "10.64.40.189"
     }
 }
 

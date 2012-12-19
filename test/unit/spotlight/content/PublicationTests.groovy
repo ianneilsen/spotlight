@@ -5,7 +5,7 @@ package spotlight.content
 import grails.test.mixin.*
 import org.junit.*
 
-import spotlight.content.Report;
+import spotlight.content.Publication;
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions

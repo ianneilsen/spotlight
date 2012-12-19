@@ -40,7 +40,7 @@ class BootStrap {
         def product8 =new Pubproduct(pubproduct: "p360").save()
         def product9 =new Pubproduct(pubproduct: "Publican").save()
 
-        def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (),pubproduct: product1)
+        def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes",publishedemail: "No", publisheddate: new Date (),pubproduct: product1)
         portfolio.addToPublications(r1)
         portfolio.save(failOnError: true)
 
@@ -52,7 +52,7 @@ class BootStrap {
         portfolio.addToPublications(r3)
         portfolio.save(failOnError: true)
 
-        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing - 4", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product4)
+        def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing - 4", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes",publishedemail: "No", publisheddate: new Date (), pubproduct: product4)
         portfolio.addToPublications(r4)
         portfolio.save(failOnError: true)
 

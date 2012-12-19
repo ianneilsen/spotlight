@@ -7,7 +7,7 @@
 		<g:message code="templatepublication.tplnamepub.label" default="Template name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="tplnamepub" maxlength="100" required="" value="${templatepublicationInstance?.tplnamepub}"/>
+	<g:textField style="width: 400px;" name="tplnamepub" maxlength="100" required="" value="${templatepublicationInstance?.tplnamepub}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: templatepublicationInstance, field: 'tplshare', 'error')} required">
@@ -23,7 +23,7 @@
 		<g:message code="templatepublication.tplcontentpub.label" default="Publication template" />
 		
 	</label>
-	<g:textArea name="tplcontentpub" cols="40" rows="5" maxlength="1000" value="${templatepublicationInstance?.tplcontentpub}"/>
+	<g:textArea style="width: 400px;" name="tplcontentpub" cols="400" rows="20" maxlength="1000" value="${templatepublicationInstance?.tplcontentpub}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: templatepublicationInstance, field: 'portfolio', 'error')} required">

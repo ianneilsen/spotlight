@@ -6,9 +6,10 @@
 	<head>
 		<meta name="layout" content="main">
         <r:require modules="uploadr"/>
-   		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
+    		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
-        <g:javascript>/****************************************
+
+<g:javascript>/****************************************
          * Floating Navigation jQuery feature
          ****************************************/
         $(function() {
@@ -41,8 +42,7 @@
 
 </head>
 <body>
-<!---- main nav ---->
-
+<!-- TOP NAV ---->
 <a href="#edit-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
             <ul class="nav1">
@@ -52,11 +52,9 @@
 			</ul>
 		</div>
 <div id="edit-publication" class="content scaffold-edit" role="main">
+    <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
 
-        <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-
-<!---- error stuff ---->
-
+<!-- ERROR msg---->
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
@@ -68,34 +66,29 @@
         </ul>
     </g:hasErrors>
 
-<!-- top menu path for edit and delete of docs----------------->
+<!-- page NAV edit-delete----------------->
 <div id="slidenav" style="z-index: 9999">
     <g:form method="post" action="update" controller="publication">
         <g:hiddenField name="id" value="${publicationInstance?.id}" />
         <g:hiddenField name="version" value="${publicationInstance?.version}" />
             <fieldset class="buttons">
                 <g:actionSubmit id="contentform" class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                <g:actionSubmit class="delete" action="delete" value="delete" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                <g:actionSubmit id="contentform" class="delete" action="delete" value="delete" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                <g:render template="navedit"/>
             </fieldset>
-        <g:render template="navedit"/>
-
  </div>
-<!----------- footer form buttons ------>
-    <div id="contentform">
-
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-        <fieldset class="buttons">
-            <a href="#top"> Back To Top</a>
-        </fieldset>
-    </div>
-
-
+<!-- footer form buttons ------>
+        <div id="contentform">
+        <fieldset class="form">
+		    <g:render template="form"/>
+		</fieldset>
+           <fieldset class="buttons">
+                <a href="#top"> Back To Top</a>
+            </fieldset>
+        </div>
     </g:form>
+</div>
 
-  </div>
-
- </body>
+</body>
 
 </html>

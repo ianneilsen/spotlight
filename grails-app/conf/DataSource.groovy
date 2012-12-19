@@ -44,8 +44,8 @@ environments {
     production {
         dataSource {
         //h2 prod settings
-            /*dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=20000"*/
+            dbCreate = "update"
+            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=20000"
             pooled = true
             properties {
                maxActive = -1
@@ -57,8 +57,8 @@ environments {
                testOnReturn=true
                validationQuery="SELECT 1" }
             //postgresql settings
-              dbCreate = "update"
-          url = "jdbc:postgresql://add in:5432/spotprod"
+          /*    dbCreate = "update"
+          url = "jdbc:postgresql://add in:5432/spotprod"*/
             }
         }
     }

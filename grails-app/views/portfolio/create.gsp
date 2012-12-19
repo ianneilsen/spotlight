@@ -5,6 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+        <r:require modules="bootstrap"/>
 	</head>
 	<body>
 		<a href="#create-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

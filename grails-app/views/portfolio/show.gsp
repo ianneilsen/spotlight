@@ -8,10 +8,11 @@
 	<head>
 		<meta name="layout" content="main">
         <style type="text/css" title="currentStyle">
-        @import "/DataTables/media/css/demo_table.css";
-        </style>
+        @import "/eso-theme/datatable/datatable.css";
+             </style>
 		<g:set var="entityName" value="${message(code: 'portfolio.label', default: 'Portfolio')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+        <r:require modules="bootstrap"/>
 	</head>
 <body>
 %{--<a href="#show-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

@@ -1,4 +1,3 @@
-
 <%@ page import="spotlight.pubtemplates.Emailtemplate" %>
 <!doctype html>
 <html>
@@ -7,21 +6,23 @@
 		<g:set var="entityName" value="${message(code: 'emailtemplate.label', default: 'Emailtemplate')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
-	<body>
+<body>
 		<a href="#list-emailtemplate" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		%{--<div class="nav" role="navigation">
-			<ul>--}%
+<!-- main NAV -->
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message default="New email template" code="default.new.emailtemplate.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-emailtemplate" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+<!-- page title -->
+<div id="list-emailtemplate" class="content scaffold-list" role="main">
+			<h1 style="font-size: 20px;"><g:message default="Email template list" code="default.list.emailtemplate.label" args="[entityName]" /></h1>
+<!--error msgs -->
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+<!--list TABLE -->
 			<table>
 				<thead>
 					<tr>
@@ -60,6 +61,7 @@
 				</g:each>
 				</tbody>
 			</table>
+<!-- pagination-->
 			<div class="pagination">
 				<g:paginate total="${emailtemplateInstanceTotal}" />
 			</div>
