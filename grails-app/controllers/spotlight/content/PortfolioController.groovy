@@ -6,6 +6,7 @@ import org.codehaus.groovy.grails.commons.ConfigurationHolder as Conf
 import java.io.File;
 import static org.hibernate.criterion.CriteriaSpecification.*
 import static java.io.File.*
+import groovy.sql.*
 
 class PortfolioController {
 
@@ -21,7 +22,7 @@ class PortfolioController {
     def _webList (){
         //def per = Portfolio.properties
         def portfolios = Portfolio.list(params.id)
-        def results = Publication.where {published=='Yes'}.list([sort: "lastUpdated", max: 5, offset: 0])
+            def results = Publication.where {published=='Yes'}.list([sort: "lastUpdated",order: 'desc', max: 5, offset: 0])
         /*def results = Publication.listOrderByLastUpdated([max: 5])*/
                 /*def results = Publication.withCriteria {
 
@@ -30,18 +31,16 @@ class PortfolioController {
             maxResults(5)
         }*/
         def reportscount = Publication.count()
-
-        [ portfolios: portfolios, results: results, reportscount: reportscount]
+            [ portfolios: portfolios, results: results, reportscount: reportscount]
     }
 
 
     def list(Integer max) {
         params.max = Math.min(max ?: 4, 100)
         def portfolioInstanceList = Portfolio.where {status == 'Active'}
-        [portfolioInstanceList: portfolioInstanceList.list(params), portfolioInstanceTotal: Portfolio.count()]
+            [portfolioInstanceList: portfolioInstanceList.list(params), portfolioInstanceTotal: Portfolio.count()]
 
     }
-
 
     def archivedportfolios(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -57,15 +56,24 @@ class PortfolioController {
 
     }
         //todo below not returning any results
-    def unpublishedcount(){
-        unpublishedcount =  Publication.countByPublished("No")
-        render (unpublishedcount())
+    def unpublishedcount = {
+        def portfolio=Portfolio.get(params)
+        println Publication.executeQuery("select count(*) from Publication as a join Publication.portfolio as p where p = :p", [p: 'No'])
     }
+
+/*    def metric = {
+         def wordcountsql = new Sql(dataSource)
+        (SELECT SUM( LENGTH(publication_content) - LENGTH(REPLACE(publication_content, ' ', ''))+1) FROM publication)
+        sql.close()
+        *//*def session = sessionFactory.getCurrentSession()
+        def result = session.createSQLQuery("SELECT * FROM ITEMS").list()*//*
+        [metric: metric, wordcountsql: wordcountsql]
+  }*/
+
 
     def create () {
         [portfolioInstance: new Portfolio(params)]
     }
-
 
 //save action saves the portfolio and profile domain classes, following the save a new dir is created in the config path
     def save() {

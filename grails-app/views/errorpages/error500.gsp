@@ -14,18 +14,18 @@
 
 <div class="eso-inner errorpage">
   <header id='eso-topbar'> 
-  <a href="../eso-theme/index.html" title="go back home" class="logo nologo">Engineering Services & Operations</a>
+  <a href="../index.gsp" title="go back home" class="logo nologo">RAP Team</a>
   <a href="https://engineering.redhat.com/hss-portal" class="eso-logo">Developed by HSS</a>
     <ul class="quick-menu unstyled">
-      <li class="dropdown"> <a href="https://engineering.redhat.com/hss-portal/products/" title="Engineering Services">Engineering Services</a> </li>
+      <li class="dropdown"> <a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/index.html" title="Engineering Services">RAP Services</a> </li>
       <li class="dropdown header-help"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="User Guide">Help<b class="caret"></b></a>
         <ul class="dropdown-menu">
-        <li><a href="mailto:ucd-list@redhat.com">Report Bug</a></li>
-        <li><a href="mailto:hss-ied-list@redhat.com">Contact Developers</a></li>
+        <li><a href="mailto:hss-rap-list@redhat.com">Report Bug</a></li>
+        <li><a href="mailto:hss-rap-list@redhat.com">Contact Developers</a></li>
         <li class="divider"></li>
         <li><a href="mailto:hss-eip@redhat.com">EIP Request</a></li>
         <li><a href="mailto:eng-ops@redhat.com">Eng-Ops Request</a></li>
-        <li><a href="mailto:ied@redhat.com">Application Request</a></li>
+        <li><a href="mailto:hss-rap-list@redhat.com">Application Request</a></li>
         <li><a href="mailto:hss-rap@redhat.com">RAP Request</a></li>
         
         
@@ -48,7 +48,7 @@
   </div>
   <footer class="footer">
     <div class="pull-right">
-      <div class='activetracking'> <a href='https://analytics.engineering.redhat.com/piwik'></a> </div>
+     %{-- <div class='activetracking'> <a href='https://analytics.engineering.redhat.com/piwik'></a> </div>--}%
       <!--<div class='poweredby'>
        Powered by @<a href="jboss.org">JBoss</a>
        <br><span>This is an example</span>

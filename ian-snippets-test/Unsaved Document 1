@@ -69,3 +69,7 @@ copyAnnotation.save()
 http://grails.1312388.n4.nabble.com/GORM-copy-td1328304.html
 
 --------------------------------------------------------
+     word count
+
+     SELECT SUM( LENGTH(REPLACE(REPLACE(name,’ ‘,’ ‘),’ ‘,’ ‘)) – LENGTH(REPLACE(name, ‘ ‘, ”))+1)
+     FROM table;
