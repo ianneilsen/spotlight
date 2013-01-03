@@ -70,6 +70,9 @@ class PublicationController {
     }                               //todo not redirecting correctly to params id. not sure why it is not picking up properties
 
 
+    def insertpublicationtemplate(){
+
+    }
     def create() {
         [publicationInstance: new Publication(params)]
     }

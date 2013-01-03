@@ -1,9 +1,7 @@
 <!-------- email modal---------------------------------------------------->
 <%@ page contentType="text/html"%>
-
 <div class="email-publication">
-
-<a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal">Email Publication</a>
+    <a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal">Email Publication</a>
 
 <div id="emailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
 
@@ -14,7 +12,6 @@
 
 <div class="modal-body">
 <g:form action="emailpublication">
-
     <h6><g:field type="text" name="sendEmailTo" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
 
     <h6><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>

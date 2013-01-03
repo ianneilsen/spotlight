@@ -23,14 +23,14 @@
     <label for='publicationContent'>
         <g:message code="publication.publicationContent.label" default="Publication Content" />
     </label>
-        <g:textArea style="width: 700px;" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"/>
+        <g:textArea id="publicationtextarea" style="width: 700px;" name="publicationContent" value="${publicationInstance?.publicationContent}" escapeHtml="false" cols="200" rows="40"/>
 </div>
 </div>
 
 <!---- upload me  ---->
 
 <uploadr:add name="pcitureupload" path="web-app/images/tmp" allowedExtensions="jpeg,png,jpg,svg" viewable="false" downloadable="false" maxVisible="2" maxSize="1048576" noSound="true" />
-<!--todo - path needs to be set relataive to application and for sec reasons. need to set based on serverURL path once in deployment out of dev enviro -->
+<!--todo - path needs to be set relataive to application and portoflio name - see weceem cms for decent solution and for sec reasons. need to set based on serverURL path once in deployment out of dev enviro -->
 
 <!---- bottom content ---->
 
