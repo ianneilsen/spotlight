@@ -1,7 +1,14 @@
-<!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
 <!-- edit menus ------------------------------------------------------------->
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
+
+<g:javascript>function addtext() {
+    var newtext = document.myform.inputtext.value;
+    if (document.myform.placement[1].checked) {
+        document.myform.outputtext.value = "";
+    }
+    document.myform.outputtext.value += newtext;
+}</g:javascript>
 
 <div id="pub-nav" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
@@ -48,21 +55,6 @@
     </ul>
 </div>
 <!--  templates ---------->
-%{--<div class="btn-group">
-    <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
-        Templates
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <!-- links -->
-    <g:link action="show" id="${publicationInstance.id}">Clone-${publicationInstance?.publicationName}</g:link>
-    <li class="divider"></li>
-        <li class="dropdown-submenu">
-            <a tabindex="-1" href="#">Insert Template</a>
-                <ul class="dropdown-menu">
-                    <g:hiddenField name="portfolioInstance" value="id"/>
-        <g:select  name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
-</div>--}%
 <!---template modal ---->
 <div class="btn-group">
         <div class="email-publication">
@@ -74,44 +66,22 @@
                     <h3 id="emailModalLabel">Insert Template</h3>
                 </div>
                     <div class="modal-body">
-                    <g:form action="insertpublicationtemplate">
-                        <g:hiddenField name="portfolioInstance" value="id"/>
-                        <g:select  id="myValue" name="publicationInstance.portfolio.publicationtemplates.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance?.portfolio?.publicationtemplates?.id}"  optionKey="id" class="many-to-one"/>
-                       %{--<g:hiddenField name="id" value="${publicationInstance?.id}" />--}%
-                        <g:submitToRemote src="jQuery.fn.extend({
-            insertAtCaret: function(myValue){
-                return this.each(function(i) {
-                    if (document.selection) {
-                        //For browsers like Internet Explorer
-                        this.focus();
-                        sel = document.selection.createRange();
-                        sel.text = myValue;
-                        this.focus();
-                    }
-                    else if (this.selectionStart || this.selectionStart == '0') {
-                        //For browsers like Firefox and Webkit based
-                        var startPos = this.selectionStart;
-                        var endPos = this.selectionEnd;
-                        var scrollTop = this.scrollTop;
-                        this.value = this.value.substring(0, startPos)+myValue+this.value.substring(endPos,this.value.length);
-                        this.focus();
-                        this.selectionStart = startPos + myValue.length;
-                        this.selectionEnd = startPos + myValue.length;
-                        this.scrollTop = scrollTop;
-                    } else {
-                        this.value += myValue;
-                        this.focus();
-                    }
-                })
-            }
-        })"
-                        update="publicationtextarea"/>
-                      %{--  <input type="submit" value="Insert template to current doc"/>--}%
-                    </g:form>
+
+                        <form name="myform">
+                            <table border="0" cellspacing="0" cellpadding="5"><tr>
+                                <td><textarea name="inputtext"></textarea></td>
+                                <input type="radio" name="placement" value="append" checked> Add to Existing Text<br>
+                                <td><p><input type="radio" name="placement" value="replace"> Replace Existing Text<br>
+                                    <input type="button" value="Add New Text" onClick="addtext();"></p>
+                                </td>
+
+                            </tr></table>
+                        </form>
                     </div>
+
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
+
         </div>
 </div>
-

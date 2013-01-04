@@ -69,6 +69,17 @@ class BootStrap {
         portfolio.addToEmailtemplates(newEmailTemp)
         portfolio.save(failOnError: true)
 
+        def newDocTemplate = new Templatepublication(tplnamepub:"temp 1",tplcontentpub:"content for template 1",tplshare:"No")
+            portfolio.addToPublicationtemplates(newDocTemplate)
+            portfolio.save(failOnError: true)
+        def newDocTemplate2 = new Templatepublication(tplnamepub:"temp 2",tplcontentpub:"content for template 2",tplshare:"No")
+        portfolio.addToPublicationtemplates(newDocTemplate2)
+        portfolio.save(failOnError: true)
+        def newDocTemplate3 = new Templatepublication(tplnamepub:"temp 3",tplcontentpub:"content for template 3",tplshare:"No")
+        portfolio.addToPublicationtemplates(newDocTemplate3)
+        portfolio.save(failOnError: true)
+
+
     }
 
 

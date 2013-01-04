@@ -1,9 +1,7 @@
 <%@ page import="spotlight.content.Publication" %>
 <!---- pubs ---->
 <ul class="one-to-many">
-    %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-        <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-    </g:each>--}%
+
     <div class="btn-group">
         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             Publications
@@ -23,9 +21,7 @@
 </ul>
 <!---- email ---->
 <ul class="one-to-many">
-    %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-        <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-    </g:each>--}%
+
     <div class="btn-group">
         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             Email Templates
@@ -45,11 +41,7 @@
 
 </ul>
 <!---- pubs ---->
-
 <ul class="one-to-many">
-    %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-        <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-    </g:each>--}%
     <div class="btn-group">
         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
             Publication Templates
@@ -64,22 +56,14 @@
             </li>
         </ul>
     </div>
-
     <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates.size()}</span> </div>
-
 </ul>
 <!---- unpublished ---->
 <ul class="one-to-many">
-    %{--            <g:each in="${portfolioInstance?.publications?}" var="p">
-        <li><g:link controller="publication" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-    </g:each>--}%
     <li class="add">
         <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
-
         <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${spotlight.content.Publication.countByPublished("No")}</span> </div>
-    <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${unpublishedcount}</span> </div>
     </li>
-
 </ul>
 <!----------------------------------table list ---------------------------------------->
 

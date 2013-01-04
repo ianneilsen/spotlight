@@ -26,7 +26,7 @@
                     <a class="logo" title="Home" href="/index.gsp">SpotLight</a>
                    %{-- <a class="eso-logo" href="https://engineering.redhat.com/hss-portal" style="max-width: 100%;"> <img src="${resource(dir: 'images', file: 'header-logo-eso-developed.png')}"/> </a>--}%
                     <ul class="quick-menu unstyled">
-                        <li class="dropdown"><a title="HSS RAP Services" href="https://hss-portal-devel.englab.nay.redhat.com/">HSS RAP Services</a> </li>
+                        <li class="dropdown"><a title="HSS RAP Services" href="https://dart.qe.lab.eng.bne.redhat.com/">HSS RAP Services</a> </li>
                             <li class="dropdown header-help">
                                 <a class="dropdown-toggle" title="User Guide" href="#" data-toggle="dropdown">Help<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -69,7 +69,7 @@
                             <p><br>INTERNAL USE ONLY</p>
                         </div>
                     </div>
-                <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team home page"/></a>
+                <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team home page"/></a>
 		                                  <a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat website"/></a>
 
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
