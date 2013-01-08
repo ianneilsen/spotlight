@@ -8,6 +8,10 @@ import org.springframework.mail.MailException
 import javax.mail.*
 import groovy.json.*
 import grails.converters.*
+import org.xwiki.rendering.syntax.Syntax
+import org.xwiki.rendering.renderer.printer.DefaultWikiPrinter
+import org.xwiki.rendering.renderer.printer.WikiPrinter
+import org.xwiki.rendering.converter.Converter
 
 class PublicationController {
 
@@ -31,6 +35,18 @@ class PublicationController {
 
     }
 
+    def xwikiStreamRenderer
+    def xwikiRenderer
+
+    def exportToDocbook(Long id) {
+        def publicationInstance = Publication.get(id)
+        if (!publicationInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
+            redirect(action: "list")
+            return
+        }
+        [publicationInstance: publicationInstance]
+    }
 
 
     def list(Integer max) {
@@ -41,8 +57,6 @@ class PublicationController {
         }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
     }
-
-
 
     //email send function from publication show page using modal pop-up and editable fields prior to sending
     def emailpublication(){
@@ -73,18 +87,19 @@ class PublicationController {
     def insertpublicationtemplate(){
 
     }
+
     def create() {
         [publicationInstance: new Publication(params)]
     }
 
 
-def publicationClone(){
-    def clonepublication = Publication.getProperties()
-    def newPublication = new Publication(clonepublication.each {Publication p ->
+    def publicationClone(){
+        def clonepublication = Publication.getProperties()
+        def newPublication = new Publication(clonepublication.each {Publication p ->
         newPublication.addToPublication(p)
-    })
-    [newPublication: newPublication]
-}
+        })
+        [newPublication: newPublication]
+    }
     //todo clone  function still not working correctly
 
 

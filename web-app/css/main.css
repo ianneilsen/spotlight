@@ -111,7 +111,8 @@ body {
     height: 40px;
 }
 #eso-topbar .logo {
-    background: url("../images/spotlight_sml_logo.png") no-repeat scroll 0 5px transparent;
+    /*background: url("../images/spotlight_sml_logo.png") no-repeat scroll 0 5px transparent;*/
+    /*background: url("../images/test-logo.png") no-repeat scroll 0 5px transparent;*/
     color: #FFFFFF;
     display: inline-block;
     float: left;

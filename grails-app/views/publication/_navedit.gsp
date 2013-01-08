@@ -67,16 +67,8 @@
                 </div>
                     <div class="modal-body">
 
-                        <form name="myform">
-                            <table border="0" cellspacing="0" cellpadding="5"><tr>
-                                <td><textarea name="inputtext"></textarea></td>
-                                <input type="radio" name="placement" value="append" checked> Add to Existing Text<br>
-                                <td><p><input type="radio" name="placement" value="replace"> Replace Existing Text<br>
-                                    <input type="button" value="Add New Text" onClick="addtext();"></p>
-                                </td>
+                       <!-- todo place radio select list here for submission to textarea "publicationcontent"    -->
 
-                            </tr></table>
-                        </form>
                     </div>
 
             <div class="modal-footer">

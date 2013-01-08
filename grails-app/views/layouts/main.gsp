@@ -23,7 +23,8 @@
         <div id="eso-body">
             <div class="eso-inner">
                 <header id="eso-topbar">
-                    <a class="logo" title="Home" href="/index.gsp">SpotLight</a>
+                    %{--<a class="logo" title="Home" href="/index.gsp">SpotLight</a>--}%
+                    <div class="logo"><img src="${resource(dir: 'images', file: 'test-logo2.png')}"/><a title="Home" href="/index.gsp">Light</a></div>
                    %{-- <a class="eso-logo" href="https://engineering.redhat.com/hss-portal" style="max-width: 100%;"> <img src="${resource(dir: 'images', file: 'header-logo-eso-developed.png')}"/> </a>--}%
                     <ul class="quick-menu unstyled">
                         <li class="dropdown"><a title="HSS RAP Services" href="https://dart.qe.lab.eng.bne.redhat.com/">HSS RAP Services</a> </li>

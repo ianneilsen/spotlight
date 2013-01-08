@@ -104,6 +104,7 @@ $(function() {
       </div>
 
 <!-- row 3 CONTENT -->
+    <div id="pubcontent">
 <div class="row">
     <g:if test="${publicationInstance?.publicationContent}">
         <div class="span1"></div>
@@ -111,6 +112,7 @@ $(function() {
         <div class="span1"></div>
     </g:if>
 </div>
+    </div>
 <!--------------------------------------------tetsing chartings ------------------------>
 
 

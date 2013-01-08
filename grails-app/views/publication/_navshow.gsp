@@ -33,7 +33,9 @@
     </a>
     <ul class="dropdown-menu">
     <!-- dropdown menu links -->
-        <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>
+         <g:hiddenField name="publicationid" value="${publicationInstance?.id}"/>
+        <g:link action="exportToDocbook" name="exporttodocbook" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
+       %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
         <a href="SpotLight-Grails/publication/exporttoPdf"  data-toggle="modal">Export to PDF</a>
         <a href="SpotLight-Grails/publication/exporttoHtml"  data-toggle="modal">Export to HTML</a>
         <a href="SpotLight-Grails/publication/exportToOdt"  data-toggle="modal">Export to ODT</a>

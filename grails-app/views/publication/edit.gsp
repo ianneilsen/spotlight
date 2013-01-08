@@ -68,7 +68,7 @@
 
 <!-- page NAV edit-delete----------------->
 <div id="slidenav" style="z-index: 9999">
-    <g:form method="post" action="update" controller="publication">
+    <g:form method="post" >
         <g:hiddenField name="id" value="${publicationInstance?.id}" />
         <g:hiddenField name="version" value="${publicationInstance?.version}" />
             <fieldset class="buttons">

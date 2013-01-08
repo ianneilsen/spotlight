@@ -23,7 +23,7 @@
     <label for='publicationContent'>
         <g:message code="publication.publicationContent.label" default="Publication Content" />
     </label>
-        <g:textArea id="outputtext" style="width: 700px;" name="publicationContent" value="${publicationInstance?.publicationContent}" escapeHtml="false" cols="200" rows="40"/>
+        <g:textArea id="outputtext" style="width: 700px;" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"/>
 </div>
 </div>
 
