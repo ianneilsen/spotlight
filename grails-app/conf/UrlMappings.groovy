@@ -1,3 +1,5 @@
+import spotlight.content.Portfolio
+
 class UrlMappings {
 
 	static mappings = {
@@ -7,7 +9,8 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
+		"/"(controller: 'Portfolio', action: 'index')
+       // "/"(view:"/index")
 		"500"(view:'/error')
         "401"(view: '/errorpages/error401.gsp')
         "404"(view: '/errorpages/error404.gsp')

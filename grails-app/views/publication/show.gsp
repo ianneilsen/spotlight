@@ -45,7 +45,8 @@ $(function() {
 
 });</g:javascript>
 </head>
-<body>
+  <body>
+
     <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
             <ul class="nav1">
@@ -55,7 +56,8 @@ $(function() {
                 <div id="show-publication" class="content scaffold-show" role="main">
             </ul>
 		</div>
-<!---- action and site name ---->
+
+<!---- action report name and site name ---->
 	<div id="show-publication" class="content scaffold-show" role="main">
 	    <h1 style="font-size: 20px;"> ${publicationInstance?.publicationName} from
             <g:if test="${publicationInstance?.portfolio}">
@@ -65,7 +67,8 @@ $(function() {
             </g:if>
             portfolio
         </h1>
-<!---- error reporting ---->
+    </div>
+<!---- error messages ---->
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -80,78 +83,93 @@ $(function() {
     </div>
 <!---- publication content---->
 <!-- row META -->
-      <div class="row">
-            <ol class="property-list publication">
-				<g:if test="${publicationInstance?.publicationName}">
-                    <div class="span2"><span id="Name-label" class="label"><i class="icon-asterisk"></i><g:message code="publication.publicationName.label" default="Publication name" /></span></div>
-                    <div class="span3"><span class="property-value" aria-labelledby="publicationName-label"><g:fieldValue bean="${publicationInstance}" field="publicationName"/></span></div>
+  <div class="row-fluid">
+        <div class="span4">
+            <div class="control-group">
+                 <g:if test="${publicationInstance?.publicationName}">
+                    <span id="Name-label" class="label"><i class="icon-asterisk"></i><g:message code="publication.publicationName.label" default="Publication name" /></span>
+                    <span class="property-value" aria-labelledby="publicationName-label"><g:fieldValue bean="${publicationInstance}" field="publicationName"/></span>
 				</g:if>
+            </div>
 
+            <div class="control-group">
                 <g:if test="${publicationInstance?.published}">
-                    <div class="span1"><span id="Name-label" class="label"><i class="icon-globe"></i><g:message code="publication.published.label" default="Is Published" /></span></div>
-                    <div class="span1"><span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${publicationInstance}" field="published"/></span></div>
+                    <span id="Name-label" class="label"><i class="icon-globe"></i><g:message code="publication.published.label" default="Is Published" /></span>
+                    <span class="property-value" aria-labelledby="published-label"><g:fieldValue bean="${publicationInstance}" field="published"/></span>
                 </g:if>
+            </div>
+
+            <div class="control-group">
                 <g:if test="${publicationInstance?.publishedemail}">
-                    <div class="span2"><span id="Name-label" class="label"><i class="icon-envelope"></i><g:message code="publication.publishedemail.label" default="Publication emailed" /></span></div>
-                    <div class="span1"><span class="property-value" aria-labelledby="publishedemail-label"><g:fieldValue bean="${publicationInstance}" field="publishedemail"/></span></div>
+                    <span id="Name-label" class="label"><i class="icon-envelope"></i><g:message code="publication.publishedemail.label" default="Publication emailed" /></span>
+                    <span class="property-value" aria-labelledby="publishedemail-label"><g:fieldValue bean="${publicationInstance}" field="publishedemail"/></span>
                 </g:if>
+            </div>
+
+            <div class="control-group">
                 <g:if test="${publicationInstance?.pubproduct}">
-                    <div class="span1"><span id="label" class="label"><i class="icon-info-sign"></i><g:message code="pubproduct.pubproduct.label" default="Product" /></span></div>
+                    <span id="label" class="label"><i class="icon-info-sign"></i><g:message code="pubproduct.pubproduct.label" default="Product" /></span>
                         <g:each in="${publicationInstance.pubproduct}" var="p">
-                            <div class="span2"><span class="property-value" aria-labelledby="pubtags-label"><g:link controller="pubproduct" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span></div>
+                            <span class="property-value" aria-labelledby="pubtags-label"><g:link controller="pubproduct" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
                         </g:each>
                 </g:if>
-      </div>
-
-<!-- row 3 CONTENT -->
-    <div id="pubcontent">
-<div class="row">
-    <g:if test="${publicationInstance?.publicationContent}">
-        <div class="span1"></div>
-            <div class="span10"><span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span></div>
-        <div class="span1"></div>
-    </g:if>
-</div>
-    </div>
-<!--------------------------------------------tetsing chartings ------------------------>
-
-
-<!----------------------------------------------------------------------------------------------------------
+            </div>
 <!-- TAGS -->
-           <g:if test="${publicationInstance?.pubtags}">
-				<li class="fieldcontain">
-					<span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Publication tags" /></span>
-					    <g:each in="${publicationInstance.pubtags}" var="p">
-						<span class="property-value" aria-labelledby="pubtags-label"><g:link controller="publicationTag" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-				</li>
-			</g:if>
-   </ol>
+            <div class="control-group">
+                <g:if test="${publicationInstance?.pubtags}">
+                    <li class="fieldcontain">
+                        <span id="pubtags-label" class="property-label"><g:message code="publication.pubtags.label" default="Publication tags" /></span>
+                        <g:each in="${publicationInstance.pubtags}" var="p">
+                            <span class="property-value" aria-labelledby="pubtags-label"><g:link controller="publicationTag" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+                        </g:each>
+                    </li>
+                </g:if>
+             </div>
 <!-- DATES ---->
-   <div class="well well-small">
-      <div class="row">
-          <g:if test="${publicationInstance?.publisheddate}">
-              <div class="span2"><span id="publisheddate-label" class="property-label"><i class="icon-globe"></i><g:message code="publication.publisheddate.label" default="Date published" /></span></div>
-              <div class="span2"><span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${publicationInstance?.publisheddate}" /></span></div>
-          </g:if>
-          <g:if test="${publicationInstance?.dateCreated}">
-             <div class="span2"><span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date created" /></span></div>
-             <div class="span2"><span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${publicationInstance?.dateCreated}" /></span></div>
-          </g:if>
-          <g:if test="${publicationInstance?.lastUpdated}">
-              <div class="span2"><span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last updated" /></span></div>
-              <div class="span2"><span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span></div>
+            <div class="control-group">
+                    <g:if test="${publicationInstance?.publisheddate}">
+                        <span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Date published" /></span>
+                        <span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${publicationInstance?.publisheddate}" /></span>
+                    </g:if>
+            </div>
+            <div class="control-group">
+                    <g:if test="${publicationInstance?.dateCreated}">
+                        <span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date created" /></span>
+                        <span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${publicationInstance?.dateCreated}" /></span>
+                    </g:if>
+            </div>
+            <div class="control-group">
+                    <g:if test="${publicationInstance?.lastUpdated}">
+                        <span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last updated" /></span>
+                        <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span>
+                    </g:if>
+            </div>
+     </div>
+<!-- CONTENT -->
+    <div class="span8">
+          <div class="well">
+      <div id="pubcontent">
+        <g:if test="${publicationInstance?.publicationContent}">
+
+            <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>
+
           </g:if>
       </div>
-   </div>
+      </div>
+    </div>
+
+
+</div>
+
+<!--------------------------------------------tetsing chartings ------------------------>
 <!-- BACK --->
-   <g:form>
-    	<fieldset class="buttons">
-	    	<a href="#top"> Back To Top</a>
+    <g:form>
+        <fieldset class="buttons">
+            <a href="#top"> Back To Top</a>
         </fieldset>
     </g:form>
-</div>
-</body>
+
+  </body>
 </html>
 <!-- todo - insert document version to show page -maybe allow a link through to history page -->
 <!-- todo - http://aehlke.github.com/tag-it/ for jquery tag form field-->

@@ -15,7 +15,7 @@
             <div class="navbar1">
                 <ul class="nav1">
 				    <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="home"/></a></li>
-				    <li id="navNew" class=""><g:link class="create" action="create"><g:message code="new" args="[entityName]" /></g:link></li>
+				    <li id="navNew" class=""><g:link class="create" action="create"><g:message code="New portfolio" args="[entityName]" /></g:link></li>
                 </ul>
 		</div>
         <div class="breadcrumb">

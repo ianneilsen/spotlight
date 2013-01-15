@@ -4,7 +4,8 @@ grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.project.war.file = "target/spotlight.war"
+//grails.project.war.file = "hss-service-catalog.war"
 //xwiki buildconfig
 grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
 //grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration  comment out throwing an error need more info
@@ -31,8 +32,8 @@ grails.project.dependency.resolution = {
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
-        mavenRepo "http://download.java.net/maven/2/"
-        mavenRepo "http://repository.jboss.com/maven2/"
+        //mavenRepo "http://download.java.net/maven/2/"
+        //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.

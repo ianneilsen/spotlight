@@ -24,7 +24,7 @@
             <div class="eso-inner">
                 <header id="eso-topbar">
                     %{--<a class="logo" title="Home" href="/index.gsp">SpotLight</a>--}%
-                    <div class="logo"><img src="${resource(dir: 'images', file: 'test-logo2.png')}"/><a title="Home" href="/index.gsp">Light</a></div>
+                    <div class="logo"><img src="${resource(dir: 'images', file: 'test-logo2.png')}"/><a title="Home" href="${createLink(uri: '/portfolio/list')}">Light</a></div>
                    %{-- <a class="eso-logo" href="https://engineering.redhat.com/hss-portal" style="max-width: 100%;"> <img src="${resource(dir: 'images', file: 'header-logo-eso-developed.png')}"/> </a>--}%
                     <ul class="quick-menu unstyled">
                         <li class="dropdown"><a title="HSS RAP Services" href="https://dart.qe.lab.eng.bne.redhat.com/">HSS RAP Services</a> </li>
@@ -65,17 +65,16 @@
                     <div class="hss-logo"></div>
                         <div class="copyright">
 		                    <p>RAP Reporting Tool - Spotlight <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/></p>
-		                    <br>
 		                    <p> Copyright 2012 Red Hat, Inc. All rights reserved.</p>
-                            <p><br>INTERNAL USE ONLY</p>
+                            <p>INTERNAL USE ONLY</p>
                         </div>
                     </div>
                 <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team home page"/></a>
 		                                  <a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat website"/></a>
 
-<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		</div>
-    	</div>
+                <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		   </div>
+    	  </div>
         </div>
          <g:javascript library="application"/>
         <r:layoutResources/>
