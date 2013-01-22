@@ -3,6 +3,6 @@ spotlight
 
 spotlight
 
-Insitki type clone written in Groovy on Grails from Ruby in Rails
+Google docs in markdown running on groovy and scala.
 
-Allow published reports written in markdown to be categorised and published for redaonly or auth approval.
+Allow published reports written in markdown to be categorised and published for readonly or auth approval.

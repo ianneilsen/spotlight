@@ -48,7 +48,7 @@
     </label>
     <g:select name="publishedemail" from="${publicationInstance.constraints.publishedemail.inList}" required="" value="${publicationInstance?.publishedemail}" valueMessagePrefix="publication.publishedemail"/>
 </div>
-<!----------------------->
+<!---product category   ------------>
 <div class="fieldcontain ${hasErrors(bean: pubproductInstance, field: 'pubproduct', 'error')} required">
     <label for="pubproduct">
         <g:message code="publication.pubproduct.label" default="Product Association" />

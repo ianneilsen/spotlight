@@ -1,0 +1,23 @@
+Spotlight Install and Configuration
+=================================
+
+Install RHEL 6.3
+yum update
+
+check java version = 1.7 +
+
+useradd  spotlight
+passwd spotlight2013
+
+yum install java-1.7.0-openjdk.x86_64
+
+postgresql
+h2
+tomcat tomcat-webapps tomcat-admin-webapps
+grails 2.1.1  or grials 2.2.0
+imagemagik
+xml
+xsl
+
+
+
