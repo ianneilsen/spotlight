@@ -8,7 +8,7 @@
 
             <label for="portfolioName" style="width: 40%;"><g:message code="portfolio.portfolioName.label" default="Portfolio Name" /><span class="required-indicator">*</span></label>
 
-            <g:textField name="portfolioName" maxlength="170" required="" value="${portfolioInstance?.portfolioName}"/>
+            <g:textField name="portfolioName" style="width: 400px;" maxlength="170" required="" value="${portfolioInstance?.portfolioName}"/>
 </div>
 
 
@@ -16,7 +16,7 @@
 
 	<label for="portdescrip" style="width: 40%;"><g:message code="portfolio.portdescrip.label" default="Portfolio site description" /><span class="required-indicator">*</span></label>
 
-	<g:textField name="portdescrip" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
+	<g:textField name="portdescrip" style="width: 400px;" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
 
 </div>
 
@@ -42,7 +42,7 @@
 
     <label for="profile.portfolioAdmin" style="width: 40%;"><g:message code="profile.portfolioAdmin.label" default="Portfolio Admin" /><span class="required-indicator">*</span></label>
 
-    <g:textField name="profile.portfolioAdmin" maxlength="80" required="" value="${portfolioInstance?.profile?.portfolioAdmin}"/>
+    <g:textField name="profile.portfolioAdmin" style="width: 300px;" maxlength="80" required="" value="${portfolioInstance?.profile?.portfolioAdmin}"/>
 
 </div>
 
@@ -50,7 +50,7 @@
 
     <label for="profile.portfolioEmail" style="width: 50%;"><g:message code="profile.portfolioEmail.label" default="Portfolio Administrator Email" /><span class="required-indicator">*</span></label>
 
-    <div class="input-prepend"><span class="add-on">@</span> <g:field type="email" name="profile.portfolioEmail" required="" value="${portfolioInstance?.profile?.portfolioEmail}"/></div>
+    <div class="input-prepend"><span class="add-on">@</span> <g:field style="width: 270px;" type="email" name="profile.portfolioEmail" required="" value="${portfolioInstance?.profile?.portfolioEmail}"/></div>
 
 </div>
 
@@ -70,7 +70,7 @@
 
         <label for="profile.portfoliocc" style="width: 40%;"><g:message code="profile.portfoliocc.label" default="Portfolio CC Email" /></label>
 
-        <div class="input-prepend"><span class="add-on">@</span><g:field type="email" name="profile.portfoliocc" value="${portfolioInstance?.profile?.portfoliocc}"/></div>
+        <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.portfoliocc" value="${portfolioInstance?.profile?.portfoliocc}"/></div>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'portfolioColor', 'error')} ">
@@ -109,7 +109,7 @@
 
     <label for="profile.teamqueueemail" style="width: 40%;"><g:message code="profile.teamqueueemail.label" default="RT queue email" /></label>
 
-    <div class="input-prepend"><span class="add-on">@</span><g:field type="email" name="profile.teamqueueemail" value="${portfolioInstance?.profile?.teamqueueemail}"/>
+    <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.teamqueueemail" value="${portfolioInstance?.profile?.teamqueueemail}"/>
 
     </div>
 
@@ -119,7 +119,7 @@
 
     <label for="profile.etherpadurl" style="width: 40%;"><g:message code="profile.etherpadurl.label" default="Etherpad URL" /></label>
 
-    <div class="input-prepend"><span class="add-on">URL</span><g:field type="url" name="profile.etherpadurl" value="${portfolioInstance?.profile?.etherpadurl}"/>
+    <div class="input-prepend"><span class="add-on">URL</span><g:field style="width: 400px;" type="url" name="profile.etherpadurl" value="${portfolioInstance?.profile?.etherpadurl}"/>
 
     </div>
 
