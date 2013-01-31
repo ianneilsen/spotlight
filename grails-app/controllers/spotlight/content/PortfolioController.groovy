@@ -22,7 +22,7 @@ class PortfolioController {
     def _webList (){
         //def per = Portfolio.properties
         def portfolios = Portfolio.list(params.id)
-            def results = Publication.where {published=='Yes'}.list([sort: "lastUpdated",order: 'desc', max: 5, offset: 0])
+            def publications = Publication.where {published=='Yes'}.list([sort: "lastUpdated",order: 'desc', max: 5, offset: 0])
         /*def results = Publication.listOrderByLastUpdated([max: 5])*/
                 /*def results = Publication.withCriteria {
 
@@ -30,8 +30,9 @@ class PortfolioController {
             order('lastUpdated', 'desc')
             maxResults(5)
         }*/
-        def reportscount = Publication.count()
-            [ portfolios: portfolios, results: results, reportscount: reportscount]
+
+    def reportscount = Publication.count()
+            [ portfolios: portfolios, publications: publications, reportscount: reportscount]
     }
 
 

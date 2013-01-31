@@ -51,8 +51,8 @@ class PublicationController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 5, 52)
-        if (params.sort==null){
-            params.sort = "published"
+        if (params.sort=='desc'){
+            params.sort = "lastUpdated"
 
         }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]

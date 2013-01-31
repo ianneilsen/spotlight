@@ -16,7 +16,7 @@
 
 	<label for="portdescrip" style="width: 40%;"><g:message code="portfolio.portdescrip.label" default="Portfolio site description" /><span class="required-indicator">*</span></label>
 
-	<g:textField name="portdescrip" style="width: 400px;" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
+	<g:textArea name="portdescrip" style="width: 400px;" rows="5" maxlength="200" required="" value="${portfolioInstance?.portdescrip}"/>
 
 </div>
 
