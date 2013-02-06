@@ -21,6 +21,12 @@ class PublicationController {
         redirect(action: "list", params: params)
     }
 
+    def labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    def data = [
+            'Visitors': [100, 300, 200, 240, 500, 100, 80],
+            'Purchases': [30, 50, 12, 20, 55, 20, 10]
+    ]
+
     /*def readEtherpad(){
         def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
         def json = JSON.parse(padurl)

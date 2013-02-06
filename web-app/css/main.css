@@ -1116,6 +1116,70 @@ fieldset.embedded legend {
 
 /* MESSAGES AND ERRORS */
 
+
+
+.errormessage, .warningmessage, .infomessage, .plainmessage {
+    background-color: #EFEFEF;
+}
+.box, div.floatinginfobox {
+    background-color: #FAFAFA;
+}
+.warningmessage {
+    background-image: url("/xwiki/resources/icons/silk/error.png");
+    color: #D09000;
+}
+.errormessage, .warningmessage, .infomessage, .successmessage, .plainmessage {
+    background: none no-repeat scroll 6px 8px #EFEFEF;
+    border: 1px dotted #E8E8E8;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) inset;
+    margin: 4px 0;
+    overflow: auto;
+    padding: 8px 28px;
+    text-align: justify;
+}
+.errormessage, .warningmessage, .infomessage, .plainmessage {
+    background-color: #EFEFEF;
+}
+.box, div.floatinginfobox {
+    background-color: #FAFAFA;
+}
+.errormessage {
+    background-image: url("/xwiki/resources/icons/silk/exclamation.png");
+    color: #CC3333;
+}
+.errormessage, .warningmessage, .infomessage, .successmessage, .plainmessage {
+    background: none no-repeat scroll 6px 8px #EFEFEF;
+    border: 1px dotted #E8E8E8;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) inset;
+    margin: 4px 0;
+    overflow: auto;
+    padding: 8px 28px;
+    text-align: justify;
+}
+.errormessage, .warningmessage, .infomessage, .plainmessage {
+    background-color: #EFEFEF;
+}
+.box, div.floatinginfobox {
+    background-color: #FAFAFA;
+}
+.infomessage {
+    background-image: url("/xwiki/resources/icons/silk/information.png");
+    color: #336699;
+}
+.errormessage, .warningmessage, .infomessage, .successmessage, .plainmessage {
+    background: none no-repeat scroll 6px 8px #EFEFEF;
+    border: 1px dotted #E8E8E8;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1) inset;
+    margin: 4px 0;
+    overflow: auto;
+    padding: 8px 28px;
+    text-align: justify;
+}
+/* wiki macros above*/
+
 .errors,
 .message {
 	font-size: 1.0em;

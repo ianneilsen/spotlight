@@ -30,6 +30,7 @@ class ProfileController {
         redirect(action: "show", id: profileInstance.id)
     }
 
+
     def show(Long id) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {

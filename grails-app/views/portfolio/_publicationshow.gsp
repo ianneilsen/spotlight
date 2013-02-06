@@ -1,4 +1,5 @@
 <%@ page import="spotlight.content.Publication" %>
+<%@ page import="spotlight.content.Portfolio" %>
 <!---- pubs ---->
 <ul class="one-to-many">
 
@@ -17,7 +18,7 @@
         </ul>
     </div>
 
-    <div><span class="label"> Total Publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications.size()}</span> </div>
+    <div><span class="label"> Total Publications:</span><span class="badge badge-success"> ${portfolioInstance?.publications?.size()}</span> </div>
 </ul>
 <!---- email ---->
 <ul class="one-to-many">
@@ -37,7 +38,7 @@
         </ul>
     </div>
 
-    <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates.size()}</span> </div>
+    <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.emailtemplates?.size()}</span> </div>
 
 </ul>
 <!---- pubs ---->
@@ -56,15 +57,16 @@
             </li>
         </ul>
     </div>
-    <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates.size()}</span> </div>
+    <div><span class="label"> Total Templates:</span><span class="badge badge-success"> ${portfolioInstance?.publicationtemplates?.size()}</span> </div>
 </ul>
 <!---- unpublished ---->
 <ul class="one-to-many">
     <li class="add">
         <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
-        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${spotlight.content.Publication.countByPublished("No")}</span> </div>
-    </li>
+        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success">${nopublishedcount}</span> </div>
+    </li>                                                  %{--   # workers: ${Person.executeQuery("select distinct count(company.id) from Person where status = ?", [WorkStatus.ON])}--}%
 </ul>
 <!----------------------------------table list ---------------------------------------->
 
 <g:render template="/share/list" action="list" />
+

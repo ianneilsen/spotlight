@@ -67,7 +67,7 @@ grails.exceptionresolver.params.exclude = ['password']
 grails.hibernate.cache.queries = false
 
 //wiki configuration and use of macros -see also BuildConfig.gsp for boolean options.
-grails.xwiki.rendering.macros.enabled = true
+/*grails.xwiki.rendering.macros.enabled = true*/
 grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
 //grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
 

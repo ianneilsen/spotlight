@@ -31,6 +31,7 @@ class PortfolioController {
             maxResults(5)
         }*/
 
+
     def reportscount = Publication.count()
             [ portfolios: portfolios, publications: publications, reportscount: reportscount]
     }

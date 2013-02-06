@@ -12,13 +12,13 @@
 
 <div class="modal-body">
 <g:form action="emailpublication">
-    <h6><g:field type="text" name="sendEmailTo" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
+    <h6><g:field type="text" name="sendEmailTo" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}"/></h6>
 
     <h6><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
 
     <h6><g:field  type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
-    <g:textArea  type="string" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="20"/>
+    <g:textArea style="width: 400px;"  type="string" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="20"/>
 
     <div style="width: 300px;"><g:field type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" /> </div>
 

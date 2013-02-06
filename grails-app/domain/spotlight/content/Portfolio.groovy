@@ -37,19 +37,20 @@ class Portfolio {
 		portfolioName
 	}
 
+
 /*    static final String path = "web-app/portfolioImages"; //<-- generic path on your SERVER!
-    //Conf.config.rootPath+"images"
+//Conf.config.rootPath+"images"
 
-    static{
-        //static initializer to make sure directory gets created.  Better ways to do this but this will work!
+static{
+    //static initializer to make sure directory gets created.  Better ways to do this but this will work!
 
-        File pathAsFile = new File(path).mkdirs()
+    File pathAsFile = new File(path).mkdirs()
 
-        if (pathAsFile.exists()){
-            println("CREATED REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
-        }else{
-            println("FAILED TO CREATE REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
-        }
+    if (pathAsFile.exists()){
+        println("CREATED REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
+    }else{
+        println("FAILED TO CREATE REPORT DIRECTORY @ ${pathAsFile.absolutePath}");
+    }
 
-    }*/
+}*/
 }

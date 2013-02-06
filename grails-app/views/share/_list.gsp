@@ -134,7 +134,8 @@
         </tr>
         </thead>
         <tbody>
-        <g:each in="${portfolioInstance?.publications }" status="i" var="publicationInstance">
+        <g:each in="${portfolioInstance?.publications}" status="i" var="publicationInstance">
+
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td><i class="icon-edit"></i><g:link controller="publication" action="show" id="${publicationInstance.id}">${fieldValue(bean: publicationInstance, field: "publicationName")}</g:link></td>

@@ -1,19 +1,21 @@
 <%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Pubproduct" %>
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
+<%@ page import="org.xwiki.rendering.renderer.*" %>
+<%@  page import="org.xwiki.rendering.macro.*" %>
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 
          <r:require modules="jquery,jquery-ui"/>
+         <zing:include />
         %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
      %{--   <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
         <g:javascript src="visualize.jQuery.js" />--}%
-%{--        <jqplot:resources/>
-<zing:include />--}%
+
 <g:javascript>/****************************************
  * Floating Navigation jQuery feature
  ****************************************/
@@ -86,6 +88,13 @@ $(function() {
   <div class="row-fluid">
         <div class="span4">
             <div class="control-group">
+                <g:if test="${publicationInstance?.id}">
+                    <span id="id-label" class="label"><i class="icon-asterisk"></i><g:message code="publication.id.label" default="Publication Id" /></span>
+                    <span class="property-value" aria-labelledby="id-label"><g:fieldValue bean="${publicationInstance}" field="id"/></span>
+                </g:if>
+            </div>
+
+            <div class="control-group">
                  <g:if test="${publicationInstance?.publicationName}">
                     <span id="Name-label" class="label"><i class="icon-asterisk"></i><g:message code="publication.publicationName.label" default="Publication name" /></span>
                     <span class="property-value" aria-labelledby="publicationName-label"><g:fieldValue bean="${publicationInstance}" field="publicationName"/></span>
@@ -144,17 +153,85 @@ $(function() {
                         <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span>
                     </g:if>
             </div>
+            <div class="control-group">
+                <g:if test="${publicationInstance?.version}">
+                    <span id="version-label" class="property-label"><g:message code="publication.version.label" default="Document edit version" /></span>
+                    <span class="property-value" aria-labelledby="version-label"><g:fieldValue field="version" bean="${publicationInstance}" /></span>
+                </g:if>
+            </div>
      </div>
 <!-- CONTENT -->
     <div class="span8">
-          <div class="well">
+          %{--<div class="well">--}%
       <div id="pubcontent">
         <g:if test="${publicationInstance?.publicationContent}">
 
-            <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>
+            <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><xwiki:render><%=publicationInstance?.publicationContent%></xwiki:render></markdown:renderHtml></span>
 
           </g:if>
       </div>
+              <xwiki:render>
+                  = Message Macro Warning Message =
+                  {{message}}
+                  comment here...(not be rendered)
+                  {{/message}}
+              </xwiki:render>
+
+              <div class="box warningmessage"><xwiki:render> {{info}}This is an informational message{{/info}}</xwiki:render></div>
+
+              <xwiki:render>{{warning}}This is a warning message{{/warning}}</xwiki:render>
+
+              <xwiki:render>{{error}}This is an error message{{/error}}</xwiki:render>
+
+              <xwiki:render>{{box title="==Quick breakfast== " image="http://farm4.static.flickr.com/3260/2894738978_ca0d3afd07_t_d.jpg"}}
+              * cheese
+              * omelet
+              * milk
+              {{/box}}</xwiki:render>
+
+              <xwiki:render>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Vivamus lacus est, euismod at, lobortis eu, rhoncus et,
+leo{{footnote}}This is some text from www.lipsum.com{{/footnote}}.</xwiki:render>
+
+              <xwiki:render>{{html wiki="true"}}
+                  <table>
+                      <tr>
+                          <td>
+                              * listitem
+                          </td>
+                      </tr>
+                  </table>
+                  {{/html}}</xwiki:render>
+
+              <xwiki:render>{{toc start=2 depth=6 numbered=false scope=page /}}
+              {{toc /}}
+
+= Level 1
+
+Hello
+
+== Level 2</xwiki:render>
+
+              <xwiki:render>{{box cssClass="floatinginfobox" title="**Contents**"}}{{toc/}}{{/box}}
+
+= Level 1
+
+Hello
+
+== Level 2</xwiki:render>
+              <xwiki:render>{{toc numbered="true"/}}
+
+= Level 1
+== Level 2
+== Level 3
+= Level 4
+== Level 5</xwiki:render>
+          <!--------------------------------------------------------->
+
+          <zing:chart type="area" width="700" height="350"
+                      container="acceptToConvertChart" data="${data}" xLabels="${labels}" effect="4" />
+
+          <!--------------------------------------------------------->
       </div>
     </div>
 
