@@ -57,7 +57,8 @@ class PortfolioController {
         [publicationInstance:publicationInstance.list(params), publicationInstanceUnpubTotal: Publication.count()]
 
     }
-        //todo below not returning any results
+
+       //todo below not returning any results
     def unpublishedcount = {
         def portfolio=Portfolio.get(params)
         println Publication.executeQuery("select count(*) from Publication as a join Publication.portfolio as p where p = :p", [p: 'No'])
