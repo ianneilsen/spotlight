@@ -53,8 +53,8 @@ class PortfolioController {
         //todo check list view from this action
     def unpublishedDocs(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def publicationInstance = Publication.where {published == 'No'}
-        [publicationInstance:publicationInstance.list(params), publicationInstanceUnpubTotal: Publication.count()]
+        def publicationInstance = Publication.findByPublished('No')
+        [publicationInstance: publicationInstance]
 
     }
 

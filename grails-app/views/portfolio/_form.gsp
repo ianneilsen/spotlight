@@ -40,7 +40,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'portfolioAdmin', 'error')} required">
 
-    <label for="profile.portfolioAdmin" style="width: 40%;"><g:message code="profile.portfolioAdmin.label" default="Portfolio Admin" /><span class="required-indicator">*</span></label>
+    <label for="profile.portfolioAdmin" style="width: 40%;"><g:message code="profile.portfolioAdmin.label" default="Portfolio Admin" /><span class="required-indicator">*</span><div class="help-block" style="font-size: 10px;">The main contact person for the site</div></label>
 
     <g:textField name="profile.portfolioAdmin" style="width: 300px;" maxlength="80" required="" value="${portfolioInstance?.profile?.portfolioAdmin}"/>
 
@@ -54,24 +54,44 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'rtqueue', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'portfoliocc', 'error')} ">
 
-     <label for="profile.rtqueue" style="width: 40%;"><g:message code="profile.rtqueue.label" default="RT Queue name" /></label>
+     <label for="profile.portfoliocc" style="width: 40%;"><g:message code="profile.portfoliocc.label" default="Portfolio CC Email" /></label>
 
-     <g:textField name="profile.rtqueue" value="${portfolioInstance?.profile?.rtqueue}"/>
-
+     <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.portfoliocc" value="${portfolioInstance?.profile?.portfoliocc}"/></div>
 </div>
 
-    </div>
+</div>
 
 <div class="column">
 
-    <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'portfoliocc', 'error')} ">
+    <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'teamqueueemail', 'error')} ">
 
-        <label for="profile.portfoliocc" style="width: 40%;"><g:message code="profile.portfoliocc.label" default="Portfolio CC Email" /></label>
+        <label for="profile.teamqueueemail" style="width: 40%;"><g:message code="profile.teamqueueemail.label" default="RT queue email" /></label>
 
-        <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.portfoliocc" value="${portfolioInstance?.profile?.portfoliocc}"/></div>
-</div>
+        <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.teamqueueemail" value="${portfolioInstance?.profile?.teamqueueemail}"/>
+
+        </div>
+
+    </div>
+
+    <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'rtqueue', 'error')} ">
+
+        <label for="profile.rtqueue" style="width: 40%;"><g:message code="profile.rtqueue.label" default="RT Queue name" /></label>
+
+        <g:textField name="profile.rtqueue" value="${portfolioInstance?.profile?.rtqueue}"/>
+
+    </div>
+
+    <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'etherpadurl', 'error')} ">
+
+        <label for="profile.etherpadurl" style="width: 40%;"><g:message code="profile.etherpadurl.label" default="Etherpad URL" /></label>
+
+        <div class="input-prepend"><span class="add-on">URL</span><g:field style="width: 400px;" type="url" name="profile.etherpadurl" value="${portfolioInstance?.profile?.etherpadurl}"/>
+
+        </div>
+
+    </div>
 
 <div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'portfolioColor', 'error')} ">
 
@@ -105,25 +125,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'teamqueueemail', 'error')} ">
-
-    <label for="profile.teamqueueemail" style="width: 40%;"><g:message code="profile.teamqueueemail.label" default="RT queue email" /></label>
-
-    <div class="input-prepend"><span class="add-on">@</span><g:field style="width: 400px;" type="email" name="profile.teamqueueemail" value="${portfolioInstance?.profile?.teamqueueemail}"/>
-
-    </div>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: portfolioInstance.profile, field: 'etherpadurl', 'error')} ">
-
-    <label for="profile.etherpadurl" style="width: 40%;"><g:message code="profile.etherpadurl.label" default="Etherpad URL" /></label>
-
-    <div class="input-prepend"><span class="add-on">URL</span><g:field style="width: 400px;" type="url" name="profile.etherpadurl" value="${portfolioInstance?.profile?.etherpadurl}"/>
-
-    </div>
-
-</div>
 
 
 </div>

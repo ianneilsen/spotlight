@@ -18,7 +18,7 @@
 <div class="navbar1">
     <ul class="nav1">
                 <li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
         <g:hiddenField name="id" value="${portfolioInstance?.id}" />
         <li><g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.portfolio.label" default="Edit Portfolio" /></g:link></li>

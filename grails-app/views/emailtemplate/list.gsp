@@ -12,7 +12,7 @@
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message default="New email template" code="default.new.emailtemplate.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="create" action="create"><g:message default="New email template" code="default.new.emailtemplate.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
 <!-- page title -->

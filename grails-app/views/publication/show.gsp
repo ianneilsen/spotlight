@@ -53,8 +53,9 @@ $(function() {
         <div class="navbar1">
             <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
 				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+                <li><g:link  action="show" controller="portfolio" id="${publicationInstance?.portfolio?.id}"><g:message code="Back to ${publicationInstance?.portfolio?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
                 <div id="show-publication" class="content scaffold-show" role="main">
             </ul>
 		</div>

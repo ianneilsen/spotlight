@@ -1,5 +1,6 @@
 
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
+<%@  page import="spotlight.content.*" %>
 <!doctype html>
 <html>
 	<head>
@@ -13,15 +14,18 @@
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
-		<div id="list-templatepublication" class="content scaffold-list" role="main">
+
+    <div id="list-templatepublication" class="content scaffold-list" role="main">
 			<h1 style="font-size: 20px;"><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
+
+					<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+
+        <table>
 				<thead>
 					<tr>
 					
@@ -36,6 +40,7 @@
 					</tr>
 				</thead>
 				<tbody>
+               %{-- <g:hiddenField name="portfolio.id" value="${portfolioInstance?.id}"/>--}%
 				<g:each in="${templatepublicationInstanceList}" status="i" var="templatepublicationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					

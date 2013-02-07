@@ -11,7 +11,7 @@
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message default="Email template list" code="default.emailtemplate.list.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message default="Email template list" code="default.emailtemplate.list.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
 		<div id="create-emailtemplate" class="content scaffold-create" role="main">
