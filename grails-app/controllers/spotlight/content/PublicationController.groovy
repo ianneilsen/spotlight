@@ -56,7 +56,7 @@ class PublicationController {
 
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 5, 52)
+        params.max = Math.min(max ?: 10, 5)
         if (params.sort=='desc'){
             params.sort = "lastUpdated"
 

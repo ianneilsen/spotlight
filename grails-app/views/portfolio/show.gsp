@@ -15,8 +15,6 @@
         <r:require modules="bootstrap"/>
 	</head>
 <body>
-%{--<a href="#show-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">--}%
 <div class="navbar1">
     <ul class="nav1">
                 <li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
