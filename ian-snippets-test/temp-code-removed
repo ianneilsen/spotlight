@@ -12,3 +12,17 @@
                 });
             });</r:script>
 from portfolio list
+
+
+
+select distinct  count (a.published) from Publication a, Portfolio b where a.id=b.id and published='No' and portfolio_id ='1';
+
+select distinct  count (a.publication_name ) from Publication a, Portfolio b where a.portfolio.id=b.id and published='No' and portfolio_id ='1';
+
+select distinct  count (a.publication_name ) from Publication a, Portfolio b where a.portfolio_id=b.id and published='No' and portfolio_id ='1';
+
+
+
+        def nopublishedcount  = Publication.executeQuery("select distinct  count (published ) from Publication where published='No'")
+            [nopublishedcount]
+        }
