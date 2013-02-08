@@ -167,66 +167,11 @@ $(function() {
       <div id="pubcontent">
         <g:if test="${publicationInstance?.publicationContent}">
 
-            <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><xwiki:render><%=publicationInstance?.publicationContent%></xwiki:render></markdown:renderHtml></span>
+            <span class="property-value" aria-labelledby="publicationContent-label"><markdown:renderHtml><%=publicationInstance?.publicationContent%></markdown:renderHtml></span>
 
           </g:if>
       </div>
-              <xwiki:render>
-                  = Message Macro Warning Message =
-                  {{message}}
-                  comment here...(not be rendered)
-                  {{/message}}
-              </xwiki:render>
 
-              <div class="box warningmessage"><xwiki:render> {{info}}This is an informational message{{/info}}</xwiki:render></div>
-
-              <xwiki:render>{{warning}}This is a warning message{{/warning}}</xwiki:render>
-
-              <xwiki:render>{{error}}This is an error message{{/error}}</xwiki:render>
-
-              <xwiki:render>{{box title="==Quick breakfast== " image="http://farm4.static.flickr.com/3260/2894738978_ca0d3afd07_t_d.jpg"}}
-              * cheese
-              * omelet
-              * milk
-              {{/box}}</xwiki:render>
-
-              <xwiki:render>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Vivamus lacus est, euismod at, lobortis eu, rhoncus et,
-leo{{footnote}}This is some text from www.lipsum.com{{/footnote}}.</xwiki:render>
-
-              <xwiki:render>{{html wiki="true"}}
-                  <table>
-                      <tr>
-                          <td>
-                              * listitem
-                          </td>
-                      </tr>
-                  </table>
-                  {{/html}}</xwiki:render>
-
-              <xwiki:render>{{toc start=2 depth=6 numbered=false scope=page /}}
-              {{toc /}}
-
-= Level 1
-
-Hello
-
-== Level 2</xwiki:render>
-
-              <xwiki:render>{{box cssClass="floatinginfobox" title="**Contents**"}}{{toc/}}{{/box}}
-
-= Level 1
-
-Hello
-
-== Level 2</xwiki:render>
-              <xwiki:render>{{toc numbered="true"/}}
-
-= Level 1
-== Level 2
-== Level 3
-= Level 4
-== Level 5</xwiki:render>
           <!--------------------------------------------------------->
 
           <zing:chart type="area" width="700" height="350"

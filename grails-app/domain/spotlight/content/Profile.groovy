@@ -28,11 +28,11 @@ class Profile {
 /*        htmlpuballowed (blank: true, inList:["Yes","No"])*/
 /*        siteupload (blank: true, inList:["Yes","No"])*/
         portfolioFilestore (blank: true)
-		bugzillaproduct(blank: true, unique: true)
-		bugzillacomponent(blank: true, unique: true)
+		bugzillaproduct(blank: true)
+		bugzillacomponent(blank: true)
 		rtqueue (blank: true)
 		teamqueueemail(blank: true,email: true)
-		etherpadurl (nullable: true, url: true)
+		etherpadurl (blank: true, url: true)
 		
     }
     static mapping = {
