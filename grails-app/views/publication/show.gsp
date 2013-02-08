@@ -10,7 +10,7 @@
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 
-         <r:require modules="jquery,jquery-ui"/>
+         <r:require modules="jquery,jquery-ui,export"/>
          <zing:include />
         %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
      %{--   <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
@@ -180,7 +180,7 @@ $(function() {
           <!--------------------------------------------------------->
       </div>
     </div>
-
+  %{--<export:formats formats="['csv', 'ods', 'pdf', 'xml']" />--}%
 
 </div>
 

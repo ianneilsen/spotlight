@@ -36,10 +36,14 @@
          <g:hiddenField name="publicationid" value="${publicationInstance?.id}"/>
         <g:link action="exportToDocbook" name="exporttodocbook" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
        %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
-        <a href="SpotLight-Grails/publication/exporttoPdf"  data-toggle="modal">Export to PDF</a>
-        <a href="SpotLight-Grails/publication/exporttoHtml"  data-toggle="modal">Export to HTML</a>
-        <a href="SpotLight-Grails/publication/exportToOdt"  data-toggle="modal">Export to ODT</a>
-        <a href="SpotLight-Grails/publication/exporttoText"  data-toggle="modal">Export to Text</a>
+                                           <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>
+        <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf"data-toggle="modal">Export to PDF</a>
+        <a href="../show?format=html&extension=html"data-toggle="modal">Export to HTML</a>
+        <a href="../show/${publicationInstance?.id}?format=xml&extension=xml"  data-toggle="modal">Export to XML</a>
+        <a href="../show?format=ods&extension=ods"  data-toggle="modal">Export to ODT</a>
+        <a href="../show?format=csv&extension=csv"  data-toggle="modal">Export to CVS</a>
+        <a href="../show?format=txt&extension=txt"  data-toggle="modal">Export to Text</a>
+
         <a href="SpotLight-Grails/publication/teamMessage"  data-toggle="modal">Send team message</a>
         <a href="SpotLight-Grails/publication/CommentonPublication"  data-toggle="modal">Leave a comment</a>
 

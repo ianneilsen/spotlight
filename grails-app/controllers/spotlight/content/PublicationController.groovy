@@ -44,13 +44,15 @@ class PublicationController {
 
     def xwikiStreamRenderer
     def xwikiRenderer
+    def exportService
+    def grailsApplication
+
 
     def exportToDocbook(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
             redirect(action: "list")
-            return
         }
         [publicationInstance: publicationInstance]
     }
@@ -73,10 +75,10 @@ class PublicationController {
         try {
          sendMail{
                  to  recipients         //todo research setting to array
-                 from "ineilsen@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
+                 from "hss-rap-list@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
                  text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
-             }
+             }                     s
 
         }
         catch (MailException e) {
@@ -186,6 +188,12 @@ class PublicationController {
 
     def show(Long id) {
         def publicationInstance = Publication.get(id)
+        if (params?.format && params.format !="html"){
+            response.contentType = grailsApplication.config.grails.mime.types[params.format]
+            response.setHeader("Content-disposition","attachment: filename=publication${publicationInstance}.${params.extension}")
+
+            exportService.export(params.format, response.outputStream,publicationInstance(id),[:],[:])
+        }
         if (!publicationInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
             redirect(action: "list")
@@ -194,6 +202,7 @@ class PublicationController {
 
         [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
+
 
     def edit(Long id) {
         def publicationInstance = Publication.get(id)

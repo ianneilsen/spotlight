@@ -26,16 +26,20 @@ grails.mime.types = [
     multipartForm: 'multipart/form-data',
     rss:           'application/rss+xml',
     text:          'text/plain',
-    xml:           ['text/xml', 'application/xml']
+    xml:           ['text/xml', 'application/xml'],
+    pdf: 'application/pdf',   //used in export function
+    ods: 'application/vnd.oasis.opendocument.spreadsheet', //used in export function
+
 ]
+
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
-/*grails.plugin.twitterbootstrap.fixtaglib = true
-grails.plugin.twitterbootstrap.defaultBundle = 'bundle_bootstrap'*/
+//grails.plugin.twitterbootstrap.fixtaglib = true
+//grails.plugin.twitterbootstrap.defaultBundle = 'bundle_bootstrap'
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -55,10 +59,9 @@ grails.enable.native2ascii = true
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
 grails.web.disable.multipart=false
-// mail system for sending email from publication show
+// mail system for sending email from documents send mail function
 grails.mail.host="localhost"
-grails.mail.default.from="ineilsen@redhat.com"
-
+grails.mail.default.from="hss-rap-list@redhat.com"
 
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
@@ -69,7 +72,7 @@ grails.hibernate.cache.queries = false
 //wiki configuration and use of macros -see also BuildConfig.gsp for boolean options.
 /*grails.xwiki.rendering.macros.enabled = true*/
 grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
-//grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
+//grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message" //set in BuildConfig file for some reason - need to check why it needs to sit there
 
 //Markdownplugin config settings
 markdown.tables = true           // Configuration
@@ -87,7 +90,7 @@ markdown.removeHtml = false       // Configuration  set true or false based on p
 environments {
     development {
         grails.logging.jul.usebridge = true
-        rootPath="/web-app/images/"
+        rootPath="/siteimages/"
     }
     production {
         grails.logging.jul.usebridge = false
