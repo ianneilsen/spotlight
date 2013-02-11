@@ -27,6 +27,7 @@
     <g:hiddenField name="id" value="${portfolioInstance?.publications?.id}" />
 
    <input type="submit" value="Send Email"/>
+
 </g:form>
 </div>
 

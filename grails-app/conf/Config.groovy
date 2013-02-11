@@ -27,8 +27,8 @@ grails.mime.types = [
     rss:           'application/rss+xml',
     text:          'text/plain',
     xml:           ['text/xml', 'application/xml'],
-    pdf: 'application/pdf',   //used in export function
-    ods: 'application/vnd.oasis.opendocument.spreadsheet', //used in export function
+    pdf:           'application/pdf',   //used in export function
+    ods:           'application/vnd.oasis.opendocument.spreadsheet', //used in export function
 
 ]
 

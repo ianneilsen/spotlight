@@ -73,7 +73,7 @@
 
                  <h6><g:field type="number" name="publicationid" value="${publicationInstance?.id}"/> </h6>
 
-                 <g:hiddenField name="id" value="${publicationInstance?.id}" />
+                 <g:hiddenField name="publication_id" value="${publicationInstance?.id}" />
 
             <input type="submit" value="Send Email"/>
             </g:form>

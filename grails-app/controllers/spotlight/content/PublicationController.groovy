@@ -71,6 +71,7 @@ class PublicationController {
     def emailpublication(){
         //def recipient = request.getParameterValues('whogetsemail')
         //List<String> recipients = request.getParameterValues("whogetsemail")
+        def publicationInstance = Publication.getProperties()
         List<String> recipients = params.whogetsemail.split(',').collect { it.trim() }
         try {
          sendMail{
@@ -78,7 +79,7 @@ class PublicationController {
                  from "hss-rap-list@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
                  text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
-             }                     s
+             }
 
         }
         catch (MailException e) {
@@ -87,8 +88,11 @@ class PublicationController {
         catch (MessagingException e) {
             log.error "Failed to send emails: $e.message", e
         }
-        redirect(uri: "/publication/show/${params}")
-        /*redirect(view: "show", model: [publicationInstance: (params.id)])*/
+        //redirect(uri: "/publication/show/${params}")
+        //redirect(action: show(id), controller: Publication)
+        //redirect(uri: "/publication/show/${}")
+        render(view: 'show', model: [publicationInstance: publicationInstance])
+        //redirect(view: "show", model: [publicationInstance: (params.id)])
         flash.message = "${params.publicationName} sent to ${params.emailto}"
     }                               //todo not redirecting correctly to params id. not sure why it is not picking up properties
 
@@ -107,7 +111,7 @@ class PublicationController {
         def newPublication = new Publication(clonepublication.each {Publication p ->
         newPublication.addToPublication(p)
         })
-        [newPublication: newPublication]
+        redirect(action: create(newPublication: newPublication))
     }
     //todo clone  function still not working correctly
 
