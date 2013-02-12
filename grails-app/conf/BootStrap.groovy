@@ -23,21 +23,21 @@ class BootStrap {
 
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-                //def publisherRole = new Role(authority: 'ROLE_PUBLISHER').save(flush: true)
+                def publisherRole = new Role(authority: 'ROLE_PUBLISHER').save(flush: true)
 
-                def testUser = new User(username: 'ineilsen', enabled: true, password: 'passwordRH')
+                def testUser = new User(username: 'ineilsen',useremail:'ian@gmail.com',userfullname:'ian neilsen', enabled: true, password: 'passwordRH')
                 testUser.save(flush: true)
 
-                //def testuser2 = new User(username: 'mdoyle', enabled: true, password: 'demospotlight')
-                //testuser2.save(flush:  true)
+                def testuser2 = new User(username: 'mdoyle', useremail:'mdoyle@gmail.com',userfullname:'mdoyle',enabled: true, password: 'demospotlight')
+                testuser2.save(flush:  true)
 
-                //def testuser3 = new User(username: 'anross', enabled: true, password: 'demoanross')
-                //testuser3.save(flush: true)
+                def testuser3 = new User(username: 'anross', useremail:'anross@gmail.com',userfullname:'anross',enabled: true, password: 'demoanross')
+                testuser3.save(flush: true)
 
                 UserRole.create testUser, adminRole, true
-                //UserRole.create testuser2, userRole, true
-                //UserRole.create testuser3, userRole, true
-               // UserRole.create testuser2, publisherRole, true
+                UserRole.create testuser2, userRole, true
+                UserRole.create testuser3, userRole, true
+                UserRole.create testuser2, publisherRole, true
 
               /*  assert User.count() == 3
                 assert Role.count() == 3

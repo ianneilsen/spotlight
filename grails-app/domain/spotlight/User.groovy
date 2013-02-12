@@ -14,8 +14,8 @@ class User {
     boolean passwordExpired
 
     static constraints = {
-        username blank: false, unique: true
-        password blank: false
+        username (blank: false, unique: true)
+        password (blank: false)
         useremail(blank: false, unique: true, email: true)
         userfullname(size: 2..70)
     }
