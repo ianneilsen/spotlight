@@ -3,16 +3,45 @@ import spotlight.content.Profile;
 import spotlight.content.Portfolio;
 import spotlight.content.Publication;
 import spotlight.content.PublicationTag;
-//import spotlight.content.Pubcategory;
-import spotlight.content.Pubproduct
-import spotlight.pubtemplates.Templatepublication
+import spotlight.content.Pubproduct;
+import spotlight.pubtemplates.Templatepublication;
 import java.sql.Timestamp
 import spotlight.pubtemplates.Emailtemplate;
+import grails.util.GrailsUtil
+import spotlight.Role;
+import spotlight.User;
+import spotlight.UserRole;
 
 
 class BootStrap {
 
     def init = { servletContext ->
+
+       /* environments {
+
+            development {*/
+
+                def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+                def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+                //def publisherRole = new Role(authority: 'ROLE_PUBLISHER').save(flush: true)
+
+                def testUser = new User(username: 'ineilsen', enabled: true, password: 'passwordRH')
+                testUser.save(flush: true)
+
+                //def testuser2 = new User(username: 'mdoyle', enabled: true, password: 'demospotlight')
+                //testuser2.save(flush:  true)
+
+                //def testuser3 = new User(username: 'anross', enabled: true, password: 'demoanross')
+                //testuser3.save(flush: true)
+
+                UserRole.create testUser, adminRole, true
+                //UserRole.create testuser2, userRole, true
+                //UserRole.create testuser3, userRole, true
+               // UserRole.create testuser2, publisherRole, true
+
+              /*  assert User.count() == 3
+                assert Role.count() == 3
+                assert UserRole.count() == 3*/
 
         def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date(),status: "Active")
         portfolio.profile =  new Profile(/*htmlpuballowed:"No",*/
@@ -78,9 +107,15 @@ class BootStrap {
         def newDocTemplate3 = new Templatepublication(tplnamepub:"temp 3",tplcontentpub:"content for template 3",tplshare:"No")
         portfolio.addToPublicationtemplates(newDocTemplate3)
         portfolio.save(failOnError: true)
+   /*         }//development context
 
+    production {
 
-    }
+            }//production context
+
+        }//end of environment*/
+
+    } //end of init serverletcontext
 
 
     def destroy = {

@@ -50,7 +50,8 @@ environments {
             //url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=20000"
         //MySQL settings
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/spotlightprod?useUnicode=yes&characterEncoding=UTF-8"      //todo -deployment change hostname to correct hostname when testing finisheds
+            url = "jdbc:mysql://localhost:3306/spotlightprod?useUnicode=yes&characterEncoding=UTF-8"      //todo -deployment change hostname to correct hostname when testing finished
+            //http://spotlight-dev-stage.cloud.eng.bne.redhat.com/
             username = "spotlight"
             password = "rh1-SPOTLIGHTdb"
 

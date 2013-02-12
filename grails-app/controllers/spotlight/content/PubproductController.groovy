@@ -1,6 +1,10 @@
 package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
+
+
+@Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
 
 class PubproductController {
 

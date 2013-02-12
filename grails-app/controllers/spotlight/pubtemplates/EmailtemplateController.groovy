@@ -1,24 +1,29 @@
 package spotlight.pubtemplates
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 class EmailtemplateController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def index() {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [emailtemplateInstanceList: Emailtemplate.list(params), emailtemplateInstanceTotal: Emailtemplate.count()]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def create() {
         [emailtemplateInstance: new Emailtemplate(params)]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def save() {
         def emailtemplateInstance = new Emailtemplate(params)
         if (!emailtemplateInstance.save(flush: true)) {
@@ -30,6 +35,7 @@ class EmailtemplateController {
         redirect(action: "show", id: emailtemplateInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def show(Long id) {
         def emailtemplateInstance = Emailtemplate.get(id)
         if (!emailtemplateInstance) {
@@ -41,6 +47,7 @@ class EmailtemplateController {
         [emailtemplateInstance: emailtemplateInstance]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def edit(Long id) {
         def emailtemplateInstance = Emailtemplate.get(id)
         if (!emailtemplateInstance) {
@@ -52,6 +59,7 @@ class EmailtemplateController {
         [emailtemplateInstance: emailtemplateInstance]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def update(Long id, Long version) {
         def emailtemplateInstance = Emailtemplate.get(id)
         if (!emailtemplateInstance) {
@@ -81,6 +89,7 @@ class EmailtemplateController {
         redirect(action: "show", id: emailtemplateInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_PUBLISHER'])
     def delete(Long id) {
         def emailtemplateInstance = Emailtemplate.get(id)
         if (!emailtemplateInstance) {

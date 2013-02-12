@@ -7,6 +7,7 @@ import java.io.File;
 import static org.hibernate.criterion.CriteriaSpecification.*
 import static java.io.File.*
 import groovy.sql.*
+import grails.plugins.springsecurity.Secured
 
 class PortfolioController {
 
@@ -44,6 +45,7 @@ class PortfolioController {
 
     }
 
+    @Secured(['ROLE_ADMIN'])
     def archivedportfolios(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         def portfolioInstanceList = Portfolio.where {status == 'Closed'}
@@ -51,6 +53,7 @@ class PortfolioController {
 
     }
         //todo check list view from this action
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def unpublishedDocs(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         def publicationInstance = Publication.findByPublished('No')
@@ -59,6 +62,7 @@ class PortfolioController {
     }
 
        //todo below not returning any results
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def unpublishedcount = {
         def portfolio=Portfolio.get(params)
         println Publication.executeQuery("select count(*) from Publication as a join Publication.portfolio as p where p = :p", [p: 'No'])
@@ -73,12 +77,13 @@ class PortfolioController {
         [metric: metric, wordcountsql: wordcountsql]
   }*/
 
-
+    @Secured(['ROLE_ADMIN'])
     def create () {
         [portfolioInstance: new Portfolio(params)]
     }
 
 //save action saves the portfolio and profile domain classes, following the save a new dir is created in the config path
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def portfolioInstance = new Portfolio(params)
         portfolioInstance.properties = params
@@ -104,6 +109,7 @@ class PortfolioController {
         [portfolioInstance: portfolioInstance, emailtemplates: Emailtemplate]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def _publicationlist (Integer max) {
         def portfolioInstance = Portfolio.get(id)
         portfolioInstance.properties=params
@@ -111,7 +117,7 @@ class PortfolioController {
         render(view: publications)
 
     }
-
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def portfolioInstance = Portfolio.get(id)
         portfolioInstance.properties = params
@@ -124,6 +130,7 @@ class PortfolioController {
         [portfolioInstance: portfolioInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def portfolioInstance = Portfolio.get(id)
         if (!portfolioInstance) {
@@ -153,6 +160,7 @@ class PortfolioController {
         redirect(action: "show", id: portfolioInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def portfolioInstance = Portfolio.get(id)
         if (!portfolioInstance) {

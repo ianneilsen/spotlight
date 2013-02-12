@@ -4,6 +4,9 @@ package spotlight.pubtemplates
 import org.springframework.dao.DataIntegrityViolationException
 import spotlight.content.Portfolio
 import spotlight.content.Publication
+import grails.plugins.springsecurity.Secured
+
+@Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
 
 class TemplatepublicationController {
 

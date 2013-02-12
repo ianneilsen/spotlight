@@ -1,6 +1,7 @@
 package spotlight.content
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.plugins.springsecurity.Secured
 
 class ProfileController {
 
@@ -10,15 +11,18 @@ class ProfileController {
         redirect(action: "list", params: params)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [profileInstanceList: Profile.list(params), profileInstanceTotal: Profile.count()]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def create() {
         [profileInstance: new Profile(params)]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def save() {
         def profileInstance = new Profile(params)
         if (!profileInstance.save(flush: true)) {
@@ -30,7 +34,7 @@ class ProfileController {
         redirect(action: "show", id: profileInstance.id)
     }
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def show(Long id) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {
@@ -42,6 +46,7 @@ class ProfileController {
         [profileInstance: profileInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def edit(Long id) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {
@@ -53,6 +58,7 @@ class ProfileController {
         [profileInstance: profileInstance]
     }
 
+    @Secured(['ROLE_ADMIN'])
     def update(Long id, Long version) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {
@@ -82,6 +88,7 @@ class ProfileController {
         redirect(action: "show", id: profileInstance.id)
     }
 
+    @Secured(['ROLE_ADMIN'])
     def delete(Long id) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {

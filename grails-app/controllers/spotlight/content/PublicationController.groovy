@@ -12,11 +12,13 @@ import org.xwiki.rendering.syntax.Syntax
 import org.xwiki.rendering.renderer.printer.DefaultWikiPrinter
 import org.xwiki.rendering.renderer.printer.WikiPrinter
 import org.xwiki.rendering.converter.Converter
+import grails.plugins.springsecurity.Secured
 
 class PublicationController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def index() {
         redirect(action: "list", params: params)
     }
@@ -35,6 +37,7 @@ class PublicationController {
 
     }*/
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def readEtherpad(){
         def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
         def padjson = new JsonSlurper().parseText(padurl)
@@ -42,12 +45,14 @@ class PublicationController {
 
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def xwikiStreamRenderer
     def xwikiRenderer
     def exportService
     def grailsApplication
 
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def exportToDocbook(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
@@ -57,7 +62,7 @@ class PublicationController {
         [publicationInstance: publicationInstance]
     }
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 5)
         if (params.sort=='desc'){
@@ -68,6 +73,7 @@ class PublicationController {
     }
 
     //email send function from publication show page using modal pop-up and editable fields prior to sending
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def emailpublication(){
         //def recipient = request.getParameterValues('whogetsemail')
         //List<String> recipients = request.getParameterValues("whogetsemail")
@@ -96,16 +102,17 @@ class PublicationController {
         flash.message = "${params.publicationName} sent to ${params.emailto}"
     }                               //todo not redirecting correctly to params id. not sure why it is not picking up properties
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def insertpublicationtemplate(){
 
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def create() {
         [publicationInstance: new Publication(params)]
     }
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def publicationClone(){
         def clonepublication = Publication.getProperties()
         def newPublication = new Publication(clonepublication.each {Publication p ->
@@ -177,7 +184,7 @@ class PublicationController {
     }*/
 
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def save() {
         def publicationInstance = new Publication(params)
         if (!publicationInstance.save(flush: true)) {
@@ -188,6 +195,7 @@ class PublicationController {
         flash.message = message(code: 'default.created.message', args: [message(code: 'publication.label', default: 'Publication'), publicationInstance.id])
         redirect(action: "show", id: publicationInstance.id)
     }
+
 
 
     def show(Long id) {
@@ -207,7 +215,7 @@ class PublicationController {
         [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def edit(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
@@ -219,6 +227,7 @@ class PublicationController {
         [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def update(Long id, Long version) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
@@ -248,7 +257,7 @@ class PublicationController {
         redirect(action: "show", id: publicationInstance.id)
     }
 
-
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def delete(Long id) {
         def publicationInstance = Publication.get(id)
         if (!publicationInstance) {
