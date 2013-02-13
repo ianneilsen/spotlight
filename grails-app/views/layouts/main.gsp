@@ -1,3 +1,4 @@
+<%@ page import="spotlight.User" %>
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -33,13 +34,14 @@
                             <ul class="dropdown-menu">
                                 <li><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html" title="User Guide"></a> </li>
                                 <li class="divider"></li>
-                                <li><a href="mailto:hss-rap-list@redhat.com">RAP Request</a> </li>
+                                <li><a href="https://engineering.redhat.com/rt/Ticket/Create.html?Queue=88" target="_blank">RAP Request</a> </li>
                                 <li><a href="mailto:hss-rap-list@redhat.com">App Request</a></li>
                                 <li class="divider"></li>
                                 <li><a href="mailto:hss-rap-list@redhat.com">Contact Dev Team</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown header-user"><a class="dropdown-toggle" title="User Info" href="#">Hi <g:meta name="app.name"></g:meta> </a> </li>
+                        <li class="dropdown header-user"><a class="dropdown-toggle" title="User Info" href="../userprofile"> Hi<a><sec:ifLoggedIn><sec:username/> |<g:link controller="logout" title="Logout">Logout</g:link></sec:ifLoggedIn>
+                           <g:link controller="login" action="auth"><sec:ifNotLoggedIn><g:message code="springSecurity.login.header"/></sec:ifNotLoggedIn></g:link></a></li>
                     </ul>
                 </header>
             </div>
@@ -64,8 +66,8 @@
 		        <div class="footer-left">
                     <div class="hss-logo"></div>
                         <div class="copyright">
-		                    <p>RAP Reporting Tool - Spotlight <g:meta name="app.version"/> on Grails <g:meta name="app.grails.version"/></p>
-		                    <p> Copyright 2012 Red Hat, Inc. All rights reserved.</p>
+		                    <p>RAP Reporting Tool - Spotlight <g:meta name="app.version"/></p>
+		                    <p> Copyright 2012,2013 Red Hat, Inc. All rights reserved.</p>
                             <p>INTERNAL USE ONLY</p>
                         </div>
                     </div>

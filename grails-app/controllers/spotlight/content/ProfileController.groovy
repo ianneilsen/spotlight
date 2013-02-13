@@ -17,12 +17,12 @@ class ProfileController {
         [profileInstanceList: Profile.list(params), profileInstanceTotal: Profile.count()]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def create() {
         [profileInstance: new Profile(params)]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def save() {
         def profileInstance = new Profile(params)
         if (!profileInstance.save(flush: true)) {
@@ -46,7 +46,7 @@ class ProfileController {
         [profileInstance: profileInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def edit(Long id) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {
@@ -58,7 +58,7 @@ class ProfileController {
         [profileInstance: profileInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def update(Long id, Long version) {
         def profileInstance = Profile.get(id)
         if (!profileInstance) {

@@ -77,13 +77,13 @@ class PortfolioController {
         [metric: metric, wordcountsql: wordcountsql]
   }*/
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def create () {
         [portfolioInstance: new Portfolio(params)]
     }
 
 //save action saves the portfolio and profile domain classes, following the save a new dir is created in the config path
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def save() {
         def portfolioInstance = new Portfolio(params)
         portfolioInstance.properties = params
@@ -117,7 +117,7 @@ class PortfolioController {
         render(view: publications)
 
     }
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def edit(Long id) {
         def portfolioInstance = Portfolio.get(id)
         portfolioInstance.properties = params
@@ -130,7 +130,7 @@ class PortfolioController {
         [portfolioInstance: portfolioInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_ADMIN','ROLE_PORTFOLIOADMIN'])
     def update(Long id, Long version) {
         def portfolioInstance = Portfolio.get(id)
         if (!portfolioInstance) {

@@ -15,5 +15,8 @@ class UrlMappings {
         "401"(view: '/errorpages/error401.gsp')
         "404"(view: '/errorpages/error404.gsp')
         //"500"(view: '/errorpages/error500.gsp')
+
+        "/login/$action?"(controller: "login")
+        "/logout/$action?"(controller: "logout")
 	}
 }

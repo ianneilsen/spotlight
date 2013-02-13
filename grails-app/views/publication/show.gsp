@@ -3,6 +3,7 @@
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
 <%@ page import="org.xwiki.rendering.renderer.*" %>
 <%@  page import="org.xwiki.rendering.macro.*" %>
+<%@ page import="spotlight.User" %>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 	<head>
@@ -161,6 +162,13 @@ $(function() {
                 </g:if>
             </div>
      </div>
+%{--      <div class="control-group">
+          <g:if test="${spotlight.User}">
+              <span id="version-label" class="property-label"><g:message code="username" default="Author/s Name" /></span>
+              <span class="property-value" aria-labelledby="version-label"><g:fieldValue field="version" bean="${username}" /></span>
+          </g:if>
+      </div>
+  </div>--}%
 <!-- CONTENT -->
     <div class="span8">
           %{--<div class="well">--}%

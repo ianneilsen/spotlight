@@ -1,8 +1,13 @@
 package spotlight
 
+import spotlight.content.Publication
+
 class User {
 
     transient springSecurityService
+
+   static belongsTo = [Publication]
+
 
     String username
     String password

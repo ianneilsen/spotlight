@@ -5,7 +5,7 @@
 	<style type='text/css' media='screen'>
 	#login {
 		margin: 15px 0px;
-		padding: 0px;
+		padding: 2px;
 		text-align: center;
 	}
 
@@ -85,6 +85,11 @@
 </head>
 
 <body>
+<div class="navbar1">
+    <ul class="nav1">
+        <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="Home"/></a></li>
+        </ul>
+</div>
 <div id='login'>
 	<div class='inner'>
 		<div class='fheader'><g:message code="springSecurity.login.header"/></div>
@@ -92,12 +97,13 @@
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
 		</g:if>
-
+        <div class="alert alert-info">Please use your kerberos username until we turn on kerberos authentication. Thank you</div>
 		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 			<p>
 				<label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
 				<input type='text' class='text_' name='j_username' id='username'/>
 			</p>
+
 
 			<p>
 				<label for='password'><g:message code="springSecurity.login.password.label"/>:</label>

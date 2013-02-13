@@ -1,11 +1,12 @@
 package spotlight.content
 
 import java.sql.Timestamp
+import spotlight.User
 
 class Publication  {
 
     static belongsTo = [portfolio: Portfolio]
-    static hasMany = [pubtags: PublicationTag]
+    static hasMany = [pubtags: PublicationTag,users:User]
     Pubproduct pubproduct
 
 

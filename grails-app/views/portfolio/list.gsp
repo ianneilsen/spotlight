@@ -14,8 +14,10 @@
 		%{--<a href="#list-portfolio" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
             <div class="navbar1">
                 <ul class="nav1">
-				    <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="home"/></a></li>
+				    <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="Home"/></a></li>
 				    <li id="navNew" class=""><g:link class="create" action="create"><g:message code="New portfolio" args="[entityName]" /></g:link></li>
+                    <li id="navNew" class=""><g:link uri="/user/search"><g:message code="Site Administration" args="[entityName]" /></g:link></li>
+
                 </ul>
 		</div>
         <div class="breadcrumb">

@@ -1,0 +1,43 @@
+
+I would like to inform you the new RAP reporting tool is under stage testing at at http://10.64.27.7:8080/spotlight/
+
+Version 2 of the tool is attempting to capture a design based on google docs/etherpad style editing/sharing with multi-tenant site profiles. 
+
+SpotLight version v2.0.0 major has the following enhancements;
+
+From Ruby on Rails to Java based application to remove the barrier of developer handover. [groovy/scala - java libs]
+Kerberos Authentication.
+Mutli-tenant site creation.
+Portfolio permission structure and publishing workflow.
+Import/export options (export/import most document formats, pdf, html, text, ODT ,ODS, csv, docbook and have then converted.)
+Templating creation (give your users templates to use when creating new reports)
+Email communication (email users, site owners, email reports out, simple message system for sites and site authors)
+Email Templating (email templates and maillists for sending out your reports)
+User built charting(create simple pie,bar,line charts using x-y axis, title, legend and multiple datapoints. reuse these charts in other reports.)
+Enhanced markdown support - (enhancements to new opensource libraries to capture the full complement of available markdown sets[markdown,phpmarkdown, pandoc, etc] and a sub-set of xwiki sytax. Yes you can use complex table designs.)
+Preview (markdown live preview while writing reports).
+History/diff of changes and version control on reports. (No roll back at this point as was found in the old reporting tool).
+Cloning of reports (Improve writer workflow).
+User Profiles - (see what you have been up to, return to your last documents)
+Mobile ready (full modile support for phone and tablet, ios and android)
+REST api - (implemented but disable until kerberos testing is complete)
+Improved RSS site feeds
+
+
+Prospective for SpotLight v3.0.0
+
+R1 - Full etherpad style collaborative editing on reports. (Due to a bug in EAP, I was not able to include a re-written etherpad for this version.(the scala version of etherpad has been re-written to be included in the individal sites without the need for dns trickery. Each site will have their own etherpad style instance hidden within to allow collaborative editing while writing reports).
+R2 - Improved UI.(Improve UX).
+R3 - Rich text editor for markdown and xwiki(remove the need for users to understand markdown by introducing a markdown rich-text-editor).
+R4 - Image control per site(share images across sites and allow site users to share content for report creation).
+R5 - Document attachment and frame display in reports.(allow users to attach documents and display content from other applications safely, i.e. gallery reports).
+R6 - Sharing of templates(share similar to google docs, your reports across sites).
+R7 - Better user management.(Better restrictions and workflows for reports - introduce event driven automation and rule setting).
+R8 - User based selective reporting (build your own reports from content present in your site or other sites if permissions allow).
+R9 - Introduce Chinese translation engine(Dreams).
+R10- Improve product integration.
+
+FYI - I am doing this in my spare time, so I have not set a schedule, but mdoyle and I are trying to run regular releases and stick to a rough timeframe. Next Friday should see the official tested production released and data migration finished. I will keep you posted over the course of this week and next.
+
+Regards
+Ian Neilsen and the RAP Team.
