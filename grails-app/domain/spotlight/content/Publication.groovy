@@ -6,7 +6,7 @@ import spotlight.User
 class Publication  {
 
     static belongsTo = [portfolio: Portfolio]
-    static hasMany = [pubtags: PublicationTag,users:User]
+    static hasMany = [pubtags: PublicationTag, authors: User]
     Pubproduct pubproduct
 
 

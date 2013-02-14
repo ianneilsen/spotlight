@@ -34,8 +34,8 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
-        //mavenRepo "https://repository.engineering.redhat.com/nexus/content/groups/eng-ops-public/" //todo - deployment - add in internal repo.
-        //mavenRepo "https://repository.engineering.redhat.com/nexus/content/"
+        mavenRepo "https://repository.engineering.redhat.com/nexus/content/groups/eng-ops-public/" //todo - deployment - add in internal repo.
+        mavenRepo "https://repository.engineering.redhat.com/nexus/content/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.

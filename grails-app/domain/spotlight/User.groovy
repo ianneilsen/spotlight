@@ -6,7 +6,8 @@ class User {
 
     transient springSecurityService
 
-   static belongsTo = [Publication]
+    static hasMany = [documents: Publication]
+    static belongsTo = Publication
 
 
     String username
@@ -27,6 +28,10 @@ class User {
 
     static mapping = {
         password column: '`password`'
+    }
+
+    String toString(){
+        username
     }
 
     Set<Role> getAuthorities() {

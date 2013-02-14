@@ -1,6 +1,7 @@
 <%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Portfolio" %>
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
+<%@ page import="spotlight.User" %>
 <!doctype html>
 <html>
 	<head>

@@ -1,6 +1,7 @@
 <%@ page import="spotlight.content.Publication" %>
 <%@ page import="spotlight.content.Pubproduct" %>
 <%@ page import="spotlight.pubtemplates.Templatepublication" %>
+<%@ page import="spotlight.User"%>
 
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationName', 'error')} required">
     <label for='publicationName'>
@@ -14,7 +15,16 @@
         <g:message code="publication.published.label" default="Ready for publishing" />
             <span class="required-indicator">*</span>
     </label>
-    <g:select style="width: 200px;" name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
+    <g:if test="${publicationInstance}">
+    <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_PORTFOLIOADMIN,ROLE_PUBLISHER">
+        <g:select style="width: 200px;" name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/>
+    </sec:ifAnyGranted>
+    </g:if>
+    <g:else>
+    <sec:ifNotGranted roles="ROLE_USER">
+        <g:textField name="published" readonly="" value="${publicationInstance?.published}"/>
+    </sec:ifNotGranted>
+    </g:else>
 </div>
 
 <!-- editor -->
@@ -61,9 +71,18 @@
 		<g:message code="publication.portfolio.label" default="Portfolio" />
 		<span class="required-indicator">*</span>
 	</label>
-%{--	<g:select id="portfolio" readonly="portfolio.id" name="portfolio.id" from="${spotlight.content.Portfolio.list()}" optionKey="id" required="" value="${publicationInstance?.portfolio?.id}" class="many-to-one"/>--}%
 <g:textField id="portfolio" readonly="" name="portfolio.id" value="${publicationInstance?.portfolio?.id}" class="many-to-one" />
 </div>
+
+<!--authors-->
+<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'authors', 'error')} required">
+    <label for="authors">
+        <g:message code="publication.authors.label" default="Authors" />
+
+    </label>
+       <g:select  multiple="true" name="authors" from="${spotlight.User.list()}" optionKey="id" required="" value="${authors?.documents}" class="many-to-many"/>
+</div>
+
 <!---- tag ---->
 <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'pubtags', 'error')} ">
 	<label for="pubtags">

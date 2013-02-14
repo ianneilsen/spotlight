@@ -136,6 +136,17 @@ $(function() {
                     </li>
                 </g:if>
              </div>
+<!-- Authors -->
+            <div class="control-group">
+                <g:if test="${publicationInstance?.authors}">
+                    <li class="fieldcontain">
+                        <span id="authors-label" class="property-label"><g:message code="publication.authors.label" default="Authors" /></span>
+                        <g:each in="${publicationInstance.authors}" var="p">
+                            <span class="property-value" aria-labelledby="pubtags-label">${p?.encodeAsHTML()}</span>
+                        </g:each>
+                    </li>
+                </g:if>
+            </div>
 <!-- DATES ---->
             <div class="control-group">
                     <g:if test="${publicationInstance?.publisheddate}">
@@ -162,13 +173,7 @@ $(function() {
                 </g:if>
             </div>
      </div>
-%{--      <div class="control-group">
-          <g:if test="${spotlight.User}">
-              <span id="version-label" class="property-label"><g:message code="username" default="Author/s Name" /></span>
-              <span class="property-value" aria-labelledby="version-label"><g:fieldValue field="version" bean="${username}" /></span>
-          </g:if>
-      </div>
-  </div>--}%
+
 <!-- CONTENT -->
     <div class="span8">
           %{--<div class="well">--}%
@@ -188,8 +193,6 @@ $(function() {
           <!--------------------------------------------------------->
       </div>
     </div>
-  %{--<export:formats formats="['csv', 'ods', 'pdf', 'xml']" />--}%
-
 </div>
 
 <!--------------------------------------------tetsing chartings ------------------------>

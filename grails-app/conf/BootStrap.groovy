@@ -17,9 +17,6 @@ class BootStrap {
 
     def init = { servletContext ->
 
-       /* environments {
-
-            development {*/
 
                 def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
                 def siteRole = new Role(authority: 'ROLE_PORTFOLIOADMIN').save(flush: true)
@@ -30,37 +27,32 @@ class BootStrap {
                 def ineilsen = new User(username: 'ineilsen',useremail:'ineilsen@redhat.com',userfullname:'Ian Neilsen', enabled: true, password: 'passwordRH')
                 ineilsen.save(flush: true)
 
-               /* def mdoyle = new User(username: 'mdoyle', useremail:'mdoyle@redhat.com',userfullname:'Micheal Doyle',enabled: true, password: 'demomdoyle')
+                def mdoyle = new User(username: 'mdoyle', useremail:'mdoyle@redhat.com',userfullname:'Micheal Doyle',enabled: true, password: 'demomdoyle')
                 mdoyle.save(flush:  true)
 
                 def anross = new User(username: 'anross', useremail:'anross@redhat.com',userfullname:'Andrew Ross',enabled: true, password: 'demoanross')
                 anross.save(flush: true)
 
                 def alyoung = new User(username:'alyoung', useremail:'alyoung@redhat.com',userfullname: 'Alison Young',enabled: true, password: 'demoalyoung')
-                alyoung.save(flush: true)*/
-
-                /*def publisher = new User(username:'demopublisher', useremail:'ineilsen@redhat.com',userfullname: 'demopublisher',enabled: true, password: 'demopassword')
-                publisher.save(flush: true)*/
-
+                alyoung.save(flush: true)
 
                 UserRole.create ineilsen, adminRole, true
-              /*  UserRole.create mdoyle, siteRole, true
+                UserRole.create mdoyle, siteRole, true
                 UserRole.create anross, userRole, true
-                UserRole.create alyoung, userRole, true*/
-                /*UserRole.create publisher, publisherRole, true*/
-                /*UserRole.create mdoyle, siteRole, true*/
+                UserRole.create alyoung, userRole, true
+
 
               /*  assert User.count() == 5
                 assert Role.count() == 4
-                assert UserRole.count() == 6*/
+               */
 
-    /*    def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date(),status: "Active")
-        portfolio.profile =  new Profile(*//*htmlpuballowed:"No",*//*
+        def portfolio = new Portfolio(portfolioName:"Project Management", portdescrip:"HSS PA teams project status reports.", portpublished:"Yes",dateCreated: new Date(),status: "Active")
+        portfolio.profile =  new Profile(htmlpuballowed:"No",
                 portfolioEmail: "ian@ian.com",
                 portfolioAdmin:"Ian Neilsen",
                 bugzillaproduct:"bz prod name",
                 bugzillacomponent:"comp name",
-                *//*siteupload:1,*//*
+                siteupload:1,
                 portfoliocc: "ian@ian.com",
                 portfolioColor:"red",
                 portfolioFilestore:"blah",
@@ -82,59 +74,54 @@ class BootStrap {
 
         def r1 = new Publication(publicationName:"RAP Weekly Executive Briefing -1", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes",publishedemail: "No", publisheddate: new Date (),pubproduct: product1)
         portfolio.addToPublications(r1)
-        r1.addToUsers(ineilsen)
-        portfolio.save(failOnError: true)*/
+        r1.addToAuthors(ineilsen)
+        portfolio.save(failOnError: true)
 
-      /*  def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product2)
+       def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product2)
         portfolio.addToPublications(r2)
-        r2.addToUsers(ineilsen)
+        r2.addToAuthors(ineilsen)
+        r2.addToAuthors(mdoyle)
         portfolio.save(failOnError: true)
 
         def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing - 3", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product3)
         portfolio.addToPublications(r3)
-        r3.addToUsers(ineilsen)
+        r3.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
         def r4 = new Publication(publicationName:"RAP Weekly Executive Briefing - 4", publicationContent:"report content in markdown **bold** + bullet point",published:"Yes",publishedemail: "No", publisheddate: new Date (), pubproduct: product4)
         portfolio.addToPublications(r4)
-        r4.addToUsers(ineilsen)
+        r4.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
         def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing - 5", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product5)
         portfolio.addToPublications(r5)
-        r5.addToUsers(ineilsen)
+        r5.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
         def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing - 6", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product7)
         portfolio.addToPublications(r6)
-        r6.addToUsers(ineilsen)
-        portfolio.save(failOnError: true)*/
-
-       /* def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@ian.com,ineilsen@ian.com",
-                                             ccemailtemplate:"ineilsen@ian.com",footeremailtemplate:"footer of email template")
-        portfolio.addToEmailtemplates(newEmailTemp)
+        r6.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
+
+       def newEmailTemp = new Emailtemplate(nameemailtemplate:"email template", contentemailtemplate:"header of email\n header second line", toemailtemplate:"ineilsen@ian.com,ineilsen@ian.com",
+                                             ccemailtemplate:"ineilsen@ian.com",footeremailtemplate:"footer of email template")
+            portfolio.addToEmailtemplates(newEmailTemp)
+            portfolio.save(failOnError: true)
 
         def newDocTemplate = new Templatepublication(tplnamepub:"temp 1",tplcontentpub:"content for template 1",tplshare:"No")
             portfolio.addToPublicationtemplates(newDocTemplate)
             portfolio.save(failOnError: true)
+
         def newDocTemplate2 = new Templatepublication(tplnamepub:"temp 2",tplcontentpub:"content for template 2",tplshare:"No")
-        portfolio.addToPublicationtemplates(newDocTemplate2)
-        portfolio.save(failOnError: true)
+            portfolio.addToPublicationtemplates(newDocTemplate2)
+            portfolio.save(failOnError: true)
+
         def newDocTemplate3 = new Templatepublication(tplnamepub:"temp 3",tplcontentpub:"content for template 3",tplshare:"No")
-        portfolio.addToPublicationtemplates(newDocTemplate3)
-        portfolio.save(failOnError: true)*/
+            portfolio.addToPublicationtemplates(newDocTemplate3)
+            portfolio.save(failOnError: true)
 
 
-   /*         }//development context
-
-    production {
-
-            }//production context
-
-        }//end of environment*/
-
-    } //end of init serverletcontext
+         }
 
 
     def destroy = {
