@@ -1,0 +1,617 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "User_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<book lang="en-US">
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	 <!--  vim: set filetype=markdown :  -->
+	<chapter id="introduction">
+		<title>Introduction</title>
+		 <para>
+			SpotLight is a tool which allows users and groups of users to collaborate and publish documents or reports to readers. The tool aims to be a specific online writing tool and archive mechanism away from other styles of blogging or wiki based applications.
+		</para>
+		 <para>
+			The tool uses markdown and xwiki syntax which is familiar and very easy to pick-up. No complex wiki style syntax or complex formatting needed to get a good looking report or document.
+		</para>
+		 <para>
+			Version 2.0.X allows users to create individual sites, categorize their reports/documents and share them with other users through a very simple publishing system.
+		</para>
+		 <para>
+			SpotLight can be configured to be a multi-tenant site similar to that of SharePoint(Microsoft)
+		</para>
+		 <para>
+			The tool is based on instiki wiki (Ruby on Rails - by creator: David Heinemeier Hansson), etherpad (by David Greenspan, Aaron Iba, and J.D. Zamfirescu) and Google Docs (by Google).
+		</para>
+	</chapter>
+	<chapter id="authentication">
+		<title>Authentication</title>
+		 <para>
+			Spotlight uses kerberos authentication if configured and or a standalone security role based system when kerberos is disabled. A special user and role administration system is built into SpotLight allowing an administrator to maintain users and sites.
+		</para>
+		 <para>
+			<emphasis role="strong">Program Access:</emphasis>
+		</para>
+		 <itemizedlist>
+			<listitem>
+				<para>
+					In the top right hand corner is a login option. You must first be granted a user account and security role before logging in.
+				</para>
+
+			</listitem>
+
+		</itemizedlist>
+		 <para>
+			<emphasis role="strong">User Access:</emphasis>
+		</para>
+		 <itemizedlist>
+			<listitem>
+				<para>
+					Kerberos authentication if configured
+				</para>
+
+			</listitem>
+			 <listitem>
+				<para>
+					Standalone security based on user roles and encrypted/salted passwords.
+				</para>
+
+			</listitem>
+			 <listitem>
+				<para>
+					A user will need to request access to a site via the site maintainer OR application administrator.
+				</para>
+
+			</listitem>
+
+		</itemizedlist>
+		 <section id="signing-in">
+			<title>Signing in</title>
+			 <orderedlist numeration="arabic">
+				<listitem>
+					<para>
+						Click the login option on the top right of the page
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						Enter you username and password. <!-- todo - provide screen shot  -->
+					</para>
+
+				</listitem>
+
+			</orderedlist>
+
+		</section>
+		
+		 <section id="signing-out">
+			<title>Signing out</title>
+			 <orderedlist numeration="arabic">
+				<listitem>
+					<para>
+						Logout by clicking the <emphasis role="strong">Logout</emphasis> link on the top right of the page.
+					</para>
+
+				</listitem>
+
+			</orderedlist>
+			 <note>
+				<para>
+					A remember me option is provided for when you login. The <emphasis>remember me</emphasis> checkbox option will last for 48 hours before expiring, from which you will have to log in again
+				</para>
+			</note>
+
+		</section>
+
+	</chapter>
+	<chapter id="overview">
+		<title>Overview</title>
+		 <section id="landing-page">
+			<title>Landing Page</title>
+			 <para>
+				<emphasis role="strong">Target areas:</emphasis>
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						<emphasis role="strong">Home screen</emphasis> - provides information to a user on what sites/portfolios are available, who the contact is for the site and a brief description of the sites intention.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						<emphasis role="strong">Home screen web list</emphasis> - provides a list of unrestricted sites, some basic information and the last 5 published reports/documents for that site. The last 5 reports/documents are items which have been approved for public reading and are sorted by published date in descending order.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						<emphasis role="strong">Site Administration menu</emphasis> - provides the application administrator an administration interface for maintaining application security, users, security roles and several security configurations.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						<emphasis role="strong">Login, logout</emphasis> and user information.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						<emphasis role="strong">Help</emphasis> menu containing application bug requests, site contact details and user guides.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</section>
+		
+		 <section id="portfolios">
+			<title>Portfolios</title>
+			 <section id="create">
+				<title>Create</title>
+				 <para>
+					To create a portfolio you must have the security role of portfolio administrator. If you do not have this security role, request it from the application administrator. You will receive an email once this is done.
+				</para>
+				 <orderedlist numeration="arabic">
+					<listitem>
+						<para>
+							Click the <emphasis role="strong">New portfolio</emphasis> button in the menu navigation bar (red navigation bar)
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							You must provide some basic information at a minimum to save the portfolio. The create screen will prompt you, if you miss mandatory fields or do not meet the validation requirements. Fields which are mandatory will be highlighted red or have a green asterisks beside the field name
+						</para>
+
+					</listitem>
+
+				</orderedlist>
+
+			</section>
+			
+			 <section id="edit">
+				<title>Edit</title>
+				 <para>
+					Once you have created a portfolio you can edit the portfolio by viewing the portfolio and clicking the <emphasis role="strong">Edit Portfolio</emphasis> button in the menu navigation bar (red navigation bar)
+				</para>
+
+			</section>
+			
+			 <section id="deleteremove">
+				<title>Delete/Remove</title>
+				 <para>
+					If you need to delete or remove a portfolio there are 2 ways to achieve this
+				</para>
+				 <orderedlist numeration="arabic">
+					<listitem>
+						<para>
+							Choose the <emphasis role="strong">Edit Portfolio</emphasis> button in the menu navigation and scroll to the bottom of the page where you will find a <emphasis role="strong">Delete</emphasis> button. Click the <emphasis role="strong">Delete</emphasis> button to delete the portfolio.
+						</para>
+
+					</listitem>
+
+				</orderedlist>
+				 <warning>
+					<para>
+						By deleting a portfolio you are deleting all information associated with the portfolio. This includes all reports/documents you have built in the portfolio
+					</para>
+				</warning>
+				 <orderedlist numeration="arabic">
+					<listitem override="2">
+						<para>
+							Archive/Close the portfolio - If you wish to hide the portfolio and no longer wish to add in new reports/documents to the portfolio, an alternative way instead of deleting the portfolio is to simply set the <emphasis role="strong">Portfolio status</emphasis> to <emphasis role="strong">Closed</emphasis>. This will close off the portfolio, but retain all the reports/documents you may have produce under it.
+						</para>
+						 <itemizedlist>
+							<listitem>
+								<para>
+									No users will be able to see the portfolio or reports/documents
+								</para>
+
+							</listitem>
+							 <listitem>
+								<para>
+									The main index will hide the portfolio from users views.
+								</para>
+
+							</listitem>
+							 <listitem>
+								<para>
+									To re-activate the portfolio you must be the administrator of the portfolio or application administrator and edit the portfolio changing the the <emphasis role="strong">Portfolio status</emphasis> field to back to <emphasis role="strong">active</emphasis>.
+								</para>
+
+							</listitem>
+
+						</itemizedlist>
+
+					</listitem>
+
+				</orderedlist>
+
+			</section>
+			
+			 <section id="portfolio-profile-page">
+				<title>Portfolio profile page</title>
+				 <para>
+					The portfolio home page displays several areas for a user involved with the portfolio to work with.
+				</para>
+				 <para>
+					Portfolio meta data at the top of the page.
+				</para>
+				 <para>
+					Publication and template tools:
+				</para>
+				 <orderedlist numeration="arabic">
+					<listitem>
+						<para>
+							<emphasis role="strong">Publications</emphasis> - Add a publication button.
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Email Templates</emphasis> - create email templates for portfolio users to utilize if sending the publications as emails to users.
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Publication Templates</emphasis> - create templates for users to insert into new publications. This will allow users new to portfolio to follow layout guidelines
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Unpublished publications</emphasis> - quickly display all unpublished publications in a table
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Search fields</emphasis> for the the publication listing table at the bottom of the page. The search field allows a user to search any information contained in a publication and have the table instantly update to display relevant publications according to the search being performed.
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Publication table</emphasis> - a sortable table of all publications under that portfolio.
+						</para>
+
+					</listitem>
+					 <listitem>
+						<para>
+							<emphasis role="strong">Pagination</emphasis> - allows a user to scroll through all publications of that portfolio.
+						</para>
+
+					</listitem>
+
+				</orderedlist>
+
+			</section>
+			
+
+		</section>
+		
+		 <section id="publications">
+			<title>Publications</title>
+			 <para>
+				Reports and documents are known as publications in SpotLight. Publications are attached to a portfolio or site and can be shared to other users.
+			</para>
+			 <para>
+				When creating a new publication a special edit screen is presented to you. The reports take plain text or use markdown to format the publications. A list of markdown syntax available is accessible from a markdown help screen while editing the publication.
+			</para>
+			 <section id="create-1">
+				<title>Create</title>
+				 <para>
+					To create a publication you need to be granted access to the site by the portfolio administrator. Once granted access enter the portfolio from the home screen, from the portfolio profile screen, you will find a drop down button labeled <emphasis role="strong">Publications</emphasis>, click this and then click <emphasis role="strong">Add new Publication</emphasis>. A new page will open showing a grey publication toolbar from which you can start writing your publication.
+				</para>
+
+			</section>
+			
+			 <section id="edit-1">
+				<title>Edit</title>
+				 <para>
+					To edit your publication enter your portfolio where you created the publication, find your publication from the publication table, click the publication name and then click the <emphasis role="strong">edit</emphasis> menu in the grey publication toolbar.
+				</para>
+
+			</section>
+			
+			 <section id="deleteremove-1">
+				<title>Delete/Remove</title>
+				 <para>
+					To delete or remove a publication, find your publication from the portfolio site, click its name, and click the <emphasis role="strong">delete</emphasis> menu in the grey publication toolbar.
+				</para>
+				 <para>
+					Alternatively you can while editing a publication also choose to delete while editing using the same <emphasis role="strong">delete</emphasis> menu in the grey publication toolbar.
+				</para>
+				 <para>
+					<ulink url="images/edit-delete-option-toolbar.png">Larger Image</ulink>
+				</para>
+				 <figure>
+					<title>Grey publication tool bar with delete option</title>
+					 <mediaobject>
+						<imageobject>
+							<imagedata fileref="images/edit-delete-option-toolbar.png" width="444" />
+						</imageobject>
+						 <textobject>
+							<phrase>Grey publication tool bar with delete option</phrase>
+						</textobject>
+
+					</mediaobject>
+
+				</figure>
+
+			</section>
+			
+			 <section id="publishing-a-publication">
+				<title>Publishing a publication</title>
+				 <para>
+					In order to publish a publication, you will need the security role of <emphasis>Publisher</emphasis>. If you do not have this security role please request it from your portfolio administrator or the application administrator.
+				</para>
+				 <para>
+					If you do not have publishing rights your will see a field which is read-only at the top of the publication.
+				</para>
+				 <para>
+					<ulink url="images/readonlypublishingrights.png">Larger Image</ulink>
+				</para>
+				 <figure>
+					<title>Ready-only publishing rights</title>
+					 <mediaobject>
+						<imageobject>
+							<imagedata fileref="images/readonlypublishingrights.png" width="444" />
+						</imageobject>
+						 <textobject>
+							<phrase>Ready-only publishing rights</phrase>
+						</textobject>
+
+					</mediaobject>
+
+				</figure>
+				 <para>
+					If you do have publishing rights, then a select list will be available to you from which you can set the <emphasis>Ready for publishing</emphasis> flag to <emphasis role="strong">Yes</emphasis>.
+				</para>
+				 <para>
+					This will allow users outside of the portfolio to read your publication if the site is not restricted.
+				</para>
+
+			</section>
+			
+			 <section id="publication-tool-bar">
+				<title>Publication tool bar</title>
+				 <para>
+					There are several options for a user while working with publications which can be accessed from the grey publication toolbar.
+				</para>
+				 <section id="options-for-a-publication-in-read-mode">
+					<title>Options for a publication in read mode</title>
+					 <orderedlist numeration="arabic">
+						<listitem>
+							<para>
+								<emphasis role="strong">Edit or delete</emphasis> the publication if you have permission.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Markdown user guide</emphasis> - become familiar with SpotLight's writing syntax.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Export the publication</emphasis> to the following formats - PDF, HTML, XML, ODT, CVS, Text
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Send a message</emphasis> - send a message to the portfolio users
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Leave a comment</emphasis> - leave a comment for the publication. The authors of the report and portfolio administrator will receive an email once a user leaves a comment.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Email the publication</emphasis> if you have permission to send an email. The email publication will ask for sender and receiver details.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">History/Diff</emphasis> - view the revision history and difference in the versions of the publication.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Clone publication</emphasis> - if you have permission you can clone the publication the publication into a new publication and start editing.
+							</para>
+
+						</listitem>
+
+					</orderedlist>
+					 <figure>
+						<title>Grey toolbar in read mode</title>
+						 <mediaobject>
+							<imageobject>
+								<imagedata fileref="images/greytoolbar-show.png" width="444" />
+							</imageobject>
+							 <textobject>
+								<phrase>Grey toolbar in read mode</phrase>
+							</textobject>
+
+						</mediaobject>
+
+					</figure>
+					 <para>
+						In read mode a user can read the following meta data;
+					</para>
+					 
+<programlisting>
+Publication Id
+Publication name
+Is Published
+Publication emailed
+Product 
+Authors 
+Date published 
+Date created 
+Last updated
+</programlisting>
+
+				</section>
+				
+				 <section id="options-for-a-publication-in-edit-mode">
+					<title>Options for a publication in edit mode</title>
+					 <para>
+						The options in edit mode are slightly different to reading mode.
+					</para>
+					 <orderedlist numeration="arabic">
+						<listitem>
+							<para>
+								<emphasis role="strong">Update or delete</emphasis> the publication if you have permission
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Markdown user guide</emphasis> - become familiar with SpotLight's writing syntax.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Insert a chart</emphasis> - allows a user to insert basic charts such as pie, bar and line charts. The user will need to provide data for the chart in the friendly interface provide. To see more information read section <emphasis>Charting in a publication</emphasis>.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Upload an image</emphasis> - use the menu path or the drag and drop image uploader.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Upload an attachment</emphasis> - currently disabled.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Send team message</emphasis> - send a message to the authors and publishers about that particular publication.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Preview the publication</emphasis> before saving to review formatting.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Turn live preview</emphasis> on or off.
+							</para>
+
+						</listitem>
+						 <listitem>
+							<para>
+								<emphasis role="strong">Insert template</emphasis> - a predefined template to the content area of publication.
+							</para>
+
+						</listitem>
+
+					</orderedlist>
+					 <figure>
+						<title>Grey toolbar in edit mode</title>
+						 <mediaobject>
+							<imageobject>
+								<imagedata fileref="images/greytoolbar-edit.png" width="444" />
+							</imageobject>
+							 <textobject>
+								<phrase>Grey toolbar in edit mode</phrase>
+							</textobject>
+
+						</mediaobject>
+
+					</figure>
+
+				</section>
+				
+
+			</section>
+			
+			 <section id="collaborative-editing">
+				<title>Collaborative editing</title>
+				 <para>
+					Currently the etherpad style collaborative editing is disable until we can fix a bug in EAP6.
+				</para>
+				 <para>
+					We will aim for a version 3 release of the etherpad style multiple user editing.
+				</para>
+
+			</section>
+			
+
+		</section>
+		
+		 <section id="restful-interface">
+			<title>RESTful Interface</title>
+			 <para>
+				Currently the restful xmprpc and json interface only allow get requests.
+			</para>
+			 <para>
+				Instructions on using SpotLight rest interface in SpotLight's RESTful user guide.
+			</para>
+			 <!--  todo update user instructions for rest interface  --> <para>
+				Version 3 will allow put requests.
+			</para>
+
+		</section>
+		
+		 <section id="customization">
+			<title>Customization</title>
+			 <para>
+				Version 2.0 does not allow customizations at this point. Version 3.0 will allow basic scripting using java, scala, groovy and python.
+			</para>
+
+		</section>
+
+	</chapter>
+	<chapter id="administration">
+		<title>Administration</title>
+		 <para>
+			See the Administration Guide.
+		</para>
+	</chapter>
+	<chapter id="appendix">
+		<title>Appendix</title>
+		 <itemizedlist>
+			<listitem>
+				<para>
+					REST xmlRPC API details.
+				</para>
+
+			</listitem>
+			 <listitem>
+				<para>
+					Administration Guide.
+				</para>
+
+			</listitem>
+
+		</itemizedlist>
+	</chapter>
+	 <xi:include href="FAQ.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	 <xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+</book>
+

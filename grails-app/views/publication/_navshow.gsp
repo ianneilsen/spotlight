@@ -1,4 +1,3 @@
-<!-- top menu path for edit and delete of docs TODO move into partial inner menu.-->
 <!-----show menus ----------------------------->
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
@@ -36,7 +35,7 @@
          <g:hiddenField name="publicationid" value="${publicationInstance?.id}"/>
         <g:link action="exportToDocbook" name="exporttodocbook" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
        %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
-                                           <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>
+       %{-- <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>--}%
         <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf"data-toggle="modal">Export to PDF</a>
         <a href="../show?format=html&extension=html"data-toggle="modal">Export to HTML</a>
         <a href="../show/${publicationInstance?.id}?format=xml&extension=xml"  data-toggle="modal">Export to XML</a>

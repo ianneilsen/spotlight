@@ -1,7 +1,7 @@
 <%@ page import="spotlight.content.Publication" %>
 <!-- weblist partial showing list of reporting sites and last 5 reports ordered by published date in asc order-->
 
-<div class="alert alert-info" >Permissions apply to <strong>editing</strong> publications. | Click portfolio name or choose from the last five published reports under the portfolio heading.</div>
+<div class="alert alert-info" >Permissions apply to <strong>editing</strong> portfolios and publications. | Click the portfolio name or choose from the last five published reports under the portfolio heading.</div>
 
 <div class="property-list portfolio">
 

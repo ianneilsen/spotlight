@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>User Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css" /><link rel="stylesheet" media="print" href="Common_Content/css/print.css" type="text/css" /><meta name="generator" content="publican 2.8" /><meta name="package" content="SpotLight-User_Guide-2.0-en-US-1-0" /><meta name="description" content="The User Guide is used to document the product access requirements, features and operations." /></head><body><p id="title"><a class="left" href="http://www.redhat.com"><img src="Common_Content/images/image_left.png" alt="Product Site" /></a><a class="right" href="http://documentation-stage.bne.redhat.com"><img src="Common_Content/images/image_right.png" alt="Documentation Site" /></a></p><div xml:lang="en-US" class="book" id="idm5492064" lang="en-US"><div class="titlepage"><div><div class="producttitle"><span class="productname">SpotLight</span> <span class="productnumber">2.0</span></div><div><h1 id="idm5492064" class="title">User Guide</h1></div><div><h2 class="subtitle">Hosted &amp; Shared Services</h2></div><p class="edition">Edition 1</p><div><h3 class="corpauthor">
+		<span class="inlinemediaobject"><object data="Common_Content/images/title_logo.svg" type="image/svg+xml"> </object></span>
+
+	</h3></div><div><div xml:lang="en-US" class="authorgroup" lang="en-US"><div class="author"><h3 class="author"><span class="firstname">Ian</span> <span class="surname">Neilsen</span></h3><div class="affiliation"><span class="orgname">Red Hat</span> <span class="orgdiv">Hosted and Shared Services</span></div><code class="email"><a class="email" href="mailto:ineilsen@redhat.com.">ineilsen@redhat.com.</a></code></div></div></div><hr /><div><div id="idp26279776" class="legalnotice"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"></span>© 2013 Red Hat, Inc.
+	</div><div class="para">
+		All rights reserved.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, JBoss, MetaMatrix, Fedora, the Infinity Logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div><div class="para">
+		
+<div class="address"><p><br />
+			<span class="street">1801 Varsity Drive</span><br />
+			 <span class="city">Raleigh</span>, <span class="state">NC</span> <span class="postcode">27606-2072</span> <span class="country">USA</span><br />
+			 <span class="phone">Phone: +1 919 754 3700</span><br />
+			 <span class="phone">Phone: 888 733 4281</span><br />
+			 <span class="fax">Fax: +1 919 754 3701</span><br />
+			 <span class="pob">PO Box 13588</span> <span class="city">Research Triangle Park</span>, <span class="state">NC</span> <span class="postcode">27709</span> <span class="country">USA</span><br />
+<br />
+</p></div>
+
+	</div></div></div><div><div class="abstract"><h6>Abstract</h6><div class="para">
+			The User Guide is used to document the product access requirements, features and operations.
+		</div></div></div></div><hr /></div><div class="toc"><dl><dt><span class="chapter"><a href="#introduction">1. Introduction</a></span></dt><dt><span class="chapter"><a href="#authentication">2. Authentication</a></span></dt><dd><dl><dt><span class="section"><a href="#signing-in">2.1. Signing in</a></span></dt><dt><span class="section"><a href="#signing-out">2.2. Signing out</a></span></dt></dl></dd><dt><span class="chapter"><a href="#overview">3. Overview</a></span></dt><dd><dl><dt><span class="section"><a href="#landing-page">3.1. Landing Page</a></span></dt><dt><span class="section"><a href="#portfolios">3.2. Portfolios</a></span></dt><dd><dl><dt><span class="section"><a href="#create">3.2.1. Create</a></span></dt><dt><span class="section"><a href="#edit">3.2.2. Edit</a></span></dt><dt><span class="section"><a href="#deleteremove">3.2.3. Delete/Remove</a></span></dt><dt><span class="section"><a href="#portfolio-profile-page">3.2.4. Portfolio profile page</a></span></dt></dl></dd><dt><span class="section"><a href="#publications">3.3. Publications</a></span></dt><dd><dl><dt><span class="section"><a href="#create-1">3.3.1. Create</a></span></dt><dt><span class="section"><a href="#edit-1">3.3.2. Edit</a></span></dt><dt><span class="section"><a href="#deleteremove-1">3.3.3. Delete/Remove</a></span></dt><dt><span class="section"><a href="#publishing-a-publication">3.3.4. Publishing a publication</a></span></dt><dt><span class="section"><a href="#publication-tool-bar">3.3.5. Publication tool bar</a></span></dt><dt><span class="section"><a href="#collaborative-editing">3.3.6. Collaborative editing</a></span></dt></dl></dd><dt><span class="section"><a href="#restful-interface">3.4. RESTful Interface</a></span></dt><dt><span class="section"><a href="#customization">3.5. Customization</a></span></dt></dl></dd><dt><span class="chapter"><a href="#administration">4. Administration</a></span></dt><dt><span class="chapter"><a href="#appendix">5. Appendix</a></span></dt><dt><span class="chapter"><a href="#chap-User_Guide-Frequently_Asked_Questions">6. Frequently Asked Questions</a></span></dt><dt><span class="appendix"><a href="#appe-Revision_History">A. Revision History</a></span></dt></dl></div><div class="chapter" id="introduction"><div class="titlepage"><div><div><h2 class="title">Chapter 1. Introduction</h2></div></div></div><div class="para">
+			SpotLight is a tool which allows users and groups of users to collaborate and publish documents or reports to readers. The tool aims to be a specific online writing tool and archive mechanism away from other styles of blogging or wiki based applications.
+		</div><div class="para">
+			The tool uses markdown and xwiki syntax which is familiar and very easy to pick-up. No complex wiki style syntax or complex formatting needed to get a good looking report or document.
+		</div><div class="para">
+			Version 2.0.X allows users to create individual sites, categorize their reports/documents and share them with other users through a very simple publishing system.
+		</div><div class="para">
+			SpotLight can be configured to be a multi-tenant site similar to that of SharePoint(Microsoft)
+		</div><div class="para">
+			The tool is based on instiki wiki (Ruby on Rails - by creator: David Heinemeier Hansson), etherpad (by David Greenspan, Aaron Iba, and J.D. Zamfirescu) and Google Docs (by Google).
+		</div></div><div class="chapter" id="authentication"><div class="titlepage"><div><div><h2 class="title">Chapter 2. Authentication</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="#signing-in">2.1. Signing in</a></span></dt><dt><span class="section"><a href="#signing-out">2.2. Signing out</a></span></dt></dl></div><div class="para">
+			Spotlight uses kerberos authentication if configured and or a standalone security role based system when kerberos is disabled. A special user and role administration system is built into SpotLight allowing an administrator to maintain users and sites.
+		</div><div class="para">
+			<span class="strong strong"><strong>Program Access:</strong></span>
+		</div><div class="itemizedlist"><ul><li class="listitem"><div class="para">
+					In the top right hand corner is a login option. You must first be granted a user account and security role before logging in.
+				</div></li></ul></div><div class="para">
+			<span class="strong strong"><strong>User Access:</strong></span>
+		</div><div class="itemizedlist"><ul><li class="listitem"><div class="para">
+					Kerberos authentication if configured
+				</div></li><li class="listitem"><div class="para">
+					Standalone security based on user roles and encrypted/salted passwords.
+				</div></li><li class="listitem"><div class="para">
+					A user will need to request access to a site via the site maintainer OR application administrator.
+				</div></li></ul></div><div class="section" id="signing-in"><div class="titlepage"><div><div><h2 class="title" id="signing-in">2.1. Signing in</h2></div></div></div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+						Click the login option on the top right of the page
+					</div></li><li class="listitem"><div class="para">
+						Enter you username and password. 
+					</div></li></ol></div></div><div class="section" id="signing-out"><div class="titlepage"><div><div><h2 class="title" id="signing-out">2.2. Signing out</h2></div></div></div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+						Logout by clicking the <span class="strong strong"><strong>Logout</strong></span> link on the top right of the page.
+					</div></li></ol></div><div class="note"><div class="admonition_header"><h2>Note</h2></div><div class="admonition"><div class="para">
+					A remember me option is provided for when you login. The <span class="emphasis"><em>remember me</em></span> checkbox option will last for 48 hours before expiring, from which you will have to log in again
+				</div></div></div></div></div><div class="chapter" id="overview"><div class="titlepage"><div><div><h2 class="title">Chapter 3. Overview</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="#landing-page">3.1. Landing Page</a></span></dt><dt><span class="section"><a href="#portfolios">3.2. Portfolios</a></span></dt><dd><dl><dt><span class="section"><a href="#create">3.2.1. Create</a></span></dt><dt><span class="section"><a href="#edit">3.2.2. Edit</a></span></dt><dt><span class="section"><a href="#deleteremove">3.2.3. Delete/Remove</a></span></dt><dt><span class="section"><a href="#portfolio-profile-page">3.2.4. Portfolio profile page</a></span></dt></dl></dd><dt><span class="section"><a href="#publications">3.3. Publications</a></span></dt><dd><dl><dt><span class="section"><a href="#create-1">3.3.1. Create</a></span></dt><dt><span class="section"><a href="#edit-1">3.3.2. Edit</a></span></dt><dt><span class="section"><a href="#deleteremove-1">3.3.3. Delete/Remove</a></span></dt><dt><span class="section"><a href="#publishing-a-publication">3.3.4. Publishing a publication</a></span></dt><dt><span class="section"><a href="#publication-tool-bar">3.3.5. Publication tool bar</a></span></dt><dt><span class="section"><a href="#collaborative-editing">3.3.6. Collaborative editing</a></span></dt></dl></dd><dt><span class="section"><a href="#restful-interface">3.4. RESTful Interface</a></span></dt><dt><span class="section"><a href="#customization">3.5. Customization</a></span></dt></dl></div><div class="section" id="landing-page"><div class="titlepage"><div><div><h2 class="title" id="landing-page">3.1. Landing Page</h2></div></div></div><div class="para">
+				<span class="strong strong"><strong>Target areas:</strong></span>
+			</div><div class="itemizedlist"><ul><li class="listitem"><div class="para">
+						<span class="strong strong"><strong>Home screen</strong></span> - provides information to a user on what sites/portfolios are available, who the contact is for the site and a brief description of the sites intention.
+					</div></li><li class="listitem"><div class="para">
+						<span class="strong strong"><strong>Home screen web list</strong></span> - provides a list of unrestricted sites, some basic information and the last 5 published reports/documents for that site. The last 5 reports/documents are items which have been approved for public reading and are sorted by published date in descending order.
+					</div></li><li class="listitem"><div class="para">
+						<span class="strong strong"><strong>Site Administration menu</strong></span> - provides the application administrator an administration interface for maintaining application security, users, security roles and several security configurations.
+					</div></li><li class="listitem"><div class="para">
+						<span class="strong strong"><strong>Login, logout</strong></span> and user information.
+					</div></li><li class="listitem"><div class="para">
+						<span class="strong strong"><strong>Help</strong></span> menu containing application bug requests, site contact details and user guides.
+					</div></li></ul></div></div><div class="section" id="portfolios"><div class="titlepage"><div><div><h2 class="title" id="portfolios">3.2. Portfolios</h2></div></div></div><div class="section" id="create"><div class="titlepage"><div><div><h3 class="title" id="create">3.2.1. Create</h3></div></div></div><div class="para">
+					To create a portfolio you must have the security role of portfolio administrator. If you do not have this security role, request it from the application administrator. You will receive an email once this is done.
+				</div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+							Click the <span class="strong strong"><strong>New portfolio</strong></span> button in the menu navigation bar (red navigation bar)
+						</div></li><li class="listitem"><div class="para">
+							You must provide some basic information at a minimum to save the portfolio. The create screen will prompt you, if you miss mandatory fields or do not meet the validation requirements. Fields which are mandatory will be highlighted red or have a green asterisks beside the field name
+						</div></li></ol></div></div><div class="section" id="edit"><div class="titlepage"><div><div><h3 class="title" id="edit">3.2.2. Edit</h3></div></div></div><div class="para">
+					Once you have created a portfolio you can edit the portfolio by viewing the portfolio and clicking the <span class="strong strong"><strong>Edit Portfolio</strong></span> button in the menu navigation bar (red navigation bar)
+				</div></div><div class="section" id="deleteremove"><div class="titlepage"><div><div><h3 class="title" id="deleteremove">3.2.3. Delete/Remove</h3></div></div></div><div class="para">
+					If you need to delete or remove a portfolio there are 2 ways to achieve this
+				</div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+							Choose the <span class="strong strong"><strong>Edit Portfolio</strong></span> button in the menu navigation and scroll to the bottom of the page where you will find a <span class="strong strong"><strong>Delete</strong></span> button. Click the <span class="strong strong"><strong>Delete</strong></span> button to delete the portfolio.
+						</div></li></ol></div><div class="warning"><div class="admonition_header"><h2>Warning</h2></div><div class="admonition"><div class="para">
+						By deleting a portfolio you are deleting all information associated with the portfolio. This includes all reports/documents you have built in the portfolio
+					</div></div></div><div class="orderedlist"><ol class="arabic"><li class="listitem" value="2"><div class="para">
+							Archive/Close the portfolio - If you wish to hide the portfolio and no longer wish to add in new reports/documents to the portfolio, an alternative way instead of deleting the portfolio is to simply set the <span class="strong strong"><strong>Portfolio status</strong></span> to <span class="strong strong"><strong>Closed</strong></span>. This will close off the portfolio, but retain all the reports/documents you may have produce under it.
+						</div><div class="itemizedlist"><ul><li class="listitem"><div class="para">
+									No users will be able to see the portfolio or reports/documents
+								</div></li><li class="listitem"><div class="para">
+									The main index will hide the portfolio from users views.
+								</div></li><li class="listitem"><div class="para">
+									To re-activate the portfolio you must be the administrator of the portfolio or application administrator and edit the portfolio changing the the <span class="strong strong"><strong>Portfolio status</strong></span> field to back to <span class="strong strong"><strong>active</strong></span>.
+								</div></li></ul></div></li></ol></div></div><div class="section" id="portfolio-profile-page"><div class="titlepage"><div><div><h3 class="title" id="portfolio-profile-page">3.2.4. Portfolio profile page</h3></div></div></div><div class="para">
+					The portfolio home page displays several areas for a user involved with the portfolio to work with.
+				</div><div class="para">
+					Portfolio meta data at the top of the page.
+				</div><div class="para">
+					Publication and template tools:
+				</div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Publications</strong></span> - Add a publication button.
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Email Templates</strong></span> - create email templates for portfolio users to utilize if sending the publications as emails to users.
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Publication Templates</strong></span> - create templates for users to insert into new publications. This will allow users new to portfolio to follow layout guidelines
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Unpublished publications</strong></span> - quickly display all unpublished publications in a table
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Search fields</strong></span> for the the publication listing table at the bottom of the page. The search field allows a user to search any information contained in a publication and have the table instantly update to display relevant publications according to the search being performed.
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Publication table</strong></span> - a sortable table of all publications under that portfolio.
+						</div></li><li class="listitem"><div class="para">
+							<span class="strong strong"><strong>Pagination</strong></span> - allows a user to scroll through all publications of that portfolio.
+						</div></li></ol></div></div></div><div class="section" id="publications"><div class="titlepage"><div><div><h2 class="title" id="publications">3.3. Publications</h2></div></div></div><div class="para">
+				Reports and documents are known as publications in SpotLight. Publications are attached to a portfolio or site and can be shared to other users.
+			</div><div class="para">
+				When creating a new publication a special edit screen is presented to you. The reports take plain text or use markdown to format the publications. A list of markdown syntax available is accessible from a markdown help screen while editing the publication.
+			</div><div class="section" id="create-1"><div class="titlepage"><div><div><h3 class="title" id="create-1">3.3.1. Create</h3></div></div></div><div class="para">
+					To create a publication you need to be granted access to the site by the portfolio administrator. Once granted access enter the portfolio from the home screen, from the portfolio profile screen, you will find a drop down button labeled <span class="strong strong"><strong>Publications</strong></span>, click this and then click <span class="strong strong"><strong>Add new Publication</strong></span>. A new page will open showing a grey publication toolbar from which you can start writing your publication.
+				</div></div><div class="section" id="edit-1"><div class="titlepage"><div><div><h3 class="title" id="edit-1">3.3.2. Edit</h3></div></div></div><div class="para">
+					To edit your publication enter your portfolio where you created the publication, find your publication from the publication table, click the publication name and then click the <span class="strong strong"><strong>edit</strong></span> menu in the grey publication toolbar.
+				</div></div><div class="section" id="deleteremove-1"><div class="titlepage"><div><div><h3 class="title" id="deleteremove-1">3.3.3. Delete/Remove</h3></div></div></div><div class="para">
+					To delete or remove a publication, find your publication from the portfolio site, click its name, and click the <span class="strong strong"><strong>delete</strong></span> menu in the grey publication toolbar.
+				</div><div class="para">
+					Alternatively you can while editing a publication also choose to delete while editing using the same <span class="strong strong"><strong>delete</strong></span> menu in the grey publication toolbar.
+				</div><div class="para">
+					<a href="images/edit-delete-option-toolbar.png">Larger Image</a>
+				</div><div class="figure"><div class="figure-contents"><div class="mediaobject"><img src="images/edit-delete-option-toolbar.png" width="444" alt="Grey publication tool bar with delete option" /></div></div><h6>Figure 3.1. Grey publication tool bar with delete option</h6></div><br class="figure-break" /></div><div class="section" id="publishing-a-publication"><div class="titlepage"><div><div><h3 class="title" id="publishing-a-publication">3.3.4. Publishing a publication</h3></div></div></div><div class="para">
+					In order to publish a publication, you will need the security role of <span class="emphasis"><em>Publisher</em></span>. If you do not have this security role please request it from your portfolio administrator or the application administrator.
+				</div><div class="para">
+					If you do not have publishing rights your will see a field which is read-only at the top of the publication.
+				</div><div class="para">
+					<a href="images/readonlypublishingrights.png">Larger Image</a>
+				</div><div class="figure"><div class="figure-contents"><div class="mediaobject"><img src="images/readonlypublishingrights.png" width="444" alt="Ready-only publishing rights" /></div></div><h6>Figure 3.2. Ready-only publishing rights</h6></div><br class="figure-break" /><div class="para">
+					If you do have publishing rights, then a select list will be available to you from which you can set the <span class="emphasis"><em>Ready for publishing</em></span> flag to <span class="strong strong"><strong>Yes</strong></span>.
+				</div><div class="para">
+					This will allow users outside of the portfolio to read your publication if the site is not restricted.
+				</div></div><div class="section" id="publication-tool-bar"><div class="titlepage"><div><div><h3 class="title" id="publication-tool-bar">3.3.5. Publication tool bar</h3></div></div></div><div class="para">
+					There are several options for a user while working with publications which can be accessed from the grey publication toolbar.
+				</div><div class="section" id="options-for-a-publication-in-read-mode"><div class="titlepage"><div><div><h4 class="title" id="options-for-a-publication-in-read-mode">3.3.5.1. Options for a publication in read mode</h4></div></div></div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Edit or delete</strong></span> the publication if you have permission.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Markdown user guide</strong></span> - become familiar with SpotLight's writing syntax.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Export the publication</strong></span> to the following formats - PDF, HTML, XML, ODT, CVS, Text
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Send a message</strong></span> - send a message to the portfolio users
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Leave a comment</strong></span> - leave a comment for the publication. The authors of the report and portfolio administrator will receive an email once a user leaves a comment.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Email the publication</strong></span> if you have permission to send an email. The email publication will ask for sender and receiver details.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>History/Diff</strong></span> - view the revision history and difference in the versions of the publication.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Clone publication</strong></span> - if you have permission you can clone the publication the publication into a new publication and start editing.
+							</div></li></ol></div><div class="figure"><div class="figure-contents"><div class="mediaobject"><img src="images/greytoolbar-show.png" width="444" alt="Grey toolbar in read mode" /></div></div><h6>Figure 3.3. Grey toolbar in read mode</h6></div><br class="figure-break" /><div class="para">
+						In read mode a user can read the following meta data;
+					</div><pre class="programlisting">
+Publication Id
+Publication name
+Is Published
+Publication emailed
+Product 
+Authors 
+Date published 
+Date created 
+Last updated
+</pre></div><div class="section" id="options-for-a-publication-in-edit-mode"><div class="titlepage"><div><div><h4 class="title" id="options-for-a-publication-in-edit-mode">3.3.5.2. Options for a publication in edit mode</h4></div></div></div><div class="para">
+						The options in edit mode are slightly different to reading mode.
+					</div><div class="orderedlist"><ol class="arabic"><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Update or delete</strong></span> the publication if you have permission
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Markdown user guide</strong></span> - become familiar with SpotLight's writing syntax.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Insert a chart</strong></span> - allows a user to insert basic charts such as pie, bar and line charts. The user will need to provide data for the chart in the friendly interface provide. To see more information read section <span class="emphasis"><em>Charting in a publication</em></span>.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Upload an image</strong></span> - use the menu path or the drag and drop image uploader.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Upload an attachment</strong></span> - currently disabled.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Send team message</strong></span> - send a message to the authors and publishers about that particular publication.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Preview the publication</strong></span> before saving to review formatting.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Turn live preview</strong></span> on or off.
+							</div></li><li class="listitem"><div class="para">
+								<span class="strong strong"><strong>Insert template</strong></span> - a predefined template to the content area of publication.
+							</div></li></ol></div><div class="figure"><div class="figure-contents"><div class="mediaobject"><img src="images/greytoolbar-edit.png" width="444" alt="Grey toolbar in edit mode" /></div></div><h6>Figure 3.4. Grey toolbar in edit mode</h6></div><br class="figure-break" /></div></div><div class="section" id="collaborative-editing"><div class="titlepage"><div><div><h3 class="title" id="collaborative-editing">3.3.6. Collaborative editing</h3></div></div></div><div class="para">
+					Currently the etherpad style collaborative editing is disable until we can fix a bug in EAP6.
+				</div><div class="para">
+					We will aim for a version 3 release of the etherpad style multiple user editing.
+				</div></div></div><div class="section" id="restful-interface"><div class="titlepage"><div><div><h2 class="title" id="restful-interface">3.4. RESTful Interface</h2></div></div></div><div class="para">
+				Currently the restful xmprpc and json interface only allow get requests.
+			</div><div class="para">
+				Instructions on using SpotLight rest interface in SpotLight's RESTful user guide.
+			</div><div class="para">
+				Version 3 will allow put requests.
+			</div></div><div class="section" id="customization"><div class="titlepage"><div><div><h2 class="title" id="customization">3.5. Customization</h2></div></div></div><div class="para">
+				Version 2.0 does not allow customizations at this point. Version 3.0 will allow basic scripting using java, scala, groovy and python.
+			</div></div></div><div class="chapter" id="administration"><div class="titlepage"><div><div><h2 class="title">Chapter 4. Administration</h2></div></div></div><div class="para">
+			See the Administration Guide.
+		</div></div><div class="chapter" id="appendix"><div class="titlepage"><div><div><h2 class="title">Chapter 5. Appendix</h2></div></div></div><div class="itemizedlist"><ul><li class="listitem"><div class="para">
+					REST xmlRPC API details.
+				</div></li><li class="listitem"><div class="para">
+					Administration Guide.
+				</div></li></ul></div></div><div xml:lang="en-US" class="chapter" id="chap-User_Guide-Frequently_Asked_Questions" lang="en-US"><div class="titlepage"><div><div><h2 class="title">Chapter 6. Frequently Asked Questions</h2></div></div></div><div class="qandaset"><dl><dt>Q: <a href="#idp22622992">
+					Is the SpotLight tool replacing the reporttool on RAP's dart server?
+				</a></dt><dt>Q: <a href="#idp26298096">
+					Is the new tool easier to use and offer more features?
+				</a></dt><dt>Q: <a href="#idp24309632">
+					Why not use docspace or the corp wordpress site?
+				</a></dt></dl><div class="qandaset"><div id="idp22622992" class="qandaentry"><div class="question"><label>Q:</label><div class="data"><div class="para">
+					Is the SpotLight tool replacing the reporttool on RAP's dart server?
+				</div></div></div><div class="answer"><label>A:</label><div class="data"><div class="para">
+					Yes it is.
+				</div></div></div></div><div id="idp26298096" class="qandaentry"><div class="question"><label>Q:</label><div class="data"><div class="para">
+					Is the new tool easier to use and offer more features?
+				</div></div></div><div class="answer"><label>A:</label><div class="data"><div class="para">
+					Yes the new tool has been designed to be more intuitive and offer many new features which weren't present in the old tool.
+				</div></div></div></div><div id="idp24309632" class="qandaentry"><div class="question"><label>Q:</label><div class="data"><div class="para">
+					Why not use docspace or the corp wordpress site?
+				</div></div></div><div class="answer"><label>A:</label><div class="data"><div class="para">
+					Docspace didnt fit our need of a true collaborative environment and did not met our publishing workflow. WordPress if anyone has worked with it will attest to it taking time to get the correct workflows happening. We decided that it would be more cost effective to write our own tool than to hack WordPress.
+				</div></div></div></div></div></div></div><div xml:lang="en-US" class="appendix" id="appe-Revision_History" lang="en-US"><div class="titlepage"><div><div><h1 class="title">Revision History</h1></div></div></div><div class="para">
+		<div class="revhistory"><table border="0" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><strong>Revision History</strong></th></tr><tr><td align="left">Revision 2.0-0</td><td align="left">Fri Feb 15 2013</td><td align="left"><span class="author"><span class="firstname">Ian</span> <span class="surname">Neilsen</span></span></td></tr><tr><td align="left" colspan="3">
+					<table border="0" summary="Simple list" class="simplelist"><tr><td>Initial creation of 2.0 user guide.</td></tr></table>
+
+				</td></tr></table></div>
+
+	</div></div></div><h1 class="confidential">RED HAT CONFIDENTIAL</h1></body></html>

@@ -1,0 +1,236 @@
+<!-- vim: set filetype=markdown : -->
+
+# Introduction
+
+SpotLight is a tool which allows users and groups of users to collaborate and publish documents or reports to readers. The tool aims to be a specific online writing tool and archive mechanism away from other styles of blogging or wiki based applications.
+
+The tool uses markdown and xwiki syntax which is familiar and very easy to pick-up. No complex wiki style syntax or complex formatting needed to get a good looking report or document.
+
+Version 2.0.X allows users to create individual sites, categorize their reports/documents and share them with other users through a very simple publishing system.
+
+SpotLight can be configured to be a multi-tenant site similar to that of SharePoint(Microsoft)
+
+The tool is based on instiki wiki (Ruby on Rails - by creator: David Heinemeier Hansson), etherpad (by David Greenspan, Aaron Iba, and J.D. Zamfirescu) and Google Docs (by Google).
+
+
+# Authentication
+
+Spotlight uses kerberos authentication if configured and or a standalone security role based system when kerberos is disabled.
+A special user and role administration system is built into SpotLight allowing an administrator to maintain users and sites.
+
+**Program Access:**
+
+* In the top right hand corner is a login option. You must first be granted a user account and security role before logging in.
+
+
+**User Access:**
+
+* Kerberos authentication if configured
+* Standalone security based on user roles and encrypted/salted passwords.
+* A user will need to request access to a site via the site maintainer OR application administrator.
+
+
+## Signing in
+
+1. Click the login option on the top right of the page 
+2. Enter you username and password.
+<!--todo - provide screen shot -->
+
+## Signing out
+
+1. Logout by clicking the **Logout** link on the top right of the page.
+
+__NOTE
+A remember me option is provided for when you login. The *remember me* checkbox option will last for 48 hours before expiring, from which you will have to log in again
+NOTE__
+
+
+# Overview
+
+Landing Page
+--------------
+
+
+**Target areas:**
+ 
++ **Home screen** - provides information to a user on what sites/portfolios are available, who the contact is for the site and a brief description of the sites intention.
++ **Home screen web list** - provides a list of unrestricted sites, some basic information and the last 5 published reports/documents for that site. The last 5 reports/documents are items which have been approved for public reading and are sorted by published date in descending order.
++ **Site Administration menu** - provides the application administrator an administration interface for maintaining application security, users, security roles and several security configurations.
++ **Login, logout** and user information.
++ **Help** menu containing application bug requests, site contact details and user guides.
+
+
+Portfolios
+-------------
+
+### Create 
+
+To create a portfolio you must have the security role of portfolio administrator. If you do not have this security role, request it from the application administrator. You will receive an email once this is done.
+
+1. Click the **New portfolio** button in the menu navigation bar (red navigation bar)
+2. You must provide some basic information at a minimum to save the portfolio. The create screen will prompt you, if you miss mandatory fields or do not meet the validation requirements. Fields which are mandatory will be highlighted red or have a green asterisks beside the field name
+
+
+### Edit
+
+Once you have created a portfolio you can edit the portfolio by viewing the portfolio and clicking the **Edit Portfolio** button in the menu navigation bar (red navigation bar)
+
+
+### Delete/Remove
+
+If you need to delete or remove a portfolio there are 2 ways to achieve this
+
+1. Choose the **Edit Portfolio** button in the menu navigation and scroll to the bottom of the page where you will find a **Delete** button. Click the **Delete** button to delete the portfolio.
+
+__WARNING
+By deleting a portfolio you are deleting all information associated with the portfolio. This includes all reports/documents you have built in the portfolio
+WARNING__
+
+2. Archive/Close the portfolio - If you wish to hide the portfolio and no longer wish to add in new reports/documents to the portfolio, an alternative way instead of deleting the portfolio is to simply set the **Portfolio status** to **Closed**. This will close off the portfolio, but retain all the reports/documents you may have produce under it. 
+    + No users will be able to see the portfolio or reports/documents
+    + The main index will hide the portfolio from users views.
+    + To re-activate the portfolio you must be the administrator of the portfolio or application administrator and edit the portfolio changing the the **Portfolio status** field to back to **active**.
+
+### Portfolio profile page
+
+The portfolio home page displays several areas for a user involved with the portfolio to work with.
+
+Portfolio meta data at the top of the page.
+
+Publication and template tools:
+
+1. **Publications** - Add a publication button.
+2. **Email Templates** - create email templates for portfolio users to utilize if sending the publications as emails to users.
+3. **Publication Templates** - create templates for users to insert into new publications. This will allow users new to portfolio to follow layout guidelines
+4. **Unpublished publications** - quickly display all unpublished publications in a table
+5. **Search fields** for the the publication listing table at the bottom of the page. The search field allows a user to search any information contained in a publication and have the table instantly update to display relevant publications according to the search being performed.
+6. **Publication table** - a sortable table of all publications under that portfolio.
+7. **Pagination** - allows a user to scroll through all publications of that portfolio.
+
+
+Publications
+-------------
+
+Reports and documents are known as publications in SpotLight. Publications are attached to a portfolio or site and can be shared to other users.
+
+When creating a new publication a special edit screen is presented to you. The reports take plain text or use markdown to format the publications. A list of markdown syntax available is accessible from a markdown help screen while editing the publication.
+
+### Create 
+
+To create a publication you need to be granted access to the site by the portfolio administrator. Once granted access enter the portfolio from the home screen, from the portfolio profile screen, you will find a drop down button labeled **Publications**, click this and then click **Add new Publication**. A new page will open  showing a grey publication toolbar from which you can start writing your publication.
+
+### Edit
+
+To edit your publication enter your portfolio where you created the publication, find your publication from the publication table, click the publication name and then click the **edit** menu in the grey publication toolbar.
+
+
+### Delete/Remove
+
+To delete or remove a publication, find your publication from the portfolio site, click its name, and click the **delete** menu in the grey publication toolbar.
+
+Alternatively you can while editing a publication also choose to delete while editing using the same **delete** menu in the grey publication toolbar.
+
+[Larger Image](images/edit-delete-option-toolbar.png)
+
+![Grey publication tool bar with delete option](images/edit-delete-option-toolbar.png)
+
+### Publishing a publication
+
+In order to publish a publication, you will need the security role of *Publisher*. If you do not have this security role please request it from your portfolio administrator or the application administrator.
+
+If you do not have publishing rights your will see a field which is read-only at the top of the publication.
+
+[Larger Image](images/readonlypublishingrights.png)
+
+![Ready-only publishing rights](images/readonlypublishingrights.png)
+
+If you do have publishing rights, then a select list will be available to you from which you can set the *Ready for publishing* flag to **Yes**.
+
+This will allow users outside of the portfolio to read your publication if the site is not restricted.
+
+### Publication tool bar
+
+There are several options for a user while working with publications which can be accessed from the grey publication toolbar.
+
+#### Options for a publication in read mode
+
+
+1. **Edit or delete** the publication if you have permission.
+2. **Markdown user guide** - become familiar with SpotLight's writing syntax.
+3. **Export the publication** to the following formats - PDF, HTML, XML, ODT, CVS, Text
+4. **Send a message** - send a message to the portfolio users
+5. **Leave a comment** - leave a comment for the publication. The authors of the report and portfolio administrator will receive an email once a user leaves a comment.
+6. **Email the publication** if you have permission to send an email. The email publication will ask for sender and receiver details.
+7. **History/Diff** - view the revision history and difference in the versions of the publication.
+8. **Clone publication** - if you have permission you can clone the publication the publication into a new publication and start editing.
+
+![Grey toolbar in read mode ](images/greytoolbar-show.png  )
+
+In read mode a user can read the following meta data;
+
+    Publication Id
+    Publication name
+    Is Published
+    Publication emailed
+    Product 
+    Authors 
+    Date published 
+    Date created 
+    Last updated
+
+#### Options for a publication in edit mode
+
+
+The options in edit mode are slightly different to reading mode.
+
+1. **Update or delete** the publication if you have permission
+2. **Markdown user guide** - become familiar with SpotLight's writing syntax.
+3. **Insert a chart** - allows a user to insert basic charts such as pie, bar and line charts. The user will need to provide data for the chart in the friendly interface provide. To see more information read section *Charting in a publication*.
+4. **Upload an image** - use the menu path or the drag and drop image uploader.
+5. **Upload an attachment** - currently disabled.
+6. **Send team message** - send a message to the authors and publishers about that particular publication.
+7. **Preview the publication** before saving to review formatting.
+8. **Turn live preview** on or off.
+9. **Insert template** - a predefined template to the content area of publication.
+
+![Grey toolbar in edit mode ](images/greytoolbar-edit.png  )
+
+### Collaborative editing
+
+Currently the etherpad style collaborative editing is disable until we can fix a bug in EAP6.
+
+We will aim for a version 3 release of the etherpad style multiple user editing.
+
+RESTful Interface
+-----------------
+
+Currently the restful xmprpc and json interface only allow get requests.
+
+Instructions on using SpotLight rest interface in SpotLight's RESTful user guide.
+
+<!-- todo update user instructions for rest interface -->
+
+Version 3 will allow put requests.
+
+Customization
+-----------------
+
+Version 2.0 does not allow customizations at this point. Version 3.0 will allow basic scripting using java, scala, groovy and python.
+
+
+Administration
+==============
+
+See the Administration Guide.
+
+
+Appendix
+===========
+
+
+
++ REST xmlRPC API details.
++ Administration Guide.
+
+
+

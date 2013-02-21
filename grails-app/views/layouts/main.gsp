@@ -38,6 +38,9 @@
                                 <li><a href="mailto:hss-rap-list@redhat.com">App Request</a></li>
                                 <li class="divider"></li>
                                 <li><a href="mailto:hss-rap-list@redhat.com">Contact Dev Team</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../documents/User_Guide/tmp/en-US/html-single/index.html" target="_blank">Admin Guide</a></li>
+                                <li><a href="../documents/User_Guide/tmp/en-US/html-single/index.html">User Guide</a></li>
                             </ul>
                         </li>
                         <li class="dropdown header-user"><a class="dropdown-toggle" title="User Info" href="../userprofile"> Hi<a><sec:ifLoggedIn><sec:username/> |<g:link controller="logout" title="Logout">Logout</g:link></sec:ifLoggedIn>

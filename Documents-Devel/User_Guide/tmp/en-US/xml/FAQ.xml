@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "User_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-User_Guide-Frequently_Asked_Questions" lang="en-US">
+	<title>Frequently Asked Questions</title>
+	 <qandaset>
+		<qandaentry>
+			<question>
+				<para>
+					Is the SpotLight tool replacing the reporttool on RAP's dart server?
+				</para>
+
+			</question>
+			 <answer>
+				<para>
+					Yes it is.
+				</para>
+
+			</answer>
+
+		</qandaentry>
+		 <qandaentry>
+			<question>
+				<para>
+					Is the new tool easier to use and offer more features?
+				</para>
+
+			</question>
+			 <answer>
+				<para>
+					Yes the new tool has been designed to be more intuitive and offer many new features which weren't present in the old tool.
+				</para>
+
+			</answer>
+
+		</qandaentry>
+		 <qandaentry>
+			<question>
+				<para>
+					Why not use docspace or the corp wordpress site?
+				</para>
+
+			</question>
+			 <answer>
+				<para>
+					Docspace didnt fit our need of a true collaborative environment and did not met our publishing workflow. WordPress if anyone has worked with it will attest to it taking time to get the correct workflows happening. We decided that it would be more cost effective to write our own tool than to hack WordPress.
+				</para>
+
+			</answer>
+
+		</qandaentry>
+
+	</qandaset>
+</chapter>
+

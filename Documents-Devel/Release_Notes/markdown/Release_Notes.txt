@@ -1,0 +1,49 @@
+<!-- vim: set filetype=markdown : -->
+
+# Version  0.0
+
+## New features
+
+In one paragraph, describe what the new feature does and how it helps the user.
+
+[ PyPAM ]
+
+PyPAM is a Python module that provides an interface to the pluggable authentication modules (PAM). These bindings allow Python applications to authorize, authenticate, and manage user sessions through the system's PAM configuration. 
+
+
+[ python-rhsm ]
+
+The new python-rhsm package provides access to the Subscription Management tools. It helps users to understand specific products which are installed on their machines and specific subscriptions which their machines consume. 
+
+
+## Updates and fixes
+
+In one paragraph, describe each of the following, Cause, Consequence, Fix, and Result (CCFR). e.g. What caused the bug to happen? What did it do? What was the fix? What is the result now?
+
+[ virt-v2v ]
+
+[BZ#679017](https://bugzilla.redhat.com/show_bug.cgi?id=679017)
+
+When converting a 64-bit Windows XP guest to run on Red Hat Enterprise Virtualization, virt-v2v incorrectly identified the guest as 64-bit Windows 2003. 64-bit Windows XP guests are now correctly identified as Windows XP when imported into Red Hat Enterprise Virtualization. 
+
+
+[ qemu-kvm ]
+
+[BZ#688572](https://bugzilla.redhat.com/show_bug.cgi?id=688572)
+
+The spice-server would not switch back to server mouse mode if the guest spice-agent died, so users were left with a non-functional mouse. Now, the virtio-console notifies spice-chardev when a guest opens or closes, so the mouse is functional even when spice-agent is stopped in the guest. 
+
+
+## Known issues
+
+In one paragraph, describe each of the following, Cause, Consequence, Workaround, and Result (CCWR). e.g. What causes the issue to happen? What does it do? How can it be avoided? What is the result?
+
+[ Virtualization ]
+
+Under some circumstances, installation of a Red Hat Enterprise Linux 6 virtual guest stalls after the optional testing of media. Note that this issue has only been observed with Red Hat Enterprise Linux 6 guests that utilize multiple virtualized CPUs. To work around this issue, use a media source that is known to be verified, and skip the media test, or use a single virtualized CPU during installation. 
+
+
+[ Storage and filesystems ]
+
+dracut currently only supports one FiberChannel over Ethernet (FCoE) connection to be used to boot from the root device. Consequently, booting from a root device that spans multiple FCoE devices (e.g. using RAID, LVM or similar techniques) is not possible. 
+

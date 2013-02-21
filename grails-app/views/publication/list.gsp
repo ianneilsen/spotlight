@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 					
-						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Publisheddate')}" />
+						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Published date')}" />
 
-                        <g:sortableColumn property="publishedemail" title="${message(code: 'publication.publishedemail.label', default: 'Publishedemail')}" />
+                        <g:sortableColumn property="publishedemail" title="${message(code: 'publication.publishedemail.label', default: 'Published email')}" />
 
 						<g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 					
