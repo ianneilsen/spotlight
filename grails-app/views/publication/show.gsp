@@ -7,7 +7,8 @@
 <%@ page import="spotlight.comments.Authorcomment"%>
 
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
@@ -195,12 +196,23 @@ $(function() {
 </div>
 
 <!---comments--->
-<g:formRemote name="create" url="[controller:'authorcomment', action:'save']" id="commentsupdate">
+<g:formRemote name="create" url="[controller:'authorcomment', action:'save']" id="commentsupdate" update="">
     Comment: <g:textArea rows="5" cols="5" name="authorcomments" value="${publicationInstance?.comments?.authorcomments}"/></br>
     Author: <g:select name="authors" from="${spotlight.User.list()}" multiple="multiple" optionKey="id" size="5" value="${authorcommentInstance?.authors*.id}" class="many-to-many"/> </br>
-    <g:select id="publications" name="publications.id" from="${spotlight.content.Publication.list()}" optionKey="id" required="" value="${authorcommentInstance?.publications?.id}" class="many-to-one"/> </br>
-    <g:submitButton name="Add comment" value="create"/>
+    <g:select id="publications" name="publications.id" from="${spotlight.content.Publication.list()}"
+              optionKey="id" required=""
+              value="${authorcommentInstance?.publications?.id}"
+              class="many-to-one"/> </br>
+    <g:submitButton name="Add comment" value="create" />
 </g:formRemote>
+
+
+  <g:if test="${publicationInstance.comments}">
+      <g:each in="${publicationInstance.comments}" var="publicantioncomments">
+          <li><p><g:fieldValue field="authorcomments" bean="${fieldValue(bean: authorcommentInstance, field: 'authorcomments')}"/></p><h6>${authorcommentInstance?.authors?.id}</h6></li>
+
+      </g:each>
+  </g:if>
 
 
 
