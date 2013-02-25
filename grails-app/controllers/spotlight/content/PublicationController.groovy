@@ -8,7 +8,7 @@ import org.springframework.mail.MailException
 import javax.mail.*
 import groovy.json.*
 import grails.converters.*
-import org.xwiki.rendering.syntax.Syntax
+import org.xwiki.rendering.syntax.*
 import org.xwiki.rendering.renderer.printer.DefaultWikiPrinter
 import org.xwiki.rendering.renderer.printer.WikiPrinter
 import org.xwiki.rendering.converter.Converter
@@ -28,21 +28,17 @@ class PublicationController {
             'Visitors': [100, 300, 200, 240, 500, 100, 80],
             'Purchases': [30, 50, 12, 20, 55, 20, 10]
     ]
-
-
     /*def readEtherpad(){
         def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
         def json = JSON.parse(padurl)
         render("json out from etherpad: ${json.toString()}")
 
     }*/
-
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def readEtherpad(){
         def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
         def padjson = new JsonSlurper().parseText(padurl)
         render("json: ${padjson}").toString()
-
     }
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
@@ -53,14 +49,27 @@ class PublicationController {
 
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
-    def exportToDocbook(Long id) {
+    def exportToDocbook(Long id){
         def publicationInstance = Publication.get(id)
+        [publicationInstance:publicationInstance]
+    }
+
+    /*() {
+        *//*def publicationInstance = Publication.get(params.id)
         if (!publicationInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
-            redirect(action: "list")
-        }
-        [publicationInstance: publicationInstance]
-    }
+            redirect(action: "show")
+        }*//*
+        def renderdocbookAction = {
+            StringWriter writer = new StringWriter()
+            publicationInstance.withReader { reader ->
+                xwikiStreamRenderer.render(reader, Syntax.MARKDOWN_1_0, Syntax.PLAIN_1_0) {
+                    writer.write()
+                }
+            }
+            String result = writer.toString()}
+        render(view: 'exportToDocbook', modelAndView:[publicationInstance: renderdocbookAction])
+       }*/
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def list(Integer max) {
@@ -70,6 +79,25 @@ class PublicationController {
 
         }
         [publicationInstanceList: Publication.list(params), publicationInstanceTotal: Publication.count()]
+    }
+
+    def show(Long id) {
+        def publicationInstance = Publication.get(id)
+        if (params?.format && params.format !="html"){
+            response.contentType = grailsApplication.config.grails.mime.types[params.format]
+            response.setHeader("Content-disposition","attachment: filename=publications.${params.extension}")
+
+            List fields = ["publicationName", "publicationContent","publisheddate","dateCreated","lastUpdated"]
+
+            exportService.export(params.format, response.outputStream, Publication.get(params), fields,[:])
+        }
+        if (!publicationInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
     //email send function from publication show page using modal pop-up and editable fields prior to sending
@@ -120,69 +148,6 @@ class PublicationController {
         })
         redirect(action: create(newPublication: newPublication))
     }
-    //todo clone  function still not working correctly
-
-
-/*
- * Clones a domain object and recursively clones children, clearing ids and
- * attaching children to their new parents. Ownership relationships (indicated
- * by GORM belongsTo keyword) cause "copy as new" (a recursive deep clone),
- * but associations without ownership are shallow copied by reference.
- */
-/*
- * Clones a domain object and recursively clones children, clearing ids and
- * attaching children to their new parents. Ownership relationships (indicated
- * by GORM belongsTo keyword) cause "copy as new" (a recursive deep clone),
- * but associations without ownership are shallow copied by reference.
- */
-/*    public Object deepClone(publicationContent) {
-        //Our target instance for the instance we want to clone
-        // recursion
-        def newDomainInstance = publicationInstance.getClass().newInstance()
-        //Returns a DefaultGrailsDomainClass (as interface GrailsDomainClass) for inspecting properties
-        def domainClass = ApplicationHolder.application.getDomainClass(newDomainInstance.getClass().name)
-        domainClass?.persistentProperties?.each {prop ->
-            if (prop.association) {
-                if (prop.owningSide) {
-                    //we have to deep clone owned associations
-                    if (prop.oneToOne) {
-                        def newAssociationInstance = deepClone(publicationInstance?."${prop.publicationContent}")
-                        newDomainInstance."${prop.publicationContent}" = newAssociationInstance
-                    }
-                    else {
-                        publicationInstance."${prop.publicationContent}".each { associationInstance ->
-                            def newAssociationInstance = deepClone(associationInstance)
-                            newDomainInstance."addTo${StringUtils.capitalize(prop.publicationContent)}"(newAssociationInstance)
-                        }
-                    }
-                }
-                else {
-                    if (!prop.bidirectional) {
-                        //If the association isn't owned or the owner, then we can just do a  shallow copy of the reference.
-                        newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
-                    }
-                    // @@JR
-                    // Yes bidirectional and not owning. E.g. clone Report, belongsTo Organisation which hasMany
-                    // manyToOne. Just add to the owning objects collection.
-                    else {
-                        if (prop.manyToOne) {
-                            newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
-                            def owningInstance = publicationInstance."${prop.publicationContent}"
-                            // Need to find the collection.
-                            String otherSide = StringUtils.capitalize(prop.otherSide.publicationContent)
-                            owningInstance."addTo${otherSide}"(newDomainInstance)
-                        }
-                    }
-                }
-            }
-            else {
-                //If the property isn't an association then simply copy the value
-                newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
-            }
-        }
-        return newDomainInstance
-    }*/
-
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def save() {
@@ -194,25 +159,6 @@ class PublicationController {
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'publication.label', default: 'Publication'), publicationInstance.id])
         redirect(action: "show", id: publicationInstance.id)
-    }
-
-
-
-    def show(Long id) {
-        def publicationInstance = Publication.get(id)
-        if (params?.format && params.format !="html"){
-            response.contentType = grailsApplication.config.grails.mime.types[params.format]
-            response.setHeader("Content-disposition","attachment: filename=publication${publicationInstance}.${params.extension}")
-
-            exportService.export(params.format, response.outputStream,publicationInstance(id),[:],[:])
-        }
-        if (!publicationInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'publication.label', default: 'Publication'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
@@ -277,3 +223,65 @@ class PublicationController {
         }                                 //todo - fix redirect on delete action to redirect to portfolio/show/$id  not list
     }
 }
+//todo clone  function still not working correctly
+
+
+/*
+ * Clones a domain object and recursively clones children, clearing ids and
+ * attaching children to their new parents. Ownership relationships (indicated
+ * by GORM belongsTo keyword) cause "copy as new" (a recursive deep clone),
+ * but associations without ownership are shallow copied by reference.
+ */
+/*
+ * Clones a domain object and recursively clones children, clearing ids and
+ * attaching children to their new parents. Ownership relationships (indicated
+ * by GORM belongsTo keyword) cause "copy as new" (a recursive deep clone),
+ * but associations without ownership are shallow copied by reference.
+ */
+/*    public Object deepClone(publicationContent) {
+        //Our target instance for the instance we want to clone
+        // recursion
+        def newDomainInstance = publicationInstance.getClass().newInstance()
+        //Returns a DefaultGrailsDomainClass (as interface GrailsDomainClass) for inspecting properties
+        def domainClass = ApplicationHolder.application.getDomainClass(newDomainInstance.getClass().name)
+        domainClass?.persistentProperties?.each {prop ->
+            if (prop.association) {
+                if (prop.owningSide) {
+                    //we have to deep clone owned associations
+                    if (prop.oneToOne) {
+                        def newAssociationInstance = deepClone(publicationInstance?."${prop.publicationContent}")
+                        newDomainInstance."${prop.publicationContent}" = newAssociationInstance
+                    }
+                    else {
+                        publicationInstance."${prop.publicationContent}".each { associationInstance ->
+                            def newAssociationInstance = deepClone(associationInstance)
+                            newDomainInstance."addTo${StringUtils.capitalize(prop.publicationContent)}"(newAssociationInstance)
+                        }
+                    }
+                }
+                else {
+                    if (!prop.bidirectional) {
+                        //If the association isn't owned or the owner, then we can just do a  shallow copy of the reference.
+                        newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
+                    }
+                    // @@JR
+                    // Yes bidirectional and not owning. E.g. clone Report, belongsTo Organisation which hasMany
+                    // manyToOne. Just add to the owning objects collection.
+                    else {
+                        if (prop.manyToOne) {
+                            newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
+                            def owningInstance = publicationInstance."${prop.publicationContent}"
+                            // Need to find the collection.
+                            String otherSide = StringUtils.capitalize(prop.otherSide.publicationContent)
+                            owningInstance."addTo${otherSide}"(newDomainInstance)
+                        }
+                    }
+                }
+            }
+            else {
+                //If the property isn't an association then simply copy the value
+                newDomainInstance."${prop.publicationContent}" = publicationInstance."${prop.publicationContent}"
+            }
+        }
+        return newDomainInstance
+    }*/

@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 		<div id="show-templatepublication" class="content scaffold-show" role="main">
-			<h1 style="font-size: 20px;"><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h6 style="font-size: 20px;"><g:message code="default.show.label" args="[entityName]" /></h6>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

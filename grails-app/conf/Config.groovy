@@ -1,3 +1,5 @@
+import grails.plugins.springsecurity.*
+import spotlight.User
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -10,7 +12,6 @@
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
-
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -31,8 +32,6 @@ grails.mime.types = [
     ods:           'application/vnd.oasis.opendocument.spreadsheet', //used in export function
 
 ]
-
-
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
@@ -70,9 +69,11 @@ grails.exceptionresolver.params.exclude = ['password']
 grails.hibernate.cache.queries = false
 
 //wiki configuration and use of macros -see also BuildConfig.gsp for boolean options.
-/*grails.xwiki.rendering.macros.enabled = true*/
-grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
+grails.xwiki.rendering.macros.enabled = true
+//grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
 //grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message" //set in BuildConfig file for some reason - need to check why it needs to sit there
+
+
 
 //Markdownplugin config settings
 markdown.tables = true           // Configuration
@@ -123,3 +124,20 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'spotlight.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'spotlight.UserRole'
 grails.plugins.springsecurity.authority.className = 'spotlight.Role'
+
+//commentable extension
+/*grails.commentable.poster.evaluator = {spotlight.User.get(org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal.getId())}*/
+
+/*
+grails.commentable.poster.evaluator = {
+
+    def principal = org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal
+
+    if (principal.hasProperty('id')) {
+
+        def currentUserId = principal.id
+        if (currentUserId) {
+            spotlight.User.get(currentUserId)
+        }
+    }
+}*/

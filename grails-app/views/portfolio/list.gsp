@@ -17,16 +17,21 @@
 				    <li id="navHome" class="active"><a class="home" href="${createLink(uri: '/portfolio/List')}"><g:message code="Home"/></a></li>
 				    <li id="navNew" class=""><g:link class="create" action="create"><g:message code="New portfolio" args="[entityName]" /></g:link></li>
                     <li id="navNew" class=""><g:link uri="/user/search"><g:message code="Site Administration" args="[entityName]" /></g:link></li>
-
+                    <li id="navNew" class=""><g:link action="archivedportfolios"><g:message code="Archived portfolios" args="[entityName]" /></g:link></li>
                 </ul>
 		</div>
-        <div class="breadcrumb">
+<section>
+<div class="breadcrumb">
             <div id="list-portfolio" class="content scaffold-list" role="main">
-			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" /> | Total number of sites: ${portfolioInstanceTotal} | Total number of publications: <strong>${spotlight.content.Publication.count()}</strong></span> </div>
+			<span class="label label-info"><g:message code="default.list.label" args="[entityName]" />
+                                    | Total number of sites: ${portfolioInstanceTotal}
+                                    | Total number of publications: <strong>${spotlight.content.Publication.count()}
+                                    | Total number of archived portfolios: <% notarchivedportfolios = Portfolio.findAllByStatus("Closed",[sort: "lastUpdated", order: "desc", offset: 0])%> ${notarchivedportfolios.size()}</strong></span> </div>
                      </div>
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+<section>
 			<table>
 				<thead>
 					<tr>

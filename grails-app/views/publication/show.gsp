@@ -4,6 +4,8 @@
 <%@ page import="org.xwiki.rendering.renderer.*" %>
 <%@  page import="org.xwiki.rendering.macro.*" %>
 <%@ page import="spotlight.User" %>
+<%@ page import="spotlight.comments.Authorcomment"%>
+
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 	<head>
@@ -12,10 +14,8 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 
          <r:require modules="jquery,jquery-ui,export"/>
-         <zing:include />
-        %{--<script type="text/javascript" src="http://www.google.com/jsapi"></script>--}%
-     %{--   <link rel="stylesheet" href="${resource(dir: 'css', file: 'visualize.css')}" type="text/css">
-        <g:javascript src="visualize.jQuery.js" />--}%
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 
 <g:javascript>/****************************************
  * Floating Navigation jQuery feature
@@ -49,28 +49,24 @@ $(function() {
 });</g:javascript>
 </head>
   <body>
-
-    <a href="#show-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="navbar1">
             <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
-				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
-                <li><g:link  action="show" controller="portfolio" id="${publicationInstance?.portfolio?.id}"><g:message code="Back to ${publicationInstance?.portfolio?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
+				<li><g:link  action="show" controller="portfolio" id="${publicationInstance?.portfolio?.id}"><g:message code="Back to ${publicationInstance?.portfolio?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
                 <div id="show-publication" class="content scaffold-show" role="main">
             </ul>
 		</div>
 
 <!---- action report name and site name ---->
 	<div id="show-publication" class="content scaffold-show" role="main">
-	    <h1 style="font-size: 20px;"> ${publicationInstance?.publicationName} from
+	    <h4 style="font-size: 20px;"> ${publicationInstance?.publicationName} from
             <g:if test="${publicationInstance?.portfolio}">
                 <span class="property-value" aria-labelledby="portfolio-label">
                     <g:link controller="portfolio" action="show" id="${publicationInstance?.portfolio?.id}">${publicationInstance?.portfolio?.encodeAsHTML()}</g:link>
                 </span>
             </g:if>
             portfolio
-        </h1>
+        </h4>
     </div>
 <!---- error messages ---->
             <g:if test="${flash.message}">
@@ -86,9 +82,10 @@ $(function() {
             </fieldset>
     </div>
 <!---- publication content---->
+
 <!-- row META -->
   <div class="row-fluid">
-        <div class="span4">
+        <div class="span3">
             <div class="control-group">
                 <g:if test="${publicationInstance?.id}">
                     <span id="id-label" class="label"><i class="icon-asterisk"></i><g:message code="publication.id.label" default="Publication Id" /></span>
@@ -136,47 +133,48 @@ $(function() {
                     </li>
                 </g:if>
              </div>
+            <div class="span8">
 <!-- Authors -->
             <div class="control-group">
                 <g:if test="${publicationInstance?.authors}">
-                    <li class="fieldcontain">
-                        <span id="authors-label" class="property-label"><g:message code="publication.authors.label" default="Authors" /></span>
+
+                        <span id="authors-label" class="property-label"><g:message code="publication.authors.label" default="Authors:" /></span>
                         <g:each in="${publicationInstance.authors}" var="p">
                             <span class="property-value" aria-labelledby="pubtags-label">${p?.encodeAsHTML()}</span>
                         </g:each>
-                    </li>
+
                 </g:if>
             </div>
 <!-- DATES ---->
             <div class="control-group">
                     <g:if test="${publicationInstance?.publisheddate}">
-                        <span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Date published" /></span>
+                        <span id="publisheddate-label" class="property-label"><g:message code="publication.publisheddate.label" default="Date published:" /></span>
                         <span class="property-value" aria-labelledby="publisheddate-label"><g:formatDate date="${publicationInstance?.publisheddate}" /></span>
                     </g:if>
             </div>
             <div class="control-group">
                     <g:if test="${publicationInstance?.dateCreated}">
-                        <span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date created" /></span>
+                        <span id="dateCreated-label" class="property-label"><g:message code="publication.dateCreated.label" default="Date created:" /></span>
                         <span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${publicationInstance?.dateCreated}" /></span>
                     </g:if>
             </div>
             <div class="control-group">
                     <g:if test="${publicationInstance?.lastUpdated}">
-                        <span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last updated" /></span>
+                        <span id="lastUpdated-label" class="property-label"><g:message code="publication.lastUpdated.label" default="Last updated:" /></span>
                         <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${publicationInstance?.lastUpdated}" /></span>
                     </g:if>
             </div>
             <div class="control-group">
                 <g:if test="${publicationInstance?.version}">
-                    <span id="version-label" class="property-label"><g:message code="publication.version.label" default="Document edit version" /></span>
+                    <span id="version-label" class="property-label"><g:message code="publication.version.label" default="Document version:" /></span>
                     <span class="property-value" aria-labelledby="version-label"><g:fieldValue field="version" bean="${publicationInstance}" /></span>
                 </g:if>
             </div>
      </div>
-
+        </div>
 <!-- CONTENT -->
     <div class="span8">
-          %{--<div class="well">--}%
+
       <div id="pubcontent">
         <g:if test="${publicationInstance?.publicationContent}">
 
@@ -193,9 +191,23 @@ $(function() {
           <!--------------------------------------------------------->
       </div>
     </div>
+
 </div>
 
-<!--------------------------------------------tetsing chartings ------------------------>
+<!---comments--->
+<g:formRemote name="create" url="[controller:'authorcomment', action:'save']" id="commentsupdate">
+    Comment: <g:textArea rows="5" cols="5" name="authorcomments" value="${publicationInstance?.comments?.authorcomments}"/></br>
+    Author: <g:select name="authors" from="${spotlight.User.list()}" multiple="multiple" optionKey="id" size="5" value="${authorcommentInstance?.authors*.id}" class="many-to-many"/> </br>
+    <g:select id="publications" name="publications.id" from="${spotlight.content.Publication.list()}" optionKey="id" required="" value="${authorcommentInstance?.publications?.id}" class="many-to-one"/> </br>
+    <g:submitButton name="Add comment" value="create"/>
+</g:formRemote>
+
+
+
+
+
+
+
 <!-- BACK --->
     <g:form>
         <fieldset class="buttons">
@@ -205,7 +217,6 @@ $(function() {
 
   </body>
 </html>
-<!-- todo - insert document version to show page -maybe allow a link through to history page -->
 <!-- todo - http://aehlke.github.com/tag-it/ for jquery tag form field-->
 <!-- todo - fix redirect on delete action to redirect to portfolio/show/$id  not list-->
 <!-- todo - add in url shortener and published url when user is not logged in based on published flag set to yes. -->

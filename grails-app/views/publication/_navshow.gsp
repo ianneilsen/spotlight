@@ -1,6 +1,8 @@
 <!-----show menus ----------------------------->
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
+<%@ page import="org.xwiki.*" %>
+<r:require modules="jquery,jquery-ui,export"/>
 
 <div id="pub-nav" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
@@ -33,10 +35,11 @@
     <ul class="dropdown-menu">
     <!-- dropdown menu links -->
          <g:hiddenField name="publicationid" value="${publicationInstance?.id}"/>
-        <g:link action="exportToDocbook" name="exporttodocbook" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
+        <g:link controller="publication" action="exportToDocbook" name="exporttodocbook.id" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
        %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
        %{-- <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>--}%
-        <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf"data-toggle="modal">Export to PDF</a>
+        <export:formats controller="publication" action="show" formats="['pdf']"/>
+     %{--   <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf" data-toggle="modal">Export to PDF</a>--}%
         <a href="../show?format=html&extension=html"data-toggle="modal">Export to HTML</a>
         <a href="../show/${publicationInstance?.id}?format=xml&extension=xml"  data-toggle="modal">Export to XML</a>
         <a href="../show?format=ods&extension=ods"  data-toggle="modal">Export to ODT</a>
@@ -53,28 +56,31 @@
     <div class="email-publication">
         <a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-envelope"></i> Email Publication</a>
 
-        <div id="emailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div id="emailModal" class="modal hide fade" style="width: 700px;" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="emailModalLabel">Email publication</h3>
             </div>
-        <div class="modal-body">
+        <div class="modal-body" style="width: 650px;">
             <g:form action="emailpublication">
-                <h6><g:field type="text" name="whogetsemail" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" />  </h6>
 
-                <h6><g:field type="text" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">To email</p><g:textField class="input-xlarge"  style="width: 400px;" type="text" name="whogetsemail" value="${publicationInstance?.portfolio?.emailtemplates?.toemailtemplate}" /></h6>
 
-                <h6><g:field type="string" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication name</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
 
-                <h6><g:textArea type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication URL</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="publicationUrl" value="${request.getRequestURL()}" />  </h6>
 
-                <h6><g:field type="string" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Email template head</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
-                 <h6><g:field type="number" name="publicationid" value="${publicationInstance?.id}"/> </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication content</p><g:textArea class="input-xxlarge" type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
+
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Email template footer</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
+
+                 <h6><div class="control-group"><div class="controls"><p class="help-block">Publication Id</p><g:textField class="input-xlarge disabled" disabled="" type="number" name="publicationid" value="${publicationInstance?.id}"/></div></div></h6>
 
                  <g:hiddenField name="publication_id" value="${publicationInstance?.id}" />
 
-            <input type="submit" value="Send Email"/>
+           <button class="btn btn-success"><input type="submit" value="Send Email"/></button>
             </g:form>
         </div>
 
@@ -117,7 +123,7 @@
 
             <g:hiddenField name="id" value="${publicationInstance?.id}" />
 
-        <input type="submit" value="Clone publication"/>
+        <input type="submit" value="Clone publication" onclick="<%=  %>"/>
         </g:form>
     </div>
 

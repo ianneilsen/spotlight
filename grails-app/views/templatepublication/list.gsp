@@ -19,7 +19,7 @@
 		</div>
 
     <div id="list-templatepublication" class="content scaffold-list" role="main">
-			<h1 style="font-size: 20px;"><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h6 style="font-size: 20px;"><g:message code="default.list.label" args="[entityName]" /></h6>
 
 					<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

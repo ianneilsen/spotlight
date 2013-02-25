@@ -8,7 +8,10 @@ grails.project.war.file = "spotlight.war"
 //grails.project.war.file = "hss-service-catalog.war"
 //xwiki buildconfig
 grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message"
-//grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration  comment out throwing an error need more info
+grails.xwiki.rendering.syntaxes = "plain, docbook, markdown, html, xhtml" // XWiki Syntax Configuration  comment out throwing an error need more info
+//grails.xwiki.rendering.syntaxes = "xhtml/1.0, html/4.01, plain/1.0, docbook/4.4, markdown/1.0"
+//syntaxes INPUTS: XHTML 1.0 xhtml/1.0 - HTML 4.01	html/4.01 - Plain Text	plain/1.0 - DocBook 4.4	docbook/4.4 - Markdown	markdown/1.0
+//syntaxes OUTPUTS: XHTML 1.0	xhtml/1.0 - HTML 4.01	html/4.01 - Plain Text	plain/1.0 - DocBook 4.4	docbook/4.4 -
 //------------------------------------------
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -16,7 +19,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "info" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
     repositories {
@@ -34,13 +37,13 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
-        mavenRepo "https://repository.engineering.redhat.com/nexus/content/groups/eng-ops-public/" //todo - deployment - add in internal repo.
-        mavenRepo "https://repository.engineering.redhat.com/nexus/content/"
+        //mavenRepo "https://repository.engineering.redhat.com/nexus/content/groups/eng-ops-public/" //todo - deployment - add in internal repo.
+        //mavenRepo "https://repository.engineering.redhat.com/nexus/content/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        runtime 'mysql:mysql-connector-java:5.1.22'    //todo - deployment - mysql connector
+        runtime 'mysql:mysql-connector-java:5.1.22'
         //compile ':spring-security-core:1.2.7.3'
 
     }

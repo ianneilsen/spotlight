@@ -22,13 +22,13 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
         <g:hiddenField name="id" value="${portfolioInstance?.id}" />
         <li><g:link class="edit" action="edit" id="${portfolioInstance?.id}"><g:message code="default.button.edit.portfolio.label" default="Edit Portfolio" /></g:link></li>
-        <li><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.portfolio.label', default: 'Delete Portfolio')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete the entire portfolio?')}');" /></li>
+        <li><g:actionSubmit class="delete" action="delete" id="${portfolioInstance?.id}" value="${message(code: 'default.button.delete.portfolio.label', default: 'Delete Portfolio')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure you want to delete the entire portfolio?')}');" /></li>
     </ul>
 	</div>
 <!---- breadcrumb below nav bar ---->
-<div class="esobreadcrumb">
-    <h1><g:message code="default.show.label" args="[entityName]" /> details</h1>
-</div>
+
+    <h4><g:message code="Portfolio details" args="[entityName]" /></h4>
+
 <!--- flash messages ---->
 		<div id="show-portfolio" class="content scaffold-show" role="main">
 		    <g:if test="${flash.message}">
@@ -36,6 +36,7 @@
 			</g:if>
 
 <!-- row1 ---->
+
     <div class="row show-grid">
         <g:if test="${portfolioInstance?.portfolioName}">
             <div class="span2" style="background-color: rgb(238, 238, 238);border-radius: 3px 3px 3px 3px;min-height: 20px; text-align: left; line-height: 20px;"><i class="icon-briefcase"></i><span id="portfolioName-label" class="property-label"><g:message code="portfolio.portfolioName.label" default="Portfolio Name" /></span></div>

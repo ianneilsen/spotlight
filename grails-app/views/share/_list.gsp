@@ -5,7 +5,7 @@
 
 
 <div id="list-publication" class="content scaffold-list" role="main">
-    <h1 style="font-size: 20px;"><g:message code="default.list.label" args="[entityName]" /></h1>
+    <h4 style="font-size: 20px;"><g:message code="Portfolio publications" args="[entityName]" /></h4>
 
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
@@ -119,6 +119,7 @@
             }
         } );
     } );</g:javascript>
+
 <div class="eso-inner">
     <table id="example" class="eso-table" style="">
         <thead>
@@ -127,9 +128,9 @@
             <th>Content</th>
             <th>Product Name</th>
             <th>Published</th>
-            <th>Publish date</th>
-            <th>Publication emailed</th>
-            <th>Date created</th>
+            <th>Publish Date</th>
+            <th>Publication Emailed</th>
+            <th>Date Created</th>
             <th>Last Updated</th>
         </tr>
         </thead>
@@ -162,12 +163,6 @@
         </g:each>
         </tbody>
     </table>
-  %{--  <div class="pagination">
-
-        <g:paginate total="${portfolioInstance?.publications}" />
-        <h6>Number of publications: ${portfolioInstance?.publications?.list().size()}</h6>
-    </div>--}%
-    <!-- todo killpagination for a moment while i fix partial render within a render -->
 </div>
 </div>
 <g:javascript src="datatable/datatable.js" />

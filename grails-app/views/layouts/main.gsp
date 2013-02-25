@@ -52,7 +52,7 @@
 %{--          <div id="inner">
               <div id="left"></div>
 	    	    <div id="right"></div>
-		<div id="spotlightLogo" role="banner"><a href="https://dart.qe.lab.eng.bne.redhat.com/RAP/en-US/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'spotlight2_sml.png')}" alt="Red Hat"/></a></div>
+		<div id="spotlightLogo" role="banner"><a href="/Spot_Light/1.0/html-single/Admin_Guide/index.html"><img src="${resource(dir: 'images', file: 'spotlight2_sml.png')}" alt="Red Hat"/></a></div>
 		</div>
 		</div>--}%
 

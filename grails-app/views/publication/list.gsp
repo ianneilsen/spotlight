@@ -10,15 +10,15 @@
         <r:require modules="bootstrap"/>
 	</head>
 	<body>
-		<a href="#list-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
+    <div class="navbar1">
+        <ul class="nav1">
+
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+
 			</ul>
 		</div>
 		<div id="list-publication" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h4><g:message code="default.list.label" args="[entityName]" /> |<h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6></h4>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="published" title="${message(code: 'publication.published.label', default: 'Published')}" />
 					
-						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Published date')}" />
+						<g:sortableColumn property="publisheddate" title="${message(code: 'publication.publisheddate.label', default: 'Published Date')}" />
 
-                        <g:sortableColumn property="publishedemail" title="${message(code: 'publication.publishedemail.label', default: 'Published email')}" />
+                        <g:sortableColumn property="publishedemail" title="${message(code: 'publication.publishedemail.label', default: 'Published Email')}" />
 
 						<g:sortableColumn property="dateCreated" title="${message(code: 'publication.dateCreated.label', default: 'Date Created')}" />
 					
@@ -68,7 +68,7 @@
 			</table>
 			<div class="pagination">
                  <g:paginate total="${publicationInstanceTotal}" />
-                <h6>Number of publications: ${spotlight.content.Publication.list().size()}</h6>
+
 			</div>
 		</div>
 	</body>

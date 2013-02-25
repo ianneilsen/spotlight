@@ -77,13 +77,13 @@ class BootStrap {
         r1.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
-       def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product2)
+       def r2 = new Publication(publicationName:"RAP Weekly Executive Briefing -2", publicationContent:"report content in markdown **bold** + bullet point",published:"Draft",publishedemail: "No", publisheddate: new Date (), pubproduct: product2)
         portfolio.addToPublications(r2)
         r2.addToAuthors(ineilsen)
         r2.addToAuthors(mdoyle)
         portfolio.save(failOnError: true)
 
-        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing - 3", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product3)
+        def r3 = new Publication(publicationName:"RAP Weekly Executive Briefing - 3", publicationContent:"report content in markdown **bold** + bullet point",published:"Draft",publishedemail: "No", publisheddate: new Date (), pubproduct: product3)
         portfolio.addToPublications(r3)
         r3.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
@@ -93,12 +93,12 @@ class BootStrap {
         r4.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
-        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing - 5", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product5)
+        def r5 = new Publication(publicationName:"RAP Weekly Executive Briefing - 5", publicationContent:"report content in markdown **bold** + bullet point",published:"Draft",publishedemail: "No", publisheddate: new Date (), pubproduct: product5)
         portfolio.addToPublications(r5)
         r5.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)
 
-        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing - 6", publicationContent:"report content in markdown **bold** + bullet point",published:"No",publishedemail: "No", publisheddate: new Date (), pubproduct: product7)
+        def r6 = new Publication(publicationName:"RAP Weekly Executive Briefing - 6", publicationContent:"report content in markdown **bold** + bullet point",published:"Draft",publishedemail: "No", publisheddate: new Date (), pubproduct: product7)
         portfolio.addToPublications(r6)
         r6.addToAuthors(ineilsen)
         portfolio.save(failOnError: true)

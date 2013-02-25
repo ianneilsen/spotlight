@@ -1,23 +1,23 @@
 <%@ page import="spotlight.pubtemplates.Emailtemplate" %>
+<%@ page import="spotlight.content.Portfolio" %>
 <!doctype html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'emailtemplate.label', default: 'Emailtemplate')}" />
+		<g:set var="entityName" value="${message(code: 'emailtemplate.label', default: 'Email template')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
-<body>
-		<a href="#list-emailtemplate" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-<!-- main NAV -->
+<body><!-- main NAV -->
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="create" action="create"><g:message default="New email template" code="default.new.emailtemplate.label" args="[entityName]" /></g:link></li>--}%
+            <li><g:link  action="show" controller="portfolio" id="${emailtemplateInstance?.portfolio?.id}"><g:message code="Cancel" /></g:link></li>
+
 			</ul>
 		</div>
 <!-- page title -->
 <div id="list-emailtemplate" class="content scaffold-list" role="main">
-			<h1 style="font-size: 20px;"><g:message default="Email template list" code="default.list.emailtemplate.label" args="[entityName]" /></h1>
+			<h6 style="font-size: 20px;"><g:message default="Email template list" code="default.list.emailtemplate.label" args="[entityName]" /></h6>
 <!--error msgs -->
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -38,6 +38,8 @@
 						<g:sortableColumn property="footeremailtemplate" title="${message(code: 'emailtemplate.footeremailtemplate.label', default: 'Footer')}" />
 					
 						<th><g:message code="emailtemplate.portfolio.label" default="Portfolio" /></th>
+
+                        <g:sortableColumn title="Action" property="edit" />
 					
 					</tr>
 				</thead>
@@ -56,6 +58,8 @@
 						<td>${fieldValue(bean: emailtemplateInstance, field: "footeremailtemplate")}</td>
 					
 						<td>${fieldValue(bean: emailtemplateInstance, field: "portfolio")}</td>
+
+                        <td><g:link controller="emailtemplate" action="edit" name="edit" id="${emailtemplateInstance?.id?.encodeAsHTML()}">+Edit</g:link> </td>
 					
 					</tr>
 				</g:each>

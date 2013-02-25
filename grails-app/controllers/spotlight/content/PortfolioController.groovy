@@ -56,8 +56,8 @@ class PortfolioController {
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def unpublishedDocs(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def publicationInstance = Publication.findByPublished('No')
-        [publicationInstance: publicationInstance]
+        def unpublisheddocs = Publication.findAllByPublished("Draft",[max: 5, sort: "publisheddate", order: "desc", offset: 0])
+        [portfolioInstance: unpublisheddocs]
 
     }
 
@@ -65,7 +65,7 @@ class PortfolioController {
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def unpublishedcount = {
         def portfolio=Portfolio.get(params)
-        println Publication.executeQuery("select count(*) from Publication as a join Publication.portfolio as p where p = :p", [p: 'No'])
+        println Publication.executeQuery("select count(*) from Publication as a join Publication.portfolio as p where p = :p", [p: 'Draft'])
     }
 
 /*    def metric = {

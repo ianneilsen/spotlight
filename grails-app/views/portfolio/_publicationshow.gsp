@@ -62,8 +62,8 @@
 <!---- unpublished ---->
 <ul class="one-to-many">
     <li class="add">
-        <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
-        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success"><g:hiddenField name="portfolio.id" id="${portfolioInstance?.id}"/>${spotlight.content.Publication.countByPublished('No')}</span> </div>
+      <g:link  controller="portfolio" action="unpublishedDocs" params="['portfolio.id': portfolioInstance?.id]">${message(code: 'default.list.label', args: [message(code: 'publication.label', default: 'Unpublished documents')])}</g:link>
+        <div><span class="label"> Total Unpublished:</span><span class="badge badge-success"><g:hiddenField name="portfolio.id" id="${portfolioInstance?.id}"/>${spotlight.content.Publication.countByPublished('Draft')}</span> </div>
     </li>
 </ul>
 <!----------------------------------table list ---------------------------------------->

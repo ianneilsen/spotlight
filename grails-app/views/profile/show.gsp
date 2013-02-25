@@ -14,12 +14,13 @@
     <div class="navbar1">
         <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
-				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+
 			</ul>
 		</div>
 		<div id="show-profile" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+
+			<h4><g:message code="default.show.label" args="[entityName]" /></h4>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -27,7 +28,7 @@
 			
 				<g:if test="${profileInstance?.portfolioAdmin}">
 				<li class="fieldcontain">
-					<span id="portfolioAdmin-label" class="property-label"><g:message code="profile.portfolioAdmin.label" default="Portfolio Admin" /></span>
+					<span id="portfolioAdmin-label" class="property-label"><g:message code="profile.portfolioAdmin.label" default="Portfolio Administrator" /></span>
 					
 						<span class="property-value" aria-labelledby="portfolioAdmin-label"><g:fieldValue bean="${profileInstance}" field="portfolioAdmin"/></span>
 					
@@ -36,7 +37,7 @@
 			
 				<g:if test="${profileInstance?.portfolioEmail}">
 				<li class="fieldcontain">
-					<span id="portfolioEmail-label" class="property-label"><g:message code="profile.portfolioEmail.label" default="Portfolio Email" /></span>
+					<span id="portfolioEmail-label" class="property-label"><g:message code="profile.portfolioEmail.label" default="Portfolio contact email" /></span>
 					
 						<span class="property-value" aria-labelledby="portfolioEmail-label"><g:fieldValue bean="${profileInstance}" field="portfolioEmail"/></span>
 					
@@ -45,7 +46,7 @@
 			
 				<g:if test="${profileInstance?.portfoliocc}">
 				<li class="fieldcontain">
-					<span id="portfoliocc-label" class="property-label"><g:message code="profile.portfoliocc.label" default="Portfoliocc" /></span>
+					<span id="portfoliocc-label" class="property-label"><g:message code="profile.portfoliocc.label" default="Portfolio CC email" /></span>
 					
 						<span class="property-value" aria-labelledby="portfoliocc-label"><g:fieldValue bean="${profileInstance}" field="portfoliocc"/></span>
 					
@@ -90,7 +91,7 @@
 			
 				<g:if test="${profileInstance?.bugzillaproduct}">
 				<li class="fieldcontain">
-					<span id="bugzillaproduct-label" class="property-label"><g:message code="profile.bugzillaproduct.label" default="Bugzillaproduct" /></span>
+					<span id="bugzillaproduct-label" class="property-label"><g:message code="profile.bugzillaproduct.label" default="Bugzilla product code" /></span>
 					
 						<span class="property-value" aria-labelledby="bugzillaproduct-label"><g:fieldValue bean="${profileInstance}" field="bugzillaproduct"/></span>
 					
@@ -99,7 +100,7 @@
 			
 				<g:if test="${profileInstance?.bugzillacomponent}">
 				<li class="fieldcontain">
-					<span id="bugzillacomponent-label" class="property-label"><g:message code="profile.bugzillacomponent.label" default="Bugzillacomponent" /></span>
+					<span id="bugzillacomponent-label" class="property-label"><g:message code="profile.bugzillacomponent.label" default="Bugzilla component code" /></span>
 					
 						<span class="property-value" aria-labelledby="bugzillacomponent-label"><g:fieldValue bean="${profileInstance}" field="bugzillacomponent"/></span>
 					
@@ -108,7 +109,7 @@
 			
 				<g:if test="${profileInstance?.rtqueue}">
 				<li class="fieldcontain">
-					<span id="rtqueue-label" class="property-label"><g:message code="profile.rtqueue.label" default="Rtqueue" /></span>
+					<span id="rtqueue-label" class="property-label"><g:message code="profile.rtqueue.label" default="RT queue name" /></span>
 					
 						<span class="property-value" aria-labelledby="rtqueue-label"><g:fieldValue bean="${profileInstance}" field="rtqueue"/></span>
 					
@@ -117,7 +118,7 @@
 			
 				<g:if test="${profileInstance?.teamqueueemail}">
 				<li class="fieldcontain">
-					<span id="teamqueueemail-label" class="property-label"><g:message code="profile.teamqueueemail.label" default="Teamqueueemail" /></span>
+					<span id="teamqueueemail-label" class="property-label"><g:message code="profile.teamqueueemail.label" default="RT queue email" /></span>
 					
 						<span class="property-value" aria-labelledby="teamqueueemail-label"><g:fieldValue bean="${profileInstance}" field="teamqueueemail"/></span>
 					
@@ -126,7 +127,7 @@
 			
 				<g:if test="${profileInstance?.etherpadurl}">
 				<li class="fieldcontain">
-					<span id="etherpadurl-label" class="property-label"><g:message code="profile.etherpadurl.label" default="Etherpadurl" /></span>
+					<span id="etherpadurl-label" class="property-label"><g:message code="profile.etherpadurl.label" default="Team etherpad url" /></span>
 					
 						<span class="property-value" aria-labelledby="etherpadurl-label"><g:fieldValue bean="${profileInstance}" field="etherpadurl"/></span>
 					

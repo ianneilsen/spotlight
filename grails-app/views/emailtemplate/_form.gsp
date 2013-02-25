@@ -7,7 +7,7 @@
 		<g:message code="emailtemplate.nameemailtemplate.label" default="Template Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField style="width: 400px;" name="nameemailtemplate" maxlength="100" required="" value="${emailtemplateInstance?.nameemailtemplate}"/>
+	<g:textField autofocus="true" style="width: 450px;" name="nameemailtemplate" maxlength="100" required="" value="${emailtemplateInstance?.nameemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'toemailtemplate', 'error')} required">
@@ -15,7 +15,7 @@
 		<g:message code="emailtemplate.toemailtemplate.label" default="Email To:" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field style="width: 400px;" type="string" name="toemailtemplate" maxlength="250" required="" value="${emailtemplateInstance?.toemailtemplate}"/>
+	<g:textField style="width: 450px;" name="toemailtemplate" maxlength="250" required="" value="${emailtemplateInstance?.toemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'ccemailtemplate', 'error')} ">
@@ -23,7 +23,7 @@
 		<g:message code="emailtemplate.ccemailtemplate.label" default="Email CC:" />
 		
 	</label>
-	<g:field style="width: 400px;" type="string" name="ccemailtemplate" maxlength="250" value="${emailtemplateInstance?.ccemailtemplate}"/>
+	<g:textField style="width: 450px;" name="ccemailtemplate" maxlength="250" required="" value="${emailtemplateInstance?.ccemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'contentemailtemplate', 'error')} ">
@@ -31,7 +31,7 @@
 		<g:message code="emailtemplate.contentemailtemplate.label" default="Header of email" />
 		
 	</label>
-	<g:textArea style="width: 400px;" name="contentemailtemplate" cols="70" rows="5" maxlength="500" value="${emailtemplateInstance?.contentemailtemplate}"/>
+	<g:textArea style="width: 450px;" name="contentemailtemplate" cols="70" rows="5" maxlength="500" value="${emailtemplateInstance?.contentemailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'footeremailtemplate', 'error')} ">
@@ -39,7 +39,7 @@
 		<g:message code="emailtemplate.footeremailtemplate.label" default="Footer of email" />
 		
 	</label>
-	<g:textArea style="width: 400px;" name="footeremailtemplate" cols="40" rows="5" maxlength="500" value="${emailtemplateInstance?.footeremailtemplate}"/>
+	<g:textArea style="width: 450px;" name="footeremailtemplate" cols="40" rows="5" maxlength="500" value="${emailtemplateInstance?.footeremailtemplate}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: emailtemplateInstance, field: 'portfolio', 'error')} required">

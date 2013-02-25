@@ -8,7 +8,7 @@
 
             <label for="portfolioName" style="width: 40%;"><g:message code="portfolio.portfolioName.label" default="Portfolio Name" /><span class="required-indicator">*</span></label>
 
-            <g:textField name="portfolioName" style="width: 400px;" maxlength="170" required="" value="${portfolioInstance?.portfolioName}"/>
+            <g:textField name="portfolioName" autofocus="true" style="width: 400px;" maxlength="170" required="" value="${portfolioInstance?.portfolioName}"/>
 </div>
 
 

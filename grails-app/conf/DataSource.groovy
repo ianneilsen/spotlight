@@ -26,8 +26,8 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
       //h2 settings
-         url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-         show_sql=true
+        /* url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+         show_sql=true*/
       //MySQL setting
           dbCreate = "create-drop"
           url = "jdbc:mysql://localhost:3306/spotlightdev?useUnicode=yes&characterEncoding=UTF-8"

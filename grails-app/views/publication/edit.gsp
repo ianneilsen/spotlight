@@ -53,7 +53,7 @@
 			</ul>
 		</div>
 <div id="edit-publication" class="content scaffold-edit" role="main">
-    <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+    <h4><g:message code="Edit publication" args="[entityName]" /></h4>
 
 <!-- ERROR msg---->
     <g:if test="${flash.message}">
