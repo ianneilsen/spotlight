@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 <div class="footer-right"><a href="https://dart.qe.lab.eng.bne.redhat.com/"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w.png')}" alt="RAP Team home page"/></a>
-		                                  <a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat website"/></a>
+		                                  %{--<a href="http://redhat.com"><img style="margin-left: 50px" src="${resource(dir: 'images', file: 'redhatlogofooter.png')}" alt="Red Hat website"/></a>--}%
                                           <a href="../register/index">Register</a>|<a href="../register/resetPassword">Change Password</a>|
 
 

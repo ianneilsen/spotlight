@@ -39,6 +39,7 @@
         <a href="SpotLight-Grails/publication/userchart"  data-toggle="modal">Insert Chart</a>
         <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
         <a href="SpotLight-Grails/publication/uploadattachment"  data-toggle="modal">Upload attachment</a>
+        <a href="javascript:void(null);" id="clearButton"><li>Clear text</li></a>
         <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Send team message</a>
     </ul>
 </div>
@@ -52,6 +53,13 @@
             <!--  links -->
     <a href="SpotLight-Grails/publication/previewpub"  data-toggle="modal">Preview before save.</a>
     <a href="SpotLight-Grails/publication/turnonlivepreview"  data-toggle="modal">Turn on live preview.</a>
+
+
+
+                <a href="javascript:void(null);" data-menu-id="edit" class="edit active"><li>Edit Markdown</li></a>
+                <a href="javascript:void(null);" class="preview" data-menu-id="preview"><li>HTML Preview</li></a>
+
+
     </ul>
 </div>
 <!--  templates ---------->

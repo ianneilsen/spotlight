@@ -38,8 +38,8 @@
         <g:link controller="publication" action="exportToDocbook" name="exporttodocbook.id" id="${publicationInstance?.id}" title="exporttodocbook">Export to Docbook</g:link>
        %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
        %{-- <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>--}%
-        <export:formats controller="publication" action="show" formats="['pdf']"/>
-     %{--   <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf" data-toggle="modal">Export to PDF</a>--}%
+       %{-- <export:formats controller="publication" action="show" formats="['pdf']"/>--}%
+        <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf" data-toggle="modal">Export to PDF</a>
         <a href="../show?format=html&extension=html"data-toggle="modal">Export to HTML</a>
         <a href="../show/${publicationInstance?.id}?format=xml&extension=xml"  data-toggle="modal">Export to XML</a>
         <a href="../show?format=ods&extension=ods"  data-toggle="modal">Export to ODT</a>
@@ -72,7 +72,7 @@
 
                 <h6><div class="control-group"><div class="controls"><p class="help-block">Email template head</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
-                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication content</p><g:textArea class="input-xxlarge" type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication content</p><xwiki:render inputSyntax="xwiki/2.1" outputSyntax="plain/1.0"><g:textArea class="input-xxlarge" type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/></xwiki:render>  </h6>
 
                 <h6><div class="control-group"><div class="controls"><p class="help-block">Email template footer</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
 

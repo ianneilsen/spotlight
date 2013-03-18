@@ -15,5 +15,9 @@ class Authorcomment {
         authorcomments()
         dateCreated()
     }
+
+    String toString(){
+        authorcomments
+    }
 }
 

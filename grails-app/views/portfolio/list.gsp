@@ -78,14 +78,7 @@
 			</div>
 		</div>
 
-
-%{--<g:applyLayout action="_webList_">--}%
-  %{--  <g:include controller="portfolio" action="_webList" />--}%
 <g:include action="_webList" />
-%{--<g:render template="webList" model="[portfolios: portfolios, results: results]"/>--}%
-%{--</g:applyLayout>--}%
-%{--<g:render template="/portfolio/webList" model="['portfolios': portfolios]" />--}%
-%{--<g:include action='webList' controller='portfolio' model="['portfolios': portfolios]" />--}%
 
 	</body>
 </html>

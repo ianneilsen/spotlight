@@ -41,11 +41,11 @@
     </head>
 
 <body>
-%{--<a href="#create-publication" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
+
         <div class="navbar1">
             <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
+
 			</ul>
 		</div>
 <!-- title -->
@@ -63,6 +63,7 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
+
 <!-- publication nav --------------->
 <div id="slidenav" style="z-index: 9999">
     <g:form action="save" >
@@ -72,7 +73,7 @@
     </fieldset>
 </div>
 
-<!-- footer nav ------> <!-- todo set default drop down select for publication product to NA -->
+<!-- footer nav ------>
             <div id="create-pubproduct" class="content scaffold-create" role="main">
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>

@@ -20,10 +20,10 @@ class User {
     boolean passwordExpired
 
     static constraints = {
-        username (blank: false, unique: true)
-        password (blank: false)
+        username (blank: false, unique: true/*, matches: "[a-zA-Z0-9_]+"*/)
+        password (blank: false, minSize: 5)
         useremail(blank: false, unique: true, email: true)
-        userfullname(size: 2..70)
+        userfullname(size: 2..70/*, matches: "[a-zA-Z_]+"*/)
     }
 
     static mapping = {

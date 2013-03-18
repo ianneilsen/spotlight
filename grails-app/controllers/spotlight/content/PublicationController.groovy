@@ -22,6 +22,7 @@ class PublicationController {
     def index() {
         redirect(action: "list", params: params)
     }
+    /*def author = SecUser.get(springSecurityService.principal.id)*/
 
     def labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     def data = [
@@ -34,6 +35,7 @@ class PublicationController {
         render("json out from etherpad: ${json.toString()}")
 
     }*/
+
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def readEtherpad(){
         def padurl = new URL('http://hss.pad.engineering.redhat.com/184').text
@@ -42,10 +44,18 @@ class PublicationController {
     }
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
+    def testlive(){
+
+    }
+
+    def reportresults
+
+    @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def xwikiStreamRenderer
     def xwikiRenderer
     def exportService
     def grailsApplication
+
 
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
@@ -100,7 +110,7 @@ class PublicationController {
         [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication, emailtemplates: Emailtemplate]
     }
 
-    //email send function from publication show page using modal pop-up and editable fields prior to sending
+//email send function from publication show page using modal pop-up and editable fields prior to sending
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
     def emailpublication(){
         //def recipient = request.getParameterValues('whogetsemail')

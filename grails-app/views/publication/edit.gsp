@@ -10,6 +10,14 @@
     		<g:set var="entityName" value="${message(code: 'publication.label', default: 'Publication')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+        <script type="text/javascript" src="js/livepreview/markdown.js"></script>
+        <script type="text/javascript" src="js/livepreview/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/livepreview/style.css">
+        <link rel="stylesheet" type="text/css" href="css/livepreview/github.css">
+        <script type="text/javascript" src="js/livepreview/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="js/livepreview/jquery.autosize-min.js"></script>
+
 <g:javascript>/****************************************
          * Floating Navigation jQuery feature
          ****************************************/
@@ -48,9 +56,7 @@
         <div class="navbar1">
             <ul class="nav1">
 				<li><a class="home" href="${createLink(uri: '/portfolio/list')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+						</ul>
 		</div>
 <div id="edit-publication" class="content scaffold-edit" role="main">
     <h4><g:message code="Edit publication" args="[entityName]" /></h4>

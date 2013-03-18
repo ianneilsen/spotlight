@@ -108,7 +108,7 @@ body {
 }
 
 #eso-topbar {
-    height: 40px;
+    height: 30px;
 }
 #eso-topbar .logo {
     /*background: url("../images/spotlight_sml_logo.png") no-repeat scroll 0 5px transparent;*/
@@ -527,7 +527,7 @@ body {
 
 .footer {
     /*color: #FFFFFF;*/
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
     color: rgb(255, 255, 255);
 }
@@ -878,7 +878,7 @@ footer {
     margin: auto;
     max-width: 950px;
     min-width: 750px;
-    padding: 20px 0px;
+    padding: 10px 0px;
     position: relative;
 }
 .footer-left {

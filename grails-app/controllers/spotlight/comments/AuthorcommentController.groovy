@@ -6,6 +6,12 @@ class AuthorcommentController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
+    def myAction() {
+        def currentUser = springSecurityService.currentUser
+    }
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -40,6 +46,10 @@ class AuthorcommentController {
         }
 
         [authorcommentInstance: authorcommentInstance]
+    }
+
+    def showComments = {
+          render(template: 'showComments', model:[authorcommentInstanceList: Authorcomment.list(params)])
     }
 
     def edit(Long id) {
