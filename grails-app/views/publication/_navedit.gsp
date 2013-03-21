@@ -1,6 +1,7 @@
 <!-- edit menus ------------------------------------------------------------->
 <%@ page import="spotlight.content.Publication"%>
 <%@ page import="spotlight.pubtemplates.Emailtemplate"%>
+<%@ page import="spotlight.pubtemplates.Templatepublication"%>
 
 <g:javascript>function addtext() {
     var newtext = document.myform.inputtext.value;
@@ -39,7 +40,6 @@
         <a href="SpotLight-Grails/publication/userchart"  data-toggle="modal">Insert Chart</a>
         <a href="SpotLight-Grails/publication/uploadpicture"  data-toggle="modal">Upload Image</a>
         <a href="SpotLight-Grails/publication/uploadattachment"  data-toggle="modal">Upload attachment</a>
-        <a href="javascript:void(null);" id="clearButton"><li>Clear text</li></a>
         <a href="SpotLight-Grails/publication/teammessage"  data-toggle="modal">Send team message</a>
     </ul>
 </div>
@@ -51,37 +51,43 @@
     </a>
     <ul class="dropdown-menu">
             <!--  links -->
-    <a href="SpotLight-Grails/publication/previewpub"  data-toggle="modal">Preview before save.</a>
-    <a href="SpotLight-Grails/publication/turnonlivepreview"  data-toggle="modal">Turn on live preview.</a>
 
-
-
-                <a href="javascript:void(null);" data-menu-id="edit" class="edit active"><li>Edit Markdown</li></a>
-                <a href="javascript:void(null);" class="preview" data-menu-id="preview"><li>HTML Preview</li></a>
-
+    <a href="javascript:void(null);" data-menu-id="edit" class="edit active"><li>Edit Markdown</li></a>
+    <a href="javascript:void(null);" class="preview" data-menu-id="preview"><li>HTML Preview</li></a>
 
     </ul>
 </div>
 <!--  templates ---------->
 <!---template modal ---->
 <div class="btn-group">
-        <div class="email-publication">
-            <a href="#emailModal" role="button" class="btn btn-small" data-toggle="modal">Insert template</a>
+        <div class="template-publication">
+            <a href="#templateModal" role="button" class="btn btn-small" data-toggle="modal">Insert a template</a>
 
-            <div id="emailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div id="templateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="templateModalLabel" aria-hidden="true">
+
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="emailModalLabel">Insert Template</h3>
+                    <h3 id="templateModalLabel">Choose your template</h3>
                 </div>
+
                     <div class="modal-body">
 
-                       <!-- todo place radio select list here for submission to textarea "publicationcontent"    -->
-
+<g:select name="templatepublication.id" from="${spotlight.pubtemplates.Templatepublication.list()}" value="${publicationInstance.portfolio.publicationtemplates.id}">${publicationInstance?.portfolio?.publicationtemplates?.id}</g:select>
                     </div>
 
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
 
+            </div>
         </div>
 </div>
+
+
+        <div class="btn-group">
+
+                <input class="btn btn-small" type="button" value="Clear text" onclick="this.form.elements['publicationcontent'].value=''">
+
+        </div>
+
+ </div>

@@ -11,6 +11,7 @@ class Emailtemplate {
     String toemailtemplate
     String ccemailtemplate
     String footeremailtemplate
+    String defaulttemplate
 
     static constraints = {
         nameemailtemplate(blank: false, size: 4..100)
@@ -18,5 +19,6 @@ class Emailtemplate {
         ccemailtemplate(blank: true, size: 2..250)
         contentemailtemplate(blank: true, size: 2..500)
         footeremailtemplate(blank: true, size: 2..500)
+        defaulttemplate(blank: false, inList: ["Yes","No"])
     }
 }

@@ -27,7 +27,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="nameemailtemplate" title="${message(code: 'emailtemplate.nameemailtemplate.label', default: 'Template Name')}" />
+						<g:sortableColumn property="nameemailtemplate" title="${message(code: 'emailtemplate.nameemailtemplate.label', default: 'Template name')}" />
 					
 						<g:sortableColumn property="toemailtemplate" title="${message(code: 'emailtemplate.toemailtemplate.label', default: 'TO Address')}" />
 					
@@ -36,6 +36,8 @@
 						<g:sortableColumn property="contentemailtemplate" title="${message(code: 'emailtemplate.contentemailtemplate.label', default: 'Header')}" />
 					
 						<g:sortableColumn property="footeremailtemplate" title="${message(code: 'emailtemplate.footeremailtemplate.label', default: 'Footer')}" />
+
+                        <g:sortableColumn property="defaulttemplate" title="${message(code: 'emailtemplate.defaulttemplate.label', default: 'Default template')}" />
 					
 						<th><g:message code="emailtemplate.portfolio.label" default="Portfolio" /></th>
 
@@ -56,6 +58,8 @@
 						<td>${fieldValue(bean: emailtemplateInstance, field: "contentemailtemplate")}</td>
 					
 						<td>${fieldValue(bean: emailtemplateInstance, field: "footeremailtemplate")}</td>
+
+                        <td>${fieldValue(bean: emailtemplateInstance, field: "defaulttemplate")}</td>
 					
 						<td>${fieldValue(bean: emailtemplateInstance, field: "portfolio")}</td>
 

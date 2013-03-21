@@ -66,6 +66,15 @@
 					
 				</li>
 				</g:if>
+
+                <g:if test="${emailtemplateInstance?.defaulttemplate}">
+                    <li class="fieldcontain">
+                        <span id="defaulttemplate-label" class="property-label"><g:message code="emailtemplate.defaulttemplate.label" default="Default template" /></span>
+
+                        <span class="property-value" aria-labelledby="defaulttemplate-label"><g:fieldValue bean="${emailtemplateInstance}" field="defaulttemplate"/></span>
+
+                    </li>
+                </g:if>
 			
 				<g:if test="${emailtemplateInstance?.portfolio}">
 				<li class="fieldcontain">

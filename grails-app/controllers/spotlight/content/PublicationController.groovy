@@ -56,6 +56,8 @@ class PublicationController {
     def exportService
     def grailsApplication
 
+    def commentonPublication
+
 
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
@@ -115,14 +117,15 @@ class PublicationController {
     def emailpublication(){
         //def recipient = request.getParameterValues('whogetsemail')
         //List<String> recipients = request.getParameterValues("whogetsemail")
+
         def publicationInstance = Publication.getProperties()
         List<String> recipients = params.whogetsemail.split(',').collect { it.trim() }
         try {
          sendMail{
                  to  recipients         //todo research setting to array
-                 from "hss-rap-list@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
+                 from  "hss-rap-list@redhat.com"        //todo - set as user.session.emailaddress if validated and logged in
                  subject params.publicationName
-                 text params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
+                 text params.publicationURL + "\n"+"\n" + params.emailbodyheader + "\n"+"\n" + params.publicationContent + "\n"+"\n" + params.footeremailtemplate
              }
 
         }
@@ -156,7 +159,7 @@ class PublicationController {
         def newPublication = new Publication(clonepublication.each {Publication p ->
         newPublication.addToPublication(p)
         })
-        redirect(action: create(newPublication: newPublication))
+        render(action: create())
     }
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])
@@ -180,7 +183,7 @@ class PublicationController {
             return
         }
 
-        [publicationInstance: publicationInstance, pubproduct: Pubproduct, templatepublication: Templatepublication]
+        [publicationInstance: publicationInstance, pubproduct: Pubproduct, publicationtemplates: Templatepublication]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_USER','ROLE_PUBLISHER'])

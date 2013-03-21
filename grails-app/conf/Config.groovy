@@ -73,8 +73,6 @@ grails.xwiki.rendering.macros.enabled = true
 //grails.xwiki.rendering.syntaxes = "plain, docbook, markdown" // XWiki Syntax Configuration
 //grails.xwiki.rendering.macros = "comment, box, toc, footnotes, html, id, message" //set in BuildConfig file for some reason - need to check why it needs to sit there
 
-
-
 //Markdownplugin config settings
 markdown.tables = true           // Configuration
 markdown.fencedCodeBlocks = true
@@ -87,6 +85,7 @@ markdown.abbreviations = true
 //markdown.autoLinks = true
 markdown.removeHtml = false       // Configuration  set true or false based on portfolio site profile-htmlflag call the map
 //[removeHtml: false]               // Custom Map
+
 /////////////////////////////////////
 environments {
     development {
@@ -124,20 +123,3 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'spotlight.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'spotlight.UserRole'
 grails.plugins.springsecurity.authority.className = 'spotlight.Role'
-
-//commentable extension
-/*grails.commentable.poster.evaluator = {spotlight.User.get(org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal.getId())}*/
-
-/*
-grails.commentable.poster.evaluator = {
-
-    def principal = org.springframework.security.core.context.SecurityContextHolder.context.authentication.principal
-
-    if (principal.hasProperty('id')) {
-
-        def currentUserId = principal.id
-        if (currentUserId) {
-            spotlight.User.get(currentUserId)
-        }
-    }
-}*/

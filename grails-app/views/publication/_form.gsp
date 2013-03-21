@@ -22,7 +22,7 @@
     </g:if>
     <g:else>
     <sec:ifNotGranted roles="ROLE_USER">
-        <g:textField name="published" readonly="" value="${publicationInstance?.published}"/>
+        <g:field type="text" name="published" readonly="" value="${publicationInstance?.published}"/>
     </sec:ifNotGranted>
     </g:else>
 </div>
@@ -30,22 +30,21 @@
 <!-- editor -->
 <div id="container">
     <div id="content" class="section">
-<div class="publicationtextarea">
-<div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
-    <label for='publicationContent'>
-        <g:message code="publication.publicationContent.label" default="Publication Content" />
-    </label>
-    <div id="edit" class="mode">
-        <a href="javascript:void(null);" id="clearButton"><li>clear</li></a></ul>
+        <div class="publicationtextarea">
+            <div class="fieldcontain ${hasErrors(bean: publicationInstance, field: 'publicationContent', 'error')} ">
+                <label for='publicationContent'>
+                    <g:message code="publication.publicationContent.label" default="Publication Content" />
+                </label>
+ %{--   <div id="edit" class="mode">
+        <a href="javascript:void(null);" id="clearButton"><li>clear</li></a></ul>--}%
         <div class="content">
         <g:textArea id="publicationcontent" style="width: 700px;" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="200" rows="40"/>
         </div>
     </div>
     <div id="preview" class="mode">
-        <div id="output" class="content markdown-body">
-        </div>
+        <div id="output" class="content markdown-body"></div>
     </div>
-    </div>
+    %{--</div>--}%
 </div>
 
     </div>

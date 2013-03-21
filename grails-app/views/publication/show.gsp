@@ -176,8 +176,8 @@ $(function() {
             </div>
 
 
-  <!---comments--->
-      <g:formRemote name="create" url="[controller:'authorcomment', action:'save']" id="commentsupdate" update="divcommentslist">
+  <!---comments disable till next release--->
+%{--      <g:formRemote name="create" url="[controller:'authorcomment', action:'save']" id="commentsupdate" update="divcommentslist">
           Comment: </br>
           <g:textArea rows="5" cols="5" name="authorcomments" value="${publicationInstance?.comments?.authorcomments}"/></br>
     Author:</br>
@@ -193,7 +193,7 @@ $(function() {
 
       <div id="divContactList">Comments..
       <g:render template="/authorcomment/showComments" model="[authorcommentInstanceList: Authorcomment]" />
-      </div>
+      </div>--}%
         </div>
         </div>
 <!-- CONTENT -->

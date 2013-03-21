@@ -1,0 +1,452 @@
+375  ll css/
+  376  ll datatable/
+  377  ll errorpages/
+  378  ll images/
+  379  ll /usr/share/tomcat7/
+  380  ll /usr/share/tomcat7/web-app/
+  381  ll /usr/share/tomcat7/web-app/images/
+  382  ll /usr/share/tomcat7/web-app/images/tmp/
+  383  exit
+  384  rpm -qa | grep mysql
+  385  rpm -qa | grep "*mysql*"
+  386  rpm -qa | grep "mysql*"
+  387  yum install mysql
+  388  yum install mysql mysql-server
+  389  yum search mysql
+  390  yum install Mysql Mysql-server
+  391  yum install MySQL-server MySQL
+  392  rpm -qa | grep MySql
+  393  rpm -qa | grep MySql*
+  394  rpm -qa | grep MySQL*
+  395  yum install MySQL-devel
+  396  service mysql status
+  397  exit
+  398  ll /etc/yum.repos.d/
+  399  ls /etc/yum.repos.d/
+  400  yum remove MySQL MySQL-server MySQL-client
+  401  yum install mysql mysql-server mysql-client mysql-devel
+  402  clear
+  403  service mysqld status
+  404  service mysql status
+  405  service mysql start
+  406  mysql -u root
+  407  mysql -u root -p 
+  408  mysql
+  409  mysql -u root -p 
+  410  passwd root
+  411  mysql -u root -p 
+  412  service mysql restart
+  413  hostname
+  414  service tomcat7 status
+  415  service tomcat7 stop
+  416  service tomcat7 start
+  417  pwd
+  418  cd /var/log/tomcat7/
+  419  ll
+  420  ls
+  421  service tomcat7 stop
+  422  service tomcat7 start
+  423  ll
+  424  cd /var/lib/tomcat7/
+  425  ll
+  426  ls
+  427  cd webapps/
+  428  ll
+  429  ls
+  430  service tomcat7 start
+  431  service tomcat7 retsart
+  432  service tomcat7 force-reload
+  433  cd /var/log/tomcat7/
+  434  ll
+  435  ls
+  436  tail catalina.
+  437  tail catalina.out
+  438  tail localhost.2013-02-11.log 
+  439  tail localhost_access_log.2013-02-11.txt 
+  440  tail manager.2013-02-11.log 
+  441  pwd
+  442  cd /var/lib/tomcat7/webapps/
+  443  ls
+  444  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  445  ls
+  446  service tomcat restart
+  447  service tomcat7 restart
+  448  ls
+  449  service tomcat7 restart
+  450  ls
+  451  service tomcat7 stop
+  452  ls
+  453  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7
+  454  ls
+  455  service tomcat7 start
+  456  ls
+  457  service tomcat7 restart
+  458  ls
+  459  exit
+  460  cd /var/lib/tomcat7/
+  461  ls
+  462  ll
+  463  cd webapps/
+  464  ls
+  465  service mysql status
+  466  mysql -u root -p
+  467  cd /usr/share/
+  468  ls
+  469  cd tomcat7/
+  470  ls
+  471  cd logs/
+  472  ls
+  473  cat catalina.out
+  474  ifconfig
+  475  ls
+  476  cat localhost.2013-02-11.log 
+  477  pwd
+  478  cd ..
+  479  ll
+  480  ls
+  481  ll web
+  482  ls webapps/
+  483  service tomcat7 status
+  484  ls
+  485  cd logs/
+  486  ls
+  487  cat catalina.out
+  488  ls
+  489  cat localhost.2013-02-11.log 
+  490  cd ..
+  491  ls
+  492  cd lib
+  493  ls
+  494  cd ..
+  495  cd conf/
+  496  ls
+  497  cd ..
+  498  clear
+  499  ls
+  500  rm -rf prodDb.h2.db 
+  501  ls
+  502  ll temp/
+  503  ls temp/
+  504  ls web-app/
+  505  ls
+  506  rm -rf web-app
+  507  ls
+  508  clear
+  509  ls
+  510  ls webapps/
+  511  service tomcat7 restart
+  512  mysql -u spotlight -p
+  513  mysql -u root -p
+  514  ls
+  515  ls webapps/
+  516  service tomcat7 restart
+  517  mysql -u root -p
+  518  pwd
+  519  ls
+  520  cd webapps/
+  521  ls
+  522  cd ..
+  523  ls
+  524  cd logs/
+  525  ls
+  526  cat localhost.2013-02-11.log 
+  527  hostname
+  528  service tomcat7 stop
+  529  ls
+  530  cd ..
+  531  ls
+  532  cd webapps/
+  533  ls
+  534  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  535  ls
+  536  chown tomcat:tomcat spotlight.war 
+  537  ls
+  538  service tomcat7 
+  539  service tomcat7 status
+  540  service tomcat7 staart
+  541  service tomcat7 start
+  542  ls
+  543  service tomcat7 status
+  544  ls
+  545  service tomcat7 restart
+  546  ls
+  547  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  548  ls
+  549  service tomcat7 restart
+  550  ls
+  551  service tomcat7 restart
+  552  ls
+  553  service tomcat7 restart
+  554  ls
+  555  cd ..
+  556  ls
+  557  cd logs/
+  558  ls
+  559  cat localhost.2013-02-11.log 
+  560  ls
+  561  cd ..
+  562  ls
+  563  cd webapps/
+  564  ls
+  565  rm -rf spotlight spotlight.war 
+  566  ll
+  567  ls
+  568  service tomcat7 restart
+  569  mysql -u root -p
+  570  pwd
+  571  cd ..
+  572  cd logs/
+  573  ls
+  574  cat localhost.2013-02-11.log 
+  575  cd ..
+  576  cd webapps/
+  577  ls
+  578  service tomcat7 stop
+  579  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  580  ll
+  581  ls
+  582  exit
+  583  ll
+  584  cd /usr/share/tomcat7/
+  585  ll
+  586  cd webapps/
+  587  ll
+  588  service tomcat7 start
+  589  ll
+  590  ll spotlight
+  591  ll spotlight/WEB-INF/
+  592  ll spotlight/WEB-INF/lib/
+  593  ll
+  594  cd ..
+  595  ll
+  596  cd logs/
+  597  ll
+  598  cat localhost.2013-02-11.log 
+  599  ll
+  600  cat catalina.out
+  601  exit
+  602  hostname
+  603  tracert 10.64.40.189
+  604  traceroute 10.64.40.189
+  605  hostname
+  606  ifconfig
+  607  exit
+  608  cat /etc/hosts
+  609  cat /etc/host.conf 
+  610  dnsdomainname
+  611  hostname
+  612  nova dns-create 10.64.27.7 spotlight-dev-stage cloud.bne.redhat.com
+  613  cd /etc/
+  614  ls
+  615  cd sysconfig/
+  616  ls
+  617  cd networking/
+  618  ls
+  619  cd devices/
+  620  ls
+  621  cd ..
+  622  ll
+  623  ls
+  624  yum install openstack-\* python-novaclient pythin-keystoneclient
+  625  clear
+  626  yum install openstack
+  627  yum install openstack-*
+  628  yum search pythin-novaclient
+  629  yum search python-novaclient
+  630  yum updated
+  631  yum update
+  632  cd /etc/yum.repos.d/
+  633  ll
+  634  touch puddle.repo
+  635  vim puddle.repo 
+  636  yum update
+  637  yum install openstack-\* python-novaclient python-keystoneclient
+  638  yum install qemu-kvm-rhev
+  639  yum install qemu-kvm
+  640  yum install libspice-server
+  641  yum install libspice
+  642  yum search libspice
+  643  yum search libspice-server
+  644  yum install seabios
+  645  yum search libspice-server
+  646  yum install libspice
+  647  yum install qemu-kvm
+  648  yum search qemu*
+  649  yum search *qemu*
+  650  exit
+  651  history 
+  652  yum install openstack-\* python-novaclient python-keystoneclient
+  653  yum update
+  654  uname -r
+  655  rpm -qa | grep kernel-*
+  656  cd /etc/yum.repos.d/
+  657  ll
+  658  vim eso-rhel-6.repo 
+  659  vim eng-rhel-6.repo 
+  660  yum update
+  661  yum install openstack-\* python-novaclient python-keystoneclient
+  662  ifcofnig
+  663  ifconfig
+  664  ll
+  665  cat puddle.repo 
+  666  ll
+  667  vim puddle.repo 
+  668  yum update
+  669  yum install openstack-\* python-novaclient python-keystoneclient
+  670  vim puddle.repo 
+  671  yum update
+  672  yum install openstack-\* python-novaclient python-keystoneclient
+  673  vim puddle.repo 
+  674  yum update
+  675  yum install openstack-\* python-novaclient python-keystoneclient
+  676  vim puddle.repo 
+  677  rpm -qa | grep seabios
+  678  yum remove seabios-0.6.1.2-19.el6.x86_64
+  679  rpm -qa |grep SPICE_SERVER_0.10.4
+  680  rpm -qa |grep spice-server
+  681  rpm -qa | grep openvswitch-1.7.1-7.el6.x86_64
+  682  rpm -qa | grep openvswitch-*
+  683  rpm -qa | grep openvswitch*
+  684  rpm -qa |grep qemu-kvm-rhev
+  685  rpm -qa |grep "qemu-kvm-rhev*"
+  686  rpm -qa | grep libspice-server
+  687  service tomcat7 stop
+  688  cd /var/lib/tomcat7/webapps/
+  689  ll
+  690  rm -rf spotlight spotlight.war 
+  691  service tomcat7 start
+  692  ll
+  693  service tomcat7 stop
+  694  scp ineilsen@10.64.40.189:/home/ineilsen.workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  695  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  696  ll
+  697  service mysql status
+  698  service tomcat7 start
+  699  ll
+  700  service tomcat7 restart
+  701  cat /usr/share/tomcat7/logs/catalina.out
+  702  service tomcat7 stop
+  703  service tomcat7 start
+  704  cat /usr/share/tomcat7/logs/catalina.out
+  705  ll
+  706  service tomcat7 stop
+  707  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /var/lib/tomcat7/webapps/
+  708  ll
+  709  service tomcat7 start
+  710  cat /usr/share/tomcat7/logs/catalina.out
+  711  ll
+  712  ll spotlight
+  713  pwd
+  714  cd /usr/share/tomcat7/
+  715  ll
+  716  ll webapps/
+  717  ll logs/
+  718  cat logs/catalina.out
+  719  ll
+  720  ll web-app/
+  721  ll web-app/images/
+  722  ll web-app/images/tmp/
+  723  exit
+  724  cd /usr/share/tomcat7/
+  725  ll
+  726  cat logs/catalina.out
+  727  ll
+  728  ll logs/
+  729  exit
+  730  cd /usr/share/tomcat7/
+  731  ll
+  732  service tomcat7 status
+  733  service tomcat7 stop
+  734  ll
+  735  ll web-app/
+  736  ll
+  737  rm -rf web-app
+  738  ll
+  739  cd webapps/
+  740  ll
+  741  rm -rf spotlight spotlight.war 
+  742  ll
+  743  cd ..
+  744  ll
+  745  service tomcat7 start
+  746  service tomcat7 stop
+  747  mysql -u root
+  748  mysql -u root -p
+  749  ll
+  750  service tomcat7 status
+  751  service tomcat7 start
+  752  service tomcat7 stop
+  753  ll
+  754  scp ineilsen@10.64.40.189:/home/ineilsen/workspace-ggts/SpotLight/spotlight.war /usr/share/tomcat7/webapps/
+  755  ll
+  756  cd webapps/
+  757  ll
+  758  service tomcat7 start
+  759  ll
+  760  cd ..
+  761  ll
+  762  cd logs/
+  763  ll
+  764  tail catalina.out
+  765  cat catalina.out
+  766  exit
+  767  yum upgrade
+  768  reboot now
+  769  yum install openstack-\* python-novaclient python-keystoneclient
+  770  cd /etc/yum.repos.d/
+  771  ll
+  772  cat puddle.repo 
+  773  ll
+  774  cat eng-rhel-6.repo 
+  775  ll
+  776  vim puddle.repo 
+  777  yum update
+  778  yum install openstack-\* python-novaclient python-keystoneclient
+  779  yum update
+  780  service mysqld status
+  781  service mysql status
+  782  service mysql stop
+  783  service mysql start
+  784  yum update list
+  785  yum update mysql
+  786  rpm -qa | grep mysql
+  787  rpm -qa | grep mysqld
+  788  rpm -qa | grep mysql-server
+  789  service tomcat7 start
+  790  cd /usr/share/tomcat7/
+  791  ll
+  792  ll logs/
+  793  cd logs/
+  794  tail catalina.
+  795  tail catalina.out
+  796  cat catalina.out
+  797  service tomcat7 stop
+  798  service mysql stop
+  799  service mysql start
+  800  service tomcat7 start
+  801  cat catalina.out
+  802  ll
+  803  cat localhost.2013-03-20.log 
+  804  cd ..
+  805  ll
+  806  cd webapps/
+  807  ll
+  808  cd spotlight
+  809  ll
+  810  ll datatable/
+  811  ll WEB-INF/
+  812  cd WEB-INF/
+  813  ll
+  814  ll grails
+  815  ll grails-app/
+  816  ll classes/
+  817  ll classes/spotlight/
+  818  ll classes/spotlight/spotlight/
+  819  ll classes/spotlight/
+  820  cd ..
+  821  ll
+  822  cd ..
+  823  ll
+  824  cd ..
+  825  ll
+

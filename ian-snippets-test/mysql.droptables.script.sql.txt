@@ -1,0 +1,18 @@
+mysql drop table script for spotlight dev
+
+drop table `spotlightdev`.`authorcomment_user`;
+drop table `spotlightdev`.`authorcomment`;
+drop table `spotlightdev`.`comment_link`;
+drop table `spotlightdev`.`comment`;
+drop table `spotlightdev`.`emailtemplate`;
+drop table `spotlightdev`.`user_role`;
+drop table `spotlightdev`.`role`;
+drop table `spotlightdev`.`templatepublication`;
+drop table `spotlightdev`.`registration_code`;
+drop table `spotlightdev`.`publication_tag`;
+drop table `spotlightdev`.`publication_authors`;
+drop table `spotlightdev`.`user`;
+drop table `spotlightdev`.`publication`;
+drop table `spotlightdev`.`pubproduct`;
+drop table `spotlightdev`.`portfolio`;
+drop table `spotlightdev`.`profile`;

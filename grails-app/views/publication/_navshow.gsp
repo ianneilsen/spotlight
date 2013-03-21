@@ -39,6 +39,7 @@
        %{-- <a href="SpotLight-Grails/publication/converttoDocbook"  data-toggle="modal">Export to Docbook</a>--}%
        %{-- <export:formats action="show" controller="publication" formats="['pdf','xml']" params="${params}"/>--}%
        %{-- <export:formats controller="publication" action="show" formats="['pdf']"/>--}%
+%{--       <export:formats action="show" controller="publication" formats="['pdf']" params="${params}"/>--}%
         <a href="../show/${publicationInstance?.id}?format=pdf&extension=pdf" data-toggle="modal">Export to PDF</a>
         <a href="../show?format=html&extension=html"data-toggle="modal">Export to HTML</a>
         <a href="../show/${publicationInstance?.id}?format=xml&extension=xml"  data-toggle="modal">Export to XML</a>
@@ -47,7 +48,8 @@
         <a href="../show?format=txt&extension=txt"  data-toggle="modal">Export to Text</a>
 
         <a href="SpotLight-Grails/publication/teamMessage"  data-toggle="modal">Send team message</a>
-        <a href="SpotLight-Grails/publication/CommentonPublication"  data-toggle="modal">Leave a comment</a>
+        <a href="../commentonPublication"  data-toggle="modal">Leave a comment</a>
+
 
     </ul>
 </div>
@@ -68,11 +70,12 @@
 
                 <h6><div class="control-group"><div class="controls"><p class="help-block">Publication name</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="publicationName" value="${publicationInstance?.publicationName}" />  </h6>
 
-                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication URL</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="publicationUrl" value="${request.getRequestURL()}" />  </h6>
+                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication URL</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="publicationUrl" value="${"https://"+request.serverName+request.forwardURI}" />  </h6>
 
                 <h6><div class="control-group"><div class="controls"><p class="help-block">Email template head</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="emailbodyheader" value="${publicationInstance?.portfolio?.emailtemplates?.contentemailtemplate}" />  </h6>
 
-                <h6><div class="control-group"><div class="controls"><p class="help-block">Publication content</p><xwiki:render inputSyntax="xwiki/2.1" outputSyntax="plain/1.0"><g:textArea class="input-xxlarge" type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/></xwiki:render>  </h6>
+<h6><div class="control-group"><div class="controls"><p class="help-block">Publication content</p><g:textArea name="publicationContent" rows="20" cols="20" style="width: 600px;"><xwiki:render inputSyntax="xwiki/2.1" outputSyntax="plain/1.0">${publicationInstance?.publicationContent}</xwiki:render></g:textArea></h6>
+%{--<g:textArea class="input-xxlarge" type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>--}%
 
                 <h6><div class="control-group"><div class="controls"><p class="help-block">Email template footer</p><g:textField class="input-xlarge" style="width: 400px;" type="text" name="footeremailtemplate" value="${publicationInstance?.portfolio?.emailtemplates?.footeremailtemplate}" />  </h6>
 
@@ -113,23 +116,32 @@
     <div id="cloneModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cloneModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="cloneModalLabel">Clonepublication</h3>
+                <h3 id="cloneModalLabel">Clone this publication</h3>
         </div>
     <div class="modal-body">
         <g:form action="show">
-            <h6><g:textArea type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
 
-            <h6><g:field type="string" name="published" value="${publicationInstance?.published}" />  </h6>
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Title</p><g:field type="string" name="publicationName" value="${publicationInstance?.publicationName}" /></h6>
+
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Publication content to clone</p><g:textArea type="text" name="publicationContent" value="${publicationInstance?.publicationContent}" cols="20" rows="20"/>  </h6>
+
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Published flag set to</p><g:select style="width: 200px;" name="published" from="${publicationInstance.constraints.published.inList}" required="" value="${publicationInstance?.published}" valueMessagePrefix="publication.published"/></h6>
+
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Published email flag set to</p><g:select name="publishedemail" from="${publicationInstance.constraints.publishedemail.inList}" required="" value="${publicationInstance?.publishedemail}" valueMessagePrefix="publication.publishedemail"/></h6>
+
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Published email flag set to</p><g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/></h6>
+
+            <h6><div class="control-group"><div class="controls"><p class="help-block">Published date</p><g:datePicker name="publisheddate" precision="day"  value="${publicationInstance?.publisheddate}" ></g:datePicker></h6>
 
             <g:hiddenField name="id" value="${publicationInstance?.id}" />
 
-        <input type="submit" value="Clone publication" onclick="<%=  %>"/>
+            <button class="btn btn-success"><g:actionSubmit value="Clone this publication" action="publicationClone" onclick="return confirm('Are you sure?')"/></button>
         </g:form>
     </div>
 
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
 </div>
 </div>
 </div>
